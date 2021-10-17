@@ -58,3 +58,9 @@ def view():
 def logout():
     logout_user()
     return redirect("/login")
+
+@home_route.route('/add_New',methods=['GET'])
+@login_required
+def add_New():
+    print("Adding New...")
+    return render_template('home.html', data=data, upcoming_events=upcoming_events)
