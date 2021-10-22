@@ -3,3 +3,9 @@ flask
 flask_restful
 pymysql
 flask_login
+pdfminer
+docx2txt
+nltk
+wordcloud
+coverage
+flake8
