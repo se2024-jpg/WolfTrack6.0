@@ -34,3 +34,5 @@ jobs:
       run: |
         python3 -m coverage run UnitTesting/login_page_testing.py
         python3 -m coverage report
+        python3 -m coverage-badge
+        python3 -m coverage-badge -o coverage.svg
