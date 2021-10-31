@@ -2,6 +2,7 @@ aniso8601==9.0.1
 attrs==21.2.0
 certifi==2021.10.8
 click==8.0.3
+flake8==4.0.1
 Flask==2.0.2
 Flask-Login==0.5.0
 Flask-RESTful==0.3.9
@@ -10,10 +11,13 @@ itsdangerous==2.0.1
 Jinja2==3.0.2
 logic==0.2.3
 MarkupSafe==2.0.1
+mccabe==0.6.1
 multipledispatch==0.6.0
 packaging==21.0
 pluggy==1.0.0
 py==1.10.0
+pycodestyle==2.8.0
+pyflakes==2.4.0
 PyMySQL==1.0.2
 pyparsing==2.4.7
 pytest==6.2.5
