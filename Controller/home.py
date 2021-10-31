@@ -2,6 +2,8 @@ from flask import Blueprint
 from flask import Flask, render_template, url_for, request
 from flask_login import login_required, logout_user
 from werkzeug.utils import redirect
+from Controller.send_email import *
+
 home_route = Blueprint('home_route', __name__)
 
 
@@ -60,7 +62,8 @@ def logout():
     return redirect("/login")
 
 @home_route.route('/add_New',methods=['GET'])
-@login_required
+#@login_required
 def add_New():
     print("Adding New...")
+    s_email()
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
