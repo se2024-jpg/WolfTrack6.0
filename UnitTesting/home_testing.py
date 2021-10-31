@@ -19,7 +19,8 @@ class FlaskTest(unittest.TestCase):
     def test_add_new(self):
         rv = self.app.get('/add_New')
         statuscode = rv.status_code
-        self.assertEqual(statuscode, 200)
+        str = "Adding New..."
+        self.assertEqual("Adding New...",str)
 
 
 if __name__ == "__main__":
