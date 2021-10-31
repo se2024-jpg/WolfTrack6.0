@@ -61,9 +61,25 @@ def logout():
     logout_user()
     return redirect("/login")
 
-@home_route.route('/add_New',methods=['GET'])
+@home_route.route('/add_New',methods=['GET','POST'])
 #@login_required
 def add_New():
+    #print(request.method)
+    if request.method == "POST":
+        company_name = request.form['fullname']
+        location = request.form['location_text']
+        Job_Profile = request.form['text']
+        salary = request.form['sal']
+        user = request.form['user']
+        password = request.form['pass']
+        email = request.form['user_email']
+        sec_question = request.form['starting_date']
+        sec_answer = request.form['starting_date']
+        notes = request.form['notes']
+        date_applied = request.form['starting_date']
+
     print("Adding New...")
-    s_email()
+    s_email(company_name,location, Job_Profile,salary, user,password,email,sec_question,sec_answer,notes,date_applied)
+    print("Added Company to List")
+    print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)

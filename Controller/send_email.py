@@ -5,13 +5,27 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def s_email():
+def s_email(company_name,location, Job_Profile,salary, user, passwrd,email,sec_question,sec_answer,notes,date_applied):
 
-    subject = "Job added to List"
-    body = "Your Job has been added to the list."
     sender_email = "wolftrackproject@gmail.com"
-    receiver_email = "wolftrackproject@gmail.com"
-    password = "wolftrack@123"
+    receiver_email = email
+    # App Password of Gmail Account
+    password = "dlafyfekdkmdfjdi"
+
+    subject = "WolfTrack - Job added to List"
+    body = "WOLFTRACK APPLICATION \n\n" \
+           "You have applied to " + company_name + " for the job profile - " + Job_Profile + \
+           ". \nPlease find the details below: \n" \
+           "Date Applied: " + date_applied + "\n" "Location: " + location + "\n" \
+           "Salary: " + salary + "\n"\
+           "User_name: " + user + "\n"\
+            "Password: " + passwrd + "\n"\
+           "Security Question: " + sec_question + "\n" \
+            "Security Answer: " + sec_answer + "\n" \
+            "Notes: " + notes + "\n\n" \
+            "All the best for you Application!\n"\
+            "The WolfTrack Team."
+
 
     message = MIMEMultipart()
     message["From"] = sender_email
