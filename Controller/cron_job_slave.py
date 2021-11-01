@@ -1,3 +1,5 @@
 from datetime import datetime
-myFile = open('/Volumes/T6/WolfTrack2.0/Controller/append.txt', 'a') 
+import os
+curr_path=os.path.dirname(os.path.abspath(__file__))
+myFile = open(curr_path+'/append.txt', 'a') 
 myFile.write('\n on ' + str(datetime.now()))
