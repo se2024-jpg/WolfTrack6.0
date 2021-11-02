@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, request
 from flask_login import login_required, logout_user
 from werkzeug.utils import redirect
 from Controller.send_email import *
+from Controller.send_profile import *
 
 home_route = Blueprint('home_route', __name__)
 
@@ -62,6 +63,7 @@ def logout():
     return redirect("/login")
 
 @home_route.route('/add_New',methods=['GET','POST'])
+@home_route.route('/send_Profile',methods=['GET','POST'])
 #@login_required
 def add_New():
     #print(request.method)
@@ -81,5 +83,12 @@ def add_New():
     print("Adding New...")
     s_email(company_name,location, Job_Profile,salary, user,password,email,sec_question,sec_answer,notes,date_applied)
     print("Added Company to List")
+    print("Email Notification Sent")
+    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+
+
+def send_Profile():
+    print("Mailing Profile...")
+    s_profile(data,upcoming_events, profile)
     print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
