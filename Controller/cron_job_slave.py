@@ -1,5 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
+from home import upcoming_events
 curr_path=os.path.dirname(os.path.abspath(__file__))
 myFile = open(curr_path+'/append.txt', 'a') 
 myFile.write('\n on ' + str(datetime.now()))
@@ -21,8 +22,6 @@ def s_email():
 
     body = "Testing the automated email" + str(datetime.now())
 
-
-
     message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = receiver_email
@@ -40,4 +39,8 @@ def s_email():
 
     return True
 
-s_email()
+import dateutil.parser
+for i in upcoming_events:
+    deadline = dateutil.parser.parse(i['duedate'])
+    if(deadline.date()==datetime.now().date()):
+        s_email()
