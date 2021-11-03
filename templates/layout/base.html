@@ -83,11 +83,22 @@
         <div style="margin-left: 6%;margin-top:2%;" >
           <form action="{{url_for('home_route.send_Profile')}}" method="POST">
             <label for="emailID" style="color: white;margin-left: 12%;">Enter Email ID: </label>
-          <input type = text name="emailID" style="margin-left: 6%;" />  
+          <input type = text name="emailID" id = "emailID" style="margin-left: 6%;" />
           
-              <button href="send_Profile"  style="margin: 6%; type="Submit" class="btn btn-primary" value="send_Profile() style="margin: 6%;">SEND Profile</button> 
+              <button href="send_Profile"  style="margin: 6%;" type="Submit" class="btn btn-primary" value="send_Profile()" style="margin:6%;"> SEND Profile</button>
           </form>
            
+        </div>
+         <div style="margin-left: 2%;margin-top:2%;" >
+          <form id = "upload-form" action = "{{url_for('home_route.upload')}}" method = "POST" enctype = "multipart/form-data">
+         <input type = "file" name = "file" multiple style="margin-left: 5%; color: white" />
+            <button href = "upload" type = "Submit" value="upload()" name = "Upload" class="btn btn-primary" style="margin-top: 5%;position: relative;">Add CV</button>
+            <button class="btn btn-primary" style="margin-top: 5%;position: relative;">View CV</button>
+          </form>
+          <!-- <button class="btn btn-h
+          over" style="margin-right:3%;">Add CV</button> -->
+
+
         </div>
 
 
@@ -142,7 +153,7 @@
               </center>
             </div>
           </div>
-
+        </div>
 
 
         </div>

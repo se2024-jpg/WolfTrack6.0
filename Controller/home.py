@@ -4,7 +4,7 @@ from flask_login import login_required, logout_user
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
-
+import os
 home_route = Blueprint('home_route', __name__)
 
 
@@ -92,3 +92,25 @@ def send_Profile():
     s_profile(data,upcoming_events, profile,emailID)
     print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
+
+
+filename=""
+@home_route.route("/upload", methods=['POST'])
+def upload():
+    APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    target = os.path.join(APP_ROOT, 'resume/')
+    print(target)
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    for file in request.files.getlist("file"):
+        print(file)
+        filename = file.filename
+        destination = "/".join([target, filename])
+        print(destination)
+        file.save(destination)
+
+    return render_template("home.html", data=data, upcoming_events=upcoming_events)
+
+
