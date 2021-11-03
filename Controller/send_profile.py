@@ -5,15 +5,25 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def s_profile(data,upcoming_events, profile):
+def s_profile(data,upcoming_events, profile,emailID):
 
     sender_email = "wolftrackproject@gmail.com"
-    receiver_email = email
+    receiver_email = emailID
     # App Password of Gmail Account
     password = "dlafyfekdkmdfjdi"
 
     subject = "WolfTrack - Profile Mailing"
-    body = " "
+    str1=""
+    for key,value in data.items():
+        print("\n")
+        l=[]
+        l = value
+        str1  = str1 + key +': '+ ' '.join(value) + '\n'
+        print("\n")
+
+    body = "WOLFTRACK APPLICATION \n\n" \
+           + str1
+
 
     message = MIMEMultipart()
     message["From"] = sender_email

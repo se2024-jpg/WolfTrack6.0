@@ -63,7 +63,6 @@ def logout():
     return redirect("/login")
 
 @home_route.route('/add_New',methods=['GET','POST'])
-@home_route.route('/send_Profile',methods=['GET','POST'])
 #@login_required
 def add_New():
     #print(request.method)
@@ -86,9 +85,10 @@ def add_New():
     print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
-
+@home_route.route('/send_Profile',methods=['GET','POST'])
 def send_Profile():
+    emailID = request.form['emailID']
     print("Mailing Profile...")
-    s_profile(data,upcoming_events, profile)
+    s_profile(data,upcoming_events, profile,emailID)
     print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
