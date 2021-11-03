@@ -61,5 +61,7 @@ def s_email(company, event_date):
 import dateutil.parser
 for i in upcoming_events:
     deadline = dateutil.parser.parse(i['duedate'])
-    if(deadline.date()==datetime.now().date()):
+    #alert one day before the deadline
+    alertdate = deadline - timedelta(days=1)
+    if(alertdate.date()==datetime.now().date()):
         s_email(i['company'], i['duedate'])
