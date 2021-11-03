@@ -822,43 +822,21 @@ p {
                                 <!-- JQUERY STEP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
 <div class="wrapper">
-    <form action="">
+    <form action="{{url_for('home_route.analyze_resume')}}" method="POST">
         <div id="wizard">
             <h4></h4>
             <section>
                 <div class="form-row">
-                <textarea id="txtArea" rows="10" cols="70" class="form-control" placeholder="Job Description"></textarea>
+                <textarea id="txtArea" rows="10" name="jobtext" cols="70" class="form-control" placeholder="Job Description"></textarea>
+                <button href="analyze_resume" type="Submit" class="btn btn-primary" value="analyze_resume()">Analyze</button>
                 </div>
+                </br>
+                <p>{{ data }}</p>
+
             </section>
         </div>
     </form>
 </div>
                                 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
-                                <script type='text/javascript'>$(function(){
-$("#wizard").steps({
-headerTag: "h4",
-bodyTag: "section",
-transitionEffect: "fade",
-enableAllSteps: true,
-transitionEffectSpeed: 500,
-
-labels: {
-finish: "Summarize"
-}
-});
-// Custom Steps Jquery Steps
-$('.wizard > .steps li a').click(function(){
-$(this).parent().addClass('checked');
-$(this).parent().prevAll().addClass('checked');
-$(this).parent().nextAll().removeClass('checked');
-});
-// Custom Button Jquery Steps
-$('.forward').click(function(){
-$("#wizard").steps('next');
-})
-$('.backward').click(function(){
-$("#wizard").steps('previous');
-})
-})</script>
                                 </body>
                             </html>

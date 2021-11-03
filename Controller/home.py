@@ -4,6 +4,7 @@ from flask_login import login_required, logout_user
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
+from Controller.ResumeParser import *
 import os
 home_route = Blueprint('home_route', __name__)
 
@@ -113,4 +114,17 @@ def upload():
 
     return render_template("home.html", data=data, upcoming_events=upcoming_events)
 
+@home_route.route('/resumeAnalyzer', methods=['GET'])
+@login_required
+def view_ResumeAna():
+    return render_template('resume_analyzer.html')
 
+@home_route.route('/analyze_resume', methods=['POST'])
+@login_required
+def analyze_resume():
+    jobtext = request.form['jobtext']
+    print(jobtext)
+    os.chdir(os.getcwd()+"/Controller/resume/")
+    output = resume_analyzer(jobtext, "Aditya_Ravikant_Jadhav_Resume.docx")
+    print(output)
+    return render_template('resume_analyzer.html', data = output)
