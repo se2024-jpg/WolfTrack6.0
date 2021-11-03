@@ -17,10 +17,14 @@ class FlaskTest(unittest.TestCase):
         self.app = app.test_client()
 
     def test_add_new(self):
-        rv = self.app.get('/add_New')
-        statuscode = rv.status_code
-        str = "Adding New..."
-        self.assertEqual("Adding New...",str)
+        resp = self.app.get('/add_New')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
+    def test_send_email(self):
+        resp = self.app.get('/add_New')
+        #print(resp.content_type)
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
 
 
 if __name__ == "__main__":
