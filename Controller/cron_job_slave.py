@@ -1,9 +1,6 @@
+
 from datetime import datetime, timedelta
 import os
-from home import upcoming_events
-curr_path=os.path.dirname(os.path.abspath(__file__))
-myFile = open(curr_path+'/append.txt', 'a') 
-myFile.write('\n on ' + str(datetime.now()))
 
 import email, smtplib, ssl
 from email import encoders
@@ -11,17 +8,39 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def s_email():
+receiver_email = 'wolftrackproject@gmail.com'
+upcoming_events = [
+    {"duedate": "28th Sept, 2021",
+    "company": "Apple"
+    },
+    {"duedate": "19th Dec, 2021",
+    "company": "Microsoft"
+    },
+    {"duedate": "21st Dec, 2021",
+    "company": "Amazon"
+    },
+    {"duedate": "3rd Nov, 2021",
+    "company": "Reddit"
+    },
+    {"duedate": "4th Nov, 2021",
+    "company": "Amazon"
+    }
+]
+
+def s_email(company, event_date):
 
     sender_email = "wolftrackproject@gmail.com"
-    receiver_email = 'wolftrackproject@gmail.com'
     # App Password of Gmail Account
     password = "dlafyfekdkmdfjdi"
 
-    subject = "WolfTrack - Job added to List"
+    subject = "WolfTrack Reminder"
 
-    body = "Testing the automated email" + str(datetime.now())
-
+    body = "Dear User," + "\n"\
+    "This is the automatic reminder for the event held by " + str(company) +\
+    " at " + str(event_date) + "\n\n\n" +\
+    "Regards \n" +\
+    "The WolfTrack Team!"
+    
     message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = receiver_email
@@ -43,4 +62,4 @@ import dateutil.parser
 for i in upcoming_events:
     deadline = dateutil.parser.parse(i['duedate'])
     if(deadline.date()==datetime.now().date()):
-        s_email()
+        s_email(i['company'], i['duedate'])
