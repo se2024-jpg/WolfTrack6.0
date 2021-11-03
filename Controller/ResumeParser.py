@@ -47,3 +47,66 @@ def read_word_resume(word_doc):
          return text
 
 
+def clean_job_decsription(jd):
+     ''' a function to create a word cloud based on the input text parameter'''
+     ## Clean the Text
+     # Lower
+     clean_jd = jd.lower()
+     # remove punctuation
+     clean_jd = re.sub(r'[^\w\s]', '', clean_jd)
+     # remove trailing spaces
+     clean_jd = clean_jd.strip()
+     # remove numbers
+     clean_jd = re.sub('[0-9]+', '', clean_jd)
+     # tokenize 
+     clean_jd = word_tokenize(clean_jd)
+     # remove stop words
+     stop = stopwords.words('english')
+     clean_jd = [w for w in clean_jd if not w in stop] 
+     return(clean_jd)
+
+def create_word_cloud(jd):
+    corpus = jd
+    fdist = FreqDist(corpus)
+    #print(fdist.most_common(100))
+    words = ' '.join(corpus)
+    words = words.split()
+     
+     # create a empty dictionary  
+    data = dict() 
+    #  Get frequency for each words where word is the key and the count is the value  
+    for word in (words):     
+        word = word.lower()     
+        data[word] = data.get(word, 0) + 1 
+
+    # Sort the dictionary in reverse order to print first the most used terms
+    dict(sorted(data.items(), key=operator.itemgetter(1),reverse=True)) 
+    word_cloud = WordCloud(width = 800, height = 800, 
+    background_color ='white',max_words = 500) 
+    word_cloud.generate_from_frequencies(data) 
+  
+def get_resume_score(text):
+    cv = CountVectorizer(stop_words='english')
+    count_matrix = cv.fit_transform(text)
+    #Print the similarity scores
+    print("\nSimilarity Scores:")
+     
+    #get the match percentage
+    matchPercentage = cosine_similarity(count_matrix)[0][1] * 100
+    matchPercentage = round(matchPercentage+50, 2) # round to two decimal
+     
+    print("Your resume matches about "+ str(matchPercentage)+ "% of the job description.")
+    return str(matchPercentage)
+
+
+def resume_analyzer(jobtext, file):
+    resume = read_word_resume(file)
+    job_description = jobtext
+    ## Get a Keywords Cloud 
+    clean_jd = clean_job_decsription(job_description) 
+    create_word_cloud(clean_jd) 
+    text = [resume, job_description] 
+    
+    ## Get a Match score
+    return get_resume_score(text)
+    
