@@ -2,9 +2,14 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
+Version1:
 [![DOI](https://zenodo.org/badge/408669082.svg)](https://zenodo.org/badge/latestdoi/408669082)
-[![GitHub Release](https://img.shields.io/github/release/Himanshuu-Gupta/WolfTrack)](https://github.com/Himanshuu-Gupta/WolfTrack/releases/tag/wolftrack)
-[![Build Status](https://app.travis-ci.com/Himanshuu-Gupta/WolfTrack.svg?branch=main)](https://app.travis-ci.com/Himanshuu-Gupta/WolfTrack)
+
+Version2:
+[![DOI](https://zenodo.org/badge/414012750.svg)](https://zenodo.org/badge/latestdoi/414012750)
+[![GitHub Release](https://img.shields.io/github/release/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/releases/tag/wolftrack)
+[![Manaul Build](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml/badge.svg)](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml)
+
 
 ![GitHub language count](https://img.shields.io/github/languages/count/aditya4196/WolfTrack2.0)
 [![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
