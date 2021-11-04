@@ -25,6 +25,16 @@ class FlaskTest(unittest.TestCase):
         resp = self.app.get('/add_New')
         #print(resp.content_type)
         self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+    
+    def test_home_resume_analyzer_ui_render_routing(self):
+        resp = self.app.get('/resumeAnalyzer')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+    
+    def test_resume_parser_ui_render_routing(self):
+        resp = self.app.get('/analyze_resume')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
 
 
 if __name__ == "__main__":
