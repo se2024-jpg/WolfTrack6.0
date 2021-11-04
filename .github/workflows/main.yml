@@ -34,30 +34,4 @@ jobs:
       run: |
         python3 -m coverage run UnitTesting/login_page_testing.py
         python3 -m coverage report
-    - name: coverage.py badge
-      inputs:
-        output:
-          description: 'Output path to write the badge.'
-          required: true
-          default: 'coverage.svg'
-        overwrite:
-          description: 'Overwrite existing.'
-          required: true
-          default: 'true'
-
-      runs:
-        using: 'composite'
-        steps:
-          - id: coverage-badge
-            run: |
-              python3 -m pip install -U coverage coverage-badge
-              EXTRA_ARGS=""
-              if [[ '${{ inputs.overwrite }}' == 'true'  ]]; then
-                EXTRA_ARGS+="-f"
-              fi
-        
-              coverage-badge $EXTRA_ARGS -o "${{ inputs.output }}"
-            shell: bash
-      branding:
-        icon: check-circle
-        color: white
+    
