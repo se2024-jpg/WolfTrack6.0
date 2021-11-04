@@ -12,7 +12,7 @@ Version2:
 
 
 ![GitHub language count](https://img.shields.io/github/languages/count/aditya4196/WolfTrack2.0)
-[![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
+[![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub-size](https://img.shields.io/github/languages/code-size/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub issues](https://img.shields.io/github/issues/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
@@ -24,15 +24,19 @@ Version2:
 
 ![Alt Text](https://media.giphy.com/media/7zBG3bIV14nddNj3ko/giphy.gif?cid=790b76112100f623635602c75ee21781b0c6dceb288c4777&rid=giphy.gif&ct=s)
 
+
 ---
 # Description
 
-One stop shop for your very own personal Job-tracker application!
+Are you applying to too many companies and cannot keep track of your schedule? 
 
-Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job detail, we're talking about dates, notes, tasks, job descriptions, salaries, locations, company insight and more!
+Want to get what your colleages or experts have to say?
+
+WolfTrack 2.0 helps to plan and organize job application in a chronological order so that you can easily track job applications, get expert suggestions, and successfully get your desired company.
+We store job applications, job profile, location, salaries, dates, notes and more!
 
 
-![Alt Text](https://media.giphy.com/media/btbUGSHh3f6eBjbDfh/giphy-downsized-large.gif?cid=ecf05e471ph0c5s2yc63oqz7nswkx588z022ckw6vm3jhzmh&rid=giphy-downsized-large.gif&ct=g)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/37671963/140239383-b6fe4e63-961a-4003-b7b4-f25e28026d29.jpg)
 
 **So, let's go get that job! 😎**
 
@@ -68,7 +72,7 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 ## Tools
 - [Preetier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
-- [PyLint](https://pylint.org/)
+- [Flake8](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)
 
 ## Third-Party Tools
 
@@ -120,18 +124,42 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 
 [UI Documentation]
 
+---
+
+## Preview
+
+[Preview Documentation]
+
+---
+
+## Code Coverage
+
+It is part of the [Build](https://github.com/aditya4196/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
 
 ---
 ## Future Roadmap
 
-### Successful Improvements:
+### Phase 1:
 
-- [x] Login Functionality
+- [x] Create database ER diagram
+- [x] Create SQL DML and DDL queries
+- [x] Create Dashboard Page
+- [x] Create Login Page
+- [x] Create Signup Page
+- [x] Setup Flask
+- [x] Add Unit testing
+- [x] Add Error Handling mechanisms
+- [x] Mock of Job Application Map using Power BI
+
+### Successful Functional Improvements:
+
 - [x] Resume Parser and Analyzer
 - [x] Email Notifcation after adding new job profile to list
 - [x] Upload and maintaining resume versions
 - [x] Send remainder mails for deadlines
 - [x] Share your profile with others
+- [x] Creation Docker image 
+- [x] Readily deployable image in docker registry
 
 
 ### Future Enhancements:
