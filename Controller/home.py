@@ -1,11 +1,13 @@
 from flask import Blueprint
 from flask import Flask, render_template, url_for, request
 from flask_login import login_required, logout_user
-from werkzeug.utils import redirect
+from werkzeug.utils import redirect,send_from_directory
 from Controller.send_email import *
 from Controller.send_profile import *
 from Controller.ResumeParser import *
 import os
+from flask import send_file, current_app as app
+
 home_route = Blueprint('home_route', __name__)
 
 
@@ -105,11 +107,13 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target)
 
+    #print(target + os.listdir(target)[0])
+    if len(os.listdir(target)) != 0:
+        os.remove(target + os.listdir(target)[0])
+
     for file in request.files.getlist("file"):
-        print(file)
         filename = file.filename
         destination = "/".join([target, filename])
-        print(destination)
         file.save(destination)
 
     return render_template("home.html", data=data, upcoming_events=upcoming_events)
@@ -125,6 +129,12 @@ def analyze_resume():
     jobtext = request.form['jobtext']
     print(jobtext)
     os.chdir(os.getcwd()+"/Controller/resume/")
-    output = resume_analyzer(jobtext, "Aditya_Ravikant_Jadhav_Resume.docx")
+    output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
     print(output)
     return render_template('resume_analyzer.html', data = output)
+
+@home_route.route("/display/", methods=['POST'])
+def display():
+    path = os.getcwd()+"/Controller/resume/"
+    filename = os.listdir(path)
+    return send_file(path+str(filename[0]), attachment_filename= str(filename[0]))
