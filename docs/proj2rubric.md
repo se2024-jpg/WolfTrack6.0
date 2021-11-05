@@ -5,14 +5,14 @@
 |.5|Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing |[Story Video]()|
 |.5|the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up  |[CONTRIBUTING.md](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md)|
 |.5|Docs: doco generated , format not ugly  |[Docs](https://github.com/aditya4196/WolfTrack2.0/tree/Group10StableBranch/docs/WolfTrackv2_Group10Docs)|
-|.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |[Configs](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch/requirements.txt)|
+|.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |[Config commits](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch/requirements.txt)|
 |.5|evidence that the members of the team are working across multiple places in the code base |[Github Commits](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)|
 |1|Docs: what: point descriptions of each class/function (in isolation)  |[Doc](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack%202%20_Class:Funtion_Documentation.pdf) |
 |.5|Number of commits: by different people  |[Github Commits](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)|
 |1|issues are being closed | [Closed Issues](https://github.com/aditya4196/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|
 |.5|issues are discussed before they are closed |[Issue discussed and closed](https://github.com/aditya4196/WolfTrack2.0/issues/18)|
 |.5|Use of syntax checkers. | [Github YAML Config](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|
-|1|Issues reports: there are many  |[total 19 Issues discussed and closed](https://github.com/aditya4196/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|
+|1|Issues reports: there are many  |[total 20 Issues discussed and closed](https://github.com/aditya4196/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|
 |.5|Use of code formatters. |[Github YAML Config](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|
 |.5|Use of style checkers | [Github YAML Config](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |[Animated Video]() |
