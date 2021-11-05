@@ -13,18 +13,18 @@ Version2:
 
 
 ![GitHub language count](https://img.shields.io/github/languages/count/aditya4196/WolfTrack2.0)
-[![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub-size](https://img.shields.io/github/languages/code-size/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub issues](https://img.shields.io/github/issues/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
-
+[![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)
 
 ---
-<h3><b> Our Moto</b></h3>
-
 ![Alt Text](https://media.giphy.com/media/7zBG3bIV14nddNj3ko/giphy.gif?cid=790b76112100f623635602c75ee21781b0c6dceb288c4777&rid=giphy.gif&ct=s)
+<h3><b> Let's add on to the above MOTO!!!</b></h3>
 
+
+<img width="360" alt="Screenshot 2021-11-04 at 9 57 54 PM" src="https://user-images.githubusercontent.com/32817064/140445635-3f33de05-3eea-442d-9ebf-8d550e9ac7cd.png">
 
 ---
 # Description
@@ -71,6 +71,12 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 
        
 ## Tools
+
+![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
+
+- #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image        Build, readily available to run the image on any server without manually setting up the environment.
+- [Github WorkFlow YAML](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)
+- [Dockerfile](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/Dockerfile)
 - [Preetier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
 - [Flake8](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)
@@ -116,26 +122,61 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 
      - Site will be hosted at:
        `http://127.0.0.1:5000/`
+    
+  ## Run locally using Docker
+Our application is docker-compatible configured and you have to follow below steps to run the docker on local:<br>
+Note : Make sure you have a docker desktop or docker client installed on your system
+  * [Docker Desktop Installation Guide](https://docs.docker.com/get-docker/)
+
+1. Clone the repository
+```
+git clone https://github.com/aditya4196/WolfTrack2.0.git
+```
+2. Go the the repository
+```
+cd WolfTrack2.0
+```
+3. Run the docker build command
+```
+docker build --tag wolftrackv2:1.0 .
+```
+4. Run the built docker image on local Container
+```
+docker run -dp 5000:5000 wolftrackv2:1.0
+```
+
+5. Test the backend application using below api
+```
+GET localhost:5000/login
+Response :- "Login Page will appear"
+```
+
+6. Tag the Deployable image
+```
+docker tag wolftrackv2:1.4 adi4196/wolftrackv2:1.0
+```
+
+7. Push the Deployable tagged image to the DockerHub Cloud Image Repository
+```
+docker push adi4196/wolftrackv2:1.0
+```
+
+8. Below DockerHub Repository where the readily deployable Image is available
+<img width="1389" alt="Screenshot 2021-11-04 at 9 38 50 PM" src="https://user-images.githubusercontent.com/32817064/140444016-f26825a8-6fb6-4345-ab6a-54986163ede5.png">
 
 ---
 
-# UI Code and Documentation
-
-[UI Code]
-
-[UI Documentation]
+[UI Code](https://github.com/aditya4196/WolfTrack2.0/tree/Group10StableBranch/templates)     
 
 ---
 
-## Preview
-
-[Preview Documentation]
+[UI Preview Documentation](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Build](https://github.com/aditya4196/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
+It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
 
 ---
 ## Future Roadmap
