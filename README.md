@@ -42,7 +42,11 @@ We store job applications, job profile, location, salaries, dates, notes and mor
 
 ---
 ## Watch WolfTrack in action 
-https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-9f43-baf291c666cd.mp4
+
+
+https://user-images.githubusercontent.com/37671963/140453481-da8af0c9-d0b8-4743-b80f-a0f29b940e88.mp4
+
+
 
 ---
 
