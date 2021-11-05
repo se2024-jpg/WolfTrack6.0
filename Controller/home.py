@@ -130,6 +130,8 @@ def analyze_resume():
     print(jobtext)
     os.chdir(os.getcwd()+"/Controller/resume/")
     output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
+    os.chdir("..")
+    os.chdir("..")
     print(output)
     return render_template('resume_analyzer.html', data = output)
 
