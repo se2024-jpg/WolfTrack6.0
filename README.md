@@ -17,7 +17,6 @@ Version2:
 [![GitHub-size](https://img.shields.io/github/languages/code-size/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub issues](https://img.shields.io/github/issues/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
-[![GitHub commits](https://badgen.net/github/last-commit/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/commits/Group10StableBranch)
 
 ---
 ![Alt Text](https://media.giphy.com/media/7zBG3bIV14nddNj3ko/giphy.gif?cid=790b76112100f623635602c75ee21781b0c6dceb288c4777&rid=giphy.gif&ct=s)
@@ -106,7 +105,7 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 
         `source test_env/bin/activate`
     
-     - Build the virtual environment:(must be present in [project directory](./))
+     - Build the virtual environment:(must be present in [project root directory](https://github.com/aditya4196/WolfTrack2.0))
 
         `pip install -r requirements.txt`
 
@@ -114,9 +113,9 @@ https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-
 
      **To run/test the site locally:**
 
-     - Clone [WolfTrack github repo](https://github.com/Himanshuu-Gupta/WolfTrack).
+     - Clone [WolfTrack github repo](https://github.com/aditya4196/WolfTrack2.0).
 
-     - Navigate to [project directory](./).
+     - Navigate to [project directory](https://github.com/aditya4196/WolfTrack2.0).
   
      - Run `python main.py` or `python3 main.py`
 
@@ -166,13 +165,14 @@ docker push adi4196/wolftrackv2:1.0
 
 ---
 
-[UI Code](https://github.com/aditya4196/WolfTrack2.0/tree/Group10StableBranch/templates)     
+[Class/Functions Documentation](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack%202%20_Class:Funtion_Documentation.pdf)     
 
 ---
 
 [UI Preview Documentation](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
 
 ---
+[Class Function 
 
 ## Code Coverage
 
@@ -193,7 +193,7 @@ It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrac
 - [x] Add Error Handling mechanisms
 - [x] Mock of Job Application Map using Power BI
 
-### Successful Functional Improvements:
+### Successful Functional Improvements in Wolftrack2.0:
 
 - [x] Resume Parser and Analyzer
 - [x] Email Notifcation after adding new job profile to list
@@ -206,7 +206,11 @@ It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrac
 
 ### Future Enhancements:
 
-- [ ] Add
+- [ ] Implement ML to create Resume Scanner Model for Better Accuracy
+- [ ] Reading mail from the Expert for the comments on the shared profile
+- [ ] Configure Cron-Job for reminder as SMS notification 
+- [ ] Implement WebScraping for Job Description to Automate Resume Scanner Functionality
+- [ ] Display the location on the map for the job selected
 
 ---
 
@@ -225,5 +229,5 @@ Please refer to the [Contributing.md](https://github.com/aditya4196/WolfTrack2.0
 
 ---
 ## Contact 
-In case of any issues, please mail your queries to wolftrackse@gmail.com 
+In case of any issues, please mail your queries to wolftrackproject@gmail.com 
 
