@@ -200,7 +200,7 @@ It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrac
 - [x] Upload and maintaining resume versions
 - [x] Send remainder mails for deadlines
 - [x] Share your profile with others
-- [x] Creation Docker image 
+- [x] Creation of Docker image 
 - [x] Readily deployable image in docker registry
 
 
