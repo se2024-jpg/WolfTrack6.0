@@ -125,6 +125,11 @@ https://user-images.githubusercontent.com/37671963/140453481-da8af0c9-d0b8-4743-
 
      - Site will be hosted at:
        `http://127.0.0.1:5000/`
+ 
+  - ### Application Deployed on a sandbox server
+     
+     - You can access the application on the url
+       `https://harshb.pythonanywhere.com/login`
     
   ## Run locally using Docker
 Our application is docker-compatible configured and you have to follow below steps to run the docker on local:<br>
@@ -215,6 +220,7 @@ It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrac
 - [ ] Configure Cron-Job for reminder as SMS notification 
 - [ ] Implement WebScraping for Job Description to Automate Resume Scanner Functionality
 - [ ] Display the location on the map for the job selected
+- [ ] Parse Resume Document with other extensions
 
 ---
 
