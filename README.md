@@ -121,7 +121,10 @@ https://user-images.githubusercontent.com/37671963/140453481-da8af0c9-d0b8-4743-
 
      - Navigate to [project directory](https://github.com/nehajaideep/WolfTrack2.0).
   
-     - Run `python main.py` or `python3 main.py`
+     - Run `python main.py` or `python3 main.py` <br> <br>
+       If there is a certificate error coming up for nltk stopwords download: <br>
+       - search for "Install Certificates.command" in finder and open it. Its a script that will install required Certificates. <br>
+       - Run the above command again.
 
      - Site will be hosted at:
        `http://127.0.0.1:5000/`
