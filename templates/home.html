@@ -17,7 +17,6 @@ $(document).ready(function() {
         event.preventDefault();
         if($('#show_hide_password input').attr("type") == "text"){
             $('#show_hide_password input').attr('type', 'password');
-            debugger
             document.getElementsByClassName('input-group-text')[0].children[0].innerHTML = '<i class="material-icons icon-eye">visibility_off</i>'
         }else if($('#show_hide_password input').attr("type") == "password"){
             $('#show_hide_password input').attr('type', 'text');

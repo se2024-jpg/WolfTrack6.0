@@ -21,16 +21,143 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script>
+    target = 40
+    applied = 11
+    function setTarget(){
+      target = parseInt(document.getElementById("target").value);
+      draw()
+    }
+        
+  </script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
   <style>
+      .highcharts-figure,
+      .highcharts-data-table table {
+          min-width: 250px;
+          max-width: 300px;
+          margin: 1em auto;
+      }
+
+      #container {
+          height: 120px;
+      }
+
+      .highcharts-data-table table {
+          font-family: Verdana, sans-serif;
+          border-collapse: collapse;
+          border: 1px solid #ebebeb;
+          margin: 10px auto;
+          text-align: center;
+          width: 30%;
+          max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+          padding: 1em 0;
+          font-size: 1.2em;
+          color: #555;
+      }
+
+      .highcharts-data-table th {
+          font-weight: 600;
+          padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+          padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+          background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+          background: #f1f7ff;
+      }
 
   </style>
 </head>
 
 <body>
+  <script>
+    $(document).ready(function () {
+      console.log("sd" + applied + target)
+      document.getElementById("target").value = target;
+      draw()
+    });
+    function draw() {
+      var chart = {
+        type: 'bar'
+      };
+      var title = {
+        text: 'Daily Goal Check'
+      };
+      var exporting = {
+        enabled: false
+      };
+      var xAxis = {
+        categories: [''],
+        title: {
+          text: "Application"
+        }
+      };
+      var yAxis = {
+        min: 0,
+        title: {
+          text: '',
+        }
+      };
+
+      var plotOptions = {
+        bar: {
+          stacking: 'normal'
+        }
+      };
+      var legend = {
+        reversed: true
+      };
+      var credits = {
+        enabled: false
+      };
+      var series = [
+        {
+          name: 'To Apply',
+          data: [target - applied]
+        },
+        {
+          name: 'Applied',
+          data: [applied]
+        }
+      ];
+
+      var json = {};
+      json.chart = chart;
+      json.title = title;
+      json.exporting = exporting;
+      json.xAxis = xAxis;
+      json.yAxis = yAxis;
+      json.series = series;
+      json.plotOptions = plotOptions;
+      json.legend = legend;
+      json.credits = credits;
+      $('#container').highcharts(json);
+    }
+  </script>
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <ul class="navbar-nav ">
+      <img class="rounded-circle" alt="100x100"
+            src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="30px"
+            width="30px" style = "margin-top: 5px; margin-right: 5px;" data-holder-rendered="true">
       <a class="navbar-brand" href="/">WolfTrack</a>
     </ul>
 
@@ -47,11 +174,11 @@
       <!-- Left Sidebar -->
       <div class="col-sm-3 sidenav sidenav-left">
         <center>
-          <img class="rounded-circle" alt="100x100"
+          <!-- <img class="rounded-circle" alt="100x100"
             src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="250px"
             width="250px" data-holder-rendered="true">
 
-          <br><br>
+          <br><br> -->
 
           <div class="card" style="width: 18rem; text-align: left;">
             <div class="card-body">
@@ -86,12 +213,48 @@
                   <polyline points="8 1 12 5 8 9"></polyline>
                 </svg>
               </a>
-
+              <br/>
+              <a href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta">
+                <span>Target</span>
+                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+              </a>
 
             </div>
           </div>
           <br><br>
         </center>
+        <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Set Target</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="dailyTarget">Daily Target</label>
+                  <input type="number" id="target" name="target" class="form-control" id="target" value="10">
+                </div>
+              </div>
+              <div class="modal-footer" style="height: 50px !important;">
+                <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-sm btn-primary" data-dismiss="modal" onClick="setTarget()">Set</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br/>
+      <div id = "container" style = "width: 300px; height: 200px; margin: 0 auto"></div>
+
+        <figure class="highcharts-figure">
+          <div id="container1"></div>
+          
+        </figure>      
         <div style="margin-left: 6%;margin-top:2%;" >
           <form action="{{url_for('home_route.send_Profile')}}" method="POST">
             <label for="emailID" style="color: white;margin-left: 12%;">Enter Email ID: </label>
@@ -176,7 +339,7 @@
       </div>
     </div>
 
-
+    
 </body>
 
 </html>
