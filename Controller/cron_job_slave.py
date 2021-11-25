@@ -8,7 +8,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-receiver_email = 'wolftrackproject@gmail.com'
+receiver_email = 'niveditalodha1234@gmail.com'
 upcoming_events = [
     {"duedate": "28th Sept, 2021",
     "company": "Apple"
@@ -19,10 +19,10 @@ upcoming_events = [
     {"duedate": "21st Dec, 2021",
     "company": "Amazon"
     },
-    {"duedate": "3rd Nov, 2021",
+    {"duedate": "25th Nov, 2021",
     "company": "Reddit"
     },
-    {"duedate": "4th Nov, 2021",
+    {"duedate": "24th Nov, 2021",
     "company": "Amazon"
     }
 ]
