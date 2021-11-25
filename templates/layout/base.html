@@ -220,7 +220,24 @@
             </div>
           </div>
           
-          
+          <div style="width: 18rem; font-size: 20px; text-align: left; color:white; padding-top: 10px;">
+            CV <!--Padding is optional-->
+            <div style="width: 18rem; height: 4px; border-bottom: 3px solid rgb(247, 171, 9); text-align: center">
+            </div>
+            <div style="width: 18rem; text-align: left; padding-top: 10px ;">
+              <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" multiple style="color: white;font-size: 14px;" />
+                <button href="upload" type="Submit" value="upload()" name="Upload" class="btn btn-primary"
+                  style="margin-top: 5%;position: relative;">Add CV</button>
+                  <form action="{{url_for('home_route.display')}}" method="POST" enctype="multipart/form-data">
+                    <button href="display" type="Submit" value="display()" name="display" class="btn btn-primary"
+                      style="margin-top: 5%;position: relative;">Download CV</button>
+                  </form>
+              </form>
+    
+              
+            </div>
+          </div>
         </center>
         <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
@@ -246,25 +263,6 @@
           </div>
         </div>
         <br />
-
-        <div style="margin-left: 2%;margin-top:2%;">
-          <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" multiple style="margin-left: 5%; color: white" />
-            <button href="upload" type="Submit" value="upload()" name="Upload" class="btn btn-primary"
-              style="margin-top: 5%;position: relative;">Add CV</button>
-
-          </form>
-
-          <form action="{{url_for('home_route.display')}}" method="POST" enctype="multipart/form-data">
-            <button href="display" type="Submit" value="display()" name="display" class="btn btn-primary"
-              style="margin-top: 5%;position: relative;">Download CV</button>
-          </form>
-          <!-- <button class="btn btn-h
-          over" style="margin-right:3%;">Add CV</button> -->
-
-
-        </div>
-
       </div>
 
       <!-- Content -->
