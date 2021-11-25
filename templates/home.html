@@ -1,17 +1,24 @@
 {% extends "layout/base.html" %}
 {% block content %}
+<style>
+  .card-footer-div {
+    background:none !important;
+    padding: 0.75 rem 1.25 rem !important;
+    border-top: 1px solid transparent !important
+  }
+</style>
 <div class="row">
   <div class="card status-card col-md" style="width: 18rem;">
-    <i class="material-icons card-icons">schedule</i>
+    <i class="material-icons card-icons">star</i>
     <div class="card-body">
       <h5 class="card-title">Wish List</h5>
+      <ul class="list-group list-group-flush">
+        {% for item in data.wishlist %}
+        <li class="list-group-item border-0">{{ item }}</li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      {% for item in data.wishlist %}
-      <li class="list-group-item border-0">{{ item }}</li>
-      {% endfor %}
-    </ul>
-    <div class="card-body">
+    <div class="card-footer card-footer-div">
         <a href="/view?show=wish_list" class="card-link">View More</a>
         <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
     </div>
@@ -21,13 +28,14 @@
     <i class="material-icons card-icons">trending_up</i>
     <div class="card-body">
       <h5 class="card-title">In Process</h5>
+      <ul class="list-group list-group-flush">
+        {% for item in data.inprogress %}
+        <li class="list-group-item border-0">{{ item }}</li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      {% for item in data.inprogress %}
-      <li class="list-group-item border-0">{{ item }}</li>
-      {% endfor %}
-    </ul>
-    <div class="card-body">
+    
+    <div class="card-footer card-footer-div">
         <a href="/view?show=in_progress" class="card-link">View More</a>
         <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter" >Add New</a>
     </div>
@@ -39,14 +47,14 @@
     <i class="material-icons card-icons">task</i>
     <div class="card-body">
       <h5 class="card-title">Applied</h5>
+      <ul class="list-group list-group-flush">
+        {% for item in data.applied %}
+        <li class="list-group-item border-0">{{ item }}</li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      {% for item in data.applied %}
-      <li class="list-group-item border-0">{{ item }}</li>
-      {% endfor %}
-
-    </ul>
-    <div class="card-body">
+    
+    <div class="card-footer card-footer-div">
         <a href="/view?show=applied" class="card-link">View More</a>
         <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
     </div>
@@ -56,16 +64,16 @@
     <i class="material-icons card-icons">beenhere</i>
     <div class="card-body">
       <h5 class="card-title">Offers</h5>
+      <ul class="list-group list-group-flush">
+        {% for item in data.offers %}
+        <li class="list-group-item border-0">{{ item }}</li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      {% for item in data.offers %}
-      <li class="list-group-item border-0">{{ item }}</li>
-      {% endfor %}
-    </ul>
-    <div class="card-body">
+    
+    <div class="card-footer card-footer-div">
         <a href="/view?show=offers" class="card-link">View More</a>
         <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
-
     </div>
   </div>
 </div>
