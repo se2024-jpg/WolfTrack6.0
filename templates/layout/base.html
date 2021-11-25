@@ -36,6 +36,15 @@
     }
 
   </script>
+  <style>
+    .icon-function {
+      color: #16353F;
+      cursor: pointer;
+      margin-left: 18% !important;
+      margin-top: 18% !important;
+      margin-bottom: 18%;
+    }
+  </style>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 
 </head>
@@ -158,6 +167,9 @@
 
             </div>
           </div>
+          <br />
+          <div id="container" style="width: 18rem; height: 180px; margin: 0 auto; border-radius: 5px;"></div>
+
           <div class="card1" style="width: 18rem; text-align: left;">
             <div class="card-body">
               <a href="resumeAnalyzer" class="cta">
@@ -169,6 +181,9 @@
               </a>
               <br />
               <a href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta">
+                <div style="height: 40px; width: 40px; border-radius: 20px; background-color: blanchedalmond;">
+                  <i class="material-icons icon-function">filter_center_focus</i>
+                </div>
                 <span>Target</span>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
                   <path d="M1,5 L11,5"></path>
@@ -178,7 +193,34 @@
 
             </div>
           </div>
-          <br><br>
+          <div style="width: 18rem; font-size: 20px; text-align: left; color:white">
+            Send Profile <!--Padding is optional-->
+            <div style="width: 18rem; height: 4px; border-bottom: 3px solid rgb(247, 171, 9); text-align: center">
+            </div>
+            <div style="width: 18rem; text-align: left; padding-top: 10px ;">
+              <form action="{{url_for('home_route.send_Profile')}}" method="POST">
+                <!-- <input type=text name="emailID" id="emailID" style="margin-left: 6%;" /> -->
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style = "padding-right: 6px; padding-left: 6px;"id="btnGroupAddon">
+                      <i class="material-icons icon-eye">email</i>
+                    </div>
+                  </div>
+                  <input type="text" name="emailID" id="emailID" class="form-control" placeholder="Email ID">
+                  <div class="input-group-append" value="send_Profile()" onclick="">
+                    <div class="input-group-text btn-primary" style = "padding-right: 6px; padding-left: 6px;"id="btnGroupAddon">
+                      <i class="material-icons icon-eye">send</i>
+                    </div>
+                  </div>
+                </div>
+                <!-- <button href="send_Profile" style="margin: 6%;" type="Submit" class="btn btn-primary" value="send_Profile()"
+                  style="margin:6%;"> SEND Profile</button> -->
+              </form>
+    
+            </div>
+          </div>
+          
+          
         </center>
         <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
@@ -204,18 +246,7 @@
           </div>
         </div>
         <br />
-        <div id="container" style="width: 300px; height: 200px; margin: 0 auto"></div>
 
-        <div style="margin-left: 6%;margin-top:2%;">
-          <form action="{{url_for('home_route.send_Profile')}}" method="POST">
-            <label for="emailID" style="color: white;margin-left: 12%;">Enter Email ID: </label>
-            <input type=text name="emailID" id="emailID" style="margin-left: 6%;" />
-
-            <button href="send_Profile" style="margin: 6%;" type="Submit" class="btn btn-primary" value="send_Profile()"
-              style="margin:6%;"> SEND Profile</button>
-          </form>
-
-        </div>
         <div style="margin-left: 2%;margin-top:2%;">
           <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
             <input type="file" name="file" multiple style="margin-left: 5%; color: white" />
@@ -233,7 +264,6 @@
 
 
         </div>
-
 
       </div>
 
