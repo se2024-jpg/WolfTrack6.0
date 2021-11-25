@@ -32,7 +32,6 @@
     applied = 11
     function setTarget(){
       target = parseInt(document.getElementById("target").value);
-      // sessionStorage.setItem(target);
       draw()
     }
         
@@ -90,7 +89,70 @@
 </head>
 
 <body>
-  
+  <script>
+    $(document).ready(function () {
+      console.log("sd" + applied + target)
+      document.getElementById("target").value = target;
+      draw()
+    });
+    function draw() {
+      var chart = {
+        type: 'bar'
+      };
+      var title = {
+        text: 'Daily Goal Check'
+      };
+      var exporting = {
+        enabled: false
+      };
+      var xAxis = {
+        categories: [''],
+        title: {
+          text: "Application"
+        }
+      };
+      var yAxis = {
+        min: 0,
+        title: {
+          text: '',
+        }
+      };
+
+      var plotOptions = {
+        bar: {
+          stacking: 'normal'
+        }
+      };
+      var legend = {
+        reversed: true
+      };
+      var credits = {
+        enabled: false
+      };
+      var series = [
+        {
+          name: 'To Apply',
+          data: [target - applied]
+        },
+        {
+          name: 'Applied',
+          data: [applied]
+        }
+      ];
+
+      var json = {};
+      json.chart = chart;
+      json.title = title;
+      json.exporting = exporting;
+      json.xAxis = xAxis;
+      json.yAxis = yAxis;
+      json.series = series;
+      json.plotOptions = plotOptions;
+      json.legend = legend;
+      json.credits = credits;
+      $('#container').highcharts(json);
+    }
+  </script>
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <ul class="navbar-nav ">
       <img class="rounded-circle" alt="100x100"
