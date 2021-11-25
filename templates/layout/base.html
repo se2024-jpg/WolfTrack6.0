@@ -96,6 +96,8 @@
       draw()
     });
     function draw() {
+      var date = new Date();
+      var newdate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
       var chart = {
         type: 'bar'
       };
@@ -108,13 +110,13 @@
       var xAxis = {
         categories: [''],
         title: {
-          text: "Application"
+          text: newdate
         }
       };
       var yAxis = {
         min: 0,
         title: {
-          text: '',
+          text: 'Application Count',
         }
       };
 
