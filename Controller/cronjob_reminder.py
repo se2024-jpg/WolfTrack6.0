@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 receiver_email = 'niveditalodha1234@gmail.com'
-upcoming_events = [
+deadlines = [
     {"duedate": "28th Sept, 2021",
     "company": "Apple"
     },
@@ -36,8 +36,8 @@ def s_email(company, event_date):
     subject = "WolfTrack Reminder"
 
     body = "Dear User," + "\n"\
-    "This is the automatic reminder for the event held by " + str(company) +\
-    " on " + str(event_date) + "\n\n\n" +\
+    "This is a reminder for you to apply for " + str(company) +\
+    " as its due date is " + str(event_date) + "\n\n\n" +\
     "Regards \n" +\
     "The WolfTrack Team!"
     
@@ -59,7 +59,7 @@ def s_email(company, event_date):
     return True
 
 import dateutil.parser
-for i in upcoming_events:
+for i in deadlines:
     deadline = dateutil.parser.parse(i['duedate'])
     #alert one day before the deadline
     alertdate = deadline - timedelta(days=1)
