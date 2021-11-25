@@ -30,14 +30,14 @@
   <script>
     target = 40
     applied = 11
-    function setTarget(){
+    function setTarget() {
       target = parseInt(document.getElementById("target").value);
       draw()
     }
-        
+
   </script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-  
+
 </head>
 
 <body>
@@ -49,7 +49,7 @@
     });
     function draw() {
       var date = new Date();
-      var newdate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+      var newdate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
       var chart = {
         type: 'bar'
       };
@@ -110,8 +110,8 @@
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <ul class="navbar-nav ">
       <img class="rounded-circle" alt="100x100"
-            src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="30px"
-            width="30px" style = "margin-top: 5px; margin-right: 5px;" data-holder-rendered="true">
+        src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="30px"
+        width="30px" style="margin-top: 5px; margin-right: 5px;" data-holder-rendered="true">
       <a class="navbar-brand" href="/">WolfTrack</a>
     </ul>
 
@@ -167,7 +167,7 @@
                   <polyline points="8 1 12 5 8 9"></polyline>
                 </svg>
               </a>
-              <br/>
+              <br />
               <a href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta">
                 <span>Target</span>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
@@ -180,7 +180,8 @@
           </div>
           <br><br>
         </center>
-        <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -202,32 +203,31 @@
             </div>
           </div>
         </div>
-        <br/>
-      <div id = "container" style = "width: 300px; height: 200px; margin: 0 auto"></div>
+        <br />
+        <div id="container" style="width: 300px; height: 200px; margin: 0 auto"></div>
 
-        <figure class="highcharts-figure">
-          <div id="container1"></div>
-          
-        </figure>      
-        <div style="margin-left: 6%;margin-top:2%;" >
+        <div style="margin-left: 6%;margin-top:2%;">
           <form action="{{url_for('home_route.send_Profile')}}" method="POST">
             <label for="emailID" style="color: white;margin-left: 12%;">Enter Email ID: </label>
-          <input type = text name="emailID" id = "emailID" style="margin-left: 6%;" />
-          
-              <button href="send_Profile"  style="margin: 6%;" type="Submit" class="btn btn-primary" value="send_Profile()" style="margin:6%;"> SEND Profile</button>
+            <input type=text name="emailID" id="emailID" style="margin-left: 6%;" />
+
+            <button href="send_Profile" style="margin: 6%;" type="Submit" class="btn btn-primary" value="send_Profile()"
+              style="margin:6%;"> SEND Profile</button>
           </form>
-           
+
         </div>
-         <div style="margin-left: 2%;margin-top:2%;" >
-          <form id = "upload-form" action = "{{url_for('home_route.upload')}}" method = "POST" enctype = "multipart/form-data">
-         <input type = "file" name = "file" multiple style="margin-left: 5%; color: white" />
-            <button href = "upload" type = "Submit" value="upload()" name = "Upload" class="btn btn-primary" style="margin-top: 5%;position: relative;">Add CV</button>
-            
+        <div style="margin-left: 2%;margin-top:2%;">
+          <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" multiple style="margin-left: 5%; color: white" />
+            <button href="upload" type="Submit" value="upload()" name="Upload" class="btn btn-primary"
+              style="margin-top: 5%;position: relative;">Add CV</button>
+
           </form>
-           
-           <form action = "{{url_for('home_route.display')}}" method = "POST" enctype = "multipart/form-data">
-             <button href = "display" type = "Submit" value="display()" name = "display" class="btn btn-primary" style="margin-top: 5%;position: relative;">Download CV</button>
-           </form>
+
+          <form action="{{url_for('home_route.display')}}" method="POST" enctype="multipart/form-data">
+            <button href="display" type="Submit" value="display()" name="display" class="btn btn-primary"
+              style="margin-top: 5%;position: relative;">Download CV</button>
+          </form>
           <!-- <button class="btn btn-h
           over" style="margin-right:3%;">Add CV</button> -->
 
@@ -289,11 +289,11 @@
         </div>
 
 
-        </div>
       </div>
     </div>
+  </div>
 
-    
+
 </body>
 
 </html>
