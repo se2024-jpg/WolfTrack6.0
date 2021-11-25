@@ -7,7 +7,7 @@ Version1:
 
 Version2:
 [![DOI](https://zenodo.org/badge/414012750.svg)](https://zenodo.org/badge/latestdoi/414012750)
-[![GitHub Release](https://img.shields.io/github/release/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/releases/tag/wolftrack)
+[![GitHub Release](https://img.shields.io/github/release/nehajaideep/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/releases/tag/wolftrack)
 [![Manaul Build](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml/badge.svg)](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/aditya4196/WolfTrack2.0/branch/Group10StableBranch/graph/badge.svg?token=3846GFECIE)](https://codecov.io/gh/aditya4196/WolfTrack2.0)
 
@@ -109,7 +109,7 @@ https://user-images.githubusercontent.com/37671963/140453481-da8af0c9-d0b8-4743-
 
         `source test_env/bin/activate`
     
-     - Build the virtual environment:(must be present in [project root directory](https://github.com/aditya4196/WolfTrack2.0))
+     - Build the virtual environment:(must be present in [project root directory](https://github.com/nehajaideep/WolfTrack2.0))
 
         `pip install -r requirements.txt`
 
@@ -117,9 +117,9 @@ https://user-images.githubusercontent.com/37671963/140453481-da8af0c9-d0b8-4743-
 
      **To run/test the site locally:**
 
-     - Clone [WolfTrack github repo](https://github.com/aditya4196/WolfTrack2.0).
+     - Clone [WolfTrack github repo](https://github.com/nehajaideep/WolfTrack2.0).
 
-     - Navigate to [project directory](https://github.com/aditya4196/WolfTrack2.0).
+     - Navigate to [project directory](https://github.com/nehajaideep/WolfTrack2.0).
   
      - Run `python main.py` or `python3 main.py`
 
@@ -138,7 +138,7 @@ Note : Make sure you have a docker desktop or docker client installed on your sy
 
 1. Clone the repository
 ```
-git clone https://github.com/aditya4196/WolfTrack2.0.git
+git clone https://github.com/nehajaideep/WolfTrack2.0.git
 ```
 2. Go the the repository
 ```
@@ -174,18 +174,18 @@ docker push adi4196/wolftrackv2:1.0
 
 ---
 
-[Class/Functions Documentation](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack%202%20_Class:Funtion_Documentation.pdf)     
+[Class/Functions Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack%202%20_Class:Funtion_Documentation.pdf)     
 
 ---
 
-[UI Preview Documentation](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
+[UI Preview Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
 
 ---
 [Class Function 
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
+It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
 
 ---
 ## Future Roadmap
@@ -225,18 +225,21 @@ It is part of the [Github Workflow Build](https://github.com/aditya4196/WolfTrac
 ---
 
 ## Contributions to the Project
-Please refer to the [Contributing.md](https://github.com/aditya4196/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [Contributing.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
-## Contributors 👨‍🏭
+## :handshake: Contributors
 
-1. Aditya Ravikant Jadhav (ajadhav3@ncsu.edu)
-2. Harsh Vijay Bathija (hbathij@ncsu.edu)
-3. Ashritha Bommagani (abommag@ncsu.edu)
-4. Abhishek Arvindkumar Upadhyay (aaupadhy@ncsu.edu)
-5. Akash Mukesh Sanghani (amsangha@ncsu.edu)
-
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/niveditalodha"><img src="https://avatars.githubusercontent.com/u/40229663?v=4" width="75px;" alt=""/><br /><sub><b>Nivedita Lodha</b></sub></a></td>
+    <td align="center"><a href="https://github.com/akhilkumarmengani"><img src="https://avatars.githubusercontent.com/u/70975566?v=4" width="75px;" alt=""/><br /><sub><b>Akhil Kumar Mengani</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/umagnanasundaram2128"><img src="https://avatars.githubusercontent.com/u/8946692?v=4" width="75px;" alt=""/><br /><sub><b>Uma Gnanasundaram</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/vamshi-chidara"><img src="https://avatars.githubusercontent.com/u/66715000?v=4" width="75px;" alt=""/><br /><sub><b>Vamshi Chidara</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/nehajaideep"><img src="https://avatars.githubusercontent.com/u/46373273?v=4" width="75px;" alt=""/><br /><sub><b>Neha Kotcherlakota</b></sub></a><br /></td>
+  </tr>
+</table>
 ---
 ## Contact 
 In case of any issues, please mail your queries to wolftrackproject@gmail.com 
