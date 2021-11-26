@@ -48,6 +48,14 @@
     #resumeAnalyzer {
       font-weight: bold;
     }
+    #rA:hover {
+      transform: translateY(-5px);
+
+    }
+    #setTarget:hover {
+      transform: translateY(-5px);
+
+    }
   </style>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 
@@ -175,8 +183,8 @@
           <br/>
           <div class="card1" style="width: 18rem; text-align: left;" id = "resumeAnalyzer">
             <div>
-              <a href="resumeAnalyzer" class="cta no-link" style="cursor: pointer;">
-                <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
+              <a href="resumeAnalyzer"  class="cta" style="cursor: pointer;">
+                <div class="d-flex mb-3 mb-md-0 btn-block" id= "rA" style="background-color: tomato; border-radius: 5px;">
                   <div class = "p-2"><i class="material-icons icon-function">playlist_add_check</i></div>
 
                   <div class = "p-2 flex-grow-1" style="text-align: center;"><span>Analyze Resume</span></div>
@@ -185,7 +193,7 @@
               </a>
               <br />
               <div href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta" style="cursor: pointer;">
-                <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
+                <div class="d-flex mb-3 mb-md-0 btn-block" id ="setTarget" style="background-color: tomato; border-radius: 5px;">
                   <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
 
                   <div class = "p-2 flex-grow-1" style="text-align: center;"><span>Set Target</span></div>
