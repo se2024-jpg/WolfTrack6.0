@@ -40,9 +40,13 @@
     .icon-function {
       color: #16353F;
       cursor: pointer;
-      /* margin-left: 18% !important;
-      margin-top: 18% !important;
-      margin-bottom: 18%; */
+    }
+    #resumeAnalyzer a{
+      text-decoration: none;
+      color:black;
+    }
+    #resumeAnalyzer {
+      font-weight: bold;
     }
   </style>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
@@ -52,7 +56,6 @@
 <body>
   <script>
     $(document).ready(function () {
-      console.log("sd" + applied + target)
       document.getElementById("target").value = target;
       draw()
     });
@@ -170,16 +173,13 @@
           <br />
           <div id="container" style="width: 18rem; height: 180px; margin: 0 auto; border-radius: 5px;"></div>
           <br/>
-          <div class="card1" style="width: 18rem; text-align: left;">
+          <div class="card1" style="width: 18rem; text-align: left;" id = "resumeAnalyzer">
             <div>
-              <a href="resumeAnalyzer" class="cta" style="cursor: pointer;">
+              <a href="resumeAnalyzer" class="cta no-link" style="cursor: pointer;">
                 <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
-                  <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
+                  <div class = "p-2"><i class="material-icons icon-function">playlist_add_check</i></div>
 
                   <div class = "p-2 flex-grow-1" style="text-align: center;"><span>Analyze Resume</span></div>
-                  <!-- <div class="icon icon-round d-flex align-items-center justify-content-center">
-                    <i class="material-icons icon-function">filter_center_focus</i>
-                  </div> -->
                 </div>
                 
               </a>
@@ -188,7 +188,7 @@
                 <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
                   <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
 
-                  <div class = "p-2 flex-grow-1" style="text-align: center;"><span>target</span></div>
+                  <div class = "p-2 flex-grow-1" style="text-align: center;"><span>Set Target</span></div>
                   <!-- <div class="icon icon-round d-flex align-items-center justify-content-center">
                     <i class="material-icons icon-function">filter_center_focus</i>
                   </div> -->
