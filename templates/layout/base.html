@@ -40,9 +40,9 @@
     .icon-function {
       color: #16353F;
       cursor: pointer;
-      margin-left: 18% !important;
+      /* margin-left: 18% !important;
       margin-top: 18% !important;
-      margin-bottom: 18%;
+      margin-bottom: 18%; */
     }
   </style>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
@@ -169,30 +169,44 @@
           </div>
           <br />
           <div id="container" style="width: 18rem; height: 180px; margin: 0 auto; border-radius: 5px;"></div>
-
+          <br/>
           <div class="card1" style="width: 18rem; text-align: left;">
-            <div class="card-body">
-              <a href="resumeAnalyzer" class="cta">
-                <span>Analyze Resume</span>
-                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                  <path d="M1,5 L11,5"></path>
-                  <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
+            <div>
+              <a href="resumeAnalyzer" class="cta" style="cursor: pointer;">
+                <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
+                  <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
+
+                  <div class = "p-2 flex-grow-1" style="text-align: center;"><span>Analyze Resume</span></div>
+                  <!-- <div class="icon icon-round d-flex align-items-center justify-content-center">
+                    <i class="material-icons icon-function">filter_center_focus</i>
+                  </div> -->
+                </div>
+                
               </a>
               <br />
-              <a href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta">
-                <div style="height: 40px; width: 40px; border-radius: 20px; background-color: blanchedalmond;">
+              <div href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta" style="cursor: pointer;">
+                <div class="d-flex mb-3 mb-md-0 btn-block" style="background-color: tomato; border-radius: 5px;">
+                  <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
+
+                  <div class = "p-2 flex-grow-1" style="text-align: center;"><span>target</span></div>
+                  <!-- <div class="icon icon-round d-flex align-items-center justify-content-center">
+                    <i class="material-icons icon-function">filter_center_focus</i>
+                  </div> -->
+                </div>
+               
+                <!-- <div style="height: 40px; width: 40px; border-radius: 20px; background-color: blanchedalmond;display: inline-block;">
                   <i class="material-icons icon-function">filter_center_focus</i>
                 </div>
-                <span>Target</span>
+                <div style = "display: inline-block;text-align: center;"> Target</div>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
                   <path d="M1,5 L11,5"></path>
                   <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-              </a>
+                </svg> -->
+              </div>
 
             </div>
           </div>
+          <br/>
           <div style="width: 18rem; font-size: 20px; text-align: left; color:white">
             Send Profile <!--Padding is optional-->
             <div style="width: 18rem; height: 4px; border-bottom: 3px solid rgb(247, 171, 9); text-align: center">
