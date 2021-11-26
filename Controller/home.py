@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import Flask, render_template, url_for, request
-from flask_login import login_required, logout_user
+from flask_login import login_required, logout_user, current_user
 from werkzeug.utils import redirect,send_from_directory
 from Controller.send_email import *
 from Controller.send_profile import *
@@ -48,9 +48,11 @@ profile = {
 
 
 @home_route.route('', methods=['GET'])
-@login_required
 def home():
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    if current_user.is_authenticated:
+        return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    else:
+        return redirect('/login')
 
 
 @home_route.route('/view', methods=['GET'])
