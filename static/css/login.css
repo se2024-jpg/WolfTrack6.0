@@ -216,3 +216,136 @@ body{
     display: none;
   }
 }
+
+.admin-button{
+  display: inline-block;
+  padding: 0.5em 3em;
+  border:0.16em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+}
+
+.admin-button.hover{
+  color: rgb(240, 58, 58);
+  border-color: aqua;
+}
+
+.admin-button.active{
+  color: rgb(240, 58, 58);
+  border-color: aqua;
+}
+@media all and (max-width:30em){
+  .admin-button{
+    display: block;
+    margin:0.4em auto;
+  }
+}
+
+
+a.button4{
+  display:inline-block;
+  padding:0.7em 1.2em;
+  margin:0 0.1em 0.1em 0;
+  border:0.16em solid rgba(255,255,255,0);
+  /* border-radius: 0.12em; */
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+  font-weight:300;
+  color:#000000;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  text-align:center;
+  transition: all 0.2s;
+  padding-left: 50px ;
+  padding-right: 50px;
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+}
+a.button4:hover{
+  border-color: rgba(255,255,255,1);
+  text-decoration: none;
+}
+@media all and (max-width:30em){
+  a.button4{
+   display:block;
+   margin:0.2em auto;
+  }
+}
+
+.button-center {
+  margin: 0;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.divider{
+  width:100px;
+  height:auto;
+  display:inline-block;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+.image-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.main-header {
+  text-align: center;
+  background: #b9dfec;
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 70%;
+
+}
+
+.project-container{
+  padding-top : 100px;
+  padding-bottom: 100px;
+  background-color: antiquewhite;
+  background: url("../images/bg-1.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 200%;
+}
+
