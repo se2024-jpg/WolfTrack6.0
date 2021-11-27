@@ -88,12 +88,12 @@ def create_word_cloud(jd):
 def get_resume_score(text):
     cv = CountVectorizer(stop_words='english')
     count_matrix = cv.fit_transform(text)
-    #Print the similarity scores
+    count_matrix_array=count_matrix.toarray()
     print("\nSimilarity Scores:")
      
     #get the match percentage
-    matchPercentage = cosine_similarity(count_matrix)[0][1] * 100
-    matchPercentage = round(matchPercentage+50, 2) # round to two decimal
+    matchPercentage = cosine_similarity(arr)[0][1] * 100
+    matchPercentage = round(matchPercentage, 2) # round to two decimal
      
     print("Your resume matches about "+ str(matchPercentage)+ "% of the job description.")
     return str(matchPercentage)
