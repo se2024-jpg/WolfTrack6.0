@@ -1,8 +1,10 @@
-from flask import Blueprint, session, request, redirect, render_template, current_app, make_response, url_for
+import os
+from flask import Blueprint, session, request, redirect, render_template, current_app, make_response, url_for,send_from_directory
 from flask_login import LoginManager, login_user, UserMixin
 from datetime import datetime, timedelta
 
-login_route = Blueprint('admin', __name__)
+
+admin_login_route = Blueprint('admin_login', __name__)
 login_manager = LoginManager()
 headers = {'Content-Type': 'text/html'}
 
@@ -32,7 +34,7 @@ upcoming_events = [
 ]
 
 
-@login_route.record_once
+@admin_login_route.record_once
 def on_load(state):
     login_manager.init_app(state.app)
 
@@ -40,7 +42,7 @@ def on_load(state):
 def load_user(userid):
     return User(session['userinfo']['userid'])
 
-@login_route.before_app_request
+@admin_login_route.before_app_request
 def before_request():
     session.modified = True
     current_app.permanent_session_lifetime = timedelta(minutes=30)
@@ -67,11 +69,11 @@ def is_valid(username, password):
     return True
 
 
-@login_route.route('', methods=["GET", "POST"])
+@admin_login_route.route('', methods=["GET", "POST"])
 def login():
-    print("Normal Route")
+    print("Admin Route")
     if request.method == 'GET':
-        return make_response(render_template('login.html'), 200, headers)
+        return make_response(render_template('admin_landing.html'), 200, headers)
     username = request.form['username']
     password = request.form['password']
     if not is_valid(username, password):
@@ -82,4 +84,13 @@ def login():
     if request.method == 'POST':
         login_user(user)
 
-    return redirect(url_for('home_route.home'))
+    return make_response(render_template('admin_landing.html'), 200, headers)
+    #return redirect(url_for('main_login_route.admin_landing'))
+
+@admin_login_route.route("/render_resume")
+def tos():
+    workingdir = os.path.abspath(os.getcwd())
+    print("dir")
+    print(workingdir)
+    filepath = workingdir + '/static/files/'
+    return send_from_directory(filepath, 'resume.pdf')

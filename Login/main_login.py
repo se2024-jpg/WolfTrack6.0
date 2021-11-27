@@ -2,7 +2,7 @@ from flask import Blueprint, session, request, redirect, render_template, curren
 from flask_login import LoginManager, login_user, UserMixin
 from datetime import datetime, timedelta
 
-login_route = Blueprint('admin', __name__)
+main_login_route = Blueprint('main_login', __name__)
 login_manager = LoginManager()
 headers = {'Content-Type': 'text/html'}
 
@@ -32,7 +32,7 @@ upcoming_events = [
 ]
 
 
-@login_route.record_once
+@main_login_route.record_once
 def on_load(state):
     login_manager.init_app(state.app)
 
@@ -40,7 +40,7 @@ def on_load(state):
 def load_user(userid):
     return User(session['userinfo']['userid'])
 
-@login_route.before_app_request
+@main_login_route.before_app_request
 def before_request():
     session.modified = True
     current_app.permanent_session_lifetime = timedelta(minutes=30)
@@ -67,11 +67,11 @@ def is_valid(username, password):
     return True
 
 
-@login_route.route('', methods=["GET", "POST"])
+@main_login_route.route('', methods=["GET", "POST"])
 def login():
-    print("Normal Route")
+    print("Main Route")
     if request.method == 'GET':
-        return make_response(render_template('login.html'), 200, headers)
+        return make_response(render_template('main_login.html'), 200, headers)
     username = request.form['username']
     password = request.form['password']
     if not is_valid(username, password):
@@ -83,3 +83,15 @@ def login():
         login_user(user)
 
     return redirect(url_for('home_route.home'))
+
+@main_login_route.route('/admin_login')
+def admin_login():
+    return make_response(render_template('admin_login.html'), 200, headers)
+
+@main_login_route.route('/user_login')
+def user_login():
+    return make_response(render_template('login.html'), 200, headers)
+
+@main_login_route.route('/admin_landing')
+def admin_landing():
+    return make_response(render_template('admin_landing.html'), 200, headers)

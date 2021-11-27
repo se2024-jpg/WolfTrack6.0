@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>WolfTrack - Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+  
+  <style>
+      /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+
+  padding-top: 50px; /* Location of the box */
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  left: 400px;
+  top: 200px;
+  width: 50%; /* Full width */
+  height: 60%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  color: #000;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+    <ul class="navbar-nav ">
+      <a class="navbar-brand" href="/">WolfTrack</a>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row content">
+
+      <!-- Left Sidebar -->
+      <div class="col-sm-3 sidenav sidenav-left">
+        <center>
+          <img class="rounded-circle" alt="100x100"
+            src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="250px"
+            width="250px" data-holder-rendered="true">
+
+          <br><br>
+
+          <div class="card" style="width: 18rem; text-align: left;">
+            <div class="card-body">
+              <h5 class="card-title ">Akhil Kumar</h5>
+              <div class="row">
+                <div class="col">
+                  <b>Gender</b>
+                </div>
+                <div class="col">
+                  Male
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <b>Location</b>
+                </div>
+                <div class="col">
+                  Raleigh, NC
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          
+          <br><br>
+        </center>
+        
+       
+
+      </div>
+
+      <!-- Content -->
+      <div class="col-sm-6 text-left main-content">
+        <center>
+          {% block content %}{% endblock %}
+          <div class="button-container">
+            
+            <div class = "image-container">
+                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                    <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
+                </a>
+                <p class="name" style="background-color:#b9dfec"> Vamshi </p>
+                <div class="review-container">
+                    <a href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec"><span color="black">Review</span></a>
+                    <button  id="myBtn" class="button5" style="background-color:#b9dfec"><span color="black">Comment</span></button>   
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form action="/action_page.php" class="form-container">
+                            <p>Comments</p>
+                            <textarea id="comment" name="comment" rows="10" cols="50">
+                            </textarea>
+                            <br>
+                            <button type="submit" class="button6">Send Email</button>                            
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                <div class="divider"> </div>
+                <!-- <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                    <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
+                </a> -->
+            <div class = "image-container">
+                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                    <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
+                </a>
+                <p class="name" style="background-color:#b9dfec"> Sheldon </p>
+                <div class="review-container">
+                    <a href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec"><span color="black">Review</span></a>
+                    <button  id="myBtn" class="button5" style="background-color:#b9dfec"><span color="black">Comment</span></button>   
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form action="/action_page.php" class="form-container">
+                            <p>Comments</p>
+                            <textarea id="comment" name="comment" rows="10" cols="50">
+                            </textarea>
+                            <br>
+                            <button type="submit" class="button6">Send Email</button>                            
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>            
+          </div>
+        </center>
+      </div>
+
+
+
+      
+
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+       var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
+        
+
+</body>
+
+</html>
