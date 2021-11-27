@@ -7,44 +7,9 @@ from Controller.send_profile import *
 from Controller.ResumeParser import *
 import os
 from flask import send_file, current_app as app
+from Controller.data import data, upcoming_events, profile
 
 home_route = Blueprint('home_route', __name__)
-
-
-data = {
-    "wishlist": ["Microsoft", "Google", "Uber"],
-    "inprogress": ["Twitter", "Pearson"],
-    "applied": ["Amazon", "NetApp"],
-    "offers": ["Perfios"]
-}
-
-upcoming_events = [
-    {"duedate": "28th Sept, 2021",
-     "company": "Apple"
-     },
-    {"duedate": "19th Dec, 2021",
-     "company": "Microsoft"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     }
-]
-
-profile = {
-    "name": "Jessica Holds",
-    "Location": "Raleigh, NC",
-    "phone_number": "",
-    "social": {
-            "linkedin": "www.linkedin.com/in/surajdm",
-
-    }
-}
 
 
 @home_route.route('', methods=['GET'])
@@ -52,7 +17,7 @@ def home():
     if current_user.is_authenticated:
         return render_template('home.html', data=data, upcoming_events=upcoming_events)
     else:
-        return redirect('/login')
+        return render_template('main_login.html')
 
 
 @home_route.route('/view', methods=['GET'])

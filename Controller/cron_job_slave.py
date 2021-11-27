@@ -7,25 +7,9 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from Controller.data import upcoming_events
 
 receiver_email = 'niveditalodha1234@gmail.com'
-upcoming_events = [
-    {"duedate": "28th Sept, 2021",
-    "company": "Apple"
-    },
-    {"duedate": "19th Dec, 2021",
-    "company": "Microsoft"
-    },
-    {"duedate": "21st Dec, 2021",
-    "company": "Amazon"
-    },
-    {"duedate": "25th Nov, 2021",
-    "company": "Reddit"
-    },
-    {"duedate": "24th Nov, 2021",
-    "company": "Amazon"
-    }
-]
 
 def s_email(company, event_date):
 

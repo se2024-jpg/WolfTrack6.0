@@ -2,36 +2,11 @@ import os
 from flask import Blueprint, session, request, redirect, render_template, current_app, make_response, url_for,send_from_directory
 from flask_login import LoginManager, login_user, UserMixin
 from datetime import datetime, timedelta
-
+from Controller.data import data, upcoming_events, profile
 
 admin_login_route = Blueprint('admin_login', __name__)
 login_manager = LoginManager()
 headers = {'Content-Type': 'text/html'}
-
-data = {
-    "wishlist": ["Microsoft", "Google", "Uber"],
-    "inprogress": ["Twitter", "Pearson"],
-    "applied": ["Amazon", "NetApp"],
-    "offers": ["Perfios"]
-}
-
-upcoming_events = [
-    {"duedate": "28th Sept, 2021",
-     "company": "Apple"
-     },
-    {"duedate": "19th Dec, 2021",
-     "company": "Microsoft"
-     },   
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     }
-]
 
 
 @admin_login_route.record_once
