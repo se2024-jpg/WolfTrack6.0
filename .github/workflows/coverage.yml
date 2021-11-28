@@ -25,7 +25,7 @@ jobs:
             EXTRA_ARGS+="-f"
           fi
           coverage-badge $EXTRA_ARGS -o "${{ inputs.output }}"
-        
+
         shell: bash
     branding:
       icon: check-circle
