@@ -15,19 +15,22 @@ def get_jobs_for_cities(role):
         page = requests.get(city_url)
         soup = BeautifulSoup(page.text, "html.parser")
         extract_job_title_from_result(soup,city,result)
-    df=pd.DataFrame(result)
-    print(df.head())
+    return result
 
 def get_jobs_for_roles():
+    final_res=[]
     for role in roles:
-        get_jobs_for_cities(role)
+        jobs=get_jobs_for_cities(role)
+        final_res.extend(jobs)
+    return final_res
 
 def extract_job_title_from_result(soup,city,result): 
     div=soup.find(name="div", attrs={"id":"mosaic-provider-jobcards"})
     a_ele_list=div.findAll("a",href=True)
     cntr=0
     for a_ele in a_ele_list:
-        if(cntr==5):
+        #To get one job per location per role..Can remove to get all
+        if(cntr==1):
             return
         cntr+=1
         ele=a_ele.find("h2", {"class": re.compile("jobTitle*")})
@@ -37,5 +40,17 @@ def extract_job_title_from_result(soup,city,result):
             job_url="https://www.indeed.com"+href
             job_page=requests.get(job_url)
             job_soup=BeautifulSoup(job_page.text,"html.parser")
+            description_div=job_soup.find("div",{"class":"jobsearch-jobDescriptionText"})
+            description=""
+            if(description_div==None):
+                continue
+            else:
+                description=description_div.text
+            location_div=job_soup.find("div",{"class":"jobsearch-jobLocationHeader-location"})
+            if(location_div!=None):
+                location=location_div.text
+            else:
+                location= city
+            result.append(title+"|"+description+"|"+location)
 
 get_jobs_for_roles()
