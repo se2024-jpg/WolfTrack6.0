@@ -90,6 +90,12 @@ def upload():
 def view_ResumeAna():
     return render_template('resume_analyzer.html')
 
+
+@home_route.route('/findJobs', methods=['GET'])
+@login_required
+def view_jobs():
+    return render_template('find_jobs.html')
+
 @home_route.route('/analyze_resume', methods=['POST'])
 @login_required
 def analyze_resume():
