@@ -51,6 +51,11 @@ def extract_job_title_from_result(soup,city,result):
                 location=location_div.text
             else:
                 location= city
-            result.append(title+"|"+description+"|"+location)
+            res_dict={}
+            res_dict["title"]=title
+            res_dict["desc"]=description
+            res_dict["location"]=location
+            result.append(res_dict)
 
+#This is the main function call. Response of this would be list of dicts
 get_jobs_for_roles()
