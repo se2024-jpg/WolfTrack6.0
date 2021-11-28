@@ -24,6 +24,6 @@ app.app_context().push()
 
 
 if __name__ == '__main__':
-    app.config['SECRET_KEY'] = 'Sample' #os.environ.get('SECRET_KEY')
+    app.config['SECRET_KEY'] = 'CODE_TOKEN' #os.environ.get('SECRET_KEY')
     app.app_context().push()
     app.run(debug=True)
