@@ -93,8 +93,12 @@ def view_ResumeAna():
 
 @home_route.route('/findJobs', methods=['GET'])
 @login_required
-def view_jobs():
-    return render_template('find_jobs.html')
+def view_jobs(): 
+    import json
+    f = open('Controller/scrap.json')
+    data = json.load(f)
+    print(data)
+    return render_template('find_jobs.html', data = (data))
 
 @home_route.route('/analyze_resume', methods=['POST'])
 @login_required
