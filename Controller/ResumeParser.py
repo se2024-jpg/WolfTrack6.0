@@ -92,7 +92,7 @@ def get_resume_score(text):
     print("\nSimilarity Scores:")
      
     #get the match percentage
-    matchPercentage = cosine_similarity(arr)[0][1] * 100
+    matchPercentage = cosine_similarity(count_matrix_array)[0][1] * 100
     matchPercentage = round(matchPercentage, 2) # round to two decimal
      
     print("Your resume matches about "+ str(matchPercentage)+ "% of the job description.")
