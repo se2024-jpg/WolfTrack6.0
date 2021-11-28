@@ -1,8 +1,8 @@
 import requests
-import bs4
 from bs4 import BeautifulSoup
 import pandas as pd
 import re
+import json
 
 base_url = "https://www.indeed.com/jobs?q={role}+%2420%2C000&l={city}"
 roles=["software+engineer","data+scientist"]
@@ -22,7 +22,17 @@ def get_jobs_for_roles():
     for role in roles:
         jobs=get_jobs_for_cities(role)
         final_res.extend(jobs)
-    return final_res
+    with open('scrap.json', 'w', encoding='utf-8') as f:
+        json.dump(final_res, f, ensure_ascii=False, indent=4)
+    f_read = open('scrap.json')
+    data = json.load(f_read)
+    print(data)
+
+def clean_text(text):
+    encoded_text = text.encode("ascii", "ignore")
+    clean_text = encoded_text.decode()
+    clean_text=clean_text.replace("u'", "'")
+    return clean_text
 
 def extract_job_title_from_result(soup,city,result): 
     div=soup.find(name="div", attrs={"id":"mosaic-provider-jobcards"})
@@ -36,6 +46,7 @@ def extract_job_title_from_result(soup,city,result):
         ele=a_ele.find("h2", {"class": re.compile("jobTitle*")})
         if(ele!=None):
             title=ele.text
+            title=clean_text(title)
             href=a_ele["href"]
             job_url="https://www.indeed.com"+href
             job_page=requests.get(job_url)
@@ -46,16 +57,19 @@ def extract_job_title_from_result(soup,city,result):
                 continue
             else:
                 description=description_div.text
+            description=clean_text(description)
             location_div=job_soup.find("div",{"class":"jobsearch-jobLocationHeader-location"})
             if(location_div!=None):
                 location=location_div.text
+
             else:
                 location= city
+            location=clean_text(location)
             res_dict={}
             res_dict["title"]=title
             res_dict["desc"]=description
             res_dict["location"]=location
             result.append(res_dict)
-    return result
+
 #This is the main function call. Response of this would be list of dicts
 print(get_jobs_for_roles())
