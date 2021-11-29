@@ -3,6 +3,7 @@ from flask import Blueprint, session, request, redirect, render_template, curren
 from flask_login import LoginManager, login_user, UserMixin
 from datetime import datetime, timedelta
 from Controller.data import data, upcoming_events, profile
+from Controller.send_email import *
 
 admin_login_route = Blueprint('admin_login', __name__)
 login_manager = LoginManager()
@@ -69,3 +70,12 @@ def tos():
     print(workingdir)
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume.pdf')
+
+@admin_login_route.route("/send_email", methods=['GET','POST'])
+def send_email():
+    print('In send email')
+    comments = request.form['comment']
+    print(comments  )
+    email = 'nitwwolfpack@gmail.com'
+    s_comment_email(email,comments)
+    return make_response(render_template('admin_landing.html'), 200, headers)

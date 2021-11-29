@@ -48,10 +48,10 @@ a.button4{
     transition: all 0.2s;
     padding-left: 50px ;
     padding-right: 50px;
-    /* border-radius: 10px; */
-    border-color: black;
-    border-style: solid;
-    width: 270px;
+    border-radius: 10px; 
+    /* border-color: black;
+    border-style: solid; */
+    width: 275px;
 
   }
 
@@ -70,10 +70,10 @@ a.button4{
     text-align:center;
     transition: all 0.2s;
     /* padding-left: 50px ;
-    padding-right: 50px; */
+    padding-right: 50px;  */
     border-radius: 10px;
-    border-color: black;
-    border-style: solid;
+    /* border-color: black;
+    border-style: solid; */
     width : 50px;
   }
 
@@ -93,15 +93,16 @@ a.button4{
     text-decoration:none;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:#000000;
+    color:#ffffff;
     /* text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35); */
     text-align:center;
     transition: all 0.2s;
     /* padding-left: 50px ;
     padding-right: 50px; */
+    background-color: red;
     border-radius: 10px;
-    border-color: black;
-    border-style: solid;
+    /* border-color: black;
+    border-style: solid; */
     width : 135px;
   }
 
@@ -124,6 +125,12 @@ a.button4{
   
   .divider{
     width:100px;
+    height:auto;
+    display:inline-block;
+  }
+
+  .divider-icon{
+    width:25px;
     height:auto;
     display:inline-block;
   }
@@ -186,5 +193,9 @@ a.button4{
       flex-direction: row;
       justify-content: center;
   }
+
+  body{
+    background-color: #f0e0e0;
+  }
   
-  
+
