@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root {
     
-    --theme-dark: #ffffff;
+    --theme-dark: #E9967A;
     --theme-light: #f35858;
     --text-color: white;
     --navbar-background: #da2d2d;
@@ -47,8 +47,8 @@ body {
   }
 
 .btn {
-  background: #e9f0f5;
-  background-image: -webkit-linear-gradient(top, #e9f0f5, #ffffff);
+  /* background: #e9f0f5; */
+  /* background-image: -webkit-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -moz-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -ms-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -o-linear-gradient(top, #e9f0f5, #ffffff);
@@ -61,7 +61,8 @@ body {
   font-size: 18px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bold; */
+  font-family: "Poppins" , sans-serif;
 }
 
 .btn:hover {
@@ -97,3 +98,6 @@ body {
   text-align: center;
 }
 
+.card-link{
+  color:#1c4552;
+}

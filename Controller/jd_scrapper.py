@@ -18,10 +18,10 @@ def get_jobs_for_cities(role):
     return result
 
 def get_jobs_for_roles():
-    final_res=[]
+    final_res={"details":[]}
     for role in roles:
         jobs=get_jobs_for_cities(role)
-        final_res.extend(jobs)
+        final_res["details"].append(jobs)
     with open('scrap.json', 'w', encoding='utf-8') as f:
         json.dump(final_res, f, ensure_ascii=False, indent=4)
     f_read = open('scrap.json')
@@ -32,6 +32,8 @@ def clean_text(text):
     encoded_text = text.encode("ascii", "ignore")
     clean_text = encoded_text.decode()
     clean_text=clean_text.replace("u'", "'")
+    clean_text=clean_text.replace("\"", " ")
+    clean_text=clean_text.replace("\n", "<br>")
     return clean_text
 
 def extract_job_title_from_result(soup,city,result): 
