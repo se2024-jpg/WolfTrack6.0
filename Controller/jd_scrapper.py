@@ -26,7 +26,7 @@ def get_jobs_for_roles():
         json.dump(final_res, f, ensure_ascii=False, indent=4)
     f_read = open('scrap.json')
     data = json.load(f_read)
-    print(data)
+    # print(data)
 
 def clean_text(text):
     encoded_text = text.encode("ascii", "ignore")

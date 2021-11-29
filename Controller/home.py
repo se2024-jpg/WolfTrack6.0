@@ -97,7 +97,6 @@ def view_jobs():
     import json
     f = open('Controller/scrap.json')
     data = json.load(f)
-    print(data)
     return render_template('find_jobs.html', data = (data))
 
 @home_route.route('/analyze_resume', methods=['POST'])

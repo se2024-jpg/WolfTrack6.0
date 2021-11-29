@@ -6,6 +6,7 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfpage import PDFPage
 #Docx resume
 import docx2txt
+import PyPDF2
 #Wordcloud
 import re
 import numpy as np  
@@ -22,20 +23,36 @@ import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-def read_pdf_resume(pdf_doc):
-    resource_manager = PDFResourceManager()
-    fake_file_handle = io.StringIO()
-    converter = TextConverter(resource_manager, fake_file_handle)
-    page_interpreter = PDFPageInterpreter(resource_manager, converter)
-    with open(pdf_doc, 'rb') as fh:
-        for page in PDFPage.get_pages(fh, caching=True,check_extractable=True):           
-            page_interpreter.process_page(page)     
-        text = fake_file_handle.getvalue() 
-    # close open handles      
-    converter.close() 
-    fake_file_handle.close() 
-    if text:     
-        return text
+# def read_pdf_resume(pdf_doc):
+#     resource_manager = PDFResourceManager()
+#     fake_file_handle = io.StringIO()
+#     converter = TextConverter(resource_manager, fake_file_handle)
+#     page_interpreter = PDFPageInterpreter(resource_manager, converter)
+#     with open(pdf_doc, 'rb') as fh:
+#         for page in PDFPage.get_pages(fh, caching=True,check_extractable=True):           
+#             page_interpreter.process_page(page)     
+#         text = fake_file_handle.getvalue() 
+#     # close open handles      
+#     converter.close() 
+#     fake_file_handle.close() 
+#     if text:     
+#         return text
+
+def read_pdf_resume(file):
+    # creating a pdf file object
+    pdfFileObj = open(file, 'rb')
+    
+    # creating a pdf reader object
+    pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+    
+    # creating a page object
+    pageObj = pdfReader.getPage(0)
+    
+    # extracting text from page
+    text = pageObj.extractText()
+    # closing the pdf file object
+    pdfFileObj.close()
+    return text
 
 def read_word_resume(word_doc):
      resume = docx2txt.process(word_doc)
@@ -43,6 +60,7 @@ def read_word_resume(word_doc):
      #print(resume)
      text =  ''.join(resume)
      text = text.replace("\n", "")
+     print(text)
      if text:
          return text
 
@@ -100,7 +118,10 @@ def get_resume_score(text):
 
 
 def resume_analyzer(jobtext, file):
-    resume = read_word_resume(file)
+    if file.endswith(".pdf"):
+        resume = read_pdf_resume(file)
+    else:
+        resume = read_word_resume(file)
     job_description = jobtext
     ## Get a Keywords Cloud 
     clean_jd = clean_job_decsription(job_description) 
