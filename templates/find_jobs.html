@@ -827,11 +827,17 @@
                 const jsondata = $.parseJSON('{{data|tojson}}');
                 let data = ""
 				let desc = ""
-                for(var i = 0; i<jsondata["details"].length;i++){
+				var arr = [];
+				var n = jsondata["details"].length
+				while(arr.length < 6){
+					var r = Math.floor(Math.random() * n) + 1;
+					if(arr.indexOf(r) === -1) arr.push(r);
+				}
+                for(var i = 0; i<arr.length;i++){
                         data += "<div><b>Job Role:</b>"
-                        data += jsondata["details"][i]["title"]
+                        data += jsondata["details"][arr[i]]["title"]
                         data += "<br/><b>Job Description:</b> "
-						desc = jsondata["details"][i]["desc"]
+						desc = jsondata["details"][arr[i]]["desc"]
 						if(desc.length>409){
 							data += desc.slice(0,409) + "<span id='dots'>...</span>"
 							data += "<span id='view_more'>"+desc.slice(409,desc.length)+"</span>"
@@ -841,7 +847,7 @@
 							data += desc
 						}
                         data += "<br/><b>Job Location:</b> "
-                        data += jsondata["details"][i]["location"]
+                        data += jsondata["details"][arr[i]]["location"]
                         data += "</div><br/><br/>"
                 }
                 document.getElementById("jobs").innerHTML = data
