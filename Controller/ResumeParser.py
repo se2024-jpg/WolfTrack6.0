@@ -22,9 +22,6 @@ from nltk.probability import FreqDist
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import cv2
-import pytesseract
-
 
 # def read_pdf_resume(pdf_doc):
 #     resource_manager = PDFResourceManager()
@@ -40,14 +37,6 @@ import pytesseract
 #     fake_file_handle.close() 
 #     if text:     
 #         return text
-
-
-def read_image_resume(file):
-    image = cv2.imread(file)
-    text = pytesseract.image_to_string(image)
-    print(text)
-    if text:
-        return text
 
 def read_pdf_resume(file):
     # creating a pdf file object
@@ -131,8 +120,6 @@ def get_resume_score(text):
 def resume_analyzer(jobtext, file):
     if file.endswith(".pdf"):
         resume = read_pdf_resume(file)
-    elif file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".png"):
-        resume = read_image_resume(file)
     else:
         resume = read_word_resume(file)
     job_description = jobtext
