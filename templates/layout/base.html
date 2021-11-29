@@ -73,8 +73,6 @@
     .feature-button {
       background-color: #da2d2d; 
       border-radius: 5px;
-      margin-top:4%;
-      margin-bottom: 4%;
     }
     .section-heading {
       width: 18rem; 
@@ -191,6 +189,37 @@
   </nav>
 
   <div class="container-fluid">
+    <div class="row" style="margin-top: 2%;">
+      
+      <div class="card1" id = "resumeAnalyzer" style="width: 100%;">
+        <div style="display:flex; justify-content: space-evenly;">
+          <a href="resumeAnalyzer"  class="cta pointer-cursor">
+            <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id= "rA">
+              <div class = "p-2"><i class="material-icons icon-function">playlist_add_check</i></div>
+
+              <div class = "p-2 flex-grow-1 align-centre"><span>Analyze Resume</span></div>
+            </div>
+            
+          </a>
+          <a href="findJobs"  class="cta pointer-cursor">
+            <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id= "rA">
+              <div class = "p-2"><i class="material-icons icon-function">search</i></div>
+
+              <div class = "p-2 flex-grow-1 align-centre"><span>Recommend Jobs</span></div>
+            </div>
+            
+          </a>
+          <div href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta pointer-cursor">
+            <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id ="setTarget">
+              <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
+
+              <div class = "p-2 flex-grow-1 align-centre" style="color:black"><span>Set Target</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
     <div class="row content">
 
       <!-- Left Sidebar -->
@@ -229,75 +258,27 @@
           <br />
           <div id="container" class="daily-target-chart"></div>
           <br/>
-          <div class="card1 card-common" id = "resumeAnalyzer">
-            <div>
-              <a href="resumeAnalyzer"  class="cta pointer-cursor">
-                <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id= "rA">
-                  <div class = "p-2"><i class="material-icons icon-function">playlist_add_check</i></div>
-
-                  <div class = "p-2 flex-grow-1 align-centre"><span>Analyze Resume</span></div>
-                </div>
-                
-              </a>
-              <a href="findJobs"  class="cta pointer-cursor">
-                <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id= "rA">
-                  <div class = "p-2"><i class="material-icons icon-function">search</i></div>
-
-                  <div class = "p-2 flex-grow-1 align-centre"><span>Recommend Jobs</span></div>
-                </div>
-                
-              </a>
-              <div href="#targetModal" data-toggle="modal" data-target="#targetModal" class="cta pointer-cursor">
-                <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id ="setTarget">
-                  <div class = "p-2"><i class="material-icons icon-function">filter_center_focus</i></div>
-
-                  <div class = "p-2 flex-grow-1 align-centre"><span>Set Target</span></div>
-                </div>
-              </div>
-
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Upcoming Events</h5>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Company</th>
+                    <th scope="col">Due Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in upcoming_events %}
+                  <tr>
+                    <td>{{ item.company }}</td>
+                    <td>{{ item.duedate }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
-          </div>
-          <br/>
-          <div class = "section-heading" >
-            CV <!--Padding is optional-->
-            <div class="section-division">
-            </div>
-            <div class="section-content">
-              <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" multiple style="color: white;font-size: 14px;" />
-                <button href="upload" type="Submit" value="upload()" name="Upload" class="btn btn-dark"
-                  style="margin-top: 5%;position: relative;">Add CV</button>
-                  <form action="{{url_for('home_route.display')}}" method="POST" enctype="multipart/form-data">
-                    <button href="display" type="Submit" value="display()" name="display" class="btn btn-dark"
-                      style="margin-top: 5%;position: relative;">Download CV</button>
-                  </form>
-              </form>
-    
-              
-            </div>
-          </div>
-          <div class = "section-heading" style="padding-top: 20px;">
-            Send Profile <!--Padding is optional-->
-            <div class = "section-division">
-            </div>
-            <div class="section-content">
-              <form action="{{url_for('home_route.send_Profile')}}" method="POST">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text padding-left-right-6"id="btnGroupAddon">
-                      <i class="material-icons icon-eye">email</i>
-                    </div>
-                  </div>
-                  <input type="text" name="emailID" id="emailID" class="form-control" placeholder="Email ID">
-                  <div class="input-group-append" value="send_Profile()" onclick="">
-                    <div class="input-group-text btn-primary padding-left-right-6"id="btnGroupAddon">
-                      <i class="material-icons icon-eye">send</i>
-                    </div>
-                  </div>
-                </div>
-              </form>
-    
-            </div>
+          
           </div>
           
           
@@ -340,25 +321,45 @@
       <!-- Right Sidebar -->
       <div class="col-sm-3 sidenav sidenav-right">
 
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Upcoming Events</h5>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Company</th>
-                  <th scope="col">Due Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for item in upcoming_events %}
-                <tr>
-                  <td>{{ item.company }}</td>
-                  <td>{{ item.duedate }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+        <div class = "section-heading" >
+          CV <!--Padding is optional-->
+          <div class="section-division">
+          </div>
+          <div class="section-content">
+            <form id="upload-form" action="{{url_for('home_route.upload')}}" method="POST" enctype="multipart/form-data">
+              <input type="file" name="file" multiple style="color: white;font-size: 14px;" />
+              <button href="upload" type="Submit" value="upload()" name="Upload" class="btn btn-dark"
+                style="margin-top: 5%;position: relative;">Add CV</button>
+                <form action="{{url_for('home_route.display')}}" method="POST" enctype="multipart/form-data">
+                  <button href="display" type="Submit" value="display()" name="display" class="btn btn-dark"
+                    style="margin-top: 5%;position: relative;">Download CV</button>
+                </form>
+            </form>
+  
+            
+          </div>
+        </div>
+        <div class = "section-heading" style="padding-top: 20px;">
+          Send Profile <!--Padding is optional-->
+          <div class = "section-division">
+          </div>
+          <div class="section-content">
+            <form action="{{url_for('home_route.send_Profile')}}" method="POST">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text padding-left-right-6"id="btnGroupAddon">
+                    <i class="material-icons icon-eye">email</i>
+                  </div>
+                </div>
+                <input type="text" name="emailID" id="emailID" class="form-control" placeholder="Email ID">
+                <div class="input-group-append" value="send_Profile()" onclick="">
+                  <div class="input-group-text btn-primary padding-left-right-6"id="btnGroupAddon">
+                    <i class="material-icons icon-eye">send</i>
+                  </div>
+                </div>
+              </div>
+            </form>
+  
           </div>
         </div>
 

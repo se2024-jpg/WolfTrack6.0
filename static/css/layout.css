@@ -84,7 +84,7 @@ body {
 
 .sidenav-right,.sidenav-left {
     color: black;
-    padding-top: 40pt;
+    /* padding-top: 40pt; */
 }
 
 .new-application-modal {
