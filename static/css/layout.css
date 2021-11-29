@@ -3,6 +3,7 @@
     
     --theme-dark: #ffffff;
     /* --theme-light: #da2d2d; */
+    /* --theme-dark: #E9967A; */
     --theme-light: #f35858;
     --text-color: white;
     --navbar-background: #da2d2d;
@@ -48,8 +49,8 @@ body {
   }
 
 .btn {
-  background: #e9f0f5;
-  background-image: -webkit-linear-gradient(top, #e9f0f5, #ffffff);
+  /* background: #e9f0f5; */
+  /* background-image: -webkit-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -moz-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -ms-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -o-linear-gradient(top, #e9f0f5, #ffffff);
@@ -62,7 +63,8 @@ body {
   font-size: 18px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bold; */
+  font-family: "Poppins" , sans-serif;
 }
 
 .btn:hover {
@@ -84,7 +86,7 @@ body {
 
 .sidenav-right,.sidenav-left {
     color: black;
-    padding-top: 40pt;
+    /* padding-top: 40pt; */
 }
 
 .new-application-modal {
@@ -98,3 +100,6 @@ body {
   text-align: center;
 }
 
+.card-link{
+  color:#1c4552;
+}

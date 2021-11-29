@@ -1,8 +1,9 @@
 
 data = {
-    "wishlist": ["Microsoft", "Google", "Uber"],    "inprogress": ["Twitter", "Pearson"],
-    "applied": ["Amazon", "NetApp"],
-    "offers": ["Perfios"]
+    "wishlist": ["Microsoft", "Google", "Apple", "Lyft"],
+    "inprogress": ["Twitter", "NetApp", "Facebook"],
+    "applied": ["Amazon", "Pearson"],
+    "offers": ["Perfios", "Reddit"]
 }
 
 upcoming_events = [
@@ -24,7 +25,7 @@ upcoming_events = [
 ]
 
 profile = {
-    "name": "Jessica Holds",
+    "name": "Vamshi Chidara",
     "Location": "Raleigh, NC",
     "phone_number": "",
     "social": {

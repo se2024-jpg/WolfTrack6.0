@@ -1,16 +1,12 @@
 name: Python application
-
 on:
   push:
     branches: [ Group10StableBranch ]
   pull_request:
     branches: [ Group10StableBranch ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
@@ -21,6 +17,15 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
+    - name: Generate Report
+      run: |
+        python3 -m coverage run UnitTesting/login_page_testing.py
+        python3 -m coverage report -i
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        flags: unittests
+        fail_ci_if_error: true
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

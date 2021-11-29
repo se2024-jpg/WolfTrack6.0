@@ -4,7 +4,7 @@
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<title>Snippet - BBBootstrap</title>
+	<title>Job Recommender</title>
 	<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
 	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
 	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -788,6 +788,9 @@
 			stroke-dashoffset: 900
 		}
 	}
+	#view_more{
+		display: none;
+	}
 	</style>
 </head>
 
@@ -805,15 +808,46 @@
 	</div>
 	<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
         <script>
-                const jsondata = JSON.parse('{{data|tojson}}')
+				function viewMore(elem) {
+					console.log(elem)
+					var dots = elem.previousSibling.previousSibling.previousSibling;
+					var moreText = elem.previousSibling.previousSibling;
+					var btnText = elem
+
+					if (dots.style.display === "none") {
+						dots.style.display = "inline";
+						btnText.innerHTML = "Read more"; 
+						moreText.style.display = "none";
+					} else {
+						dots.style.display = "none";
+						btnText.innerHTML = "Read less"; 
+						moreText.style.display = "inline";
+					}
+				}
+                const jsondata = $.parseJSON('{{data|tojson}}');
                 let data = ""
-                for(var i = 0; i<jsondata["details"].length;i++){
+				let desc = ""
+				var arr = [];
+				var n = jsondata["details"].length
+				while(arr.length < 6){
+					var r = Math.floor(Math.random() * n) + 1;
+					if(arr.indexOf(r) === -1) arr.push(r);
+				}
+                for(var i = 0; i<arr.length;i++){
                         data += "<div><b>Job Role:</b>"
-                        data += jsondata["details"][i]["title"]
+                        data += jsondata["details"][arr[i]]["title"]
                         data += "<br/><b>Job Description:</b> "
-                        data += jsondata["details"][i]["desc"]
+						desc = jsondata["details"][arr[i]]["desc"]
+						if(desc.length>409){
+							data += desc.slice(0,409) + "<span id='dots'>...</span>"
+							data += "<span id='view_more'>"+desc.slice(409,desc.length)+"</span>"
+							data += "<br><button onclick='viewMore(this)' id='mybtn' class='btn btn-link'>Read More</button>"
+						}
+						else{
+							data += desc
+						}
                         data += "<br/><b>Job Location:</b> "
-                        data += jsondata["details"][i]["location"]
+                        data += jsondata["details"][arr[i]]["location"]
                         data += "</div><br/><br/>"
                 }
                 document.getElementById("jobs").innerHTML = data

@@ -31,6 +31,11 @@ class FlaskTest(unittest.TestCase):
         statuscode = resp.status_code
         self.assertEqual(resp.content_type, "text/html; charset=utf-8")
     
+    def test_jobfinder_ui_render_routing(self):
+        resp = self.app.get('/findJobs')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
     def test_resume_parser_ui_render_routing(self):
         resp = self.app.get('/analyze_resume')
         statuscode = resp.status_code
