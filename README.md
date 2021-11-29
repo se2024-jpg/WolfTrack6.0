@@ -9,7 +9,7 @@ Version2:
 [![DOI](https://zenodo.org/badge/414012750.svg)](https://zenodo.org/badge/latestdoi/414012750)
 [![GitHub Release](https://img.shields.io/github/release/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0/releases/tag/wolftrack)
 [![Manaul Build](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml/badge.svg)](https://github.com/aditya4196/WolfTrack2.0/actions/workflows/main.yml)
-[![codecov](https://codecov.io/gh/aditya4196/WolfTrack2.0/branch/Group10StableBranch/graph/badge.svg?token=87658741-ab78-4f28-bee0-c1ee845844e6)](https://app.codecov.io/gh/nehajaideep/WolfTrack2.0)
+[![codecov](https://codecov.io/gh/aditya4196/WolfTrack2.0/branch/Group10StableBranch/graph/badge.svg?token=87658741-ab78-4f28-bee0-c1ee845844e6)](https://app.codecov.io/gh/aditya4196/WolfTrack2.0)
 
 
 ![GitHub language count](https://img.shields.io/github/languages/count/aditya4196/WolfTrack2.0)

@@ -23,10 +23,13 @@ jobs:
         python3 -m pip install -r requirements.txt
     - name: Generate Report
       run: |
-        pip install coverage
-        coverage run -m unittest
+        python3 -m coverage run UnitTesting/login_page_testing.py
+        python3 -m coverage report
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
+      with:
+        flags: unittests
+        fail_ci_if_error: true
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
