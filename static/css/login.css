@@ -11,7 +11,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #354457;
+  background: #f0e0e0;
   padding: 30px;
 }
 .container{
@@ -22,6 +22,7 @@ body{
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
+  border: #000000;
 }
 .container .cover{
   position: absolute;
@@ -97,7 +98,7 @@ body{
 .container .forms{
   height: 100%;
   width: 100%;
-  background: #fff;
+  background: rgb(255, 255, 255);
 }
 .container .form-content{
   display: flex;
@@ -174,7 +175,7 @@ body{
 }
 .forms .form-content .button input{
   color: #fff;
-  background: #354457;
+  background: #e92626;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
@@ -260,15 +261,16 @@ a.button4{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   
   font-weight:300;
-  color:#000000;
-  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  color:#fffefe;
+  /* text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35); */
   text-align:center;
   transition: all 0.2s;
   padding-left: 50px ;
   padding-right: 50px;
   border-radius: 10px;
-  border-color: black;
-  border-style: solid;
+  /* border-color: black;
+  border-style: solid; */
+  background-color: #e92626;
 }
 a.button4:hover{
   border-color: rgba(255,255,255,1);
@@ -300,12 +302,16 @@ a.button4:hover{
 .main-container{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  /* padding-left: 200px;
+  padding-top: 20px; */
 }
 
 .button-container{
   display: flex;
   flex-direction: row;
-  padding-left: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-container{
@@ -318,24 +324,27 @@ a.button4:hover{
 
 .main-header {
   text-align: center;
-  background: #b9dfec;
+  background: rgb(226, 202, 202);
   color: rgb(0, 0, 0);
   padding: 12px;
   border-radius: 10px;
-  border-color: black;
-  border-style: solid;
+  /* border-color: black; */
+  /* border-style: solid; */
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  width: 70%;
-
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .project-container{
   padding-top : 100px;
   padding-bottom: 100px;
-  background-color: antiquewhite;
-  background: url("../images/bg-1.jpeg") no-repeat center center fixed; 
+  background-color: rgb(226, 202, 202);
+  /* background: url("../images/bg-1.jpeg") no-repeat center center fixed;  */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -349,3 +358,16 @@ a.button4:hover{
   height: 200%;
 }
 
+
+.main-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.circle-img{
+  border-color: #000000;
+  border-style: solid;
+}

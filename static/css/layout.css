@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root {
-    --theme-dark: #225161;
-    --theme-light: #295D6B;
+    
+    --theme-dark: #ffffff;
+    --theme-light: #f35858;
     --text-color: white;
-    --navbar-background: #16353f;
+    --navbar-background: #da2d2d;
   }
+
+  /* --theme-dark: #225161;
+    --theme-light: #295D6B; */
 
 .navbar {
     background-color: var(--navbar-background);
+    width: 100%;
 }
+
+.navbar-header {
+  float: center;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+.navbar-brand {float:center;}
 
 .sidenav {
     padding-top: 20px;    
@@ -81,5 +94,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 

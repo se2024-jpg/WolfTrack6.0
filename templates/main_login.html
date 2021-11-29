@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title> WolfTrack </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    
 
 
     <!-- Bootstrap -->
@@ -54,25 +56,41 @@ box-sizing: border-box;
   
 <body>
 
+
+  <div class="main-body">
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+    <ul class="navbar-nav ">
+      <!-- <img class="rounded-circle project-icon" alt="100x100"
+        src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="30px"
+        width="30px" data-holder-rendered="true"> -->
+      <a class="navbar-brand" href="/"><h1 >WolfTrack 3.0</h1></a>
+    </ul>
+
+    
+  </nav>
+  
+
   <div class="project-container">
   <div class="main-header">
-    <h1 >WolfTrack 3.0</h1>
-  </div>
-  <div class="main-container">
-    <div class="image-container">
-      <img class="rounded-circle" alt="100x100" src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="400px"
-      width="400px" data-holder-rendered="true"></img> 
-    </div>
     
-    <div class="button-container">
-     
-          <a href="http://127.0.0.1:5000/main_login/admin_login" class="button4"  style="background-color:#b9dfec">Admin</a>
-          <div class="divider"> </div>
-          <a href="http://127.0.0.1:5000/main_login/user_login" class="button4" style="background-color:#b9dfec">User</a>
+    <div class="main-container">
+      <div class="image-container">
+        <img class="rounded-circle circle-img" alt="100x100" src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg" height="400px"
+        width="400px" data-holder-rendered="true" ></img> 
+      </div>
+      
+      <div class="button-container">
+       
+            <a href="http://127.0.0.1:5000/main_login/admin_login" class="button4"  ><h6>Admin</h6></a>
+            <div class="divider"> </div>
+            <a href="http://127.0.0.1:5000/main_login/user_login" class="button4" ><h6>User</h6></a>
+      </div>
     </div>
+    </div>
+  
   </div>
   </div>
-
+  
   
 </body>
 </html>
