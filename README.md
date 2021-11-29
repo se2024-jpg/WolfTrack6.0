@@ -1,4 +1,4 @@
-<h1 align= "center"><b>WolfTrack 2.0</b></h1>
+<h1 align= "center"><b>WolfTrack 3.0</b></h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
