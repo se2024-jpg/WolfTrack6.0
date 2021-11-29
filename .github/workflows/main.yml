@@ -20,7 +20,7 @@ jobs:
     - name: Generate Report
       run: |
         python3 -m coverage run UnitTesting/login_page_testing.py
-        python3 -m coverage report
+        python3 -m coverage report -i
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
