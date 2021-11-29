@@ -19,11 +19,17 @@ Version2:
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aditya4196/WolfTrack2.0)](https://github.com/aditya4196/WolfTrack2.0)
 
 
-Version2:
+Version3:
 [![DOI](https://zenodo.org/badge/414012750.svg)](https://zenodo.org/badge/latestdoi/414012750)
 [![GitHub Release](https://img.shields.io/github/release/nehajaideep/WolfTrack2.0)](https://github.com/nehajaideep/WolfTrack2.0/releases/tag/wolftrack)
-[![Manaul Build](https://github.com/nehajaideep/WolfTrack2.0/actions/workflows/main.yml/badge.svg)](https://github.com/nehajaideep/WolfTrack2.0/actions/workflows/main.yml)
+[![Manual Build](https://github.com/nehajaideep/WolfTrack2.0/actions/workflows/main.yml/badge.svg)](https://github.com/nehajaideep/WolfTrack2.0/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack2.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack2.0)
+
+![GitHub language count](https://img.shields.io/github/languages/count/nehajaideep/WolfTrack2.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/nehajaideep/WolfTrack2.0)](https://github.com/nehajaideep/WolfTrack2.0)
+[![GitHub-size](https://img.shields.io/github/languages/code-size/nehajaideep/WolfTrack2.0)](https://github.com/nehajaideep/WolfTrack2.0)
+[![GitHub issues](https://img.shields.io/github/issues/nehajaideep/WolfTrack2.0)](https://github.com/nehajaideep/WolfTrack2.0)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/nehajaideep/WolfTrack2.0)](https://github.com/nehajaideep/WolfTrack2.0)
 
 ---
 ![Alt Text](https://media.giphy.com/media/7zBG3bIV14nddNj3ko/giphy.gif?cid=790b76112100f623635602c75ee21781b0c6dceb288c4777&rid=giphy.gif&ct=s)
