@@ -55,7 +55,7 @@ class FlaskTest(unittest.TestCase):
     def test_main_landing_page_content(self):
         tester = app.test_client(self)
         response = tester.get("/")
-        self.assertEqual(response.content_type, "text/html")
+        self.assertEqual(response.content_type, "text/html; charset=utf-8")
     
     #check if response is 200
     def test_main_landing_page_status(self):
