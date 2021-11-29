@@ -137,26 +137,36 @@
             
             <div class = "image-container">
                 <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
-                    <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
+                    <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
+                    <iframe title="resume1" src="{{url_for('static', filename ='/files/resume.pdf')}}" width="270" height="300" frameborder="0"></iframe>
                 </a>
-                <p class="name" style="background-color:#b9dfec"> Vamshi </p>
+                <p class="name" style="background-color:#b9dfec"> Harper Hillsborough  </p>
                 <div class="review-container">
-                    <a href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec"><span color="black">Review</span></a>
-                    <button  id="myBtn" class="button5" style="background-color:#b9dfec"><span color="black">Comment</span></button>   
-                    <!-- The Modal -->
+                    <button onclick="" id="reviewButton1" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                      <img id="reviewImage1" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
+                    </button>
+                    <div class="divider-icon"> </div>
+                    <button  id="commentButton1" class="button5" style="background-color:#b9dfec" value="NO">
+                      <img id="commentImage1" src="{{ url_for('static', filename='images/uncomment.png') }}" width="40" height="35">
+                    </button> 
+                    <div class="divider-icon"> </div>
+                    <button  id="likeButton1" class="button5" style="background-color:#b9dfec" value="NO">
+                      <img id="likeImage1" src="{{ url_for('static', filename='images/unlike.png') }}" width="40" height="35">
+                    </button>  
+                    
+                    </div>
                     <div id="myModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <form action="/action_page.php" class="form-container">
-                            <p>Comments</p>
-                            <textarea id="comment" name="comment" rows="10" cols="50">
-                            </textarea>
-                            <br>
-                            <button type="submit" class="button6">Send Email</button>                            
-                        </form>
-                    </div>
-                    </div>
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <form action="{{url_for('admin_login.send_email')}}" method="POST" class="form-container">
+                              <p>Comments</p>
+                              <textarea id="comment" name="comment" rows="10" cols="50">
+                              </textarea>
+                              <br>
+                              <button type="submit" class="button6">Send Email</button>                            
+                          </form>
+                      </div>
                 </div>
             </div>
                 <div class="divider"> </div>
@@ -165,37 +175,57 @@
                 </a> -->
             <div class = "image-container">
                 <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
-                    <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
+                    <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
+                    <iframe title="resume1" src="{{url_for('static', filename ='/files/resume2.pdf')}}" width="270" height="300" frameborder="0"></iframe>
                 </a>
-                <p class="name" style="background-color:#b9dfec"> Sheldon </p>
+                <p class="name" style="background-color:#b9dfec"> Elliot Anderson </p>
                 <div class="review-container">
-                    <a href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#ffffff">
-                      <img alt="Qries" src="{{ url_for('static', filename='images/reviews.png') }}" width="30" height="30">
-                    </a>
-                    <button  id="myBtn" class="button5" style="background-color:#b9dfec">
-                      <img alt="Qries" src="{{ url_for('static', filename='images/comments.png') }}" width="30" height="30">
-                    </button>   
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <form action="/action_page.php" class="form-container">
-                            <p>Comments</p>
-                            <textarea id="comment" name="comment" rows="10" cols="50">
-                            </textarea>
-                            <br>
-                            <button type="submit" class="button6">Send Email</button>                            
-                        </form>
-                    </div>
-                    </div>
-                </div>
+                  <button id ="reviewButton2" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                    <img id="reviewImage2" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
+                  </button>
+                  <div class="divider-icon"> </div>
+                  <button  id="commentButton2" class="button5" style="background-color:#b9dfec" value = "NO">
+                    <img id="commentImage2" src="{{ url_for('static', filename='images/uncomment.png') }}" width="40" height="35">
+                  </button>   
+                  <div class="divider-icon"> </div>
+                  <button  id="likeButton2" class="button5" style="background-color:#b9dfec" value="NO">
+                    <img id="likeImage2" src="{{ url_for('static', filename='images/unlike.png') }}" width="40" height="35">
+                  </button>   
+
+                  </div>
+              </div>
+
+              <div class = "image-container">
+                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                    <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
+                    <iframe title="resume1" src="{{url_for('static', filename ='/files/resume3.pdf')}}" width="270" height="300" frameborder="0"></iframe>
+                </a>
+                <p class="name" style="background-color:#b9dfec"> David Baker </p>
+                <div class="review-container">
+                  <button id ="reviewButton3" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                    <img id="reviewImage3" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
+                  </button>
+                  <div class="divider-icon"> </div>
+                  <button  id="commentButton3" class="button5" style="background-color:#b9dfec" value="NO">
+                    <img id="commentImage3" src="{{ url_for('static', filename='images/uncomment.png') }}" width="40" height="35">
+                  </button>   
+                  <div class="divider-icon"> </div>
+                  <button  id="likeButton3" class="button5" style="background-color:#b9dfec" value="NO">
+                    <img id="likeImage3" src="{{ url_for('static', filename='images/unlike.png') }}" width="40" height="35">
+                  </button>   
+
+                  </div>
+              </div>
             </div>            
           </div>
+
+          
+
         </center>
       </div>
 
-
+      <!-- The Modal -->
+      
 
       
 
@@ -206,29 +236,142 @@
 
     <script>
        var modal = document.getElementById("myModal");
+       var likeImage = [];
+       var commentImage = [];
+       var reviewImage = [];
+       var likeButton = [];
+       var commentButton = [];
+       var reviewButton = [];
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+       var likeButton1 = document.getElementById("likeButton1");
+       var likeButton2 = document.getElementById("likeButton2");
+       var likeButton3 = document.getElementById("likeButton3");
+       var likeImage1 = document.getElementById("likeImage1");
+       var likeImage2 = document.getElementById("likeImage2");
+       var likeImage3 = document.getElementById("likeImage3");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+       var commentButton1 = document.getElementById("commentButton1");
+       var commentButton2 = document.getElementById("commentButton2");
+       var commentButton3 = document.getElementById("commentButton3");
+       var commentImage1 = document.getElementById("commentImage1");
+       var commentImage2 = document.getElementById("commentImage2");
+       var commentImage3 = document.getElementById("commentImage3");
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+       var reviewButton1 = document.getElementById("reviewButton1");
+       var reviewButton2 = document.getElementById("reviewButton2");
+       var reviewButton3 = document.getElementById("reviewButton3");
+       var reviewImage1 = document.getElementById("reviewImage1");
+       var reviewImage2 = document.getElementById("reviewImage2");
+       var reviewImage3 = document.getElementById("reviewImage3");
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+      //  for(var i = 1; i <= 3 ; i++)
+      //     likeImage[i-1] = document.getElementById("likeImage"+i);
+      //  for(var i = 1; i <= 3 ; i++)
+      //     commentImage[i-1] = document.getElementById("commentImage"+i);
+      //  for(var i = 1; i <= 3 ; i++)
+      //     reviewImage[i-1] = document.getElementById("reviewImage"+i);
+
+      //  for(var i = 1; i <= 3 ; i++)
+      //     likeButton[i-1] = document.getElementById("likeButton"+i);
+      //  for(var i = 1; i <= 3 ; i++)
+      //     commentButton[i-1] = document.getElementById("commentButton"+i);
+      //  for(var i = 1; i <= 3 ; i++)
+      //     reviewButton[i-1] = document.getElementById("reviewButton"+i);
+
+
+      // likeButton[0].onclick = onButtonClick('like.png','unlike.png')
+
+      // Get the button that opens the modal
+      // var btn = document.getElementById("commentButton1");
+      // var btn1 = document.getElementById("commentButton2");
+
+      // var like = document.getElementById("likeBtn");
+      // var review = document.getElementById("likeBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      // commentButton1.onclick = function() {
+      //   modal.style.display = "block";
+      // }
+
+      // commentButton2.onclick = function() {
+      //   modal.style.display = "block";
+      // }
+
+      likeButton1.onclick = function() {
+        onButtonClick('like.png','unlike.png',likeButton1,likeImage1);
+      }
+      likeButton2.onclick = function() {
+        onButtonClick('like.png','unlike.png',likeButton2,likeImage2);
+      }
+      likeButton3.onclick = function() {
+        onButtonClick('like.png','unlike.png',likeButton3,likeImage3);
+      }
+
+      commentButton1.onclick = function() {
+        modal.style.display = "block";
+        onCommentClick('comment-done.png','uncomment.png',commentButton1,commentImage1);
+      }
+      commentButton2.onclick = function() {
+        modal.style.display = "block";
+        onCommentClick('comment-done.png','uncomment.png',commentButton2,commentImage2);
+      } 
+      commentButton3.onclick = function() {
+        modal.style.display = "block";
+        onCommentClick('comment-done.png','uncomment.png',commentButton3,commentImage3);
+      }
+
+      reviewButton1.onclick = function() {
+        onReviewClick('reviews.png','notreviewed.png',reviewButton1,reviewImage1,'http://127.0.0.1:5000/admin_login/render_resume');
+      }
+      reviewButton2.onclick = function() {
+        onReviewClick('reviews.png','notreviewed.png',reviewButton2,reviewImage2,'http://127.0.0.1:5000/admin_login/render_resume');
+      } 
+      reviewButton3.onclick = function() {
+        onReviewClick('reviews.png','notreviewed.png',reviewButton3,reviewImage3,'http://127.0.0.1:5000/admin_login/render_resume');
+      }
+      
+      
+      function onButtonClick(image1,image2,button,image) {
+        if(button.value=="NO"){
+          image.src = "../static/images/"+image1;
+          button.value="YES";
+        }
+        else{
+          image.src = "../static/images/"+image2;
+          button.value="NO";
+        }
+      }
+
+      function onCommentClick(image1,image2,button,image) {
+        if(button.value=="NO"){
+          image.src = "../static/images/"+image1;
+          button.value="YES";
+        }
+      }
+
+      function onReviewClick(image1,image2,button,image,URL) {
+        window.open(URL, '_blank');
+        if(button.value=="NO"){
+          image.src = "../static/images/"+image1;
+          button.value="YES";
+        }
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
     </script>
         
 
