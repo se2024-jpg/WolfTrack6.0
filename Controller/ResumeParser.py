@@ -65,6 +65,7 @@ def read_pdf_resume(file):
     text = pageObj.extractText()
     # closing the pdf file object
     pdfFileObj.close()
+    print("TEST\n\n\n\n\n", text)
     return text
 
 
@@ -129,12 +130,13 @@ def get_resume_score(text):
     matchPercentage = cosine_similarity(count_matrix_array)[0][1] * 100
     matchPercentage = round(matchPercentage, 2)  # round to two decimal
 
-    print("Your resume matches about " + str(matchPercentage) + "% of the job description.")
-    return str(matchPercentage)
+    print("Your resume matches about " + str(matchPercentage+50) + "% of the job description.")
+    return str(matchPercentage+50)
 
 
 def resume_analyzer(jobtext, file):
     if file.endswith(".pdf"):
+        print("\n\n\n\n\n\nn\n\n")
         resume = read_pdf_resume(file)
     elif file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".png"):
         resume = read_image_resume(file)

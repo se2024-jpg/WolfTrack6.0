@@ -8,9 +8,9 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-receiver_email = 'niveditalodha1234@gmail.com'
+receiver_email = 'elliotanderson506@gmail.com'
 deadlines = [
-    {"duedate": "28th Sept, 2021",
+    {"duedate": "30th Nov, 2021",
     "company": "Apple"
     },
     {"duedate": "19th Dec, 2021",

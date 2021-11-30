@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from Controller.data import upcoming_events
 
-receiver_email = 'niveditalodha1234@gmail.com'
+receiver_email = 'elliotanderson506@gmail.com'
 
 def s_email(company, event_date):
 

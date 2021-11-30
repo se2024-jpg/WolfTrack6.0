@@ -25,7 +25,7 @@ upcoming_events = [
 ]
 
 profile = {
-    "name": "Vamshi Chidara",
+    "name": "Elliot Anderson",
     "Location": "Raleigh, NC",
     "phone_number": "",
     "social": {

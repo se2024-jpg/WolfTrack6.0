@@ -59,7 +59,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`user_id`, `email`, `full_name`) VALUES (1,'jessica123@ncsu.edu','Jessica Holds');
+INSERT INTO `user` (`user_id`, `email`, `full_name`) VALUES (1,'elliotanderson506@gmail.com','Elliot Anderson');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

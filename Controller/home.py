@@ -30,7 +30,7 @@ def view():
 @login_required
 def logout():
     logout_user()
-    return redirect("/login")
+    return redirect("/")
 
 @home_route.route('/add_New',methods=['GET','POST'])
 #@login_required
@@ -73,8 +73,6 @@ def upload():
 
     if not os.path.isdir(target):
         os.mkdir(target)
-
-    #print(target + os.listdir(target)[0])
     if len(os.listdir(target)) != 0:
         os.remove(target + os.listdir(target)[0])
 
@@ -111,7 +109,7 @@ def analyze_resume():
     print(output)
     return render_template('resume_analyzer.html', data = output)
 
-@home_route.route("/display/", methods=['POST'])
+@home_route.route("/display/", methods=['POST','GET'])
 def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)

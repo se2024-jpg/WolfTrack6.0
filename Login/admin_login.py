@@ -69,13 +69,13 @@ def tos():
     print("dir")
     print(workingdir)
     filepath = workingdir + '/static/files/'
-    return send_from_directory(filepath, 'resume.pdf')
+    return send_from_directory(filepath, 'resume2.pdf')
 
 @admin_login_route.route("/send_email", methods=['GET','POST'])
 def send_email():
     print('In send email')
     comments = request.form['comment']
     print(comments  )
-    email = 'nitwwolfpack@gmail.com'
+    email = 'elliotanderson506@gmail.com'
     s_comment_email(email,comments)
     return make_response(render_template('admin_landing.html'), 200, headers)
