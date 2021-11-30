@@ -12,14 +12,14 @@
 |1|issues are being closed | [Closed Issues](https://github.com/nehajaideep/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|1|
 |.5|issues are discussed before they are closed |[Issues](https://github.com/nehajaideep/WolfTrack3.0/issues?q=is%3Aissue+is%3Aclosed)|.5|
 |.5|Use of syntax checkers. | [Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
-|1|Issues reports: there are many  |[total 20 Issues discussed and closed](https://github.com/nehajaideep/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|1|
+|1|Issues reports: there are many  |[Issues](https://github.com/nehajaideep/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|1|
 |.5|Use of code formatters. |[Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
 |.5|Use of style checkers | [Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
-|.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |[Animated Video](https://github.com/nehajaideep/WolfTrack2.0#watch-wolftrack-in-action) |.5|
+|.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |[Animated Video](https://github.com/nehajaideep/WolfTrack2.0#watch-wolftrack-in-action), [Demo](https://drive.google.com/file/d/1qGqChBA63N_6k9n5cbyz1hqmli08SUUZ/view) |.5|
 |.5|test cases exist  | [Test Cases](https://github.com/nehajaideep/WolfTrack2.0/tree/Group10StableBranch/UnitTesting)|.5|
 |.5|Use of code coverage  |[Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
 |.5|other automated analysis tools  | [Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
-|.5|test cases:.a large proportion of the issues related to handling failing cases. |[Resolution of Failed Tests](https://github.com/nehajaideep/WolfTrack3.0/issues?q=is%3Aopen+is%3Aissue+label%3A%22failing+testcase%22)|.5|
+|.5|test cases:.a large proportion of the issues related to handling failing cases. |[Resolution of Failed Tests](https://github.com/nehajaideep/WolfTrack3.0/issues?q=is%3Aissue+label%3A%22failing+testcase%22+is%3Aclosed)|.5|
 |.5|test cases are routinely executed |[Github Action Flow](https://github.com/nehajaideep/WolfTrack3.0/actions?query=is%3Asuccess)|.5|
 |1|Documentation describing how this version improves on the older version|[Version Compare Doc](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/V2_improvements_than_V1.pdf) , [Readme - Future Roadmap](https://github.com/nehajaideep/WolfTrack2.0#future-roadmap)| 1|
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Tutor's assessment.| 
