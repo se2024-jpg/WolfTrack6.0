@@ -16,7 +16,7 @@
 
 ---
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width = "380" height = "450" src = "static/images/wolftrack3.0.png"> </img>
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width = "380" height = "450" src = "static/images/wolftrack3.0.png"> </img>
 
 ---
 # ❓ Why WolfTrack3.0 ❓
@@ -28,7 +28,7 @@ Do you want to hear from your coworkers or experts?
 WolfTrack 3.0 aids in the planning and organization of job applications in a chronological manner so that you can conveniently track job applications, receive professional advice, and land your dream job. We keep track of job applications, job descriptions, locations, wages, dates, and notes, among other things.
 
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  ![ezgif com-gif-maker](https://user-images.githubusercontent.com/37671963/140239383-b6fe4e63-961a-4003-b7b4-f25e28026d29.jpg)
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ![ezgif com-gif-maker](https://user-images.githubusercontent.com/37671963/140239383-b6fe4e63-961a-4003-b7b4-f25e28026d29.jpg)
 
 **So, let's go get that job! 😎**
 
@@ -62,7 +62,7 @@ WolfTrack 3.0 aids in the planning and organization of job applications in a chr
        
 ## 🧰 Tools
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image        Build, readily available to run the image on any server without manually setting up the environment.
 - [Github WorkFlow YAML](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/.github/workflows/main.yml) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
