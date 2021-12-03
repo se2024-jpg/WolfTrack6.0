@@ -207,12 +207,13 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 ☑️  Configure Cron-Job for reminder as SMS notification <br>
 ☑️  Implement WebScraping for Job Description to Automate Resume Scanner Functionality <br>
 ☑️  Daily Goal Check to keep track of number of jobs applied and to apply <br>
+☑️  Customizable Daily Target Field <br>
 ☑️  Parse Resume Document with other extensions <br>
 ☑️  Recommend jobs by matching the resume with open jobs <br>
 
 ---
 
-## ✍️ Contributions to the Project
+## ✍️ Contributions
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
