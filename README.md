@@ -202,17 +202,18 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 ### 🏁 Phase 3 WolfTrack 3.0:
 
 ☑️  Two Type Login Application - Admin and User.<br>
-☑️  Resume Review, Comment, Download and Like by Admin. <br>  
+☑️  Resume Review, Comment, Download and Like by Admin.   
 ☑️  Comments given by Admin are sent as email to the user. <br>
 ☑️  Configure Cron-Job for reminder as SMS notification <br>
 ☑️  Implement WebScraping for Job Description to Automate Resume Scanner Functionality <br>
-☑️  Display the location on the map for the job selected <br>
+☑️  Daily Goal Check to keep track of number of jobs applied and to apply <br>
 ☑️  Parse Resume Document with other extensions <br>
+☑️  Recommend jobs by matching the resume with open jobs <br>
 
 ---
 
 ## ✍️ Contributions to the Project
-Please refer to the [Contributing.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
