@@ -7,7 +7,7 @@
 |.5|Docs: doco generated , format not ugly  |[Docs](https://github.com/nehajaideep/WolfTrack3.0/tree/Group10StableBranch/docs)|.5|
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |[Config commits](https://github.com/nehajaideep/WolfTrack2.0/commits/Group10StableBranch/requirements.txt)|.5|
 |.5|evidence that the members of the team are working across multiple places in the code base |[Github Commits](https://github.com/nehajaideep/WolfTrack2.0/commits/Group10StableBranch)|.5|
-|1|Docs: what: point descriptions of each class/function (in isolation)  |[Doc](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/docs/Wolftrack3_Class_Document.pdf) |1|
+|1|Docs: what: point descriptions of each class/function (in isolation)  |[Function Document](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/docs/WolfTrack3.0_Documentation.pdf) |1|
 |.5|Number of commits: by different people  |[Github Commits](https://github.com/nehajaideep/WolfTrack2.0/commits/Group10StableBranch)|.5|
 |1|issues are being closed | [Closed Issues](https://github.com/nehajaideep/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|1|
 |.5|issues are discussed before they are closed |[Issues](https://github.com/nehajaideep/WolfTrack3.0/issues?q=is%3Aissue+is%3Aclosed)|.5|
@@ -15,7 +15,7 @@
 |1|Issues reports: there are many  |[Issues](https://github.com/nehajaideep/WolfTrack2.0/issues?q=is%3Aissue+is%3Aclosed)|1|
 |.5|Use of code formatters. |[Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
 |.5|Use of style checkers | [Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
-|.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |[Animated Video](https://github.com/nehajaideep/WolfTrack2.0#watch-wolftrack-in-action), [Demo](https://drive.google.com/file/d/1qGqChBA63N_6k9n5cbyz1hqmli08SUUZ/view) |.5|
+|.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |[Animated Video](https://github.com/nehajaideep/WolfTrack3.0#-punch-line), [Demo](https://drive.google.com/file/d/1qGqChBA63N_6k9n5cbyz1hqmli08SUUZ/view) |.5|
 |.5|test cases exist  | [Test Cases](https://github.com/nehajaideep/WolfTrack2.0/tree/Group10StableBranch/UnitTesting)|.5|
 |.5|Use of code coverage  |[Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|
 |.5|other automated analysis tools  | [Github YAML Config](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/.github/workflows/main.yml)|.5|

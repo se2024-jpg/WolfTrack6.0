@@ -72,6 +72,7 @@ https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-
 - [AWS Relational Database Service-RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
   -  The AWS Database is used as a primary DB by the location. The application interacts with the DB and no additional steps are required from the users. For any contributors or future developers, please mail to wolftrackse@gmail.com to get your AWS IAM user account details to connect to AWS RDS.
 - [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
+- [Highcharts](https://www.highcharts.com/)
 
 ---
 
@@ -167,7 +168,7 @@ docker push akhil/wolftrackv3:1.0
 [UI Preview Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
 
 ---
-[Class Function 
+
 
 ## 📔 Code Coverage
 
@@ -229,7 +230,5 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
     <td align="center"><a href="https://github.com/nehajaideep"><img src="https://avatars.githubusercontent.com/u/46373273?v=4" width="75px;" alt=""/><br /><sub><b>Neha Kotcherlakota</b></sub></a><br /></td>
   </tr>
 </table>
----
-## Contact 
-In case of any issues, please mail your queries to wolftrackproject@gmail.com 
 
+---
