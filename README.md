@@ -36,7 +36,7 @@ WolfTrack 3.0 aids in the planning and organization of job applications in a chr
 ## 🥊 Punch Line
 
 
-<Short Video Link>
+https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-a5d0-9b3bbc79cf89.mp4
 
 
 
