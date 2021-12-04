@@ -36,7 +36,7 @@ WolfTrack 3.0 aids in the planning and organization of job applications in a chr
 ## 🥊 Punch Line
 
 
-<Short Video Link>
+https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-a5d0-9b3bbc79cf89.mp4
 
 
 
@@ -52,7 +52,7 @@ WolfTrack 3.0 aids in the planning and organization of job applications in a chr
 <code><a href="https://www.mysql.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript |  MySQL </p> 
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p> 
 
 ## 🎛️ Version Control Tools
  <p align="center">
@@ -72,6 +72,7 @@ WolfTrack 3.0 aids in the planning and organization of job applications in a chr
 - [AWS Relational Database Service-RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
   -  The AWS Database is used as a primary DB by the location. The application interacts with the DB and no additional steps are required from the users. For any contributors or future developers, please mail to wolftrackse@gmail.com to get your AWS IAM user account details to connect to AWS RDS.
 - [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
+- [Highcharts](https://www.highcharts.com/)
 
 ---
 
@@ -160,14 +161,14 @@ docker push akhil/wolftrackv3:1.0
 
 ---
 
-[Class/Functions Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack%202%20_Class:Funtion_Documentation.pdf)     
+[Class/Functions Documentation](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/docs/WolfTrack3.0_Documentation.pdf)     
 
 ---
 
 [UI Preview Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
 
 ---
-[Class Function 
+
 
 ## 📔 Code Coverage
 
@@ -202,17 +203,19 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 ### 🏁 Phase 3 WolfTrack 3.0:
 
 ☑️  Two Type Login Application - Admin and User.<br>
-☑️  Resume Review, Comment, Download and Like by Admin. <br>  
+☑️  Resume Review, Comment, Download and Like by Admin.   
 ☑️  Comments given by Admin are sent as email to the user. <br>
 ☑️  Configure Cron-Job for reminder as SMS notification <br>
 ☑️  Implement WebScraping for Job Description to Automate Resume Scanner Functionality <br>
-☑️  Display the location on the map for the job selected <br>
+☑️  Daily Goal Check to keep track of number of jobs applied and to apply <br>
+☑️  Customizable Daily Target Field <br>
 ☑️  Parse Resume Document with other extensions <br>
+☑️  Recommend jobs by matching the resume with open jobs <br>
 
 ---
 
-## ✍️ Contributions to the Project
-Please refer to the [Contributing.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+## ✍️ Contributions
+Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
@@ -227,7 +230,5 @@ Please refer to the [Contributing.md](https://github.com/nehajaideep/WolfTrack2.
     <td align="center"><a href="https://github.com/nehajaideep"><img src="https://avatars.githubusercontent.com/u/46373273?v=4" width="75px;" alt=""/><br /><sub><b>Neha Kotcherlakota</b></sub></a><br /></td>
   </tr>
 </table>
----
-## Contact 
-In case of any issues, please mail your queries to wolftrackproject@gmail.com 
 
+---
