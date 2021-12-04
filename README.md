@@ -52,7 +52,7 @@ https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-
 <code><a href="https://www.mysql.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript |  MySQL </p> 
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p> 
 
 ## 🎛️ Version Control Tools
  <p align="center">
