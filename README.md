@@ -27,8 +27,7 @@ Do you want to hear from your coworkers or experts?
 
 WolfTrack 3.0 aids in the planning and organization of job applications in a chronological manner so that you can conveniently track job applications, receive professional advice, and land your dream job. We keep track of job applications, job descriptions, locations, wages, dates, and notes, among other things.
 
-
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ![ezgif com-gif-maker](https://user-images.githubusercontent.com/37671963/140239383-b6fe4e63-961a-4003-b7b4-f25e28026d29.jpg)
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width="380" height="450" alt="confused_applicant" src="https://user-images.githubusercontent.com/66715000/144729660-8b6136c1-1034-41e5-a22e-cb10e2b3d36f.png">
 
 **So, let's go get that job! 😎**
 
