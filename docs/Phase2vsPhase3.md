@@ -1,4 +1,4 @@
-| Improvemnent | Version 2 | Version 3 | Screenshots |
+| Improvement | Version 2 | Version 3 | Screenshots |
 | ------ | ------ | ------ | ----------- |
 | **Added image extraction functionality** | Version 2 did not support extracting data from images | Added a new feauture that allows adding images and data extraction from images(.png,.jpeg,.jpg) using the Add cv button.(Please click on the image to view it clearly)| <img src="https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/static/enhancement_images/add_CV.png?raw=true" width="3000" height="250" /> 
 | **Added pdf extraction functionality** | Version 2 did not support extracting data from pdf | Added a new feauture that allows adding pdf and data extraction from a pdf using the Add cv button. (Please click on the image to view it clearly) | <img src="https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/static/enhancement_images/add_CV.png?raw=true" width="3000" height="250" /> |
