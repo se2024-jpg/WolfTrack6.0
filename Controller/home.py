@@ -113,4 +113,5 @@ def analyze_resume():
 def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)
+    print(filename, path)
     return send_file(path+str(filename[0]), attachment_filename= str(filename[0]))
