@@ -12,12 +12,46 @@ from main import app
 
 class FlaskTest(unittest.TestCase):
 
+    def setUp(self):
+        self.app = app.test_client()
+
     #check if response is 200
     def test_index(self):
         tester = app.test_client(self)
         response = tester.get("/login")
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
+
+    def test_add_new(self):
+        resp = self.app.get('/add_New')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
+    def test_add_new_statuscode(self):
+        resp = self.app.get('/add_New')
+        statuscode = resp.status_code
+        self.assertEqual(statuscode,400)
+
+    def test_home_resume_analyzer_ui_render_routing(self):
+        resp = self.app.get('/resumeAnalyzer')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
+    def test_jobfinder_ui_render_routing(self):
+        resp = self.app.get('/findJobs')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
+    def test_resume_parser_ui_render_routing(self):
+        resp = self.app.get('/analyze_resume')
+        statuscode = resp.status_code
+        self.assertEqual(resp.content_type, "text/html; charset=utf-8")
+
+    def test_word_cloud_creation(self):
+        input = "Technical Stack Bootstrap, JS Python, Django, Celery, Redis and MySQL Solidity, Geth and IPFS"
+        os.chdir("..")
+        print(os.getcwd())
+        pass
     
     #check if response is 200
     def test_admin(self):

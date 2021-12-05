@@ -164,11 +164,6 @@ docker push akhil/wolftrackv3:1.0
 
 ---
 
-[UI Preview Documentation](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/docs/WolfTrackv2_Group10Docs/WolfTrack2_Preview.pdf)
-
----
-
-
 ## 📔 Code Coverage
 
 It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
