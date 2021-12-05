@@ -27,8 +27,7 @@ Do you want to hear from your coworkers or experts?
 
 WolfTrack 3.0 aids in the planning and organization of job applications in a chronological manner so that you can conveniently track job applications, receive professional advice, and land your dream job. We keep track of job applications, job descriptions, locations, wages, dates, and notes, among other things.
 
-
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ![ezgif com-gif-maker](https://user-images.githubusercontent.com/37671963/140239383-b6fe4e63-961a-4003-b7b4-f25e28026d29.jpg)
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width="380" height="450" alt="confused_applicant" src="https://user-images.githubusercontent.com/66715000/144729660-8b6136c1-1034-41e5-a22e-cb10e2b3d36f.png">
 
 **So, let's go get that job! 😎**
 
@@ -205,17 +204,26 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 ☑️  Two Type Login Application - Admin and User.<br>
 ☑️  Resume Review, Comment, Download and Like by Admin.   
 ☑️  Comments given by Admin are sent as email to the user. <br>
-☑️  Configure Cron-Job for reminder as SMS notification <br>
-☑️  Implement WebScraping for Job Description to Automate Resume Scanner Functionality <br>
+☑️  Cronjob for pending application deadlines as email notification. <br>
+☑️  Implemented web scraping to find relevant jobs according to user's profile and recommend him <br>
 ☑️  Daily Goal Check to keep track of number of jobs applied and to apply <br>
 ☑️  Customizable Daily Target Field <br>
 ☑️  Parse Resume Document with other extensions <br>
 ☑️  Recommend jobs by matching the resume with open jobs <br>
 
+### 🔭 Phase 4 WolfTrack 4.0 (Future Scope):
+
+- [ ] Configure Cron-Job for reminder as SMS notification
+- [ ] Model improvement of resume analyzer 
+- [ ] Customization of job recommendations
+- [ ] Direct application links to jobs in the recommendation list
+- [ ] Online chat with expert
+- [ ] Resume template editor
+
 ---
 
 ## ✍️ Contributions
-Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 2.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 3.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
