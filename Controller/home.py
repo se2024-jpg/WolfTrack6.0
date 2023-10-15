@@ -88,6 +88,11 @@ def upload():
 def view_ResumeAna():
     return render_template('resume_analyzer.html')
 
+@home_route.route('/companiesList', methods=['GET'])
+@login_required
+def view_companies_list():
+    return render_template('companies_list.html')
+
 
 @home_route.route('/findJobs', methods=['GET'])
 @login_required
