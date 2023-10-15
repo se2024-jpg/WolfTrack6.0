@@ -48,7 +48,7 @@ body {
     background-color: var(--theme-dark);
   }
 
-.btn {
+.btn-outlined {
   /* background: #e9f0f5; */
   /* background-image: -webkit-linear-gradient(top, #e9f0f5, #ffffff);
   background-image: -moz-linear-gradient(top, #e9f0f5, #ffffff);
@@ -64,7 +64,9 @@ body {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   font-weight: bold; */
-  font-family: "Poppins" , sans-serif;
+  font-family: "Segoe UI" , sans-serif;
+  border-color: #da2d2d;
+  color: #da2d2d;
 }
 
 .btn:hover {

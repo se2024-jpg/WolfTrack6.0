@@ -64,6 +64,9 @@ const columnDefs = [
     headerName: "Company",
     field: "company",
     editable: true,
+    resizable: false,
+    sortable: true,
+    filter: true,
   },
   {
     headerName: "Status",
@@ -73,6 +76,8 @@ const columnDefs = [
     cellEditorParams: {
       values: status_values,
     },
+    sortable: true,
+    filter: true,
   },
   {
     headerName: "Application Date",
@@ -80,6 +85,7 @@ const columnDefs = [
     filter: "agDateColumnFilter",
     filterParams: filterParams,
     editable: true,
+    sortable: true,
   },
   {
     headerName: "Due Date",
@@ -87,10 +93,11 @@ const columnDefs = [
     editable: true,
     filter: "agDateColumnFilter",
     filterParams: filterParams,
+    sortable: true,
   },
 ];
 
-const data = [
+var data = [
   {
     company: "Amazon",
     status: status_values[0],
@@ -123,6 +130,10 @@ const data = [
   },
 ];
 
+const saveChanges = () => {
+  data = updatedData;
+};
+var updatedData = [];
 const gridOptions = {
   defaultColDef: {
     flex: 1,
@@ -131,6 +142,16 @@ const gridOptions = {
   },
   columnDefs: columnDefs,
   rowData: data,
+  onCellValueChanged: function (event) {
+    gridOptions.api.forEachNode((node) => {
+      updatedData.push({
+        company: node.data.company,
+        status: node.data.status,
+        applicationdate: node.data.applicationdate,
+        duedate: node.data.duedate,
+      });
+    });
+  },
 };
 
 // setup the grid after the page has finished loading
