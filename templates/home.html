@@ -33,6 +33,19 @@
       }
     });
   });
+  let data = JSON.parse(localStorage.getItem("jobApplications"));
+  const wishlistCompanyNames = data
+    .filter((entry) => entry.status === "Wishlist")
+    .map((entry) => entry.company);
+  const inProgressCompanyNames = data
+    .filter((entry) => entry.status === "In Progress")
+    .map((entry) => entry.company);
+  const appliedCompanyNames = data
+    .filter((entry) => entry.status === "Applied")
+    .map((entry) => entry.company);
+  const offerCompanyNames = data
+    .filter((entry) => entry.status === "Offer")
+    .map((entry) => entry.company);
 </script>
 
 <div class="row">
@@ -41,9 +54,13 @@
     <div class="card-body">
       <h5 class="card-title">Wish List</h5>
       <ul class="list-group list-group-flush">
-        {% for item in data.wishlist %}
-        <li class="list-group-item border-0">{{ item }}</li>
-        {% endfor %}
+        <script>
+          for (const company of wishlistCompanyNames) {
+            document.write(
+              '<li class="list-group-item border-0">' + company + "</li>"
+            );
+          }
+        </script>
       </ul>
     </div>
     <div class="card-footer card-footer-div">
@@ -63,9 +80,13 @@
     <div class="card-body">
       <h5 class="card-title">In Process</h5>
       <ul class="list-group list-group-flush">
-        {% for item in data.inprogress %}
-        <li class="list-group-item border-0">{{ item }}</li>
-        {% endfor %}
+        <script>
+          for (const company of inProgressCompanyNames) {
+            document.write(
+              '<li class="list-group-item border-0">' + company + "</li>"
+            );
+          }
+        </script>
       </ul>
     </div>
 
@@ -90,9 +111,13 @@
     <div class="card-body">
       <h5 class="card-title">Applied</h5>
       <ul class="list-group list-group-flush">
-        {% for item in data.applied %}
-        <li class="list-group-item border-0">{{ item }}</li>
-        {% endfor %}
+        <script>
+          for (const company of appliedCompanyNames) {
+            document.write(
+              '<li class="list-group-item border-0">' + company + "</li>"
+            );
+          }
+        </script>
       </ul>
     </div>
 
@@ -112,11 +137,13 @@
     <i class="material-icons card-icons">beenhere</i>
     <div class="card-body">
       <h5 class="card-title">Offers</h5>
-      <ul class="list-group list-group-flush">
-        {% for item in data.offers %}
-        <li class="list-group-item border-0">{{ item }}</li>
-        {% endfor %}
-      </ul>
+      <script>
+        for (const company of offerCompanyNames) {
+          document.write(
+            '<li class="list-group-item border-0">' + company + "</li>"
+          );
+        }
+      </script>
     </div>
 
     <div class="card-footer card-footer-div">

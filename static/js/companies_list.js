@@ -97,41 +97,47 @@ const columnDefs = [
   },
 ];
 
-var data = [
-  {
-    company: "Amazon",
-    status: status_values[0],
-    applicationdate: "10/10/2023",
-    duedate: "10/11/2023",
-  },
-  {
-    company: "Cisco",
-    status: status_values[1],
-    applicationdate: "10/10/2023",
-    duedate: "10/11/2023",
-  },
-  {
-    company: "Adobe",
-    status: status_values[2],
-    applicationdate: "10/10/2023",
-    duedate: "10/15/2023",
-  },
-  {
-    company: "Notion",
-    status: status_values[3],
-    applicationdate: "10/10/2023",
-    duedate: "10/16/2023",
-  },
-  {
-    company: "Branch",
-    status: status_values[0],
-    applicationdate: "10/10/2023",
-    duedate: "10/16/2023",
-  },
-];
+let data = JSON.parse(localStorage.getItem("jobApplications"));
+
+if (!data) {
+  data = [
+    {
+      company: "Amazon",
+      status: status_values[0],
+      applicationdate: "10/10/2023",
+      duedate: "10/11/2023",
+    },
+    {
+      company: "Cisco",
+      status: status_values[1],
+      applicationdate: "10/10/2023",
+      duedate: "10/11/2023",
+    },
+    {
+      company: "Adobe",
+      status: status_values[2],
+      applicationdate: "10/10/2023",
+      duedate: "10/15/2023",
+    },
+    {
+      company: "Notion",
+      status: status_values[3],
+      applicationdate: "10/10/2023",
+      duedate: "10/16/2023",
+    },
+    {
+      company: "Branch",
+      status: status_values[0],
+      applicationdate: "10/10/2023",
+      duedate: "10/16/2023",
+    },
+  ];
+
+  localStorage.setItem("jobApplications", JSON.stringify(data));
+}
 
 const saveChanges = () => {
-  data = updatedData;
+  localStorage.setItem("jobApplications", JSON.stringify(updatedData));
 };
 var updatedData = [];
 const gridOptions = {
@@ -154,7 +160,6 @@ const gridOptions = {
   },
 };
 
-// setup the grid after the page has finished loading
 document.addEventListener("DOMContentLoaded", () => {
   const gridDiv = document.querySelector("#myGrid");
   const urlSearchParams = new URLSearchParams(window.location.search);
@@ -162,5 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const decodedStatus = decodeURIComponent(status);
   new agGrid.Grid(gridDiv, gridOptions);
   gridOptions.api.setQuickFilter(decodedStatus);
-  console.log(decodedStatus == "In Process");
+
+  const addNewCompany = (company, status, applicationDate, dueDate) => {
+    const newCompany = {
+      company,
+      status,
+      applicationdate: applicationDate,
+      duedate: dueDate,
+    };
+    data.push(newCompany);
+    updatedData.push(newCompany);
+    saveChanges();
+    gridOptions.api.setRowData(data);
+  };
 });
