@@ -167,4 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const decodedStatus = decodeURIComponent(status);
   new agGrid.Grid(gridDiv, gridOptions);
   gridOptions.api.setQuickFilter(decodedStatus);
+
+  const addNewCompany = (company, status, applicationDate, dueDate) => {
+    const newCompany = {
+      company,
+      status,
+      applicationdate: applicationDate,
+      duedate: dueDate,
+    };
+    data.push(newCompany);
+    updatedData.push(newCompany);
+    saveChanges();
+    gridOptions.api.setRowData(data);
+  };
 });
