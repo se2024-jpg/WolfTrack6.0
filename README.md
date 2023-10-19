@@ -5,7 +5,7 @@
 
 ---
 
-[![DOI](https://zenodo.org/badge/428810078.svg)](https://zenodo.org/badge/latestdoi/428810078)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023452.svg)](https://zenodo.org/doi/10.5281/zenodo.10023451)
 [![GitHub Release](https://img.shields.io/github/release/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0/releases/tag/wolftrack)
 [![Manual Build](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml/badge.svg)](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0)
