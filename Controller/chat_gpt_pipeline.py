@@ -41,7 +41,7 @@ def chatgpt(resume_textfile_path):
     # Set the request payload
     payload = {
         "model": "gpt-3.5-turbo",
-        "messages": [{"role":"system","content":"critique the following resume text on the basis of its conciseness, use of action words and numbers. Give suggestions on the 1. education section, then the 2. experiences section, then the 3. skills section and finally the 4. projects section. Give these suggestions on these four sections in the form of four paragraphs, each separated by a line. Make sure each paragraph is atleast 50-70 words long"},{"role": "user", "content": content}],
+        "messages": [{"role":"system","content":"critique the following resume text on the basis of its conciseness, use of action words and numbers. Give suggestions on the 1. education section, then the 2. experiences section, then the 3. skills section and finally the 4. projects section. Give these suggestions on these four sections in the form of four paragraphs and label them Section 1, Section 2, Section 3 and Section 4 respectively, each separated by a line. Make sure each paragraph is atleast 50-70 words long."},{"role": "user", "content": content}],
         "temperature": 0.7
     }
 
@@ -63,17 +63,5 @@ def chatgpt(resume_textfile_path):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
-def chat_gpt_pipeline():
-    files = os.listdir(os.getcwd()+'/Controller/resume')
-    print(files[0])
-    pdf_path = os.getcwd()+'//Controller/resume/'+files[0]
-    text_path = os.getcwd()+'//Controller/resume_txt/'+files[0][:-3]+'txt'
-    with open(text_path, 'w'):
-        pass
-    pdf_to_text(pdf_path, text_path)
-    suggestions = chatgpt(text_path)
-    print("test",suggestions)
-    return suggestions
 
 
