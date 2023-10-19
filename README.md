@@ -14,6 +14,7 @@
 [![GitHub-size](https://img.shields.io/github/languages/code-size/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
 [![GitHub issues](https://img.shields.io/github/issues/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
