@@ -104,13 +104,13 @@ if (!data) {
     {
       company: "Amazon",
       status: status_values[0],
-      applicationdate: "10/10/2023",
+      applicationdate: "10/09/2023",
       duedate: "10/11/2023",
     },
     {
       company: "Cisco",
       status: status_values[1],
-      applicationdate: "10/10/2023",
+      applicationdate: "10/09/2023",
       duedate: "10/11/2023",
     },
     {
@@ -167,6 +167,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const decodedStatus = decodeURIComponent(status);
   new agGrid.Grid(gridDiv, gridOptions);
   gridOptions.api.setQuickFilter(decodedStatus);
+  
+  // Calculate the count of job applications with today's date
+  const today = new Date();
+  const todayDateString = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+  const applied = data.filter((jobApplication) => jobApplication.applicationdate === todayDateString).length;
+
+
 
   const addNewCompany = (company, status, applicationDate, dueDate) => {
     const newCompany = {
