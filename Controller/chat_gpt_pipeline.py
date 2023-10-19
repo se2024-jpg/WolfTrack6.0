@@ -74,5 +74,6 @@ def chat_gpt_pipeline():
     pdf_to_text(pdf_path, text_path)
     suggestions = chatgpt(text_path)
     print("test",suggestions)
+    return suggestions
 
 
