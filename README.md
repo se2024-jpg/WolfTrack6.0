@@ -1,4 +1,4 @@
-<h1><b>WolfTrack </b></h1>
+<h1><b>WolfTrack 4.0</b></h1>
 
 [Demo Link](https://drive.google.com/file/d/1Ug-K1hOt9Jbbztuziw2OZFPyBx66PqLx/view?usp=sharing) <br>
 [WolfTrack 3.0 Youtube](https://youtu.be/3_JZxAd9lcs)
@@ -6,6 +6,7 @@
 ---
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023452.svg)](https://zenodo.org/doi/10.5281/zenodo.10023451)
+
 [![GitHub Release](https://img.shields.io/github/release/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0/releases/tag/wolftrack)
 [![Manual Build](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml/badge.svg)](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
@@ -15,31 +16,14 @@
 [![GitHub-size](https://img.shields.io/github/languages/code-size/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
 [![GitHub issues](https://img.shields.io/github/issues/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
+## Why WolfTrack 4.0?
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width = "380" height = "450" src = "static/images/wolftrack3.0.png"> </img>
+_Are you tired of the overwhelming task of applying to numerous companies and losing track of your valuable time?_
 
----
-
-# ❓ Why WolfTrack3.0 ❓
-
-Do you find yourself applying to too many companies and losing track of your time?
-
-Do you want to hear from your coworkers or experts?
-
-WolfTrack 3.0 aids in the planning and organization of job applications in a chronological manner so that you can conveniently track job applications, receive professional advice, and land your dream job. We keep track of job applications, job descriptions, locations, wages, dates, and notes, among other things.
-
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <img width="380" height="450" alt="confused_applicant" src="https://user-images.githubusercontent.com/66715000/144729660-8b6136c1-1034-41e5-a22e-cb10e2b3d36f.png">
-
-**So, let's go get that job! 😎**
-
----
-
-## 🥊 Punch Line
-
-https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-a5d0-9b3bbc79cf89.mp4
+Introducing WolfTrack 4.0, your ultimate solution for seamlessly planning and organizing your job applications in a chronological fashion. With WolfTrack 4.0, you can effortlessly monitor your job applications, get insights into how to improve your resume, and inch closer to securing your dream job. We provide comprehensive tracking of job applications, including job details, locations, salaries, important dates, and personalized notes, among other invaluable features. Your journey to career success begins here!
 
 ---
 
@@ -98,7 +82,7 @@ https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/nehajaideep/WolfTrack2.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/aniketdarp190301/WolfTrack4.0))
 
     `pip install -r requirements.txt`
 
@@ -106,9 +90,9 @@ https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/nehajaideep/WolfTrack2.0).
+  - Clone [WolfTrack github repo](https://github.com/aniketdarp190301/WolfTrack4.0).
 
-  - Navigate to [project directory](https://github.com/nehajaideep/WolfTrack2.0).
+  - Navigate to [project directory](https://github.com/aniketdarp190301/WolfTrack4.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -118,63 +102,6 @@ https://user-images.githubusercontent.com/66715000/144538638-acc75fa1-db5b-49a1-
 
   - Site will be hosted at:
     `http://127.0.0.1:5000/`
-
-- ### Application Deployed on a sandbox server
-  - You can access the application on the url
-    `https://harshb.pythonanywhere.com/login`
-
-## 🚢 Run locally using Docker
-
-Our application is docker-compatible configured and you have to follow below steps to run the docker on local:<br>
-Note : Make sure you have a docker desktop or docker client installed on your system
-
-- [Docker Desktop Installation Guide](https://docs.docker.com/get-docker/)
-
-1. Clone the repository
-
-```
-git clone https://github.com/nehajaideep/WolfTrack3.0.git
-```
-
-2. Go the the repository
-
-```
-cd WolfTrack3.0
-```
-
-3. Run the docker build command
-
-```
-docker build --tag wolftrackv3:1.0 .
-```
-
-4. Run the built docker image on local Container
-
-```
-docker run -dp 5000:5000 wolftrackv3:1.0
-```
-
-5. Test the backend application using below api
-
-```
-GET localhost:5000/login
-Response :- "Login Page will appear"
-```
-
-6. Tag the Deployable image
-
-```
-docker tag wolftrackv2:1.4 akhil/wolftrackv3:1.0
-```
-
-7. Push the Deployable tagged image to the DockerHub Cloud Image Repository
-
-```
-docker push akhil/wolftrackv3:1.0
-```
-
-8. Below DockerHub Repository where the readily deployable Image is available
-   <img width="1389" alt="Screenshot 2021-11-04 at 9 38 50 PM" src="https://user-images.githubusercontent.com/32817064/140444016-f26825a8-6fb6-4345-ab6a-54986163ede5.png">
 
 ---
 
@@ -235,6 +162,25 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ---
 
+## Developer Support and Updates
+
+For support and inquiries related to **WolfTrack 4.0**, please contact us at **wolftrack404@gmail.com**. We are here to assist you and address any questions or issues you may have.
+
+Stay Connected:
+
+- **Discord Community**: Join our active Discord community at [https://discord.gg/bmaXxb3yg4](https://discord.gg/bmaXxb3yg4) to engage with our team, ask questions, and stay up-to-date with the latest developments of the project.
+
+We appreciate your interest and look forward to providing you with the best possible support and updates.
+
+---
+
+## Funding
+
+This project currently receives no funding.
+
+---
+
+
 ## ✍️ Contributions
 
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 3.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
@@ -245,11 +191,10 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/niveditalodha"><img src="https://avatars.githubusercontent.com/u/40229663?v=4" width="75px;" alt=""/><br /><sub><b>Nivedita Lodha</b></sub></a></td>
-    <td align="center"><a href="https://github.com/akhilkumarmengani"><img src="https://avatars.githubusercontent.com/u/70975566?v=4" width="75px;" alt=""/><br /><sub><b>Akhil Kumar Mengani</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/umagnanasundaram2128"><img src="https://avatars.githubusercontent.com/u/8946692?v=4" width="75px;" alt=""/><br /><sub><b>Uma Gnanasundaram</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/vamshi-chidara"><img src="https://avatars.githubusercontent.com/u/66715000?v=4" width="75px;" alt=""/><br /><sub><b>Vamshi Chidara</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/nehajaideep"><img src="https://avatars.githubusercontent.com/u/46373273?v=4" width="75px;" alt=""/><br /><sub><b>Neha Kotcherlakota</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/shreyavaidya2311">Shreya Vaidya</a></td>
+    <td align="center"><a href="https://github.com/Dhruv-Kolhatkar">Dhruv Kolhatkar</a></td>
+    <td align="center"><a href="https://github.com/aniketdarp190301">Aniket Darp</a></td>
+    <td align="center"><a href="https://github.com/chinmay4613">Chinmay Walinjkar</a></td>
   </tr>
 </table>
 
