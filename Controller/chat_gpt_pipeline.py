@@ -1,4 +1,4 @@
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfFileReader
 import numpy as np
 import requests
 import os
@@ -8,7 +8,7 @@ import openai
 def pdf_to_text(pdf_path, text_path):
     with open(pdf_path, 'rb') as pdf_file:
         # Create a PDF reader object
-        pdf_reader = PdfReader(pdf_file)
+        pdf_reader = PdfFileReader(pdf_file)
 
         # Initialize an empty string to store the text
         text = ""
