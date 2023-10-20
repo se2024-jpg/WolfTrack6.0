@@ -6,14 +6,17 @@
 ---
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023452.svg)](https://zenodo.org/doi/10.5281/zenodo.10023451)
-[![GitHub Release](https://img.shields.io/badge/release-WolfTrackv4.0.2-blue)](https://github.com/aniketdarp190301/WolfTrack4.0/releases)
-[![Manual Build](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml/badge.svg)](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml)
-[![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0)
-![GitHub language count](https://img.shields.io/github/languages/count/aniketdarp190301/WolfTrack4.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-size](https://img.shields.io/github/languages/code-size/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub issues](https://img.shields.io/github/issues/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aniketdarp190301/WolfTrack4.0)](https://github.com/nehajaideep/WolfTrack3.0)
+
+[![GitHub Release](https://img.shields.io/github/release/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0/releases/tag/wolftrack)
+[![Manual Build](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml/badge.svg)](https://github.com/nehajaideep/WolfTrack3.0/actions/workflows/main.yml)
+<!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
+[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0)
+![GitHub language count](https://img.shields.io/github/languages/count/nehajaideep/WolfTrack3.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+[![GitHub-size](https://img.shields.io/github/languages/code-size/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+[![GitHub issues](https://img.shields.io/github/issues/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/nehajaideep/WolfTrack3.0)](https://github.com/nehajaideep/WolfTrack3.0)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Why WolfTrack 4.0?
