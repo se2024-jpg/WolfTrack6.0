@@ -171,6 +171,13 @@ We appreciate your interest and look forward to providing you with the best poss
 
 ---
 
+## Funding
+
+This project currently receives no funding.
+
+---
+
+
 ## ✍️ Contributions
 
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 3.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
