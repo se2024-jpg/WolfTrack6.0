@@ -167,7 +167,7 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 - [x] Added chatGPT pipeline for resume suggestions <br>
 
 
-### 🔭 Phase 5 WolfTrack 5.0:
+### 🔭 Phase 5 WolfTrack 5.0 (Future Scope):
 
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
