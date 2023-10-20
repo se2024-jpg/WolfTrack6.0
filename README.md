@@ -1,7 +1,6 @@
 <h1><b>WolfTrack 4.0</b></h1>
 
-[Demo Link](https://drive.google.com/file/d/1Ug-K1hOt9Jbbztuziw2OZFPyBx66PqLx/view?usp=sharing) <br>
-[WolfTrack 3.0 Youtube](https://youtu.be/3_JZxAd9lcs)
+[WolfTrack 4.0 (Changes made in Phase 4) - Youtube Video](https://www.youtube.com/watch?v=z3s2rUTLFrQ)
 
 ---
 
