@@ -21,9 +21,14 @@
 
 ## Why WolfTrack 4.0?
 
-_Are you tired of the overwhelming task of applying to numerous companies and losing track of your valuable time?_
+WolfTrack4.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack4.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
-Introducing WolfTrack 4.0, your ultimate solution for seamlessly planning and organizing your job applications in a chronological fashion. With WolfTrack 4.0, you can effortlessly monitor your job applications, get insights into how to improve your resume, and inch closer to securing your dream job. We provide comprehensive tracking of job applications, including job details, locations, salaries, important dates, and personalized notes, among other invaluable features. Your journey to career success begins here!
+We offer features like giving suggestions for improvements on your resume, tracking your application and many more.
+
+---
+## What type of user is WolfTrack 4.0 best suited for?
+
+This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
 ---
 
