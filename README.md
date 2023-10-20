@@ -159,6 +159,18 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ---
 
+## Developer Support and Updates
+
+For support and inquiries related to **WolfTrack 4.0**, please contact us at **wolftrack404@gmail.com**. We are here to assist you and address any questions or issues you may have.
+
+Stay Connected:
+
+- **Discord Community**: Join our active Discord community at [https://discord.gg/bmaXxb3yg4](https://discord.gg/bmaXxb3yg4) to engage with our team, ask questions, and stay up-to-date with the latest developments of the project.
+
+We appreciate your interest and look forward to providing you with the best possible support and updates.
+
+---
+
 ## ✍️ Contributions
 
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the Wolftrack 3.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
