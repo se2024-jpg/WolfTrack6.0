@@ -144,26 +144,37 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 - [x] Creation of Docker image
 - [x] Readily deployable image in docker registry
 
-### 🏁 Phase 3 WolfTrack 3.0:
+### Phase 3 WolfTrack 3.0:
 
-☑️ Two Type Login Application - Admin and User.<br>
-☑️ Resume Review, Comment, Download and Like by Admin.  
-☑️ Comments given by Admin are sent as email to the user. <br>
-☑️ Cronjob for pending application deadlines as email notification. <br>
-☑️ Implemented web scraping to find relevant jobs according to user's profile and recommend him <br>
-☑️ Daily Goal Check to keep track of number of jobs applied and to apply <br>
-☑️ Customizable Daily Target Field <br>
-☑️ Parse Resume Document with other extensions <br>
-☑️ Recommend jobs by matching the resume with open jobs <br>
+- [x] Two Type Login Application - Admin and User
+- [x] Resume Review, Comment, Download and Like by Admin
+- [x] Comments given by Admin are sent as email to the user
+- [x] Cronjob for pending application deadlines as email notification
+- [x] Implemented web scraping to find relevant jobs according to user's profile and recommend him
+- [x] Daily Goal Check to keep track of number of jobs applied and to apply 
+- [x] Customizable Daily Target Field
+- [x] Parse Resume Document with other extensions
+- [x] Recommend jobs by matching the resume with open jobs
 
-### 🔭 Phase 4 WolfTrack 4.0 (Future Scope):
+### 🏁 Phase 4 WolfTrack 4.0:
 
+- [x] Created Sign-up functionality <br>
+- [x] Fixed log-in authentication <br>
+- [x] Fixed daily goals feature <br>
+- [x] Added Site Navigation <br>
+- [x] Front end aesthetic changes <br>
+- [x] Added dynamic tables to Wishlist, Applied, In Process and Offers tabs <br>
+- [x] Added chatGPT pipeline for resume suggestions <br>
+
+
+### 🔭 Phase 5 WolfTrack 5.0:
+
+- [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
-- [ ] Model improvement of resume analyzer
-- [ ] Customization of job recommendations
-- [ ] Direct application links to jobs in the recommendation list
 - [ ] Online chat with expert
 - [ ] Resume template editor
+- [ ] Interview Preparation resources tab
+- [ ] Salary insights and comparisons
 
 ---
 
