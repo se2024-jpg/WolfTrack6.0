@@ -34,7 +34,7 @@ def logout():
     return redirect("/")
 
 @home_route.route('/add_New',methods=['GET','POST'])
-#@login_required
+
 def add_New():
     #print(request.method)
 
@@ -84,7 +84,7 @@ def upload():
 
     return render_template("home.html", data=data, upcoming_events=upcoming_events)
 
-@home_route.route('/resumeAnalyzer', methods=['GET'])
+@home_route.route('/student/analyze_resume', methods=['GET'])
 @login_required
 def view_ResumeAna():
     return render_template('resume_analyzer.html')

@@ -843,7 +843,7 @@ stroke-dashoffset: 900
         <a class="navbar-brand" href="/">WolfTrack</a>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a href="/resumeAnalyzer" style="color: #facaca; text-decoration: none"
+        <a href="/student/analyze_resume" style="color: #facaca; text-decoration: none"
           >Analyze Resume</a
         >
       </ul>
@@ -862,13 +862,13 @@ stroke-dashoffset: 900
       </ul>
     </nav>
 <div class="wrapper">
-<form action="{{url_for('home_route.analyze_resume')}}" method="POST">
+<form action="{{url_for('analyze_resume')}}" method="POST">
 <div id="wizard">
 <h4></h4>
 <section>
 <div class="form-row">
 <textarea id="txtArea" rows="10" name="jobtext" cols="70" class="form-control" placeholder="Job Description"></textarea>
-<button href="analyze_resume" type="Submit" class="btn btn-primary" value="analyze_resume()">Analyze</button>
+<button href="/student/analyze_resume" type="Submit" class="btn btn-primary" value="analyze_resume()">Analyze</button>
 </div>
 </br>
 <p>{{ data }}</p>
