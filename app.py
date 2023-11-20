@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField 
 from wtforms.validators import InputRequired, Length, ValidationError
-from werkzeug.utils import redirect,send_from_directory
+from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
 from Controller.ResumeParser import *
@@ -222,7 +222,7 @@ def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)
     print(filename, path)
-    return send_file(path+str(filename[0]), attachment_filename= str(filename[0]))
+    return send_file(path+str(filename[0]),as_attachment=True)
 
 
 @app.route('/student/chat_gpt_analyzer/', methods=['GET'])
