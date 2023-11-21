@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Skills Extractor</title>
+    <link rel="stylesheet" href="static\css\style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Job Skills Extractor</h1>
+        <form method="POST" class="form">
+            <label for="job_profile">Enter Job Profile Description:</label><br>
+            <textarea id="job_profile" name="job_profile" rows="6" cols="50" class="text-area">{{ job_profile }}</textarea><br><br>
+            <input type="submit" value="Extract Skills" class="submit-btn"><br><br>
+        </form>
+        
+        {% if skills_text %}
+            <div class="skills-section">
+                <label for="extracted_skills">Extracted Skills:</label><br>
+                <textarea id="extracted_skills" rows="4" cols="50" class="text-area">{{ skills_text }}</textarea><br><br>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
