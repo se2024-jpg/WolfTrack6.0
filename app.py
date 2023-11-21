@@ -9,6 +9,7 @@ from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
 from Controller.ResumeParser import *
+from Utils.jobprofileutils import *
 import os
 from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
@@ -170,6 +171,16 @@ def send_Profile():
     print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
+
+@app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
+def job_profile_analyze():
+    if request.method == 'POST':
+        job_profile = request.form['job_profile']
+        skills = extract_skills(job_profile)
+        print("###SKILLS", skills)
+        skills_text = ', '.join(skills)
+        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+    return render_template('job_profile_analyze.html', skills_text='', job_profile='')
 
 filename=""
 @app.route("/student/upload", methods=['POST'])
