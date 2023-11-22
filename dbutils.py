@@ -37,11 +37,13 @@ def search_username(data):
 
 def find_user(data):
     conn = sqlite3.connect('database.db')
+    print('Data==>', data)
     cursor = conn.cursor()
     # Querying the 'client' table
     cursor.execute("SELECT * FROM client where username ='"+str(data)+"'")
     rows = cursor.fetchone()
     conn.close()
+    print('rowsss->>>', rows)
     return rows
 
 
