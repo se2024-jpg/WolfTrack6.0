@@ -99,7 +99,7 @@ def login():
                     return redirect(url_for('admin', data=user[2]))
                 elif user[4] == 'student':
                     print("HEREEE")
-                    return redirect(url_for('student'))
+                    return redirect(url_for('student', data=user[2]))
                 else:
                     pass
     return render_template('login.html',form = form)
@@ -128,7 +128,11 @@ def admin():
 
 @app.route('/student',methods=['GET', 'POST'])
 def student():
-    return render_template('home.html')
+    data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)
+    return render_template('home.html', user=user)
 
 
 @app.route("/admin/send_email", methods=['GET','POST'])
