@@ -89,16 +89,17 @@ def login():
         user = find_user(str(form.username.data))
         print("User FOUND", user)
         print("PWD", bcrypt.generate_password_hash(form.password.data))
+        #print('username123456 ==> ', user[1])
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
                 login_user(app,user)
                 print(session)
                 print("###",user)
                 if user[4] == 'admin':
-                    return redirect(url_for('admin'))
+                    return redirect(url_for('admin', data=user[2]))
                 elif user[4] == 'student':
                     print("HEREEE")
-                    return redirect(url_for('student'))
+                    return redirect(url_for('student', data=user[2]))
                 else:
                     pass
     return render_template('login.html',form = form)
@@ -116,11 +117,22 @@ def signup():
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
-    return render_template('admin_landing.html')
+    #user = request.form['user']
+    #print('user123456789*** => ', user)
+    data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)
+    ##Add query
+    return render_template('admin_landing.html', user=user)
 
 @app.route('/student',methods=['GET', 'POST'])
 def student():
-    return render_template('home.html')
+    data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)
+    return render_template('home.html', user=user)
 
 
 @app.route("/admin/send_email", methods=['GET','POST'])
