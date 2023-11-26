@@ -12,6 +12,16 @@ def create_tables():
             usertype TEXT NOT NULL
         )
     ''')
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS jobs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        company_name TEXT,
+        location TEXT,
+        job_position TEXT,
+        salary INTEGER,
+        status TEXT
+    )
+    ''')
     conn.commit()
     conn.close()
 
