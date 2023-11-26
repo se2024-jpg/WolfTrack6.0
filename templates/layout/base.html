@@ -420,10 +420,11 @@
             <div class="section-content">
               <form
                 id="upload-form"
-                action="{{url_for('upload')}}"
+                action="{{url_for('upload', user_id = user[2])}}"
                 method="POST"
                 enctype="multipart/form-data"
               >
+                <input type="hidden" name="user_id" value="{{ user[2] }}" />
                 <input
                   type="file"
                   name="file"
@@ -433,7 +434,7 @@
                 <button
                   href="upload"
                   type="Submit"
-                  value="upload()"
+                  value="upload(user[2])"
                   name="Upload"
                   class="btn btn-dark"
                   style="margin-top: 5%; position: relative"

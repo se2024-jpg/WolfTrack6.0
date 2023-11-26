@@ -208,9 +208,10 @@ def upload():
         destination = "/".join([target, filename])
         file.save(destination)
 
-    data_received = request.args.get('data')
-    print('data_receivedddd->>>> ', data_received)
-    user = find_user(str(data_received))
+    user = request.form['user_id']
+    print('==================================================================', user)
+    
+    user = find_user(str(user))
     print('Userrrrrr', user)
 
     print('11111111111111111111111->', data)
