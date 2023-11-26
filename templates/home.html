@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-<style>
+<!-- <style>
   .card-footer-div {
     background: none !important;
     padding: 0.75 rem 1.25 rem !important;
@@ -56,9 +56,9 @@
   const offerCompanyNames = data
     .filter((entry) => entry.status === "Offer")
     .map((entry) => entry.company);
-</script>
+</script> -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="card status-card col-md card-common-style">
     <i class="material-icons card-icons">beenhere</i>
     <div class="card-body">
@@ -138,10 +138,253 @@
       <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
     </div>
   </div>
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Listings</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+      th, td {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+          color: #333; /* Dark font color */
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+          background-color: #f9f9f9;
+      }
+      tr:hover {
+          background-color: #f1f1f1;
+      }
+      /* Styles for dropdown */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #ffffff;
+          min-width: 120px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }
+      .dropdown-content a {
+          color: #333; /* Dark font color */
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+      .dropdown:hover .dropdown-content {
+          display: block;
+      }
+  </style>
+</head> -->
+
+<style>
+  /* Darken the modal */
+  .modal-content {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Style the header */
+  .modal-header {
+    background-color: #222;
+    color: #fff;
+    border-bottom: 1px solid #444;
+  }
+
+  /* Style the form labels and inputs */
+  .modal-body label {
+    color: #fff;
+  }
+
+  .modal-body input[type="text"],
+  .modal-body input[type="number"],
+  .modal-body input[type="email"],
+  .modal-body textarea {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #666;
+  }
+
+  /* Style the submit button */
+  .modal-footer {
+    background-color: #222;
+    border-top: 1px solid #444;
+  }
+
+  .modal-footer button {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Optional: Style other elements as needed */
+</style>
+
+<div class="container">
+
+    <div class="jumbotron p-3">
+      <h2>Job Application Portal<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Job Application</button></h2>
+    </div>
+
+    <table class = "table table-hover table-dark">
+      <tr>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Job Position</th>
+        <th>Salary</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>      
+      </tr>
+
+      <tr>
+        <td>Google</td>
+        <td>Google</td>
+        <td>Google</td>
+        <td>Google</td>
+        <td>Google</td>
+        <td>
+          <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+        </td>
+        <td>
+          <a href="" class="btn btn-danger btn-xs" onclick= "return confirm('Are you sure you want to delete?')" data-toggle="modal" data-target="#modaldelete">Delete</a>
+        </td>
+      </tr>
+      <div id="modaledit" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Update Job Application</h4>
+            </div>
+            <div class="modal-body">
+              <form action="" method="POST">
+                <div class="form-group">
+                  <label>Company:</label>
+                  <input type="text" class="form-control" name="company" required="1" value="company">
+                </div>
+                <div class="form-group">
+                  <label>Location:</label>
+                  <input type="text" class="form-control" name="location" required="1" value="company">
+                </div>
+                <div class="form-group">
+                  <label>Job Position:</label>
+                  <input type="text" class="form-control" name="jobposition" required="1" value="company">
+                </div>
+                <div class="form-group">
+                  <label>Salary:</label>
+                  <input type="number" class="form-control" name="salary" required="1" value="123">
+                </div>
+                <div class="form-group">
+                  <label>Status:</label>
+                  <input type="text" class="form-control" name="status" required="1" value="company">
+                </div>
+                <div class="form-group">
+                  <a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modaledit">Update Job Application</a>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </table>
+    <div id="mymodal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Job Application</h4>
+          </div>
+          <div class="modal-body">
+            <form action="{{ url_for('add_job_application') }}" method="POST">
+              <div class="form-group">
+                <label>Company:</label>
+                <input type="text" class="form-control" name="company" required="1">
+              </div>
+              <div class="form-group">
+                <label>Location:</label>
+                <input type="text" class="form-control" name="location" required="1">
+              </div>
+              <div class="form-group">
+                <label>Job Position:</label>
+                <input type="text" class="form-control" name="jobposition" required="1">
+              </div>
+              <div class="form-group">
+                <label>Salary:</label>
+                <input type="number" class="form-control" name="salary" required="1">
+              </div>
+              <div class="form-group">
+                <label>Status:</label>
+                <input type="text" class="form-control" name="status" required="1">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Add Job Application">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 </div>
 
+
+
+<!-- 
+<p class='text-right'><a class='btn btn-success '> Add Job </a></p>
+<table class='table table-bordered'>
+  <thead>
+    <th>Company</th>
+    <th>Location</th>
+    <th>Job Position</th>
+    <th>Salary</th>
+    <th>Status</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    {% for row in datas %}
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{row.UNAME}}</td>
+        <td>{{row.CONTACT}}</td>
+        <td><a href='{{url_for("edit_user",uid=row.UID)}}' class='btn btn-primary'>Edit</a></td>
+        <td><a href='{{url_for("delete_user",uid=row.UID)}}' class='btn btn-danger' onclick='return confirm("Are You Sure")'>Delete</a></td>
+      </tr>
+    {%endfor%}
+  </tbody>
+</table> -->
+
+
+
 <!-- Modal for New Application -->
-<form action="{{url_for('add_New')}}" method="POST">
+<!-- <form action="{{url_for('add_New')}}" method="POST">
   <div class="modal fade new-application-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -233,5 +476,5 @@
     href="mailto:wolftrack404@gmail.com">wolftrack404@gmail.com</a>.<br> Join our active Discord community at <a
     href="https://discord.gg/bmaXxb3yg4">https://discord.gg/bmaXxb3yg4</a> to engage, ask questions, and receive timely
   updates.
-</div>
+</div> -->
 {% endblock content %}
