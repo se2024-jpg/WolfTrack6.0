@@ -65,3 +65,12 @@ def add_job(data):
     conn.commit()
     conn.close()
 
+def get_job_applications():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs")
+    rows = cursor.fetchall()  # Use fetchall() to get all rows
+    conn.close()
+    print('rows ->>>', rows)
+    return rows
+

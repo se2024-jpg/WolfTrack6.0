@@ -140,7 +140,7 @@
   </div>
 </div> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -162,11 +162,11 @@
       th {
           background-color: #f2f2f2;
       }
-      tr:nth-child(even) {
-          background-color: #f9f9f9;
+      tr {
+          background-color: #ffe6e6; /* Light reddish-pink */
       }
       tr:hover {
-          background-color: #f1f1f1;
+          background-color: #f9cccc; /* Lighter shade on hover */
       }
       /* Styles for dropdown */
       .dropdown {
@@ -193,8 +193,11 @@
       .dropdown:hover .dropdown-content {
           display: block;
       }
-  </style>
-</head> -->
+    </style>
+</head>
+<!-- Rest of your HTML content here -->
+</html>
+
 
 <style>
   /* Darken the modal */
@@ -255,12 +258,13 @@
         <th>Delete</th>      
       </tr>
 
+      {% for row in jobapplications %}
       <tr>
-        <td>Google</td>
-        <td>Google</td>
-        <td>Google</td>
-        <td>Google</td>
-        <td>Google</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+        <td>{{ row[5] }}</td>
         <td>
           <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
         </td>
@@ -309,6 +313,8 @@
   
         </div>
       </div>
+
+      {%endfor%}
     </table>
     <div id="mymodal" class="modal fade" role="dialog">
       <div class="modal-dialog">
