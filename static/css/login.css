@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffd3d3; /* light pink */
+  background-color: #e92626;
   padding: 30px;
 }
 .container{
