@@ -15,7 +15,7 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, search_username,find_user, get_job_applications, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
 
 app = Flask(__name__)
@@ -188,6 +188,16 @@ def update_job_application():
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
         return redirect(url_for('student'))
+
+@app.route('/student/delete_job_application/<company>', methods=['POST'])
+def delete_job_application(company):
+    if request.method == 'POST':
+        # Perform the deletion operation
+        delete_job_application_by_company(company)  # Using the function to delete by company name
+
+        flash('Job Application Deleted!')
+        # Redirect to a success page or any relevant route after successful deletion
+        return redirect(url_for('student'))  # Redirect to the student page or your desired route
 
 @app.route('/student/add_New',methods=['GET','POST'])
 def add_New():

@@ -86,3 +86,15 @@ def update_job_application_by_id(company, location, jobposition, salary, status)
     conn.commit()
     conn.close()
 
+
+def delete_job_application_by_company(company_name):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Delete the job application from the 'jobs' table based on the company name
+    cursor.execute("DELETE FROM jobs WHERE company_name=?", (company_name,))
+
+    conn.commit()
+    conn.close()
+
+
