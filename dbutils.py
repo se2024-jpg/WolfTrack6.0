@@ -56,4 +56,12 @@ def find_user(data):
     print('rowsss->>>', rows)
     return rows
 
+def add_job(data):
+    conn = sqlite3.connect('database.db')
+    print('Data==>', data)
+    cursor = conn.cursor()
+    # Inserting rows into the 'jobs' table
+    cursor.execute("INSERT INTO jobs (company_name, location, job_position, salary, status) VALUES (?, ?, ?, ?, ?)", data)
+    conn.commit()
+    conn.close()
 

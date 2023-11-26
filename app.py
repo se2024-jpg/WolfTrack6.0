@@ -15,7 +15,7 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import create_tables, add_client, search_username,find_user
+from dbutils import add_job, create_tables, add_client, search_username,find_user
 from login_utils import login_user
 
 app = Flask(__name__)
@@ -151,6 +151,22 @@ def tos():
     print(workingdir)
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume2.pdf')
+
+@app.route("/add_job_application", methods=['POST'])
+def add_job_application():
+    print("YAYYYYYY")
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        job_data = [company, location, jobposition, salary, status]
+        # Perform actions with the form data, for instance, saving to the database
+        add_job(job_data)
+        # Redirect to a success page or any relevant route after successful job addition
+        return redirect(url_for('student'))
 
 
 @app.route('/student/add_New',methods=['GET','POST'])
