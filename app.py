@@ -302,7 +302,7 @@ def search():
         if response.status_code == 200:
             data = response.json()
             jobs = data.get('results', [])
-            return render_template('job_search_resutls.html', jobs=jobs)
+            return render_template('job_search_results.html', jobs=jobs)
         else:
             return "Error fetching job listings"
     except requests.RequestException as e:
