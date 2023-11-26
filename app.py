@@ -165,7 +165,7 @@ def add_New():
     s_email(company_name,location, Job_Profile,salary, user,password,email,sec_question,sec_answer,notes,date_applied)
     print("Added Company to List")
     print("Email Notification Sent")
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 @app.route('/student/send_Profile',methods=['GET','POST'])
 def send_Profile():
@@ -173,7 +173,11 @@ def send_Profile():
     print("Mailing Profile...")
     s_profile(data,upcoming_events, profile,emailID)
     print("Email Notification Sent")
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)
+    return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
@@ -190,7 +194,7 @@ filename=""
 @app.route("/student/upload", methods=['POST'])
 def upload():
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    target = os.path.join(APP_ROOT, 'resume/')
+    target = os.path.join(APP_ROOT, 'Controller\\resume\\')
     print(target)
 
     if not os.path.isdir(target):
@@ -203,7 +207,14 @@ def upload():
         destination = "/".join([target, filename])
         file.save(destination)
 
-    return render_template("home.html", data=data, upcoming_events=upcoming_events)
+    data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)
+
+    print('11111111111111111111111->', data)
+
+    return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
 
 @app.route('/student/analyze_resume', methods=['GET'])
 def view_ResumeAna():
