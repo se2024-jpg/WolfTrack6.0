@@ -74,3 +74,15 @@ def get_job_applications():
     print('rows ->>>', rows)
     return rows
 
+
+def update_job_application_by_id(company, location, jobposition, salary, status):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Update the 'jobs' table based on jobid
+    cursor.execute("UPDATE jobs SET company_name=?, location=?, job_position=?, salary=?, status=? WHERE company_name=?",
+                   (company, location, jobposition, salary, status, company))
+
+    conn.commit()
+    conn.close()
+

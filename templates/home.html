@@ -266,42 +266,42 @@
         <td>{{ row[4] }}</td>
         <td>{{ row[5] }}</td>
         <td>
-          <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+          <a href="{{ url_for('update_job_application') }}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a>
         </td>
         <td>
           <a href="" class="btn btn-danger btn-xs" onclick= "return confirm('Are you sure you want to delete?')" data-toggle="modal" data-target="#modaldelete">Delete</a>
         </td>
       </tr>
-      <div id="modaledit" class="modal fade" role="dialog">
+      <div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Update Job Application</h4>
             </div>
             <div class="modal-body">
-              <form action="" method="POST">
+              <form action="{{url_for('update_job_application')}}" method="POST">
                 <div class="form-group">
                   <label>Company:</label>
-                  <input type="text" class="form-control" name="company" required="1" value="company">
+                  <input type="text" class="form-control" name="company" required="1" value="{{row[1]}}">
                 </div>
                 <div class="form-group">
                   <label>Location:</label>
-                  <input type="text" class="form-control" name="location" required="1" value="company">
+                  <input type="text" class="form-control" name="location" required="1" value="{{row[2]}}">
                 </div>
                 <div class="form-group">
                   <label>Job Position:</label>
-                  <input type="text" class="form-control" name="jobposition" required="1" value="company">
+                  <input type="text" class="form-control" name="jobposition" required="1" value="{{row[3]}}">
                 </div>
                 <div class="form-group">
                   <label>Salary:</label>
-                  <input type="number" class="form-control" name="salary" required="1" value="123">
+                  <input type="number" class="form-control" name="salary" required="1" value="{{row[4]}}">
                 </div>
                 <div class="form-group">
                   <label>Status:</label>
-                  <input type="text" class="form-control" name="status" required="1" value="company">
+                  <input type="text" class="form-control" name="status" required="1" value="{{row[5]}}">
                 </div>
                 <div class="form-group">
-                  <a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modaledit">Update Job Application</a>
+                  <input type="submit" class="btn btn-primary" value="Update Job Application">
                 </div>
               </form>
             </div>

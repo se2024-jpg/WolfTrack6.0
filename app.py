@@ -15,7 +15,7 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, search_username,find_user, get_job_applications
+from dbutils import add_job, create_tables, add_client, search_username,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
 
 app = Flask(__name__)
@@ -126,13 +126,6 @@ def admin():
     ##Add query
     return render_template('admin_landing.html', user=user)
 
-# @app.route('/student',methods=['GET', 'POST'])
-# def student():
-#     data_received = request.args.get('data')
-#     print('data_receivedddd->>>> ', data_received)
-#     user = find_user(str(data_received))
-#     print('Userrrrrr', user)
-#     return render_template('home.html', user=user)
 
 @app.route('/student',methods=['GET', 'POST'])
 def student():
@@ -180,9 +173,23 @@ def add_job_application():
         # Redirect to a success page or any relevant route after successful job addition
         return redirect(url_for('student'))
 
+@app.route('/student/update_job_application',methods=['GET','POST'])
+def update_job_application():
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        # Perform the update operation
+        update_job_application_by_id( company, location, jobposition, salary, status)  # Replace this with your method to update the job
+
+        flash('Job Application Updated!')
+        # Redirect to a success page or any relevant route after successful job update
+        return redirect(url_for('student'))
 
 @app.route('/student/add_New',methods=['GET','POST'])
-
 def add_New():
     #print(request.method)
     company_name = request.form['fullname']
