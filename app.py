@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField 
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
@@ -49,15 +49,7 @@ class RegisterForm(FlaskForm):
     name = StringField(render_kw={"placeholder": "Name"})
     password = PasswordField(render_kw={"placeholder": "Password"})
     usertype = SelectField(render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
-
     submit = SubmitField('Register')
-
-    def validate_username(self, username):
-        existing_user_username = search_username(username.data)
-        if existing_user_username:
-            raise ValidationError(
-                'That username already exists. Please choose a different one.')
-
 
 class LoginForm(FlaskForm):
     username = StringField(validators=[

@@ -6,12 +6,12 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
-body{
+body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0e0e0;
+  background: #ffd3d3; /* light pink */
   padding: 30px;
 }
 .container{
@@ -371,3 +371,24 @@ a.button4:hover{
   border-color: #000000;
   border-style: solid;
 }
+
+/* ... (Your existing styles) */
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.forms {
+  width: 70%; /* Adjust as needed */
+}
+
+.side-image {
+  flex: 1; /* Take remaining space */
+  text-align: center;
+}
+
+.side-image img {
+  max-width: 100%; /* Make sure the image doesn't exceed the container width */
+}
+
