@@ -80,10 +80,9 @@ box-sizing: border-box;
       </div>
       
       <div class="button-container">
-       
-            <a href="http://127.0.0.1:5000/main_login/admin_login" class="button4"  ><h6>Admin</h6></a>
+            <a href="{{url_for('login')}}" class="button4"  ><h6>Login</h6></a>
             <div class="divider"> </div>
-            <a href="http://127.0.0.1:5000/main_login/user_login" class="button4" ><h6>User</h6></a>
+            <a href="{{url_for('signup')}}" class="button4" ><h6>Signup</h6></a>
       </div>
     </div>
     </div>

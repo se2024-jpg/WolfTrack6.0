@@ -97,24 +97,23 @@
 
           <br><br>
 
-          <div class="card" style="width: 18rem; text-align: left;">
+          <div class="card" style="width: 20rem; text-align: left;">
             <div class="card-body">
-              <h5 class="card-title ">Akhil Kumar</h5>
               <div class="row">
                 <div class="col">
-                  <b>Gender</b>
+                  <b>NAME: </b>
                 </div>
                 <div class="col">
-                  Male
+                  {{ user[1] }}
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <b>Location</b>
+                  <b>USERNAME: </b>
                 </div>
                 <div class="col">
-                  Raleigh, NC
+                  {{ user[2] }}
                 </div>
               </div>
 
@@ -136,13 +135,13 @@
           <div class="button-container">
             
             <div class = "image-container">
-                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                <a  href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
                     <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
                     <iframe title="resume1" src="{{url_for('static', filename ='/files/resume.pdf')}}" width="270" height="300" frameborder="0"></iframe>
                 </a>
                 <p class="name" style="background-color:#b9dfec"> Harper Hillsborough  </p>
                 <div class="review-container">
-                    <button onclick="" id="reviewButton1" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                    <button onclick="" id="reviewButton1" href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
                       <img id="reviewImage1" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
                     </button>
                     <div class="divider-icon"> </div>
@@ -159,7 +158,7 @@
                       <!-- Modal content -->
                       <div class="modal-content">
                           <span class="close">&times;</span>
-                          <form action="{{url_for('admin_login.send_email')}}" method="POST" class="form-container">
+                          <form action="{{url_for('send_email')}}" method="POST" class="form-container">
                               <p>Comments</p>
                               <textarea id="comment" name="comment" rows="10" cols="50">
                               </textarea>
@@ -174,13 +173,13 @@
                     <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300">
                 </a> -->
             <div class = "image-container">
-                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                <a  href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
                     <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
                     <iframe title="resume1" src="{{url_for('static', filename ='/files/resume2.pdf')}}" width="270" height="300" frameborder="0"></iframe>
                 </a>
                 <p class="name" style="background-color:#b9dfec"> Elliot Anderson </p>
                 <div class="review-container">
-                  <button id ="reviewButton2" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                  <button id ="reviewButton2" href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
                     <img id="reviewImage2" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
                   </button>
                   <div class="divider-icon"> </div>
@@ -196,13 +195,13 @@
               </div>
 
               <div class = "image-container">
-                <a  href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
+                <a  href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button4"  style="background-color:#b9dfec">
                     <!-- <img alt="Qries" src="{{ url_for('static', filename='images/resume-image.png') }}" width="270" height="300"> -->
                     <iframe title="resume1" src="{{url_for('static', filename ='/files/resume3.pdf')}}" width="270" height="300" frameborder="0"></iframe>
                 </a>
                 <p class="name" style="background-color:#b9dfec"> David Baker </p>
                 <div class="review-container">
-                  <button id ="reviewButton3" href="http://127.0.0.1:5000/admin_login/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
+                  <button id ="reviewButton3" href="http://127.0.0.1:5000/admin/render_resume" target="_blank" class="button5" style="background-color:#b9dfec" value="NO">
                     <img id="reviewImage3" src="{{ url_for('static', filename='images/notreviewed.png') }}" width="40" height="35">
                   </button>
                   <div class="divider-icon"> </div>
@@ -325,13 +324,13 @@
       }
 
       reviewButton1.onclick = function() {
-        onReviewClick('reviews.png','notreviewed.png',reviewButton1,reviewImage1,'http://127.0.0.1:5000/admin_login/render_resume');
+        onReviewClick('reviews.png','notreviewed.png',reviewButton1,reviewImage1,'http://127.0.0.1:5000/admin/render_resume');
       }
       reviewButton2.onclick = function() {
-        onReviewClick('reviews.png','notreviewed.png',reviewButton2,reviewImage2,'http://127.0.0.1:5000/admin_login/render_resume');
+        onReviewClick('reviews.png','notreviewed.png',reviewButton2,reviewImage2,'http://127.0.0.1:5000/admin/render_resume');
       } 
       reviewButton3.onclick = function() {
-        onReviewClick('reviews.png','notreviewed.png',reviewButton3,reviewImage3,'http://127.0.0.1:5000/admin_login/render_resume');
+        onReviewClick('reviews.png','notreviewed.png',reviewButton3,reviewImage3,'http://127.0.0.1:5000/admin/render_resume');
       }
       
       

@@ -54,11 +54,11 @@
         color: #16353f;
         cursor: pointer;
       }
-      #resumeAnalyzer a {
+      #analyze_resume a {
         text-decoration: none;
         color: black;
       }
-      #resumeAnalyzer {
+      #analyze_resume {
         font-weight: bold;
       }
       #rA:hover {
@@ -219,13 +219,18 @@
         <a class="navbar-brand" href="/">WolfTrack</a>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a href="/resumeAnalyzer" style="color: #facaca; text-decoration: none"
+        <a href="/student/analyze_resume" style="color: #facaca; text-decoration: none"
           >Analyze Resume</a
         >
       </ul>
       <ul class="navbar-nav ml-auto">
         <a href="/findJobs" style="color: #facaca; text-decoration: none"
           >Recommended Jobs</a
+        >
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <a href="/student/job_profile_analyze" style="color: #facaca; text-decoration: none"
+          >Skill Check</a
         >
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -240,7 +245,7 @@
 
     <div class="container-fluid">
       <div class="row" style="margin-top: 2%">
-        <div class="card1" id="resumeAnalyzer" style="width: 100%">
+        <div class="card1" id="analyze_resume" style="width: 100%">
           <div style="display: flex; justify-content: space-evenly">
             <!-- <a href="resumeAnalyzer"  class="cta pointer-cursor">
             <div class="d-flex mb-3 mb-md-0 btn-block feature-button" id= "rA">
@@ -294,14 +299,23 @@
 
             <div class="card card-common">
               <div class="card-body">
-                <h5 class="card-title">Elliot Anderson</h5>
                 <div class="row">
                   <div class="col">
-                    <b>Gender</b>
+                    <b>NAME: </b>
                   </div>
-                  <div class="col">Male</div>
+                  <div class="col">
+                    {{ user[1] }}
+                  </div>
                 </div>
-
+  
+                <div class="row">
+                  <div class="col">
+                    <b>USERNAME: </b>
+                  </div>
+                  <div class="col">
+                    {{ user[2] }}
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col">
                     <b>Location</b>
@@ -406,7 +420,7 @@
             <div class="section-content">
               <form
                 id="upload-form"
-                action="{{url_for('home_route.upload')}}"
+                action="{{url_for('upload')}}"
                 method="POST"
                 enctype="multipart/form-data"
               >
@@ -428,7 +442,7 @@
                 </button>
               </form>
               <form
-                action="{{url_for('home_route.display')}}"
+                action="{{url_for('display')}}"
                 method="POST"
                 enctype="multipart/form-data"
               >
@@ -451,7 +465,7 @@
             <div class="section-division"></div>
             <div class="section-content">
               <form
-                action="{{url_for('home_route.send_Profile')}}"
+                action="{{url_for('send_Profile')}}"
                 method="POST"
               >
                 <div class="input-group">
