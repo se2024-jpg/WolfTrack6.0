@@ -17,7 +17,7 @@ from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
 from dbutils import create_tables, add_client, search_username,find_user
 from login_utils import login_user
-from scraper_utils import *
+import requests
 
 app = Flask(__name__)
 # api = Api(app)
