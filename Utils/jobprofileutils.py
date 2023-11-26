@@ -17,8 +17,8 @@ nltk.download('wordnet')
 nlp = spacy.load("en_core_web_md")
 
 lemmatizer = WordNetLemmatizer()
-sample_skills = {'python', 'java', 'javascript', 'communication', 'teamwork', 'problem-solving', 'leadership', 'data analysis'}
-
+sample_skills = {'python', 'java', 'javascript', 'communication', 'teamwork', 'problem-solving', 'leadership', 'data analysis','AI','ML','c','r', 'c++','hadoop','scala','flask','pandas','spark','scikit-learn',
+                'numpy','php','sql','mysql','css','mongdb','nltk','fastai' , 'keras', 'pytorch','tensorflow','linux','Ruby','django','react','reactjs','ai','ui','tableau'}
 def preprocess_text(text):
     # Tokenize the text
     tokens = word_tokenize(text.lower())
