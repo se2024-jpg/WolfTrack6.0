@@ -17,6 +17,7 @@ from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
 from dbutils import create_tables, add_client, search_username,find_user
 from login_utils import login_user
+from scraper_utils import *
 
 app = Flask(__name__)
 # api = Api(app)
@@ -287,7 +288,25 @@ def chat_gpt_analyzer():
     sections[3] = sections[3][3:]
     return render_template('chat_gpt_analyzer.html', suggestions=sections, pdf_path=pdf_path, section_names = section_names)
 
+@app.route('/student/job_search')
+def job_search():
+    return render_template('job_search.html')
 
+@app.route('/student/job_search/result', methods=['POST'])
+def search():
+    job_role = request.form['job_role']
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&what_phrase={job_role}"
+    print(adzuna_url)
+    try:
+        response = requests.get(adzuna_url)
+        if response.status_code == 200:
+            data = response.json()
+            jobs = data.get('results', [])
+            return render_template('job_search_resutls.html', jobs=jobs)
+        else:
+            return "Error fetching job listings"
+    except requests.RequestException as e:
+        return f"Error: {e}"
 
 if __name__ == '__main__':
     app.run(debug=True)
