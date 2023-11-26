@@ -266,10 +266,14 @@
         <td>{{ row[4] }}</td>
         <td>{{ row[5] }}</td>
         <td>
-          <a href="{{ url_for('update_job_application') }}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a>
+          <a href="{{ url_for('update_job_application') }}"  data-toggle="modal" data-target="#modaledit{{row[0]}}">
+            ✎ <!-- Edit Icon -->
+          </a>
         </td>
         <td>
-          <a href="{{ url_for('delete_job_application', company=row[1]) }}" class="btn btn-danger btn-xs"  data-toggle="modal" data-target="#modaldelete{{row[0]}}">Delete</a>
+          <a href="{{ url_for('delete_job_application', company=row[1]) }}"  data-toggle="modal" data-target="#modaldelete{{row[0]}}">
+            ❌ <!-- Delete Icon -->
+          </a>
         </td>
       </tr>
       <div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
