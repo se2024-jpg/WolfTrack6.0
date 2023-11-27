@@ -1,6 +1,4 @@
-<h1><b>WolfTrack 4.0</b></h1>
-
-[WolfTrack 4.0 (Changes made in Phase 4) - Youtube Video](https://www.youtube.com/watch?v=z3s2rUTLFrQ)
+<h1><b>WolfTrack 5.0</b></h1>
 
 ---
 
@@ -24,6 +22,7 @@
     <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 4.0 best suited for?</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
@@ -55,7 +54,7 @@ To demonstrate our application's functionality and showcase its working examples
 
 ## What is new in this version?
 Checkout the [this documentation](docs/UserGuide.pdf)
-## What type of user is WolfTrack 4.0 best suited for?
+## What type of user is WolfTrack 5.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
