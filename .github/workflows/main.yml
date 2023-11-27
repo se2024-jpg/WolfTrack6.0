@@ -17,6 +17,7 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
+        python3 intall pypiwin32
     - name: Generate Report
       run: |
         python3 -m coverage run UnitTesting/test_app.py
