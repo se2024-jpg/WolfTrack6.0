@@ -1,7 +1,7 @@
 import sqlite3
 
-def create_tables():
-    conn = sqlite3.connect('database.db')
+def create_tables(db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS client (
@@ -26,8 +26,8 @@ def create_tables():
     conn.close()
 
 
-def add_client(value_set):
-    conn = sqlite3.connect('database.db')
+def add_client(value_set,db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
     print(value_set)
     # Inserting rows into the 'client' table
@@ -36,8 +36,8 @@ def add_client(value_set):
     conn.commit()
     conn.close()
 
-def search_username(data):
-    conn = sqlite3.connect('database.db')
+def search_username(data,db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
     # Querying the 'client' table
     cursor.execute("SELECT username FROM client Where username = '"+str(data)+"'")
@@ -45,8 +45,8 @@ def search_username(data):
     conn.close()
     return rows
 
-def find_user(data):
-    conn = sqlite3.connect('database.db')
+def find_user(data,db):
+    conn = sqlite3.connect(db)
     print('Data==>', data)
     cursor = conn.cursor()
     # Querying the 'client' table
@@ -56,17 +56,23 @@ def find_user(data):
     print('rowsss->>>', rows)
     return rows
 
+<<<<<<< HEAD
 def add_job(data):
     conn = sqlite3.connect('database.db')
     print('Data jobs==>', data)
+=======
+def add_job(data,db):
+    conn = sqlite3.connect(db)
+    print('Data==>', data)
+>>>>>>> 1b383e491815799634125e434141e4498e236bcb
     cursor = conn.cursor()
     # Inserting rows into the 'jobs' table
     cursor.execute("INSERT INTO jobs (company_name, location, job_position, salary, status) VALUES (?, ?, ?, ?, ?)", data)
     conn.commit()
     conn.close()
 
-def get_job_applications():
-    conn = sqlite3.connect('database.db')
+def get_job_applications(db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM jobs")
     rows = cursor.fetchall()  # Use fetchall() to get all rows
@@ -75,8 +81,8 @@ def get_job_applications():
     return rows
 
 
-def update_job_application_by_id(company, location, jobposition, salary, status):
-    conn = sqlite3.connect('database.db')
+def update_job_application_by_id(company, location, jobposition, salary, status,db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
 
     # Update the 'jobs' table based on jobid
@@ -87,8 +93,8 @@ def update_job_application_by_id(company, location, jobposition, salary, status)
     conn.close()
 
 
-def delete_job_application_by_company(company_name):
-    conn = sqlite3.connect('database.db')
+def delete_job_application_by_company(company_name,db):
+    conn = sqlite3.connect(db)
     cursor = conn.cursor()
 
     # Delete the job application from the 'jobs' table based on the company name
