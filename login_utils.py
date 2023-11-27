@@ -4,24 +4,16 @@ from hashlib import sha512
 from flask_login import UserMixin, LoginManager
 from flask.globals import _cv_request,g
 
-
-def has_request_context() -> bool:
-    return _cv_request.get(None) is not None
-
-def _get_user():
-    if has_request_context():
-        if "_login_user" not in g:
-            current_app.login_manager._load_user()
-
-        return g._login_user
-
-    return None
+def get_headers():
+    user_agent = request.headers.get("User-Agent")
+    address = request.headers.get("X-Forwarded-For", request.remote_addr)
+    return user_agent,address
 
 def get_session_identifier():
-    user_agent = request.headers.get("User-Agent")
+    user_agent,address = get_headers()
     if user_agent is not None:
         user_agent = user_agent.encode("utf-8")
-    address = request.headers.get("X-Forwarded-For", request.remote_addr)
+    
     if address is not None:
         # An 'X-Forwarded-For' header includes a comma separated list of the
         # addresses, the first address being the actual remote address.
@@ -57,12 +49,12 @@ def login_user(app,user, remember=False, duration=None, force=False, fresh=True)
         marked as not "fresh". Defaults to ``True``.
     :type fresh: bool
     """
-
+    print("###USER",user)
     session["user_id"] = user[0]
     session["type"] = user[4]
     session["_fresh"] = fresh
     session["_id"] = get_session_identifier()
-
+    print("IDENTIFIER##########",get_session_identifier())
     if remember:
         session["_remember"] = "set"
         if duration is not None:
