@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session
+from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -15,7 +15,7 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import create_tables, add_client, search_username,find_user
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
 import requests
 
@@ -119,13 +119,17 @@ def admin():
     ##Add query
     return render_template('admin_landing.html', user=user)
 
+
 @app.route('/student',methods=['GET', 'POST'])
 def student():
     data_received = request.args.get('data')
     print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
     print('Userrrrrr', user)
-    return render_template('home.html', user=user)
+
+
+    jobapplications = get_job_applications()
+    return render_template('home.html', user=user, jobapplications=jobapplications)
 
 
 @app.route("/admin/send_email", methods=['GET','POST'])
@@ -145,9 +149,50 @@ def tos():
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume2.pdf')
 
+@app.route("/add_job_application", methods=['POST'])
+def add_job_application():
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        job_data = [company, location, jobposition, salary, status]
+        # Perform actions with the form data, for instance, saving to the database
+        add_job(job_data)
+
+        flash('Job Application Added!')
+        # Redirect to a success page or any relevant route after successful job addition
+        return redirect(url_for('student'))
+
+@app.route('/student/update_job_application',methods=['GET','POST'])
+def update_job_application():
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        # Perform the update operation
+        update_job_application_by_id( company, location, jobposition, salary, status)  # Replace this with your method to update the job
+
+        flash('Job Application Updated!')
+        # Redirect to a success page or any relevant route after successful job update
+        return redirect(url_for('student'))
+
+@app.route('/student/delete_job_application/<company>', methods=['POST'])
+def delete_job_application(company):
+    if request.method == 'POST':
+        # Perform the deletion operation
+        delete_job_application_by_company(company)  # Using the function to delete by company name
+
+        flash('Job Application Deleted!')
+        # Redirect to a success page or any relevant route after successful deletion
+        return redirect(url_for('student'))  # Redirect to the student page or your desired route
 
 @app.route('/student/add_New',methods=['GET','POST'])
-
 def add_New():
     #print(request.method)
     company_name = request.form['fullname']
