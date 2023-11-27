@@ -12,10 +12,10 @@ from Controller.ResumeParser import *
 from Utils.jobprofileutils import *
 import os
 from flask import send_file, current_app as app
-from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
+from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
 import requests
 
@@ -260,13 +260,6 @@ def view_ResumeAna():
 def view_companies_list():
     return render_template('companies_list.html')
 
-
-@app.route('/student/findJobs', methods=['GET'])
-def view_jobs(): 
-    import json
-    f = open('Controller/scrap.json')
-    data = json.load(f)
-    return render_template('find_jobs.html', data = (data))
 
 @app.route('/student/analyze_resume', methods=['POST'])
 def analyze_resume():
