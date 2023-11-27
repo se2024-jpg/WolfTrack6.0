@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session
+from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -15,8 +15,9 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import create_tables, add_client, search_username,find_user
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
+import requests
 
 app = Flask(__name__)
 # api = Api(app)
@@ -118,13 +119,17 @@ def admin():
     ##Add query
     return render_template('admin_landing.html', user=user)
 
+
 @app.route('/student',methods=['GET', 'POST'])
 def student():
     data_received = request.args.get('data')
     print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
     print('Userrrrrr', user)
-    return render_template('home.html', user=user)
+
+
+    jobapplications = get_job_applications()
+    return render_template('home.html', user=user, jobapplications=jobapplications)
 
 
 @app.route("/admin/send_email", methods=['GET','POST'])
@@ -144,9 +149,50 @@ def tos():
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume2.pdf')
 
+@app.route("/add_job_application", methods=['POST'])
+def add_job_application():
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        job_data = [company, location, jobposition, salary, status]
+        # Perform actions with the form data, for instance, saving to the database
+        add_job(job_data)
+
+        flash('Job Application Added!')
+        # Redirect to a success page or any relevant route after successful job addition
+        return redirect(url_for('student'))
+
+@app.route('/student/update_job_application',methods=['GET','POST'])
+def update_job_application():
+    if request.method == 'POST':
+        company = request.form['company']
+        location = request.form['location']
+        jobposition = request.form['jobposition']
+        salary = request.form['salary']
+        status = request.form['status']
+
+        # Perform the update operation
+        update_job_application_by_id( company, location, jobposition, salary, status)  # Replace this with your method to update the job
+
+        flash('Job Application Updated!')
+        # Redirect to a success page or any relevant route after successful job update
+        return redirect(url_for('student'))
+
+@app.route('/student/delete_job_application/<company>', methods=['POST'])
+def delete_job_application(company):
+    if request.method == 'POST':
+        # Perform the deletion operation
+        delete_job_application_by_company(company)  # Using the function to delete by company name
+
+        flash('Job Application Deleted!')
+        # Redirect to a success page or any relevant route after successful deletion
+        return redirect(url_for('student'))  # Redirect to the student page or your desired route
 
 @app.route('/student/add_New',methods=['GET','POST'])
-
 def add_New():
     #print(request.method)
     company_name = request.form['fullname']
@@ -207,9 +253,10 @@ def upload():
         destination = "/".join([target, filename])
         file.save(destination)
 
-    data_received = request.args.get('data')
-    print('data_receivedddd->>>> ', data_received)
-    user = find_user(str(data_received))
+    user = request.form['user_id']
+    print('==================================================================', user)
+    
+    user = find_user(str(user))
     print('Userrrrrr', user)
 
     print('11111111111111111111111->', data)
@@ -287,7 +334,25 @@ def chat_gpt_analyzer():
     sections[3] = sections[3][3:]
     return render_template('chat_gpt_analyzer.html', suggestions=sections, pdf_path=pdf_path, section_names = section_names)
 
+@app.route('/student/job_search')
+def job_search():
+    return render_template('job_search.html')
 
+@app.route('/student/job_search/result', methods=['POST'])
+def search():
+    job_role = request.form['job_role']
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&what_phrase={job_role}"
+    print(adzuna_url)
+    try:
+        response = requests.get(adzuna_url)
+        if response.status_code == 200:
+            data = response.json()
+            jobs = data.get('results', [])
+            return render_template('job_search_results.html', jobs=jobs)
+        else:
+            return "Error fetching job listings"
+    except requests.RequestException as e:
+        return f"Error: {e}"
 
 if __name__ == '__main__':
     app.run(debug=True)

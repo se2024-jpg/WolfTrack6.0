@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job Search Results</title>
+
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .job-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .job-card {
+            background-color: white;
+            color: red;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        h2 {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Job Search Results</h1>
+    <div class="job-container">
+        {% for job in jobs %}
+            <div class="job-card">
+                <h2>{{ job.title }}</h2>
+                <p><strong>Company:</strong> {{ job.company.display_name }}</p>
+                <p><strong>Contract Time:</strong> {{ job.contract_time }}</p>
+                <p><strong>Salary Min:</strong> ${{ job.salary_min }}</p>
+                <p><strong>Description:</strong> {{ job.description }}</p>
+                <p><strong>Location:</strong> {{ job.location.display_name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
