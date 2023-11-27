@@ -157,6 +157,7 @@ def add_job_application():
         jobposition = request.form['jobposition']
         salary = request.form['salary']
         status = request.form['status']
+        user_id = request.form['user_id']
 
         job_data = [company, location, jobposition, salary, status]
         # Perform actions with the form data, for instance, saving to the database
@@ -164,7 +165,7 @@ def add_job_application():
 
         flash('Job Application Added!')
         # Redirect to a success page or any relevant route after successful job addition
-        return redirect(url_for('student'))
+        return redirect(url_for('student', data=user_id))
 
 @app.route('/student/update_job_application',methods=['GET','POST'])
 def update_job_application():
