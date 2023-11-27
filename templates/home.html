@@ -98,14 +98,37 @@
     color: #fff;
   }
 
+
   /* Optional: Style other elements as needed */
+</style>
+
+<style>
+  /* Reduce the width of the dropdown */
+  .form-control.box{
+      width: 150px; /* Adjust the width as needed */
+  }
 </style>
 
 
 <div class="container">
 
     <div >
-      <h2 >Job Application Portal<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Job Application</button></h2>
+      <h2 >Job Application Portal
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Job Application</button>
+        <form action="{{ url_for('get_job_application_status', status='Applied') }}" method="GET">
+          <div class="form-group float-left">
+            <select class="form-control box" id="statusFilter" name="status" onchange="this.form.submit()">
+              <option value="">All</option>
+              <option value="Applied">Applied</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Interview">Interview</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Selected">Selected</option>
+            </select>
+          </div>
+        </form>
+        
+      </h2>
     </div>
 
     <table class = "table table-hover table-dark">
