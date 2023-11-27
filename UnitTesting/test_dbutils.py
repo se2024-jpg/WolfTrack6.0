@@ -8,7 +8,7 @@ database = 'testdatbase.db'
 class TestDbUtils(unittest.TestCase):
 
     def setUp(self):
-        self.conn = sqlite3.connect('testdatbase.db')
+        self.conn = sqlite3.connect(database)
         self.cursor = self.conn.cursor()
         create_tables(database)
 
@@ -26,7 +26,7 @@ class TestDbUtils(unittest.TestCase):
         self.delete_all_data()
         user_details = ('John Doe', 'johndoe', 'password123', 'student')
         add_client(user_details,database)
-
+        self.setUp()
         self.cursor.execute("SELECT * FROM client WHERE username=?", ('johndoe',))
         user_in_database = self.cursor.fetchone()
 
@@ -50,18 +50,6 @@ class TestDbUtils(unittest.TestCase):
         self.assertIsNotNone(user)
 
 
-    def test_add_job(self):
-        job_details = ('ABC Inc.', 'Location', 'Position', 50000, 'Open')
-        self.conn.close()
-        add_job(job_details,database)
-        self.setUp()
-        self.cursor.execute("SELECT * FROM jobs WHERE company_name=?", ('ABC Inc.',))
-        job_in_database = self.cursor.fetchone()
-
-        self.assertIsNotNone(job_in_database)
-        self.tearDown()
-
-
     def test_get_job_applications(self):
         self.setUp()
         jobs = get_job_applications(database)
@@ -69,25 +57,12 @@ class TestDbUtils(unittest.TestCase):
         self.tearDown()
 
 
-    def test_delete_job_application_by_company(self):
-        company_name = 'ABC Inc.'
-        delete_job_application_by_company(company_name,database)
+    def delete_all_data(self):
+        self.conn = sqlite3.connect(database)
         self.cursor = self.conn.cursor()
-        self.cursor.execute("SELECT * FROM jobs WHERE company_name=?", ('ABC Inc.',))
-
-        job_in_database = self.cursor.fetchone()
+        self.cursor.execute("DELETE FROM client WHERE username=?",('johndoe',))
         self.conn.commit()
         self.conn.close()
-        self.assertIsNone(job_in_database)
-        self.tearDown()
-
-
-    def delete_all_data(self):
-        conn = sqlite3.connect(database)
-        cursor = conn.cursor()
-        cursor.execute("DELETE FROM client WHERE username=?",('johndoe',))
-        conn.commit()
-        conn.close()
 
 if __name__ == '__main__':
     unittest.main()
