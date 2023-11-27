@@ -48,6 +48,13 @@ WolfTrack5.0 is your ultimate destination for seamless organization and efficien
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
 ---
+
+## Check out the video!
+
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/JT06PTMHz7Y) 
+
+## What is new in this version?
+Checkout the [this documentation](docs/UserGuide.pdf)
 ## What type of user is WolfTrack 4.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
