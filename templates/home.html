@@ -59,39 +59,38 @@
 <!-- Rest of your HTML content here -->
 </html>
 
-
 <style>
-  /* Darken the modal */
+  /* Lighten the modal */
   .modal-content {
-    background-color: #333;
-    color: #fff;
+    background-color: #f5f5f5;
+    color: #333;
   }
 
   /* Style the header */
   .modal-header {
-    background-color: #222;
-    color: #fff;
-    border-bottom: 1px solid #444;
+    background-color: #ddd;
+    color: #333;
+    border-bottom: 1px solid #ccc;
   }
 
   /* Style the form labels and inputs */
   .modal-body label {
-    color: #fff;
+    color: #333;
   }
 
   .modal-body input[type="text"],
   .modal-body input[type="number"],
   .modal-body input[type="email"],
   .modal-body textarea {
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #666;
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
   }
 
   /* Style the submit button */
   .modal-footer {
-    background-color: #222;
-    border-top: 1px solid #444;
+    background-color: #ddd;
+    border-top: 1px solid #ccc;
   }
 
   .modal-footer button {
@@ -102,10 +101,11 @@
   /* Optional: Style other elements as needed */
 </style>
 
+
 <div class="container">
 
-    <div class="jumbotron p-3">
-      <h2>Job Application Portal<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Job Application</button></h2>
+    <div >
+      <h2 >Job Application Portal<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">Add New Job Application</button></h2>
     </div>
 
     <table class = "table table-hover table-dark">
@@ -207,6 +207,26 @@
 
       {%endfor%}
     </table>
+
+    <!-- Pagination -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <!-- Add more page items based on your content -->
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
     <div id="mymodal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
