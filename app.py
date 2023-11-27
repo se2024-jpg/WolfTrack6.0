@@ -186,12 +186,13 @@ def update_job_application():
 @app.route('/student/delete_job_application/<company>', methods=['POST'])
 def delete_job_application(company):
     if request.method == 'POST':
+        user_id = request.form['user_id']
         # Perform the deletion operation
         delete_job_application_by_company(company)  # Using the function to delete by company name
 
         flash('Job Application Deleted!')
         # Redirect to a success page or any relevant route after successful deletion
-        return redirect(url_for('student'))  # Redirect to the student page or your desired route
+        return redirect(url_for('student', data=user_id))  # Redirect to the student page or your desired route
 
 @app.route('/student/add_New',methods=['GET','POST'])
 def add_New():
