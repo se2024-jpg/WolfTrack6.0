@@ -36,7 +36,7 @@ CREATE TABLE client (
     PRIMARY KEY (id)
 );
 """
-create_tables()
+create_tables(database)
 
 # class Client(db.Model,UserMixin):
 #     __tablename__ = 'client'
