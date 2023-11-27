@@ -222,10 +222,15 @@ def send_Profile():
     print("Mailing Profile...")
     s_profile(data,upcoming_events, profile,emailID)
     print("Email Notification Sent")
-    data_received = request.args.get('data')
+    '''data_received = request.args.get('data')
     print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
-    print('Userrrrrr', user)
+    print('Userrrrrr', user)'''
+    user_id = request.form['user_id']
+    user = request.form['user_id']
+    print('==================================================================', user)
+    
+    user = find_user(str(user))
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
