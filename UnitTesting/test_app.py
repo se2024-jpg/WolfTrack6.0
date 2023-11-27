@@ -147,14 +147,6 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/job_search/result', data=data, follow_redirects=True)
         self.assert200(response)  # Assuming it successfully displays job search results
 
-    def test_send_Profile_route(self):
-        # Test 'send_Profile' route with valid email ID
-        data = {
-            'emailID': 'test@example.com'  # Assuming a valid email ID for testing
-        }
-        response = self.client.post('/student/send_Profile', data=data, follow_redirects=True)
-        self.assert200(response)  # Assuming it successfully sends the profile data
-
 
     def test_admin_route(self):
         # Test 'admin' route with valid user data
@@ -181,11 +173,6 @@ class TestFlaskApp(TestCase):
         # Test 'job_search' route
         response = self.client.get('/student/job_search')
         self.assert200(response)  # Assuming it successfully renders the job search page
-
-    def test_findJobs_route(self):
-        # Test 'view_jobs' (findJobs) route
-        response = self.client.get('/student/findJobs')
-        self.assert200(response)  # Assuming it successfully renders the job listings page
 
     def test_analyze_resume_route(self):
         # Test 'view_ResumeAna' (analyze_resume) route

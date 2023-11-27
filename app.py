@@ -12,10 +12,10 @@ from Controller.ResumeParser import *
 from Utils.jobprofileutils import *
 import os
 from flask import send_file, current_app as app
-from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
+from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, update_job_application_by_id
 from login_utils import login_user
 import requests
 
@@ -142,6 +142,7 @@ def add_job_application():
         jobposition = request.form['jobposition']
         salary = request.form['salary']
         status = request.form['status']
+        user_id = request.form['user_id']
 
         job_data = [company, location, jobposition, salary, status]
         # Perform actions with the form data, for instance, saving to the database
@@ -149,7 +150,7 @@ def add_job_application():
 
         flash('Job Application Added!')
         # Redirect to a success page or any relevant route after successful job addition
-        return redirect(url_for('student'))
+        return redirect(url_for('student', data=user_id))
 
 @app.route('/student/update_job_application',methods=['GET','POST'])
 def update_job_application():
@@ -159,23 +160,25 @@ def update_job_application():
         jobposition = request.form['jobposition']
         salary = request.form['salary']
         status = request.form['status']
+        user_id = request.form['user_id']
 
         # Perform the update operation
         update_job_application_by_id( company, location, jobposition, salary, status, database)  # Replace this with your method to update the job
 
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
-        return redirect(url_for('student'))
+        return redirect(url_for('student', data=user_id))
 
 @app.route('/student/delete_job_application/<company>', methods=['POST'])
 def delete_job_application(company):
     if request.method == 'POST':
+        user_id = request.form['user_id']
         # Perform the deletion operation
         delete_job_application_by_company(company,database)  # Using the function to delete by company name
 
         flash('Job Application Deleted!')
         # Redirect to a success page or any relevant route after successful deletion
-        return redirect(url_for('student'))  # Redirect to the student page or your desired route
+        return redirect(url_for('student', data=user_id))  # Redirect to the student page or your desired route
 
 @app.route('/student/add_New',methods=['GET','POST'])
 def add_New():
@@ -198,8 +201,21 @@ def add_New():
 def send_Profile():
     emailID = request.form['emailID']
     s_profile(data,upcoming_events, profile,emailID)
+
+    print("Email Notification Sent")
+    '''data_received = request.args.get('data')
+    print('data_receivedddd->>>> ', data_received)
+    user = find_user(str(data_received))
+    print('Userrrrrr', user)'''
+    user_id = request.form['user_id']
+    user = request.form['user_id']
+    print('==================================================================', user)
+    
+    user = find_user(str(user))
+
     data_received = request.args.get('data')
     user = find_user(str(data_received),database)
+
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
@@ -244,13 +260,6 @@ def view_ResumeAna():
 def view_companies_list():
     return render_template('companies_list.html')
 
-
-@app.route('/student/findJobs', methods=['GET'])
-def view_jobs(): 
-    import json
-    f = open('Controller/scrap.json')
-    data = json.load(f)
-    return render_template('find_jobs.html', data = (data))
 
 @app.route('/student/analyze_resume', methods=['POST'])
 def analyze_resume():

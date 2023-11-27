@@ -36,14 +36,6 @@ def add_client(value_set,db):
     conn.commit()
     conn.close()
 
-def search_username(data,db):
-    conn = sqlite3.connect(db)
-    cursor = conn.cursor()
-    # Querying the 'client' table
-    cursor.execute("SELECT username FROM client Where username = '"+str(data)+"'")
-    rows = cursor.fetchone()
-    conn.close()
-    return rows
 
 def find_user(data,db):
     conn = sqlite3.connect(db)
@@ -55,6 +47,7 @@ def find_user(data,db):
     conn.close()
     print('rowsss->>>', rows)
     return rows
+
 
 def add_job(data,db):
     conn = sqlite3.connect(db)

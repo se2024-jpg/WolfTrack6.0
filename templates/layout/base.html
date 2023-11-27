@@ -466,7 +466,7 @@
             <div class="section-division"></div>
             <div class="section-content">
               <form
-                action="{{url_for('send_Profile')}}"
+                action="{{url_for('send_Profile', user_id = user[2])}}"
                 method="POST"
               >
                 <div class="input-group">
@@ -478,6 +478,7 @@
                       <i class="material-icons icon-eye">email</i>
                     </div>
                   </div>
+                  <input type="hidden" name="user_id" value="{{ user[2] }}">
                   <input
                     type="text"
                     name="emailID"
@@ -487,7 +488,7 @@
                   />
                   <div
                     class="input-group-append"
-                    value="send_Profile()"
+                    value="send_Profile(user[2])"
                     onclick=""
                   >
                     <button
@@ -505,22 +506,7 @@
 
           <br />
 
-          <!-- Map from Power BI -->
-          <div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Job Application Map</h5>
-                <center>
-                  <iframe
-                    height="220"
-                    src="https://app.powerbi.com/view?r=eyJrIjoiZTIwOGJkZjctNzYzMC00YjQyLTljMjQtZWUxM2Q3Y2ZlYjk0IiwidCI6IjgwZjIzZjRhLTkxYTQtNDU2Ni04ZGIxLTNiY2FiYjIxZDFjYiIsImMiOjF9"
-                    frameborder="0"
-                    allowfullscreen="false"
-                  ></iframe>
-                </center>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
