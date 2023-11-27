@@ -17,12 +17,35 @@
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
+    <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
+    <li><a href="#License">License</a></li>
+    <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#version-numbers">Version Specifications</a></li>
+    <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#depriciated-libraries">Depriciated Libraries</a></li>
+    <li><a href="#future-roadmap">Future RoadMap</a></li>
+    <li><a href="#projects-users">Number of projects and Users associated with the project</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contact-us">Contact Us</a></li>
+  </ol>
+</details>
 
-## Why WolfTrack 4.0?
+## Why WolfTrack 5.0?
 
-WolfTrack4.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack4.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
-We offer features like giving suggestions for improvements on your resume, tracking your application and many more.
+We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
 ---
 ## What type of user is WolfTrack 4.0 best suited for?
