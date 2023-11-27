@@ -48,6 +48,7 @@ def find_user(data,db):
     print('rowsss->>>', rows)
     return rows
 
+
 def add_job(data,db):
     conn = sqlite3.connect(db)
     print('Data==>', data)

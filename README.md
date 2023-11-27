@@ -1,6 +1,4 @@
-<h1><b>WolfTrack 4.0</b></h1>
-
-[WolfTrack 4.0 (Changes made in Phase 4) - Youtube Video](https://www.youtube.com/watch?v=z3s2rUTLFrQ)
+<h1><b>WolfTrack 5.0</b></h1>
 
 ---
 
@@ -17,15 +15,46 @@
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
+    <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 4.0 best suited for?</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
+    <li><a href="#License">License</a></li>
+    <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#version-numbers">Version Specifications</a></li>
+    <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#depriciated-libraries">Depriciated Libraries</a></li>
+    <li><a href="#future-roadmap">Future RoadMap</a></li>
+    <li><a href="#projects-users">Number of projects and Users associated with the project</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contact-us">Contact Us</a></li>
+  </ol>
+</details>
 
-## Why WolfTrack 4.0?
+## Why WolfTrack 5.0?
 
-WolfTrack4.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack4.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
-We offer features like giving suggestions for improvements on your resume, tracking your application and many more.
+We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
 ---
-## What type of user is WolfTrack 4.0 best suited for?
+
+## Check out the video!
+
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/JT06PTMHz7Y) 
+
+## What is new in this version?
+Checkout the [this documentation](docs/UserGuide.pdf)
+## What type of user is WolfTrack 5.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
