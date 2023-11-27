@@ -51,15 +51,20 @@ We offer features like giving suggestions for improvements on your resume, track
 
 To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/JT06PTMHz7Y) 
 
+---
+
 ## What is new in this version?
 Checkout the [this documentation](docs/UserGuide.pdf)
+
+---
+
 ## What type of user is WolfTrack 5.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
 ---
 
-## 📚 Technology Stack
+## Technology Stack
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img src = "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"/></a></code>
 <code><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank"><img height="50" src="https://freetutsdownload.net/wp-content/uploads/2021/07/Learn-Flask-A-web-Development-Framework-of-Python.jpg"></a></code>
@@ -72,13 +77,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 <p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p>
 
-## 🎛️ Version Control Tools
+## Version Control Tools
 
  <p align="center">
 <img src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" width="150"><img src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp" width="150"> <img src="https://media.giphy.com/media/UWt0rhp21JgLwoeFQP/giphy.gif" width ="150"/> <img src="https://media.giphy.com/media/kH6CqYiquZawmU1HI6/giphy.gif" width ="150"/> 
 </p>
 
-## 🧰 Tools
+## Tools
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
@@ -94,7 +99,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-## 💻 Getting Started & Installation:
+## Getting Started & Installation:
 
 - ### Prerequisite:
 
@@ -142,13 +147,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-## 📔 Code Coverage
+## Code Coverage
 
 It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
 
 ---
 
-## 🛤️ Roadmap
+## Roadmap
 
 ### Phase 1 WolfTrack:
 
@@ -225,21 +230,31 @@ This project currently receives no funding.
 ---
 
 
-## ✍️ Contributions
+## Contributions
 
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 4.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
-## :handshake: Contributors
+## Contributors
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/shreyavaidya2311">Shreya Vaidya</a></td>
-    <td align="center"><a href="https://github.com/Dhruv-Kolhatkar">Dhruv Kolhatkar</a></td>
-    <td align="center"><a href="https://github.com/aniketdarp190301">Aniket Darp</a></td>
-    <td align="center"><a href="https://github.com/chinmay4613">Chinmay Walinjkar</a></td>
+    <td align="center"><a href="https://github.com/agmalpur">Akshada Malpure</a></td>
+    <td align="center"><a href="https://github.com/rutuja-39">Rutuja Rashinkar</a></td>
+    <td align="center"><a href="https://github.com/sakshi">Sakshi Basapure</a></td>
+    <td align="center"><a href="https://github.com/shonilbhide">Shonil Bhide</a></td>
   </tr>
 </table>
 
 ---
+## Acknowledgements
+
+- We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throughout the project building.
+- A big thank you 😊 to the Teaching Assistants for their support.
+- Thank you to the previous team 😊 for a thorough ReadMe and detailed documentation.
+
+---
+
+## Contact Us
+In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
