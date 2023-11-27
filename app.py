@@ -25,6 +25,7 @@ bcrypt = Bcrypt(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"  # SQLite URI
 app.config['SECRET_KEY'] = 'thisisasecretkey'
 db = SQLAlchemy(app)
+database = "database.db"
 """
 CREATE TABLE client (
     id INTEGER NOT NULL,
@@ -35,7 +36,7 @@ CREATE TABLE client (
     PRIMARY KEY (id)
 );
 """
-create_tables()
+create_tables(database)
 
 # class Client(db.Model,UserMixin):
 #     __tablename__ = 'client'
@@ -79,7 +80,7 @@ def logout():
 def login():
     form = LoginForm() 
     if form.validate_on_submit():
-        user = find_user(str(form.username.data))
+        user = find_user(str(form.username.data),database)
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
                 login_user(app,user)
@@ -97,7 +98,7 @@ def signup():
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data)
         new_client = [form.name.data,form.username.data, hashed_password, form.usertype.data]
-        add_client(new_client)
+        add_client(new_client,database)
         return redirect(url_for('login'))
 
     return render_template('signup.html',form = RegisterForm())
@@ -105,7 +106,7 @@ def signup():
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
     data_received = request.args.get('data')
-    user = find_user(str(data_received))
+    user = find_user(str(data_received),database)
     ##Add query
     return render_template('admin_landing.html', user=user)
 
@@ -113,10 +114,10 @@ def admin():
 @app.route('/student',methods=['GET', 'POST'])
 def student():
     data_received = request.args.get('data')
-    user = find_user(str(data_received))
+    user = find_user(str(data_received),database)
 
 
-    jobapplications = get_job_applications()
+    jobapplications = get_job_applications(database)
     return render_template('home.html', user=user, jobapplications=jobapplications)
 
 
@@ -144,7 +145,7 @@ def add_job_application():
 
         job_data = [company, location, jobposition, salary, status]
         # Perform actions with the form data, for instance, saving to the database
-        add_job(job_data)
+        add_job(job_data,database)
 
         flash('Job Application Added!')
         # Redirect to a success page or any relevant route after successful job addition
@@ -160,7 +161,7 @@ def update_job_application():
         status = request.form['status']
 
         # Perform the update operation
-        update_job_application_by_id( company, location, jobposition, salary, status)  # Replace this with your method to update the job
+        update_job_application_by_id( company, location, jobposition, salary, status, database)  # Replace this with your method to update the job
 
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
@@ -170,7 +171,7 @@ def update_job_application():
 def delete_job_application(company):
     if request.method == 'POST':
         # Perform the deletion operation
-        delete_job_application_by_company(company)  # Using the function to delete by company name
+        delete_job_application_by_company(company,database)  # Using the function to delete by company name
 
         flash('Job Application Deleted!')
         # Redirect to a success page or any relevant route after successful deletion
@@ -198,7 +199,7 @@ def send_Profile():
     emailID = request.form['emailID']
     s_profile(data,upcoming_events, profile,emailID)
     data_received = request.args.get('data')
-    user = find_user(str(data_received))
+    user = find_user(str(data_received),database)
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
@@ -229,7 +230,7 @@ def upload():
 
     user = request.form['user_id']
     
-    user = find_user(str(user))
+    user = find_user(str(user),database)
     print('Userrrrrr', user)
 
 
