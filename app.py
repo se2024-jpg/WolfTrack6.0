@@ -15,7 +15,7 @@ from flask import send_file, current_app as app
 from Controller.data import data, upcoming_events, profile
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, search_username,find_user, get_job_applications, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
 from login_utils import login_user
 import requests
 
@@ -130,6 +130,18 @@ def student():
 
     jobapplications = get_job_applications()
     return render_template('home.html', user=user, jobapplications=jobapplications)
+
+@app.route('/student/<status>', methods=['GET', 'POST'])
+def get_job_application_status(status):
+    data_received = request.args.get('data')
+    user = find_user(str(data_received), database)
+
+    if status:
+        job_applications = get_job_applications_by_status(database, status)
+    else:
+        job_applications = get_job_applications(database)
+
+    return render_template('home.html', user=user, jobapplications=job_applications)
 
 
 @app.route("/admin/send_email", methods=['GET','POST'])
