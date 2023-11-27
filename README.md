@@ -22,7 +22,7 @@
     <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 4.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
