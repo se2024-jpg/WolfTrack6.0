@@ -175,13 +175,14 @@ def update_job_application():
         jobposition = request.form['jobposition']
         salary = request.form['salary']
         status = request.form['status']
+        user_id = request.form['user_id']
 
         # Perform the update operation
         update_job_application_by_id( company, location, jobposition, salary, status)  # Replace this with your method to update the job
 
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
-        return redirect(url_for('student'))
+        return redirect(url_for('student', data=user_id))
 
 @app.route('/student/delete_job_application/<company>', methods=['POST'])
 def delete_job_application(company):

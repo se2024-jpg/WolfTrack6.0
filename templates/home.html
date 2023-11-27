@@ -283,7 +283,7 @@
               <h4 class="modal-title">Update Job Application</h4>
             </div>
             <div class="modal-body">
-              <form action="{{url_for('update_job_application')}}" method="POST">
+              <form action="{{url_for('update_job_application', user_id = user[2])}}" method="POST">
                 <div class="form-group">
                   <label>Company:</label>
                   <input type="text" class="form-control" name="company" required="1" value="{{row[1]}}">
@@ -305,6 +305,7 @@
                   <input type="text" class="form-control" name="status" required="1" value="{{row[5]}}">
                 </div>
                 <div class="form-group">
+                  <input type="hidden" name="user_id" value="{{ user[2] }}">
                   <input type="submit" class="btn btn-primary" value="Update Job Application">
                 </div>
               </form>
