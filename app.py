@@ -80,18 +80,12 @@ def login():
     form = LoginForm() 
     if form.validate_on_submit():
         user = find_user(str(form.username.data))
-        print("User FOUND", user)
-        print("PWD", bcrypt.generate_password_hash(form.password.data))
-        #print('username123456 ==> ', user[1])
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
                 login_user(app,user)
-                print(session)
-                print("###",user)
                 if user[4] == 'admin':
                     return redirect(url_for('admin', data=user[2]))
                 elif user[4] == 'student':
-                    print("HEREEE")
                     return redirect(url_for('student', data=user[2]))
                 else:
                     pass
@@ -110,12 +104,8 @@ def signup():
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
-    #user = request.form['user']
-    #print('user123456789*** => ', user)
     data_received = request.args.get('data')
-    print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
-    print('Userrrrrr', user)
     ##Add query
     return render_template('admin_landing.html', user=user)
 
@@ -123,9 +113,7 @@ def admin():
 @app.route('/student',methods=['GET', 'POST'])
 def student():
     data_received = request.args.get('data')
-    print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
-    print('Userrrrrr', user)
 
 
     jobapplications = get_job_applications()
@@ -134,9 +122,7 @@ def student():
 
 @app.route("/admin/send_email", methods=['GET','POST'])
 def send_email():
-    print('In send email')
     comments = request.form['comment']
-    print(comments  )
     email = 'elliotanderson506@gmail.com'
     s_comment_email(email,comments)
     return make_response(render_template('admin_landing.html'), 200,{'Content-Type': 'text/html'})
@@ -144,8 +130,6 @@ def send_email():
 @app.route("/admin/render_resume")
 def tos():
     workingdir = os.path.abspath(os.getcwd())
-    print("dir")
-    print(workingdir)
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume2.pdf')
 
@@ -194,7 +178,6 @@ def delete_job_application(company):
 
 @app.route('/student/add_New',methods=['GET','POST'])
 def add_New():
-    #print(request.method)
     company_name = request.form['fullname']
     location = request.form['location_text']
     Job_Profile = request.form['text']
@@ -207,22 +190,15 @@ def add_New():
     notes = request.form['notes']
     date_applied = request.form['starting_date']
 
-    print("Adding New...")
     s_email(company_name,location, Job_Profile,salary, user,password,email,sec_question,sec_answer,notes,date_applied)
-    print("Added Company to List")
-    print("Email Notification Sent")
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 @app.route('/student/send_Profile',methods=['GET','POST'])
 def send_Profile():
     emailID = request.form['emailID']
-    print("Mailing Profile...")
     s_profile(data,upcoming_events, profile,emailID)
-    print("Email Notification Sent")
     data_received = request.args.get('data')
-    print('data_receivedddd->>>> ', data_received)
     user = find_user(str(data_received))
-    print('Userrrrrr', user)
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
@@ -231,7 +207,6 @@ def job_profile_analyze():
     if request.method == 'POST':
         job_profile = request.form['job_profile']
         skills = extract_skills(job_profile)
-        print("###SKILLS", skills)
         skills_text = ', '.join(skills)
         return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
     return render_template('job_profile_analyze.html', skills_text='', job_profile='')
@@ -241,7 +216,6 @@ filename=""
 def upload():
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     target = os.path.join(APP_ROOT, 'Controller\\resume\\')
-    print(target)
 
     if not os.path.isdir(target):
         os.mkdir(target)
@@ -254,12 +228,10 @@ def upload():
         file.save(destination)
 
     user = request.form['user_id']
-    print('==================================================================', user)
     
     user = find_user(str(user))
     print('Userrrrrr', user)
 
-    print('11111111111111111111111->', data)
 
     return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
 
@@ -282,26 +254,22 @@ def view_jobs():
 @app.route('/student/analyze_resume', methods=['POST'])
 def analyze_resume():
     jobtext = request.form['jobtext']
-    print(jobtext)
     os.chdir(os.getcwd()+"/Controller/resume/")
     output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
     os.chdir("..")
     os.chdir("..")
-    print(output)
     return render_template('resume_analyzer.html', data = output)
 
 @app.route("/student/display/", methods=['POST','GET'])
 def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)
-    print(filename, path)
     return send_file(path+str(filename[0]),as_attachment=True)
 
 
 @app.route('/student/chat_gpt_analyzer/', methods=['GET'])
 def chat_gpt_analyzer():
     files = os.listdir(os.getcwd()+'/Controller/resume')
-    print(files[0])
     pdf_path = os.getcwd()+'//Controller/resume/'+files[0]
     text_path = os.getcwd()+'//Controller/resume_txt/'+files[0][:-3]+'txt'
     with open(text_path, 'w'):
@@ -325,7 +293,6 @@ def chat_gpt_analyzer():
         section = section.strip()  # Remove leading and trailing whitespace
         # if section:  # Check if the section is not empty (e.g., due to leading/trailing "Section")
         #     print("Section:", section)
-    print(sections)
     sections = sections[1:]
     section_names = ['Education', 'Experience','Skills', 'Projects']
     sections[0] = sections[0][3:]
@@ -342,7 +309,6 @@ def job_search():
 def search():
     job_role = request.form['job_role']
     adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&what_phrase={job_role}"
-    print(adzuna_url)
     try:
         response = requests.get(adzuna_url)
         if response.status_code == 200:
