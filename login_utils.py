@@ -1,8 +1,6 @@
 from flask import session, request
-from flask import current_app
 from hashlib import sha512
-from flask_login import UserMixin, LoginManager
-from flask.globals import _cv_request,g
+
 
 def get_headers():
     user_agent = request.headers.get("User-Agent")

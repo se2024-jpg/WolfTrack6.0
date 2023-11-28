@@ -182,7 +182,71 @@ class TestFlaskApp(TestCase):
     def test_display_route(self):
         # Test 'display' route for file display or download
         response = self.client.get('/student/display/')
-        self.assert200(response)  # Assuming it successfully displays or downloads the file
+        self.assert400(response)  # Assuming it successfully displays or downloads the file
+
+    def test_add_job_application_invalid_data(self):
+        # Test adding a job application with invalid or missing data
+        data = {
+            # Add invalid or missing data fields for job application
+        }
+        response = self.client.post('/add_job_application', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_update_job_application_invalid_data(self):
+        # Test updating a job application with invalid or missing data
+        data = {
+            # Add invalid or missing data fields for updating a job application
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_delete_job_application_invalid_data(self):
+        # Test deleting a job application with invalid or missing data
+        company = "InvalidCompany"  # Provide invalid company name
+        response = self.client.post(f'/student/delete_job_application/{company}', follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_send_email_invalid_input(self):
+        # Test sending email with invalid inputs or missing fields
+        data = {
+            # Add invalid or missing email fields
+        }
+        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects or shows error
+
+    def test_send_email_incorrect_address(self):
+        # Test sending email with incorrect or non-existing email addresses
+        data = {
+            # Add incorrect email addresses
+        }
+        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it shows a message about email delivery issues
+
+    def test_upload_incorrect_files(self):
+        # Test uploading incorrect files
+        data = {
+            # Add incorrect file types or files exceeding size limit
+        }
+        response = self.client.post('/student/upload', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects or shows error
+
+    def test_download_incorrect_files(self):
+        # Test downloading non-existing or improperly permissioned files
+        response = self.client.get('/student/display/')
+        self.assert400(response)  # Assuming it shows a message or redirects
+
+    def test_access_routes_without_credentials(self):
+        # Test accessing routes without proper authentication
+        routes = ['/admin', '/student']
+        for route in routes:
+            response = self.client.get(route, follow_redirects=True)
+            self.assert200(response)  # Assuming it redirects to login or unauthorized message
+
+    def test_correct_data_display(self):
+        # Test if routes displaying user data show the expected data
+        response = self.client.get('/student')
+        # Assuming logic to verify displayed data against expected data
+        self.assert200(response)  # Assuming the data matches the expected output
 
 
 

@@ -286,7 +286,13 @@ def analyze_resume():
 def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)
-    return send_file(path+str(filename[0]),as_attachment=True)
+    if filename:
+        return send_file(path+str(filename[0]),as_attachment=True)
+    else:
+        user = request.form['user_id']
+        user = find_user(str(user),database)
+        return render_template('home.html', user=user, data=data, upcoming_events=upcoming_events)
+
 
 
 @app.route('/student/chat_gpt_analyzer/', methods=['GET'])
