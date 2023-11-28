@@ -189,18 +189,28 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 - [x] Parse Resume Document with other extensions
 - [x] Recommend jobs by matching the resume with open jobs
 
-### 🏁 Phase 4 WolfTrack 4.0:
+### Phase 4 WolfTrack 4.0:
 
 - [x] Created Sign-up functionality <br>
 - [x] Fixed log-in authentication <br>
 - [x] Fixed daily goals feature <br>
 - [x] Added Site Navigation <br>
 - [x] Front end aesthetic changes <br>
-- [x] Added dynamic tables to Wishlist, Applied, In Process and Offers tabs <br>
+- [x] Added tables to Wishlist, Applied, In Process and Offers tabs <br>
 - [x] Added chatGPT pipeline for resume suggestions <br>
 
+### Phase 5 WolfTrack 5.0:
 
-### 🔭 Phase 5 WolfTrack 5.0 (Future Scope):
+- [x] Connected application to SQLite Database
+- [x] Created dynamic Sign-up and Log-In functionality <br>
+- [x] Added dynamic Job Application table - CRUD Operations<br>
+- [x] Added Filter By Status feature to view job applications <br>
+- [x] Added Job Search Feature <br>
+- [x] Added Job Skills Extractor Feature <br>
+- [x] Fixed upload and download resume bug <br>
+- [x] Made all UI content dynamic and extracts from the database <br>
+
+### Phase 6 WolfTrack 6.0 (Future Scope):
 
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
