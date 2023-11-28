@@ -93,22 +93,24 @@ This platform has been designed keeping in mind any person who is out to seek a 
 ### Third-Party Tools
 
 - [SQLite 3](https://www.sqlite.org/index.html)
-SQLite is often used with Flask due to its simplicity, lightweight nature, and compatibility with Flask applications. Here's why it's commonly used:
 
-- **Easy Setup**: SQLite is a self-contained, serverless, zero-configuration database engine. It doesn't require a separate server process to be running. For small to medium-sized applications, this ease of setup and use can be beneficial.
+  SQLite is often used with Flask due to its simplicity, lightweight nature, and compatibility with Flask applications. Here's why it's commonly used:
 
-- **No Configuration**: As SQLite doesn't require configuration or maintenance of a separate server, it's convenient for development environments and smaller-scale applications. In Flask, SQLite can be used with minimal setup.
+  **Easy Setup**: SQLite is a self-contained, serverless, zero-configuration database engine. It doesn't require a separate server process to be running. For small to medium-sized applications, this ease of setup and use can be beneficial.
 
-- **Portability**: SQLite databases are stored as a single file. This makes them highly portable and easy to transfer or share among different environments or applications.
+  **No Configuration**: As SQLite doesn't require configuration or maintenance of a separate server, it's convenient for development environments and smaller-scale applications. In Flask, SQLite can be used with minimal setup.
 
-- **Suitability for Prototyping and Small Projects**: For early stages of development, when the emphasis might be on rapidly prototyping an application or for smaller projects with relatively lower data requirements, SQLite can be a good choice due to its simplicity.
+  **Portability**: SQLite databases are stored as a single file. This makes them highly portable and easy to transfer or share among different environments or applications.
 
-- **Flask Integration**: Flask has built-in support for SQLite. The sqlite3 module is included in Python's standard library, allowing Flask applications to interact with SQLite databases seamlessly.
+  **Suitability for Prototyping and Small Projects**: For early stages of development, when the emphasis might be on rapidly prototyping an application or for smaller projects with relatively lower data requirements, SQLite can be a good choice due to its simplicity.
+
+  **Flask Integration**: Flask has built-in support for SQLite. The sqlite3 module is included in Python's standard library, allowing Flask applications to interact with SQLite databases seamlessly.
 
 - [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
 - [Highcharts](https://www.highcharts.com/)
 - [Adzuna](https://developer.adzuna.com/overview)
-The API provides access to rich job market data, including job descriptions, salaries, locations, and other relevant details. This data can be integrated into applications or platforms to offer insights into the job market trends and opportunities.
+  
+  The API provides access to rich job market data, including job descriptions, salaries, locations, and other relevant details. This data can be integrated into applications or platforms to offer insights into the job market trends and opportunities.
 ---
 
 ## Getting Started & Installation:
@@ -153,17 +155,14 @@ The API provides access to rich job market data, including job descriptions, sal
     `http://127.0.0.1:5000/`
 
 - ### API Setup
-- Create an Account:
-
+**Create an Account:**
 Go to the Adzuna Developer portal developer.adzuna.com.
 Sign up for an account to access the API. You might need to provide some basic details about your application, such as the name, purpose, and contact information.
-Get API Credentials:
-
-- Log in to your Adzuna Developer account.
+**Get API Credentials:**
+Log in to your Adzuna Developer account.
 Find the section to create an API application.
 Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
-
-- Change URL:
+**Change URL:**
 Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
 
 ---
