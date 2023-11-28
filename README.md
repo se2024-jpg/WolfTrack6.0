@@ -172,7 +172,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/Wolfpack5.0_Documentation.pdf)
+[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
 [Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
