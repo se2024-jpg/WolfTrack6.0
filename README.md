@@ -2,7 +2,7 @@
 
 ---
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023452.svg)](https://zenodo.org/doi/10.5281/zenodo.10023451)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
 [![GitHub Release](https://img.shields.io/github/release/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0/releases/tag/wolftrack)
 [![Manual Build](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml/badge.svg)](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml)
