@@ -229,7 +229,6 @@ class TestFlaskApp(TestCase):
             self.assert200(response)  
 
     def test_correct_data_display(self):
-        # Test if routes displaying user data show the expected data
         response = self.client.get('/student')
        
         self.assert200(response)  
