@@ -22,18 +22,17 @@
     <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 4.0 best suited for?</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#testing">Testing</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
+    <li><a href="#technology-stack">Technology Stack</a></li>
+    <li><a href="#version-control-tools">Version Control Tools</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#getting-started-&-instakkation">Getting Started & Installation:</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
-    <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
-    <li><a href="#License">License</a></li>
-    <li><a href="#code-documentation">Code Documentation</a></li>
-    <li><a href="#version-numbers">Version Specifications</a></li>
-    <li><a href="#how-to-contribute">How to Contribute</a></li>
-    <li><a href="#depriciated-libraries">Depriciated Libraries</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#developer-support-and-updates">Developer Support and Updates</a></li>
+    <li><a href="#funding">Funding</a></li>
+    <li><a href="#contributions">Contributions</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-    <li><a href="#projects-users">Number of projects and Users associated with the project</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
@@ -42,7 +41,7 @@
 
 ## Why WolfTrack 5.0?
 
-WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
@@ -50,17 +49,22 @@ We offer features like giving suggestions for improvements on your resume, track
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/JT06PTMHz7Y) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/jJPXR4ByvsA) 
+
+---
 
 ## What is new in this version?
 Checkout the [this documentation](docs/UserGuide.pdf)
+
+---
+
 ## What type of user is WolfTrack 5.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
 ---
 
-## 📚 Technology Stack
+## Technology Stack
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img src = "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"/></a></code>
 <code><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank"><img height="50" src="https://freetutsdownload.net/wp-content/uploads/2021/07/Learn-Flask-A-web-Development-Framework-of-Python.jpg"></a></code>
@@ -68,18 +72,18 @@ This platform has been designed keeping in mind any person who is out to seek a 
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
 <code><a href="https://www.javascript.com/" target="_blank"><img height="50" src="https://cdn.freelogovectors.net/wp-content/uploads/2020/11/javascript_logo-768x873.png"></a></code>
 <code><a href="https://getbootstrap.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg"></a></code>
-<code><a href="https://www.mysql.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg"></a></code>
+<code><a href="https://www.sqlite.org/index.html" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p>
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite | AWS </p>
 
-## 🎛️ Version Control Tools
+## Version Control Tools
 
  <p align="center">
 <img src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" width="150"><img src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp" width="150"> <img src="https://media.giphy.com/media/UWt0rhp21JgLwoeFQP/giphy.gif" width ="150"/> <img src="https://media.giphy.com/media/kH6CqYiquZawmU1HI6/giphy.gif" width ="150"/> 
 </p>
 
-## 🧰 Tools
+## Tools
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
@@ -95,7 +99,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-## 💻 Getting Started & Installation:
+## Getting Started & Installation:
 
 - ### Prerequisite:
 
@@ -143,13 +147,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-## 📔 Code Coverage
+## Code Coverage
 
 It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
 
 ---
 
-## 🛤️ Roadmap
+## Roadmap
 
 ### Phase 1 WolfTrack:
 
@@ -185,18 +189,28 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 - [x] Parse Resume Document with other extensions
 - [x] Recommend jobs by matching the resume with open jobs
 
-### 🏁 Phase 4 WolfTrack 4.0:
+### Phase 4 WolfTrack 4.0:
 
 - [x] Created Sign-up functionality <br>
 - [x] Fixed log-in authentication <br>
 - [x] Fixed daily goals feature <br>
 - [x] Added Site Navigation <br>
 - [x] Front end aesthetic changes <br>
-- [x] Added dynamic tables to Wishlist, Applied, In Process and Offers tabs <br>
+- [x] Added tables to Wishlist, Applied, In Process and Offers tabs <br>
 - [x] Added chatGPT pipeline for resume suggestions <br>
 
+### Phase 5 WolfTrack 5.0:
 
-### 🔭 Phase 5 WolfTrack 5.0 (Future Scope):
+- [x] Connected application to SQLite Database
+- [x] Created dynamic Sign-up and Log-In functionality <br>
+- [x] Added dynamic Job Application table - CRUD Operations<br>
+- [x] Added Filter By Status feature to view job applications <br>
+- [x] Added Job Search Feature <br>
+- [x] Added Job Skills Extractor Feature <br>
+- [x] Fixed upload and download resume bug <br>
+- [x] Made all UI content dynamic and extracts from the database <br>
+
+### Phase 6 WolfTrack 6.0 (Future Scope):
 
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
@@ -209,11 +223,7 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 4.0**, please contact us at **wolftrack404@gmail.com**. We are here to assist you and address any questions or issues you may have.
-
-Stay Connected:
-
-- **Discord Community**: Join our active Discord community at [https://discord.gg/bmaXxb3yg4](https://discord.gg/bmaXxb3yg4) to engage with our team, ask questions, and stay up-to-date with the latest developments of the project.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -226,21 +236,29 @@ This project currently receives no funding.
 ---
 
 
-## ✍️ Contributions
+## Contributions
 
 Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 4.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
-## :handshake: Contributors
+## Contributors
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/shreyavaidya2311">Shreya Vaidya</a></td>
-    <td align="center"><a href="https://github.com/Dhruv-Kolhatkar">Dhruv Kolhatkar</a></td>
-    <td align="center"><a href="https://github.com/aniketdarp190301">Aniket Darp</a></td>
-    <td align="center"><a href="https://github.com/chinmay4613">Chinmay Walinjkar</a></td>
+    <td align="center"><a href="https://github.com/agmalpur">Akshada Malpure</a></td>
+    <td align="center"><a href="https://github.com/rutuja-39">Rutuja Rashinkar</a></td>
+    <td align="center"><a href="https://github.com/sakshi">Sakshi Basapure</a></td>
+    <td align="center"><a href="https://github.com/shonilbhide">Shonil Bhide</a></td>
   </tr>
 </table>
 
 ---
+## Acknowledgements
+
+- We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throughout the project building.
+- A big thank you 😊 to the Teaching Assistants for their support.
+- Thank you to the previous team 😊 for a thorough ReadMe and detailed documentation.
+
+---
+

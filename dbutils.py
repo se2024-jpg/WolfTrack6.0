@@ -90,4 +90,14 @@ def delete_job_application_by_company(company_name,db):
     conn.commit()
     conn.close()
 
+def get_job_applications_by_status(db, status):
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs WHERE status = ?", (status,))
+    rows = cursor.fetchall()  # Use fetchall() to get all rows
+    conn.close()
+    print('rows ->>>', rows)
+    return rows
+
+
 
