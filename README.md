@@ -4,15 +4,15 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
-[![GitHub Release](https://img.shields.io/github/release/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0/releases/tag/wolftrack)
-[![Manual Build](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml/badge.svg)](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml)
+
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/rutuja-39/WolfTrack5.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
-[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0)
-![GitHub language count](https://img.shields.io/github/languages/count/aniketdarp190301/WolfTrack4.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-size](https://img.shields.io/github/languages/code-size/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub issues](https://img.shields.io/github/issues/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
+[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
+![GitHub language count](https://img.shields.io/github/languages/count/rutuja-39/WolfTrack5.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/pulls)
+[![GitHub-size](https://img.shields.io/github/repo-size/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0)
+[![GitHub issues](https://img.shields.io/github/issues/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
@@ -133,7 +133,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/aniketdarp190301/WolfTrack4.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
 
     `pip install -r requirements.txt`
 
@@ -141,9 +141,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/aniketdarp190301/WolfTrack4.0).
+  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
 
-  - Navigate to [project directory](https://github.com/aniketdarp190301/WolfTrack4.0).
+  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -172,14 +172,14 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/aniketdarp190301/WolfTrack4.0/blob/Group23StableBranch/docs/Wolfpack4.0_Documentation.pdf)
-[Use Cases Documentation](https://github.com/aniketdarp190301/WolfTrack4.0/blob/Group23StableBranch/docs/WolfTrack_4.0_UseCase.pdf)
+[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/Wolfpack5.0_Documentation.pdf)
+[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
+It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
 
 ---
 
@@ -270,7 +270,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 4.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
