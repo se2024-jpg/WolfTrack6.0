@@ -156,14 +156,19 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 - ### API Setup
 **Create an Account:**
-Go to the Adzuna Developer portal developer.adzuna.com.
-Sign up for an account to access the API. You might need to provide some basic details about your application, such as the name, purpose, and contact information.
+
+  Go to the Adzuna Developer portal developer.adzuna.com.
+  Sign up for an account to access the API. You might need to provide some basic details about your application, such as the name, purpose, and contact information.
+
 **Get API Credentials:**
-Log in to your Adzuna Developer account.
-Find the section to create an API application.
-Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
+
+  Log in to your Adzuna Developer account.
+  Find the section to create an API application.
+  Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
+
 **Change URL:**
-Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
+
+  Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
 
 ---
 
@@ -273,10 +278,10 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/agmalpur">Akshada Malpure</a></td>
-    <td align="center"><a href="https://github.com/rutuja-39">Rutuja Rashinkar</a></td>
-    <td align="center"><a href="https://github.com/sakshi">Sakshi Basapure</a></td>
-    <td align="center"><a href="https://github.com/shonilbhide">Shonil Bhide</a></td>
+    <td align="center"><a href="https://github.com/shonilbhide"><img src="https://avatars.githubusercontent.com/u/51792152?s=96&v=4" width="75px;" alt=""/><br /><sub><b>Shonil bhide</b></sub></a></td>
+    <td align="center"><a href="https://github.com/sakshibasapure"><img src="https://avatars.githubusercontent.com/u/40641044?v=4" width="75px;" alt=""/><br /><sub><b>Sakshi Basapure</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/rutuja-39"><img src="https://avatars.githubusercontent.com/u/59025269?v=4" width="75px;" alt=""/><br /><sub><b>Rutuja Rashinkar</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/agmalpur"><img src="https://avatars.githubusercontent.com/u/144184451?v=4" width="75px;" alt=""/><br /><sub><b>Akshada Malpure</b></sub></a><br /></td>
   </tr>
 </table>
 
