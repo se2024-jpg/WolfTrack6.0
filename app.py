@@ -1,3 +1,14 @@
+'''
+MIT License
+
+Copyright (c) 2023 Shonil B, Akshada M, Rutuja R, Sakshi B
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+'''
 import os
 from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
@@ -15,7 +26,7 @@ from flask import send_file, current_app as app
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
 from login_utils import login_user
 import requests
 
@@ -120,6 +131,18 @@ def student():
     jobapplications = get_job_applications(database)
     return render_template('home.html', user=user, jobapplications=jobapplications)
 
+@app.route('/student/<status>', methods=['GET', 'POST'])
+def get_job_application_status(status):
+    data_received = request.args.get('data')
+    user = find_user(str(data_received), database)
+
+    if status:
+        job_applications = get_job_applications_by_status(database, status)
+    else:
+        job_applications = get_job_applications(database)
+
+    return render_template('home.html', user=user, jobapplications=job_applications)
+
 
 @app.route("/admin/send_email", methods=['GET','POST'])
 def send_email():
@@ -211,7 +234,7 @@ def send_Profile():
     user = request.form['user_id']
     print('==================================================================', user)
     
-    user = find_user(str(user))
+    user = find_user(str(user),database)
 
     data_received = request.args.get('data')
     user = find_user(str(data_received),database)
@@ -274,7 +297,13 @@ def analyze_resume():
 def display():
     path = os.getcwd()+"/Controller/resume/"
     filename = os.listdir(path)
-    return send_file(path+str(filename[0]),as_attachment=True)
+    if filename:
+        return send_file(path+str(filename[0]),as_attachment=True)
+    else:
+        user = request.form['user_id']
+        user = find_user(str(user),database)
+        return render_template('home.html', user=user, data=data, upcoming_events=upcoming_events)
+
 
 
 @app.route('/student/chat_gpt_analyzer/', methods=['GET'])

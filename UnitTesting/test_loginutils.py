@@ -38,6 +38,81 @@ class TestLoginUtils(unittest.TestCase):
             self.assertTrue(session["_fresh"])
             self.assertEqual(session["_remember"], 'set')
             self.assertIsNone(session.get("_remember_seconds"))
+    
+    def test_login_user_without_remember(self):
+        with self.app.test_request_context(
+            environ_base={
+                'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+                'REMOTE_ADDR': '127.0.0.1'
+            }
+        ):
+            user = [29, 'aaaaaaaa', 'aaaaaaaa', b'$2b$12$AolQMfJR7M2SmzW8PIpMi.VJFg/R96cWnLXouHEYskkgEjZNHsdqm', 'student']
+            login_user(self.app, user, remember=False, duration=None, force=False, fresh=True)
+
+            self.assertEqual(session["user_id"], 29)
+            self.assertEqual(session["type"], 'student')
+            self.assertTrue(session["_fresh"])
+            self.assertIsNone(session.get("_remember"))
+            self.assertIsNone(session.get("_remember_seconds"))
+
+    def test_login_user_inactive_user_without_force(self):
+        with self.app.test_request_context(
+            environ_base={
+                'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+                'REMOTE_ADDR': '127.0.0.1'
+            }
+        ):
+            user = [29, 'aaaaaaaa', 'aaaaaaaa', b'$2b$12$AolQMfJR7M2SmzW8PIpMi.VJFg/R96cWnLXouHEYskkgEjZNHsdqm', 'inactive']
+            login_success = login_user(self.app, user, remember=False, duration=None, force=False, fresh=True)
+
+            self.assertTrue(login_success)
+            # Assuming session variables are not set for an inactive user without force
+
+    def test_login_user_inactive_user_with_force(self):
+        with self.app.test_request_context(
+            environ_base={
+                'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+                'REMOTE_ADDR': '127.0.0.1'
+            }
+        ):
+            user = [29, 'aaaaaaaa', 'aaaaaaaa', b'$2b$12$AolQMfJR7M2SmzW8PIpMi.VJFg/R96cWnLXouHEYskkgEjZNHsdqm', 'inactive']
+            login_success = login_user(self.app, user, remember=False, duration=None, force=True, fresh=True)
+
+            self.assertTrue(login_success)
+
+
+    def test_login_user_with_custom_duration(self):
+        with self.app.test_request_context(
+            environ_base={
+                'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+                'REMOTE_ADDR': '127.0.0.1'
+            }
+        ):
+            import datetime
+            user = [29, 'aaaaaaaa', 'aaaaaaaa', b'$2b$12$AolQMfJR7M2SmzW8PIpMi.VJFg/R96cWnLXouHEYskkgEjZNHsdqm', 'student']
+            duration = datetime.timedelta(days=7)  # Set a custom duration for remember me
+            login_user(self.app, user, remember=True, duration=duration, force=False, fresh=True)
+
+            self.assertEqual(session["user_id"], 29)
+            self.assertEqual(session["type"], 'student')
+            self.assertTrue(session["_fresh"])
+            self.assertEqual(session["_remember"], 'set')
+            self.assertAlmostEqual(session["_remember_seconds"], 604800.0, delta=0.1)  # Check for an approximate duration
+
+    def test_login_user_without_user_agent(self):
+        with self.app.test_request_context(
+            environ_base={
+                'REMOTE_ADDR': '127.0.0.1'
+            }
+        ):
+            user = [29, 'aaaaaaaa', 'aaaaaaaa', b'$2b$12$AolQMfJR7M2SmzW8PIpMi.VJFg/R96cWnLXouHEYskkgEjZNHsdqm', 'student']
+            login_user(self.app, user, remember=True, duration=None, force=False, fresh=True)
+
+            self.assertEqual(session["user_id"], 29)
+            self.assertEqual(session["type"], 'student')
+            self.assertTrue(session["_fresh"])
+            self.assertEqual(session["_remember"], 'set')
+            self.assertIsNone(session.get("_remember_seconds"))
 
 
 if __name__ == '__main__':

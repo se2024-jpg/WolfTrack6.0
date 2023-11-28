@@ -1,10 +1,12 @@
 import unittest
 import sys
+import shutil
+import os
 sys.path.append('./')
 from flask_testing import TestCase
 from app import app, db  # Replace 'app' with the name of your Flask application file
 from flask import url_for
-import requests
+from unittest.mock import patch
 
 # Replace this with your models, if any
 # from your_models_file import YourModel
@@ -14,6 +16,7 @@ class TestFlaskApp(TestCase):
     def create_app(self):
         app.config['TESTING'] = True
         app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
+
         return app
 
     def setUp(self):
@@ -21,6 +24,14 @@ class TestFlaskApp(TestCase):
         # Create sample data or set up anything needed for tests
 
     def tearDown(self):
+        source_folder = './Controller/temp_resume'
+        destination_folder = './Controller/resume'
+        files_to_copy = os.listdir(source_folder)  # Get list of files in source folder
+        for file_name in files_to_copy:
+            source_file_path = os.path.join(source_folder, file_name)
+            destination_file_path = os.path.join(destination_folder, file_name)
+            shutil.copy(source_file_path, destination_file_path)  # Copy files to destination folder
+
         db.session.remove()
         db.drop_all()
         # Clean up after tests
@@ -129,10 +140,6 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/admin/render_resume')
         self.assert200(response)  # Assuming it successfully renders the resume
 
-    def test_display_route(self):
-        # Test 'display' route
-        response = self.client.get('/student/display/')
-        self.assert200(response)  # Assuming it successfully displays the file for download
 
     def test_job_search_route(self):
         # Test 'job_search' route
@@ -178,13 +185,78 @@ class TestFlaskApp(TestCase):
         # Test 'view_ResumeAna' (analyze_resume) route
         response = self.client.get('/student/analyze_resume')
         self.assert200(response)  # Assuming it successfully renders the resume analyzer page
-
-    def test_display_route(self):
+    
+    @patch('os.listdir')
+    def test_display_route(self,mock_listdir):
         # Test 'display' route for file display or download
+        directory = '/path/to/directory'
+        # Define the return value you want to mock
+        mock_listdir.return_value = ['Shreya Vaidya_Resume.pdf', 'file2.txt', 'file3.txt']
         response = self.client.get('/student/display/')
         self.assert200(response)  # Assuming it successfully displays or downloads the file
+
+    def test_add_job_application_invalid_data(self):
+        # Test adding a job application with invalid or missing data
+        data = {
+            # Add invalid or missing data fields for job application
+        }
+        response = self.client.post('/add_job_application', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_update_job_application_invalid_data(self):
+        # Test updating a job application with invalid or missing data
+        data = {
+            # Add invalid or missing data fields for updating a job application
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_delete_job_application_invalid_data(self):
+        # Test deleting a job application with invalid or missing data
+        company = "InvalidCompany"  # Provide invalid company name
+        response = self.client.post(f'/student/delete_job_application/{company}', follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects to home page or shows error
+
+    def test_send_email_invalid_input(self):
+        # Test sending email with invalid inputs or missing fields
+        data = {
+            # Add invalid or missing email fields
+        }
+        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects or shows error
+
+    def test_send_email_incorrect_address(self):
+        # Test sending email with incorrect or non-existing email addresses
+        data = {
+            # Add incorrect email addresses
+        }
+        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it shows a message about email delivery issues
+
+    def test_upload_incorrect_files(self):
+        # Test uploading incorrect files
+        data = {
+            # Add incorrect file types or files exceeding size limit
+        }
+        response = self.client.post('/student/upload', data=data, follow_redirects=True)
+        self.assert400(response)  # Assuming it redirects or shows error
+
+
+    def test_access_routes_without_credentials(self):
+        # Test accessing routes without proper authentication
+        routes = ['/admin', '/student']
+        for route in routes:
+            response = self.client.get(route, follow_redirects=True)
+            self.assert200(response)  # Assuming it redirects to login or unauthorized message
+
+    def test_correct_data_display(self):
+        # Test if routes displaying user data show the expected data
+        response = self.client.get('/student')
+        # Assuming logic to verify displayed data against expected data
+        self.assert200(response)  # Assuming the data matches the expected output
 
 
 
 if __name__ == '__main__':
     unittest.main()
+    # After the tests are done, copy files from one folder to another

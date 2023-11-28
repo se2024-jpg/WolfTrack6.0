@@ -2,7 +2,7 @@
 
 ---
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023452.svg)](https://zenodo.org/doi/10.5281/zenodo.10023451)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
 [![GitHub Release](https://img.shields.io/github/release/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0/releases/tag/wolftrack)
 [![Manual Build](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml/badge.svg)](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml)
@@ -41,7 +41,7 @@
 
 ## Why WolfTrack 5.0?
 
-WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack4.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
@@ -49,7 +49,7 @@ We offer features like giving suggestions for improvements on your resume, track
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/JT06PTMHz7Y) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/jJPXR4ByvsA) 
 
 ---
 
@@ -72,10 +72,10 @@ This platform has been designed keeping in mind any person who is out to seek a 
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
 <code><a href="https://www.javascript.com/" target="_blank"><img height="50" src="https://cdn.freelogovectors.net/wp-content/uploads/2020/11/javascript_logo-768x873.png"></a></code>
 <code><a href="https://getbootstrap.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg"></a></code>
-<code><a href="https://www.mysql.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg"></a></code>
+<code><a href="https://www.sqlite.org/index.html" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p>
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite | AWS </p>
 
 ## Version Control Tools
 
@@ -189,18 +189,30 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 - [x] Parse Resume Document with other extensions
 - [x] Recommend jobs by matching the resume with open jobs
 
-### 🏁 Phase 4 WolfTrack 4.0:
+### Phase 4 WolfTrack 4.0:
 
 - [x] Created Sign-up functionality <br>
 - [x] Fixed log-in authentication <br>
 - [x] Fixed daily goals feature <br>
 - [x] Added Site Navigation <br>
 - [x] Front end aesthetic changes <br>
-- [x] Added dynamic tables to Wishlist, Applied, In Process and Offers tabs <br>
+- [x] Added tables to Wishlist, Applied, In Process and Offers tabs <br>
 - [x] Added chatGPT pipeline for resume suggestions <br>
 
+### Phase 5 WolfTrack 5.0:
 
-### 🔭 Phase 5 WolfTrack 5.0 (Future Scope):
+- [x] Implemented SQLite Database connectivity for the application.
+- [x] Employed Flask API to dynamically retrieve content from the database for both Student and Admin portals. <br>
+- [x] Conducted code refactoring to enhance application dynamism.<br>
+- [x] Developed dynamic Sign-up and Log-In functionalities for user interaction.<br>
+- [x] Integrated a dynamic Job Application table with CRUD Operations. <br>
+- [x] Included a 'Filter By Status' feature for streamlined job application viewing. <br>
+- [x] Incorporated a Job Search Feature for improved navigation. <br>
+- [x] Added Job Skills Extractor functionality for enhanced job matching. <br>
+- [x] Resolved upload and download resume bugs for smoother user experience.<br>
+- [x] Implemented Test Cases from scratch due to extensive code refactoring.
+
+### Phase 6 WolfTrack 6.0 (Future Scope):
 
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
@@ -213,11 +225,7 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 4.0**, please contact us at **wolftrack404@gmail.com**. We are here to assist you and address any questions or issues you may have.
-
-Stay Connected:
-
-- **Discord Community**: Join our active Discord community at [https://discord.gg/bmaXxb3yg4](https://discord.gg/bmaXxb3yg4) to engage with our team, ask questions, and stay up-to-date with the latest developments of the project.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -256,5 +264,3 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
 
 ---
 
-## Contact Us
-In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
