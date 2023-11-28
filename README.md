@@ -223,7 +223,7 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com*. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
