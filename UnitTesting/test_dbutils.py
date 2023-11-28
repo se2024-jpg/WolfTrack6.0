@@ -42,7 +42,6 @@ class TestDBUtils(unittest.TestCase):
         self.assertEqual(result[1], 'John Doe')
 
     def test_find_user(self):
-        # Add a user and then try to find it
         client_data = ('Jane Doe', 'janedoe', 'password456', 'user')
         dbutils.add_client(client_data, self.db)
         result = dbutils.find_user('janedoe', self.db)
@@ -57,13 +56,11 @@ class TestDBUtils(unittest.TestCase):
         self.assertEqual(result[0][1], 'CompanyX')
 
     def test_get_job_applications(self):
-        # Assuming there are already jobs added
         result = dbutils.get_job_applications(self.db)
         self.assertIsNotNone(result)
         self.assertTrue(len(result) >= 0)
 
     def test_update_job_application_by_id(self):
-        # Assuming there's at least one job in the database
         job_data = ('CompanyX', 'UpdatedLocation', 'UpdatedPosition', 60000, 'Closed')
         dbutils.update_job_application_by_id(*job_data, self.db)
         result = dbutils.get_job_applications(self.db)
@@ -72,45 +69,37 @@ class TestDBUtils(unittest.TestCase):
         self.assertEqual(updated_job[0][1:], job_data)
 
     def test_delete_job_application_by_company(self):
-        # Assuming there's at least one job in the database
         dbutils.delete_job_application_by_company('UpdatedCompany', self.db)
         result = dbutils.get_job_applications(self.db)
         deleted_job = [job for job in result if job[1] == 'UpdatedCompany']
         self.assertEqual(len(deleted_job), 0)
 
     def test_get_job_applications_by_status(self):
-        # Assuming there are already jobs added with various statuses
         job_data = ('CompanyA', 'LocationX', 'PositionY', 40000, 'Open')
         dbutils.add_job(job_data, self.db)
         job_data_closed = ('CompanyB', 'LocationX', 'PositionY', 45000, 'Closed')
         dbutils.add_job(job_data_closed, self.db)
         
-        # Retrieving jobs with a specific status
         result_open = dbutils.get_job_applications_by_status(self.db, 'Open')
         result_closed = dbutils.get_job_applications_by_status(self.db, 'Closed')
         
         self.assertTrue(len(result_open) > 0)
         self.assertTrue(len(result_closed) > 0)
-        # Validate if the retrieved jobs have the expected status
         self.assertEqual(result_open[0][-1], 'Open')
         self.assertEqual(result_closed[0][-1], 'Closed')
 
     def test_update_job_application_invalid_id(self):
-        # Attempt to update a job with an ID that doesn't exist
         job_data = ('InvalidCompany', 'UpdatedLocation', 'UpdatedPosition', 60000, 'Closed')
         dbutils.update_job_application_by_id(*job_data, self.db)
         result = dbutils.get_job_applications(self.db)
         updated_job = [job for job in result if job[1] == 'InvalidCompany']
         self.assertEqual(len(updated_job), 0)
-        # Ensure that no job was updated with an invalid ID
 
     def test_delete_nonexistent_job_application(self):
-        # Attempt to delete a job that doesn't exist
         dbutils.delete_job_application_by_company('NonexistentCompany', self.db)
         result = dbutils.get_job_applications(self.db)
         deleted_job = [job for job in result if job[1] == 'NonexistentCompany']
         self.assertEqual(len(deleted_job), 0)
-        # Ensure that no job was deleted when attempting to delete a non-existent one
 
 
 
