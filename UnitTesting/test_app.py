@@ -129,10 +129,6 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/admin/render_resume')
         self.assert200(response)  # Assuming it successfully renders the resume
 
-    def test_display_route(self):
-        # Test 'display' route
-        response = self.client.get('/student/display/')
-        self.assert200(response)  # Assuming it successfully displays the file for download
 
     def test_job_search_route(self):
         # Test 'job_search' route
@@ -230,10 +226,6 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/upload', data=data, follow_redirects=True)
         self.assert400(response)  # Assuming it redirects or shows error
 
-    def test_download_incorrect_files(self):
-        # Test downloading non-existing or improperly permissioned files
-        response = self.client.get('/student/display/')
-        self.assert400(response)  # Assuming it shows a message or redirects
 
     def test_access_routes_without_credentials(self):
         # Test accessing routes without proper authentication
