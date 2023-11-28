@@ -211,7 +211,7 @@ def send_Profile():
     user = request.form['user_id']
     print('==================================================================', user)
     
-    user = find_user(str(user))
+    user = find_user(str(user),database)
 
     data_received = request.args.get('data')
     user = find_user(str(data_received),database)
