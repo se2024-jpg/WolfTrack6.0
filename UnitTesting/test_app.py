@@ -1,10 +1,12 @@
 import unittest
 import sys
+import shutil
+import os
 sys.path.append('./')
 from flask_testing import TestCase
 from app import app, db  # Replace 'app' with the name of your Flask application file
 from flask import url_for
-import requests
+from unittest.mock import patch
 
 # Replace this with your models, if any
 # from your_models_file import YourModel
@@ -14,6 +16,7 @@ class TestFlaskApp(TestCase):
     def create_app(self):
         app.config['TESTING'] = True
         app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
+
         return app
 
     def setUp(self):
@@ -21,6 +24,14 @@ class TestFlaskApp(TestCase):
         # Create sample data or set up anything needed for tests
 
     def tearDown(self):
+        source_folder = './Controller/temp_resume'
+        destination_folder = './Controller/resume'
+        files_to_copy = os.listdir(source_folder)  # Get list of files in source folder
+        for file_name in files_to_copy:
+            source_file_path = os.path.join(source_folder, file_name)
+            destination_file_path = os.path.join(destination_folder, file_name)
+            shutil.copy(source_file_path, destination_file_path)  # Copy files to destination folder
+
         db.session.remove()
         db.drop_all()
         # Clean up after tests
@@ -174,11 +185,15 @@ class TestFlaskApp(TestCase):
         # Test 'view_ResumeAna' (analyze_resume) route
         response = self.client.get('/student/analyze_resume')
         self.assert200(response)  # Assuming it successfully renders the resume analyzer page
-
-    def test_display_route(self):
+    
+    @patch('os.listdir')
+    def test_display_route(self,mock_listdir):
         # Test 'display' route for file display or download
+        directory = '/path/to/directory'
+        # Define the return value you want to mock
+        mock_listdir.return_value = ['Shreya Vaidya_Resume.pdf', 'file2.txt', 'file3.txt']
         response = self.client.get('/student/display/')
-        self.assert400(response)  # Assuming it successfully displays or downloads the file
+        self.assert200(response)  # Assuming it successfully displays or downloads the file
 
     def test_add_job_application_invalid_data(self):
         # Test adding a job application with invalid or missing data
@@ -244,3 +259,4 @@ class TestFlaskApp(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    # After the tests are done, copy files from one folder to another
