@@ -72,10 +72,10 @@ This platform has been designed keeping in mind any person who is out to seek a 
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
 <code><a href="https://www.javascript.com/" target="_blank"><img height="50" src="https://cdn.freelogovectors.net/wp-content/uploads/2020/11/javascript_logo-768x873.png"></a></code>
 <code><a href="https://getbootstrap.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg"></a></code>
-<code><a href="https://www.mysql.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg"></a></code>
+<code><a href="https://www.sqlite.org/index.html" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | MySQL | AWS </p>
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite | AWS </p>
 
 ## Version Control Tools
 
