@@ -20,6 +20,9 @@ jobs:
     - name: Generate Report
       run: |
         python3 -m coverage run UnitTesting/test_app.py
+        python3 -m coverage run UnitTesting/test_dbutils.py
+        python3 -m coverage run UnitTesting/test_jobprofileutils.py
+        python3 -m coverage run UnitTesting/test_loginutils.py
         python3 -m coverage report -i
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
