@@ -201,14 +201,16 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ### Phase 5 WolfTrack 5.0:
 
-- [x] Connected application to SQLite Database
-- [x] Created dynamic Sign-up and Log-In functionality <br>
-- [x] Added dynamic Job Application table - CRUD Operations<br>
-- [x] Added Filter By Status feature to view job applications <br>
-- [x] Added Job Search Feature <br>
-- [x] Added Job Skills Extractor Feature <br>
-- [x] Fixed upload and download resume bug <br>
-- [x] Made all UI content dynamic and extracts from the database <br>
+- [x] Implemented SQLite Database connectivity for the application.
+- [x] Employed Flask API to dynamically retrieve content from the database for both Student and Admin portals. <br>
+- [x] Conducted code refactoring to enhance application dynamism.<br>
+- [x] Developed dynamic Sign-up and Log-In functionalities for user interaction.<br>
+- [x] Integrated a dynamic Job Application table with CRUD Operations. <br>
+- [x] Included a 'Filter By Status' feature for streamlined job application viewing. <br>
+- [x] Incorporated a Job Search Feature for improved navigation. <br>
+- [x] Added Job Skills Extractor functionality for enhanced job matching. <br>
+- [x] Resolved upload and download resume bugs for smoother user experience.<br>
+- [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
 ### Phase 6 WolfTrack 6.0 (Future Scope):
 
