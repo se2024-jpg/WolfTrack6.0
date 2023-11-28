@@ -66,7 +66,6 @@ class TestLoginUtils(unittest.TestCase):
             login_success = login_user(self.app, user, remember=False, duration=None, force=False, fresh=True)
 
             self.assertTrue(login_success)
-            # Assuming session variables are not set for an inactive user without force
 
     def test_login_user_inactive_user_with_force(self):
         with self.app.test_request_context(

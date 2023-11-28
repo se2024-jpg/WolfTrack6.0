@@ -4,12 +4,10 @@ import shutil
 import os
 sys.path.append('./')
 from flask_testing import TestCase
-from app import app, db  # Replace 'app' with the name of your Flask application file
+from app import app, db 
 from flask import url_for
 from unittest.mock import patch
 
-# Replace this with your models, if any
-# from your_models_file import YourModel
 
 class TestFlaskApp(TestCase):
 
@@ -21,12 +19,11 @@ class TestFlaskApp(TestCase):
 
     def setUp(self):
         db.create_all()
-        # Create sample data or set up anything needed for tests
 
     def tearDown(self):
         source_folder = './Controller/temp_resume'
         destination_folder = './Controller/resume'
-        files_to_copy = os.listdir(source_folder)  # Get list of files in source folder
+        files_to_copy = os.listdir(source_folder)  
         for file_name in files_to_copy:
             source_file_path = os.path.join(source_folder, file_name)
             destination_file_path = os.path.join(destination_folder, file_name)
@@ -39,54 +36,44 @@ class TestFlaskApp(TestCase):
     def test_index_route(self):
         response = self.client.get('/')
         self.assert200(response)
-    # Add more assertions as needed for content, redirection, etc.
 
     def test_login_route(self):
         response = self.client.get('/login')
         self.assert200(response)
-        self.assert_template_used('login.html')  # Check if the login template is being used
+        self.assert_template_used('login.html')  
 
-        # Assuming you have a form on the login page with username and password fields
         data = {
             'username': 'testuser',
             'password': 'testpassword'
         }
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assert200(response)
-        # Add assertions to check if the login is successful or if redirection happens
 
     def test_signup_route(self):
         response = self.client.get('/signup')
         self.assert200(response)
-        self.assert_template_used('signup.html')  # Check if the signup template is being used
+        self.assert_template_used('signup.html')  
 
-        # Assuming you have a form on the signup page with username, password, etc. fields
         data = {
             'username': 'newuser',
             'password': 'newpassword',
             'name': 'New User',
-            'usertype': 'student'  # Or 'admin' based on your choices
+            'usertype': 'student' 
         }
         response = self.client.post('/signup', data=data, follow_redirects=True)
         self.assert200(response)
-        # Add assertions to check if the signup is successful or if redirection happens
 
     def test_logout_route(self):
-        # Test logout route
         response = self.client.get('/logout')
-        self.assertStatus(response, 302)  # Check for redirection after logout
-        # Additional assertions for logout functionality, session handling, etc.
+        self.assertStatus(response, 302) 
 
     def test_admin_route_without_login(self):
-        # Test admin route without logging in (Unauthorized access)
         response = self.client.get('/admin', follow_redirects=True)
-        self.assert200(response)  # Assuming it redirects to login or shows a message for unauthorized access
+        self.assert200(response)  
 
     def test_student_route_without_login(self):
-        # Test student route without logging in (Unauthorized access)
         response = self.client.get('/student', follow_redirects=True)
-        self.assert200(response)  # Assuming it redirects to login or shows a message for unauthorized access
-
+        self.assert200(response)  
     def test_invalid_login(self):
         # Test login with invalid credentials
         data = {
@@ -94,7 +81,7 @@ class TestFlaskApp(TestCase):
             'password': 'invalid_password'
         }
         response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assert200(response)  # Assuming it redirects back to login or shows an error message
+        self.assert200(response)  
 
     def test_admin_login_and_access(self):
         # Test login as admin and access admin route
@@ -105,7 +92,7 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assert200(response)
         response = self.client.get('/admin')
-        self.assert200(response)  # Assuming it successfully accesses the admin route
+        self.assert200(response) 
 
     def test_student_login_and_access(self):
         # Test login as student and access student route
@@ -116,75 +103,69 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assert200(response)
         response = self.client.get('/student')
-        self.assert200(response)  # Assuming it successfully accesses the student route
-
+        self.assert200(response)  
     def test_add_New_route(self):
         # Test 'add_New' route with invalid data
         data = {
-            # Assuming the required form fields are filled properly for 'add_New' route
+            
         }
         response = self.client.post('/student/add_New', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects to the home page or shows a success message
+        self.assert400(response)  
 
     
     def test_send_invaid_email_route(self):
         # Test 'send_email' route with valid data
         data = {
-            # Assuming the required form fields are filled properly for 'send_email' route
+            
         }
         response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects or shows a success message
+        self.assert400(response)  
 
     def test_render_resume_route(self):
         # Test 'render_resume' route
         response = self.client.get('/admin/render_resume')
-        self.assert200(response)  # Assuming it successfully renders the resume
+        self.assert200(response)  
 
 
     def test_job_search_route(self):
         # Test 'job_search' route
         response = self.client.get('/student/job_search')
-        self.assert200(response)  # Assuming it successfully renders the job search page
-
+        self.assert200(response)  
     def test_job_search_result_route(self):
         # Test 'job_search/result' route with valid job role
         data = {
-            'job_role': 'Software Engineer'  # Assuming a valid job role for testing
+            'job_role': 'Software Engineer'  
         }
         response = self.client.post('/student/job_search/result', data=data, follow_redirects=True)
-        self.assert200(response)  # Assuming it successfully displays job search results
-
+        self.assert200(response) 
 
     def test_admin_route(self):
         # Test 'admin' route with valid user data
         data = {
-            # Assuming you have valid data for the admin route
+           
         }
         response = self.client.post('/admin', data=data, follow_redirects=True)
-        self.assert200(response)  # Assuming it successfully renders the admin page or performs actions
+        self.assert200(response) 
 
     def test_student_route(self):
         # Test 'student' route with valid user data
         data = {
-            # Assuming you have valid data for the student route
+            
         }
         response = self.client.post('/student', data=data, follow_redirects=True)
-        self.assert200(response)  # Assuming it successfully renders the student page or performs actions
-
+        self.assert200(response)  
     def test_render_resume_route(self):
         # Test 'tos' (render_resume) route
         response = self.client.get('/admin/render_resume')
-        self.assert200(response)  # Assuming it successfully renders the resume or file download
-
+        self.assert200(response) 
     def test_job_search_route(self):
         # Test 'job_search' route
         response = self.client.get('/student/job_search')
-        self.assert200(response)  # Assuming it successfully renders the job search page
-
+        self.assert200(response)  
     def test_analyze_resume_route(self):
         # Test 'view_ResumeAna' (analyze_resume) route
         response = self.client.get('/student/analyze_resume')
-        self.assert200(response)  # Assuming it successfully renders the resume analyzer page
+        self.assert200(response)  
     
     @patch('os.listdir')
     def test_display_route(self,mock_listdir):
@@ -193,70 +174,66 @@ class TestFlaskApp(TestCase):
         # Define the return value you want to mock
         mock_listdir.return_value = ['Shreya Vaidya_Resume.pdf', 'file2.txt', 'file3.txt']
         response = self.client.get('/student/display/')
-        self.assert200(response)  # Assuming it successfully displays or downloads the file
-
+        self.assert200(response)  
     def test_add_job_application_invalid_data(self):
         # Test adding a job application with invalid or missing data
         data = {
-            # Add invalid or missing data fields for job application
+           
         }
         response = self.client.post('/add_job_application', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects to home page or shows error
+        self.assert400(response)  
 
     def test_update_job_application_invalid_data(self):
         # Test updating a job application with invalid or missing data
         data = {
-            # Add invalid or missing data fields for updating a job application
+            
         }
         response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects to home page or shows error
+        self.assert400(response)  
 
     def test_delete_job_application_invalid_data(self):
         # Test deleting a job application with invalid or missing data
         company = "InvalidCompany"  # Provide invalid company name
         response = self.client.post(f'/student/delete_job_application/{company}', follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects to home page or shows error
+        self.assert400(response) 
 
     def test_send_email_invalid_input(self):
         # Test sending email with invalid inputs or missing fields
         data = {
-            # Add invalid or missing email fields
+           
         }
         response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects or shows error
+        self.assert400(response)  
 
     def test_send_email_incorrect_address(self):
         # Test sending email with incorrect or non-existing email addresses
         data = {
-            # Add incorrect email addresses
+            
         }
         response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it shows a message about email delivery issues
+        self.assert400(response) 
 
     def test_upload_incorrect_files(self):
         # Test uploading incorrect files
         data = {
-            # Add incorrect file types or files exceeding size limit
+           
         }
         response = self.client.post('/student/upload', data=data, follow_redirects=True)
-        self.assert400(response)  # Assuming it redirects or shows error
-
+        self.assert400(response)  
 
     def test_access_routes_without_credentials(self):
         # Test accessing routes without proper authentication
         routes = ['/admin', '/student']
         for route in routes:
             response = self.client.get(route, follow_redirects=True)
-            self.assert200(response)  # Assuming it redirects to login or unauthorized message
+            self.assert200(response)  
 
     def test_correct_data_display(self):
-        # Test if routes displaying user data show the expected data
         response = self.client.get('/student')
-        # Assuming logic to verify displayed data against expected data
-        self.assert200(response)  # Assuming the data matches the expected output
-
+       
+        self.assert200(response)  
 
 
 if __name__ == '__main__':
     unittest.main()
-    # After the tests are done, copy files from one folder to another
+   

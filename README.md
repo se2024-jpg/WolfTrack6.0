@@ -4,15 +4,15 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
-[![GitHub Release](https://img.shields.io/github/release/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0/releases/tag/wolftrack)
-[![Manual Build](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml/badge.svg)](https://github.com/aniketdarp190301/WolfTrack4.0/actions/workflows/main.yml)
+
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/rutuja-39/WolfTrack5.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
-[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0)
-![GitHub language count](https://img.shields.io/github/languages/count/aniketdarp190301/WolfTrack4.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-size](https://img.shields.io/github/languages/code-size/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub issues](https://img.shields.io/github/issues/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed-raw/aniketdarp190301/WolfTrack4.0)](https://github.com/aniketdarp190301/WolfTrack4.0)
+[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
+![GitHub language count](https://img.shields.io/github/languages/count/rutuja-39/WolfTrack5.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/pulls)
+[![GitHub-size](https://img.shields.io/github/repo-size/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0)
+[![GitHub issues](https://img.shields.io/github/issues/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
@@ -92,11 +92,25 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ### Third-Party Tools
 
-- [AWS Relational Database Service-RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
-  - The AWS Database is used as a primary DB by the location. The application interacts with the DB and no additional steps are required from the users. For any contributors or future developers, please mail to wolftrackse@gmail.com to get your AWS IAM user account details to connect to AWS RDS.
+- [SQLite 3](https://www.sqlite.org/index.html)
+
+  SQLite is often used with Flask due to its simplicity, lightweight nature, and compatibility with Flask applications. Here's why it's commonly used:
+
+  **Easy Setup**: SQLite is a self-contained, serverless, zero-configuration database engine. It doesn't require a separate server process to be running. For small to medium-sized applications, this ease of setup and use can be beneficial.
+
+  **No Configuration**: As SQLite doesn't require configuration or maintenance of a separate server, it's convenient for development environments and smaller-scale applications. In Flask, SQLite can be used with minimal setup.
+
+  **Portability**: SQLite databases are stored as a single file. This makes them highly portable and easy to transfer or share among different environments or applications.
+
+  **Suitability for Prototyping and Small Projects**: For early stages of development, when the emphasis might be on rapidly prototyping an application or for smaller projects with relatively lower data requirements, SQLite can be a good choice due to its simplicity.
+
+  **Flask Integration**: Flask has built-in support for SQLite. The sqlite3 module is included in Python's standard library, allowing Flask applications to interact with SQLite databases seamlessly.
+
 - [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
 - [Highcharts](https://www.highcharts.com/)
-
+- [Adzuna](https://developer.adzuna.com/overview)
+  
+  The API provides access to rich job market data, including job descriptions, salaries, locations, and other relevant details. This data can be integrated into applications or platforms to offer insights into the job market trends and opportunities.
 ---
 
 ## Getting Started & Installation:
@@ -119,7 +133,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/aniketdarp190301/WolfTrack4.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
 
     `pip install -r requirements.txt`
 
@@ -127,9 +141,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/aniketdarp190301/WolfTrack4.0).
+  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
 
-  - Navigate to [project directory](https://github.com/aniketdarp190301/WolfTrack4.0).
+  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -140,16 +154,32 @@ This platform has been designed keeping in mind any person who is out to seek a 
   - Site will be hosted at:
     `http://127.0.0.1:5000/`
 
+- ### API Setup
+**Create an Account:**
+
+  Go to the Adzuna Developer portal developer.adzuna.com.
+  Sign up for an account to access the API. You might need to provide some basic details about your application, such as the name, purpose, and contact information.
+
+**Get API Credentials:**
+
+  Log in to your Adzuna Developer account.
+  Find the section to create an API application.
+  Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
+
+**Change URL:**
+
+  Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
+
 ---
 
-[Class/Functions Documentation](https://github.com/aniketdarp190301/WolfTrack4.0/blob/Group23StableBranch/docs/Wolfpack4.0_Documentation.pdf)
-[Use Cases Documentation](https://github.com/aniketdarp190301/WolfTrack4.0/blob/Group23StableBranch/docs/WolfTrack_4.0_UseCase.pdf)
+[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
+[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTrack2.0/runs/4099439944?check_suite_focus=true)
+It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
 
 ---
 
@@ -240,7 +270,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 4.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
@@ -248,10 +278,10 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/agmalpur">Akshada Malpure</a></td>
-    <td align="center"><a href="https://github.com/rutuja-39">Rutuja Rashinkar</a></td>
-    <td align="center"><a href="https://github.com/sakshi">Sakshi Basapure</a></td>
-    <td align="center"><a href="https://github.com/shonilbhide">Shonil Bhide</a></td>
+    <td align="center"><a href="https://github.com/shonilbhide"><img src="https://avatars.githubusercontent.com/u/51792152?s=96&v=4" width="75px;" alt=""/><br /><sub><b>Shonil bhide</b></sub></a></td>
+    <td align="center"><a href="https://github.com/sakshibasapure"><img src="https://avatars.githubusercontent.com/u/40641044?v=4" width="75px;" alt=""/><br /><sub><b>Sakshi Basapure</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/rutuja-39"><img src="https://avatars.githubusercontent.com/u/59025269?v=4" width="75px;" alt=""/><br /><sub><b>Rutuja Rashinkar</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/agmalpur"><img src="https://avatars.githubusercontent.com/u/144184451?v=4" width="75px;" alt=""/><br /><sub><b>Akshada Malpure</b></sub></a><br /></td>
   </tr>
 </table>
 
