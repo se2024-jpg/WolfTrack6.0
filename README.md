@@ -223,11 +223,7 @@ It is part of the [Github Workflow Build](https://github.com/nehajaideep/WolfTra
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 4.0**, please contact us at **wolftrack404@gmail.com**. We are here to assist you and address any questions or issues you may have.
-
-Stay Connected:
-
-- **Discord Community**: Join our active Discord community at [https://discord.gg/bmaXxb3yg4](https://discord.gg/bmaXxb3yg4) to engage with our team, ask questions, and stay up-to-date with the latest developments of the project.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com*. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -266,5 +262,3 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nehajaideep/WolfTrack2.
 
 ---
 
-## Contact Us
-In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
