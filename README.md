@@ -12,14 +12,15 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Style Checker](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/style_checker.yml/badge.svg)](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/style_checker.yml)
 [![Syntax Checker](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/syntax_checker.yml)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+![Unit Test](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/unit_test.yml/badge.svg)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/pulls)
 [![GitHub-size](https://img.shields.io/github/repo-size/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0)
 [![GitHub issues](https://img.shields.io/github/issues/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Unit Test](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/unit_test.yml/badge.svg)
-[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 ![Last Commit](https://img.shields.io/github/last-commit/se2024-jpg/WolfTrack6.0)
+
+
 
 
 <!-- TABLE OF CONTENTS -->
