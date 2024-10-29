@@ -1,7 +1,10 @@
 name: Upload coverage reports to Codecov
 
 on:
-  push: # This workflow will run on pushes to the repository
+  push:
+    branches: [ Main, Feature ]
+  pull_request:
+    branches: [ Main, Feature ]
 
 jobs:
   upload-coverage:
