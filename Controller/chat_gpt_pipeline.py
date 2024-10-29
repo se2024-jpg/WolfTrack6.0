@@ -77,3 +77,54 @@ def chatgpt(resume_textfile_path):
         print(f"An error occurred: {e}")
 
 
+def extract_top_job_roles(resume_textfile_path):
+    with open(resume_textfile_path, 'r') as file:
+        resume_content = file.read()
+    openai_api_key = os.environ.get('OPENAI_API_KEY')
+    api_url = "https://api.openai.com/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {openai_api_key}",
+        "Content-Type": "application/json"
+    }
+
+    # Use a prompt that explicitly asks for a simple, comma-separated list of job titles
+    payload = {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {
+                "role": "system",
+                "content": "Provide a comma-separated list of the top five job roles suitable for the candidate based on the resume content provided. Do not print any other supporting text"
+            },
+            {
+                "role": "user",
+                "content": resume_content
+            }
+        ],
+        "temperature": 0.3,  # Lower temperature to reduce creativity
+    }
+
+    response = requests.post(api_url, json=payload, headers=headers)
+    if response.status_code == 200:
+        response_data = response.json()
+        job_roles = response_data['choices'][0]['message']['content']
+        # Split and clean the job roles
+        cleaned_job_roles = [role.strip() for role in job_roles.split(',') if role.strip()]
+        return cleaned_job_roles
+    else:
+        print("Failed to fetch job roles:", response.text)
+        return None
+
+
+    response = requests.post(api_url, json=payload, headers=headers)
+    if response.status_code == 200:
+        response_data = response.json()
+        job_roles = response_data['choices'][0]['message']['content']
+        return job_roles.split('\n')  # Assuming the API returns roles separated by newlines
+    else:
+        print("Failed to fetch job roles:", response.text)
+        return None
+
+
+
+
+
