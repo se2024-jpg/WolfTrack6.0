@@ -1,10 +1,7 @@
 name: Upload coverage reports to Codecov
 
 on:
-  push:
-    branches: [ Main, Feature ]
-  pull_request:
-    branches: [ Main, Feature ]
+  push
 
 jobs:
   upload-coverage:
