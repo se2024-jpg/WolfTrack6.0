@@ -1,11 +1,9 @@
 name: Run Tests On Push
 on:
   push:
-    branches:
-      - main
+    branches: [ Main, Feature ]
   pull_request:
-    branches:
-      - main
+    branches: [ Main, Feature ]
 
 jobs:
   build:
