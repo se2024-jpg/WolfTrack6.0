@@ -520,7 +520,6 @@ def search():
     except requests.RequestException as e:
         return f"Error: {e}"
 
-<<<<<<< HEAD
 @app.route('/findJobs')
 def find_jobs():
     files = os.listdir(os.getcwd()+'/Controller/resume')
@@ -556,7 +555,6 @@ def find_jobs():
     return redirect(url_for('index'))
 
 
-=======
 
 # New Resume Builder Routes
 @app.route('/resume_builder')
@@ -639,7 +637,6 @@ def download_resume():
         )
     else:
         return jsonify({"message": "Resume not found"}), 404
->>>>>>> d9834deac0471ce21bfdf8f5d55d39937a0cac5e
 
 if __name__ == '__main__':
     with app.app_context():
