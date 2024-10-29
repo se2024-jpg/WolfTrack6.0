@@ -12,7 +12,7 @@ from Controller.ResumeParser import *
 from Utils.jobprofileutils import *
 import os
 from flask import send_file, current_app as app
-from Controller.chat_gpt_pipeline import pdf_to_text, chatgpt
+from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt,extract_top_job_roles
 from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
 from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
@@ -462,11 +462,11 @@ def display():
 
 
 
-@app.route('/student/chat_gpt_analyzer/', methods=['GET'])
+@app.route('/chat_gpt_analyzer/', methods=['GET'])
 def chat_gpt_analyzer():
     files = os.listdir(os.getcwd()+'/Controller/resume')
     pdf_path = os.getcwd()+'//Controller/resume/'+files[0]
-    text_path = os.getcwd()+'//Controller/resume_txt/'+files[0][:-3]+'txt'
+    text_path = os.getcwd()+'//Controller/temp_resume/'+files[0][:-3]+'txt'
     with open(text_path, 'w'):
         pass
     pdf_to_text(pdf_path, text_path)
@@ -477,24 +477,29 @@ def chat_gpt_analyzer():
 
     # Initialize an empty string to store the result
     result_string = ""
+    if suggestions is None:
+        raise ValueError("Failed to get suggestions from the API.")
+        return render_template('chat_gpt_analyzer.html', suggestions=None, pdf_path=pdf_path, section_names = section_names)
+    else:
 
-    # Iterate through each character in the original string
-    for char in suggestions:
-        # If the character is not a newline character, add it to the result string
-        if char != '\n':
-            final_sugges += char
-    sections = final_sugges.split("Section")
-    for section in sections:
-        section = section.strip()  # Remove leading and trailing whitespace
-        # if section:  # Check if the section is not empty (e.g., due to leading/trailing "Section")
-        #     print("Section:", section)
-    sections = sections[1:]
-    section_names = ['Education', 'Experience','Skills', 'Projects']
-    sections[0] = sections[0][3:]
-    sections[1] = sections[1][3:]
-    sections[2] = sections[2][3:]
-    sections[3] = sections[3][3:]
-    return render_template('chat_gpt_analyzer.html', suggestions=sections, pdf_path=pdf_path, section_names = section_names)
+        # Iterate through each character in the original string
+        for char in suggestions:
+            # If the character is not a newline character, add it to the result string
+            if char != '\n':
+                final_sugges += char
+        sections = final_sugges.split("Section")
+        for section in sections:
+            section = section.strip()  # Remove leading and trailing whitespace
+            # if section:  # Check if the section is not empty (e.g., due to leading/trailing "Section")
+            #     print("Section:", section)
+        sections = sections[1:]
+        section_names = ['Education', 'Experience','Skills', 'Projects']
+        sections[0] = sections[0][3:]
+        sections[1] = sections[1][3:]
+        sections[2] = sections[2][3:]
+        sections[3] = sections[3][3:]
+        return render_template('chat_gpt_analyzer.html', suggestions=sections, pdf_path=pdf_path, section_names = section_names)
+
 
 @app.route('/student/job_search')
 def job_search():
@@ -514,6 +519,41 @@ def search():
             return "Error fetching job listings"
     except requests.RequestException as e:
         return f"Error: {e}"
+
+@app.route('/findJobs')
+def find_jobs():
+    files = os.listdir(os.getcwd()+'/Controller/resume')
+    if not files:
+        flash('No resumes available to analyze.', 'error')
+        return redirect(url_for('index'))
+
+    pdf_path = os.getcwd() + '//Controller/resume/' + files[0]
+    text_path = os.getcwd() + '//Controller/temp_resume/' + files[0][:-3] + 'txt'
+    pdf_to_text(pdf_path, text_path)
+    job_roles = extract_top_job_roles(text_path)
+
+    if job_roles is None:
+        flash('Failed to extract job roles from resume.', 'error')
+        return redirect(url_for('index'))
+
+    print(f"Recommended Job Roles: {job_roles}")
+
+    job_query = ','.join(job_roles).replace(' ', '%20')
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&what_or={job_query}"
+
+    try:
+        response = requests.get(adzuna_url)
+        if response.status_code == 200:
+            data = response.json()
+            jobs = data.get('results', [])
+            return render_template('job_recommendation_results.html', jobs=jobs)
+        else:
+            flash('Error fetching job listings from Adzuna.', 'error')
+    except requests.RequestException as e:
+        flash(f'Error: {e}', 'error')
+
+    return redirect(url_for('index'))
+
 
 
 # New Resume Builder Routes
