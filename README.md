@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
 
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/se2024-jpg/WolfTrack6.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/se2024-jpg/WolfTrack6.0/main.yml)](https://github.com/se2024-jpg/WolfTrack6.0/actions)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
 [![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
 ![GitHub language count](https://img.shields.io/github/languages/count/se2024-jpg/WolfTrack6.0)
@@ -133,7 +133,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/se2024-jpg/WolfTrack6.0))
 
     `pip install -r requirements.txt`
 
@@ -141,11 +141,11 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
+  - Clone [WolfTrack github repo](https://github.com/se2024-jpg/WolfTrack6.0).
 
-  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
+  - Navigate to [project directory](https://github.com/se2024-jpg/WolfTrack6.0).
 
-  - Run `python main.py` or `python3 main.py` <br> <br>
+  - Run `python app.py` or `python3 app.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
 
     - search for "Install Certificates.command" in finder and open it. Its a script that will install required Certificates. <br>
@@ -172,14 +172,14 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
+[Class/Functions Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/dev/docs/app.md)
+[Use Cases Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/se2024-jpg/WolfTrack6.0/tree/Main/.github/workflows)
 
 ---
 
@@ -255,7 +255,7 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 6.0**, please contact us at **csc510group77@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -270,7 +270,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
