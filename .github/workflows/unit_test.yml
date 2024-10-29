@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: 3.7.17
       - name: Install dependencies
-        working-directory: ./backend
+        working-directory: ./
         run: |
           pip install -r requirements.txt
           echo requirements installed
