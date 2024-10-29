@@ -1,5 +1,16 @@
+'''
+MIT License
+
+Copyright (c) 2023 Shonil B, Akshada M, Rutuja R, Sakshi B
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+'''
 import os
-from flask import Flask, request, render_template, make_response, redirect, url_for, send_from_directory, session, flash, jsonify, send_file
+from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -12,43 +23,50 @@ from Controller.ResumeParser import *
 from Utils.jobprofileutils import *
 import os
 from flask import send_file, current_app as app
-from Controller.chat_gpt_pipeline import pdf_to_text, chatgpt
+from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
 from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, delete_job_application_by_company, find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
+from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
 from login_utils import login_user
 import requests
-import json
-from io import BytesIO
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 
 app = Flask(__name__)
+# api = Api(app)
 bcrypt = Bcrypt(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"  # SQLite URI
 app.config['SECRET_KEY'] = 'thisisasecretkey'
 db = SQLAlchemy(app)
 database = "database.db"
 
-# Create tables for the original application
+
+# ADDED BY JOEL - NEED TO CHECK IF IT WORKS WITHOUT OUT
+# app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///resumes.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
+# END OF CODE ADDED BY JOEL 
+
+
+"""
+CREATE TABLE client (
+    id INTEGER NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    username VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(80) NOT NULL,
+    usertype VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+"""
 create_tables(database)
 
-# Resume Model
-class Resume(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    resume_name = db.Column(db.String(100), unique=True, nullable=False)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    mobile = db.Column(db.String(15), nullable=False)
-    linkedin = db.Column(db.String(200), nullable=False)
-    education = db.Column(db.Text, nullable=False)
-    experience = db.Column(db.Text, nullable=False)
-    skills = db.Column(db.Text, nullable=False)
+# class Client(db.Model,UserMixin):
+#     __tablename__ = 'client'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(20), nullable=False)
+#     username = db.Column(db.String(20), nullable=False, unique=True)
+#     password = db.Column(db.String(80), nullable=False)
+#     usertype = db.Column(db.String(20), nullable=False)
 
-# Original Form Classes
 class RegisterForm(FlaskForm):
     username = StringField(render_kw={"placeholder": "Username"})
     name = StringField(render_kw={"placeholder": "Name"})
@@ -59,13 +77,30 @@ class RegisterForm(FlaskForm):
 class LoginForm(FlaskForm):
     username = StringField(validators=[
                            InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+
     password = PasswordField(validators=[
                              InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+
     usertype = SelectField(validators=[
                            InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
+
     submit = SubmitField('Login')
 
-# PDF Creation Function
+
+# START OF CODE ADDED BY JOEL - 1
+class Resume(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    resume_name = db.Column(db.String(100), unique=True, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    mobile = db.Column(db.String(15), nullable=False)
+    linkedin = db.Column(db.String(200), nullable=False)
+    education = db.Column(db.Text, nullable=False)  # JSON string of education objects with new fields
+    experience = db.Column(db.Text, nullable=False)  # JSON string of experience objects
+    skills = db.Column(db.Text, nullable=False)
+
+
+
 def create_pdf(resume_data):
     buffer = BytesIO()
     doc = SimpleDocTemplate(
@@ -79,7 +114,7 @@ def create_pdf(resume_data):
 
     styles = getSampleStyleSheet()
     
-    # Style definitions
+    # Name Style
     styles.add(ParagraphStyle(
         name='NameStyle',
         parent=styles['Normal'],
@@ -89,6 +124,7 @@ def create_pdf(resume_data):
         spaceAfter=2
     ))
     
+    # Contact Info Style
     styles.add(ParagraphStyle(
         name='ContactInfo',
         parent=styles['Normal'],
@@ -99,6 +135,7 @@ def create_pdf(resume_data):
         textColor=colors.black
     ))
     
+    # Section Header Style
     styles.add(ParagraphStyle(
         name='SectionHeader',
         parent=styles['Normal'],
@@ -111,6 +148,7 @@ def create_pdf(resume_data):
         fontName='Helvetica-Bold'
     ))
     
+    # Normal text style
     styles.add(ParagraphStyle(
         name='NormalText',
         parent=styles['Normal'],
@@ -131,6 +169,7 @@ def create_pdf(resume_data):
     story.append(Paragraph("EDUCATION", styles['SectionHeader']))
     education_list = json.loads(resume_data.education)
     for edu in education_list:
+        # Create a table for education entry with better alignment
         edu_header = [[
             Paragraph(edu['institution'], styles['NormalText']),
             Paragraph(edu['graduationYear'], styles['NormalText'])
@@ -145,6 +184,7 @@ def create_pdf(resume_data):
         ]))
         story.append(edu_table)
         
+        # Degree and GPA line with right-aligned GPA
         if edu.get('gpa'):
             degree_data = [[
                 Paragraph(edu['degree'], styles['NormalText']),
@@ -165,6 +205,7 @@ def create_pdf(resume_data):
         ]))
         story.append(degree_table)
         
+        # Coursework in table if present
         if edu.get('coursework'):
             coursework = edu['coursework'].split('\n')
             if coursework:
@@ -199,6 +240,7 @@ def create_pdf(resume_data):
     story.append(Paragraph("WORK EXPERIENCE", styles['SectionHeader']))
     experience_list = json.loads(resume_data.experience)
     for exp in experience_list:
+        # Create a table for experience header with company, location and dates
         company_title = f"{exp['company']}, {exp['location']}" if exp.get('location') else exp['company']
         exp_header = [[
             Paragraph(f"{company_title}, {exp['title']}", styles['NormalText']),
@@ -214,6 +256,7 @@ def create_pdf(resume_data):
         ]))
         story.append(exp_table)
         
+        # Achievements in table with bullet points
         achievements = exp['achievements'].split('\n')
         for achievement in achievements:
             if achievement.strip():
@@ -222,7 +265,7 @@ def create_pdf(resume_data):
                 achievement_table.setStyle(TableStyle([
                     ('ALIGN', (0,0), (-1,-1), 'LEFT'),
                     ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-                    ('LEFTPADDING', (0,0), (-1,-1), 20),
+                    ('LEFTPADDING', (0,0), (-1,-1), 20),  # Added left padding for bullet points
                     ('RIGHTPADDING', (0,0), (-1,-1), 0),
                 ]))
                 story.append(achievement_table)
@@ -233,32 +276,36 @@ def create_pdf(resume_data):
     buffer.seek(0)
     return buffer
 
-# Original Routes
+# END OF CODE ADDED BY JOEL - 1
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/logout', methods=['GET', 'POST'])
+@app.route('/logout',methods=['GET', 'POST'])
 def logout():
     session['type'] = ''
     session['user_id'] = None
     return redirect(url_for('login'))
 
-@app.route('/login', methods=['GET', 'POST'])
+
+@app.route('/login',methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    form = LoginForm() 
     if form.validate_on_submit():
-        user = find_user(str(form.username.data), database)
+        user = find_user(str(form.username.data),database)
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
-                login_user(app, user)
+                login_user(app,user)
                 if user[4] == 'admin':
                     return redirect(url_for('admin', data=user[2]))
                 elif user[4] == 'student':
                     return redirect(url_for('student', data=user[2]))
-    return render_template('login.html', form=form)
+                else:
+                    pass
+    return render_template('login.html',form = form)
 
-# ... [Keep all other original routes from app.py] ...
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
@@ -516,23 +563,27 @@ def search():
         return f"Error: {e}"
 
 
-# New Resume Builder Routes
-@app.route('/resume_builder')
-def resume_builder():
+# START OF CODE ADDED BY JOEL - 2
+
+@app.route('/student/resume_builder')
+def resume_builder_index():
     return render_template('resume_builder_index.html')
 
-@app.route('/get_all_resumes', methods=['GET'])
+@app.route('/student/resume_builder/get_all_resumes', methods=['GET'])
 def get_all_resumes():
     resumes = Resume.query.all()
     resume_list = [{"resume_name": resume.resume_name, "name": resume.name} for resume in resumes]
     return jsonify(resume_list)
 
-@app.route('/save_resume', methods=['POST'])
+@app.route('/student/resume_builder/save_resume', methods=['POST'])
 def save_resume():
     data = request.get_json()
+    
+    # Check if resume already exists
     existing_resume = Resume.query.filter_by(resume_name=data['resume_name']).first()
     if existing_resume:
         try:
+            # Update existing resume
             for key, value in data.items():
                 setattr(existing_resume, key, value)
             db.session.commit()
@@ -542,6 +593,7 @@ def save_resume():
             return jsonify({"message": f"Error updating resume: {str(e)}"}), 500
     else:
         try:
+            # Create new resume
             resume = Resume(**data)
             db.session.add(resume)
             db.session.commit()
@@ -550,7 +602,7 @@ def save_resume():
             db.session.rollback()
             return jsonify({"message": f"Error saving resume: {str(e)}"}), 500
 
-@app.route('/delete_resume', methods=['DELETE'])
+@app.route('/student/resume_builder/delete_resume', methods=['DELETE'])
 def delete_resume():
     resume_name = request.args.get('resume_name')
     resume = Resume.query.filter_by(resume_name=resume_name).first()
@@ -565,7 +617,7 @@ def delete_resume():
     else:
         return jsonify({"message": "Resume not found"}), 404
 
-@app.route('/retrieve_resume', methods=['GET'])
+@app.route('/student/resume_builder/retrieve_resume', methods=['GET'])
 def retrieve_resume():
     resume_name = request.args.get('resume_name')
     resume = Resume.query.filter_by(resume_name=resume_name).first()
@@ -583,7 +635,7 @@ def retrieve_resume():
     else:
         return jsonify({"message": "Resume not found"}), 404
 
-@app.route('/download_resume', methods=['GET'])
+@app.route('/student/resume_builder/download_resume', methods=['GET'])
 def download_resume():
     resume_name = request.args.get('resume_name')
     resume = Resume.query.filter_by(resume_name=resume_name).first()
@@ -598,7 +650,15 @@ def download_resume():
     else:
         return jsonify({"message": "Resume not found"}), 404
 
+
+# END OF CODE ADDED BY JOEL - 2
+
+
+
+
 if __name__ == '__main__':
+# START OF CODE ADDED BY JOEL - 3
     with app.app_context():
         db.create_all()
+# END OF CODE ADDED BY JOEL - 3
     app.run(debug=True)
