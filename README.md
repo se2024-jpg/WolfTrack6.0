@@ -5,14 +5,14 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
 
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/rutuja-39/WolfTrack5.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/se2024-jpg/WolfTrack6.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
 [![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
-![GitHub language count](https://img.shields.io/github/languages/count/rutuja-39/WolfTrack5.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/pulls)
-[![GitHub-size](https://img.shields.io/github/repo-size/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0)
-[![GitHub issues](https://img.shields.io/github/issues/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
+![GitHub language count](https://img.shields.io/github/languages/count/se2024-jpg/WolfTrack6.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/pulls)
+[![GitHub-size](https://img.shields.io/github/repo-size/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0)
+[![GitHub issues](https://img.shields.io/github/issues/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
