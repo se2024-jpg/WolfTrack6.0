@@ -1,7 +1,8 @@
 name: Upload coverage reports to Codecov
 
 on:
-  push
+  push:
+  pull_request:
 
 jobs:
   upload-coverage:
