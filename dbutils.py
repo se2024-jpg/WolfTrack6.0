@@ -52,8 +52,8 @@ def find_user(data,db):
     conn = sqlite3.connect(db)
     # print('Data==>', data)  # Removed to avoid logging sensitive information
     cursor = conn.cursor()
-    # Querying the 'client' table
-    cursor.execute("SELECT * FROM client where username ='"+str(data)+"'")
+    # Querying the 'client' table using parameterized query
+    cursor.execute("SELECT * FROM client WHERE username = ?", (data,))
     rows = cursor.fetchone()
     conn.close()
     # print('rowsss->>>', rows)  # Removed to avoid logging sensitive information
