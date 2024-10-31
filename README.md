@@ -3,18 +3,26 @@
 ---
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
-
-
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/rutuja-39/WolfTrack5.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+![Build Status](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/build_repo.yml/badge.svg)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/se2024-jpg/WolfTrack6.0/main.yml)](https://github.com/se2024-jpg/WolfTrack6.0/actions)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
-[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
-![GitHub language count](https://img.shields.io/github/languages/count/rutuja-39/WolfTrack5.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/pulls)
-[![GitHub-size](https://img.shields.io/github/repo-size/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0)
-[![GitHub issues](https://img.shields.io/github/issues/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
+[![codecov](https://codecov.io/gh/se2024-jpg/WolfTrack6.0/graph/badge.svg?token=ATXP4UPT2G)](https://codecov.io/gh/se2024-jpg/WolfTrack6.0)
+![GitHub language count](https://img.shields.io/github/languages/count/se2024-jpg/WolfTrack6.0)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Style Checker](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/style_checker.yml/badge.svg)](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/style_checker.yml)
+[![Syntax Checker](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/syntax_checker.yml)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+![Unit Test](https://github.com/se2024-jpg/WolfTrack6.0/actions/workflows/unit_test.yml/badge.svg)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/pulls)
+[![GitHub-size](https://img.shields.io/github/repo-size/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0)
+[![GitHub issues](https://img.shields.io/github/issues/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/se2024-jpg/WolfTrack6.0)](https://github.com/se2024-jpg/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed)
+![Last Commit](https://img.shields.io/github/last-commit/se2024-jpg/WolfTrack6.0)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -39,9 +47,9 @@
   </ol>
 </details>
 
-## Why WolfTrack 5.0?
+## Why WolfTrack 6.0?
 
-WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack 6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
@@ -133,7 +141,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/se2024-jpg/WolfTrack6.0))
 
     `pip install -r requirements.txt`
 
@@ -141,9 +149,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
+  - Clone [WolfTrack github repo](https://github.com/se2024-jpg/WolfTrack6.0).
 
-  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
+  - Navigate to [project directory](https://github.com/se2024-jpg/WolfTrack6.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -172,14 +180,14 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
+[Class/Functions Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/dev/docs/app.md)
+[Use Cases Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/se2024-jpg/WolfTrack6.0/tree/Main/.github/workflows)
 
 ---
 
@@ -255,7 +263,7 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 6.0**, please contact us at **csc510group77@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -270,7 +278,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
@@ -278,10 +286,9 @@ Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/shonilbhide"><img src="https://avatars.githubusercontent.com/u/51792152?s=96&v=4" width="75px;" alt=""/><br /><sub><b>Shonil bhide</b></sub></a></td>
-    <td align="center"><a href="https://github.com/sakshibasapure"><img src="https://avatars.githubusercontent.com/u/40641044?v=4" width="75px;" alt=""/><br /><sub><b>Sakshi Basapure</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/rutuja-39"><img src="https://avatars.githubusercontent.com/u/59025269?v=4" width="75px;" alt=""/><br /><sub><b>Rutuja Rashinkar</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/agmalpur"><img src="https://avatars.githubusercontent.com/u/144184451?v=4" width="75px;" alt=""/><br /><sub><b>Akshada Malpure</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/girish1430"><img src="https://avatars.githubusercontent.com/u/57136088?v=4" width="75px;" alt=""/><br /><sub><b>Girish G N</b></sub></a></td>
+    <td align="center"><a href="https://github.com/joeljogy"><img src="https://avatars.githubusercontent.com/u/28514673?v=4" width="75px;" alt=""/><br /><sub><b>Joel Jogy George</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/prav29"><img src="https://avatars.githubusercontent.com/u/38226613?v=4" width="75px;" alt=""/><br /><sub><b>Pravallika Vasireddy</b></sub></a><br /></td>
   </tr>
 </table>
 
