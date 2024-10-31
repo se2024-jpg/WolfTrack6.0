@@ -10,12 +10,12 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 import os
-from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
+from flask import Flask, jsonify, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField 
-from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo, Regexp
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
@@ -103,6 +103,44 @@ def login():
                     pass
     return render_template('login.html',form = form)
 
+@app.route('/google-login', methods=['GET','POST'])
+def google_login():
+    token = request.form.get('credential')  # "credential" contains the ID token from Google
+    if not token:
+        return jsonify({"error": "Token not provided"}), 400
+
+    # Verify the token with Google
+    google_verify_url = f"https://oauth2.googleapis.com/tokeninfo?id_token={token}"
+    response = requests.get(google_verify_url)
+    if response.status_code != 200:
+        return jsonify({"error": "Invalid token"}), 401
+
+    # Step 2: Parse the token data
+    user_data = response.json()
+    google_email = user_data.get("email")
+    
+    # Step 3: Check user in the database
+    username = google_email.split('@')[0]
+    user = find_user(username, database)
+    if not user:
+        # Optional: create a new user if they don't exist, with a default role if applicable
+        return jsonify({"error": "User not found"}), 404
+
+    # Step 4: Determine role and redirect
+    role = user[4]
+    user_data_value = user[2]
+
+    login_user(app, user)  # Log in the user
+
+    # Redirect based on the role
+    if role == 'admin':
+        return redirect(url_for('admin', data=user_data_value))
+    elif role == 'student':
+        return redirect(url_for('student', data=user_data_value))
+    else:
+        return jsonify({"error": "User role undefined"}), 400
+
+
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
@@ -113,6 +151,36 @@ def signup():
         return redirect(url_for('login'))
 
     return render_template('signup.html',form = RegisterForm())
+
+@app.route('/google-signup', methods=['POST'])
+def google_signup():
+    # Get the Google token and role from URL parameters
+    data = request.get_json()
+    email = data.get('email')
+    name = data.get('name')
+    username = data.get('username')
+    role = data.get('role')
+
+    # Check if the user already exists
+    user = find_user(username, database)
+    if user:
+        return jsonify({"error": "User already exists"}), 409  # Conflict
+
+    # Generate a username from the email
+    hashed_password = bcrypt.generate_password_hash('default_password').decode('utf-8')
+    # Create a new user with the specified role
+    new_user = [name, username, hashed_password, role]
+    add_client(new_user, database)  # Function to add the new user to the database
+    # Log the user in and redirect based on role
+    user = find_user(username,database)
+
+    return redirect(url_for('login'))
+    # login_user(app, user)
+    # if new_user["role"] == "admin":
+    #     return jsonify({"redirect": url_for('admin', data=user[2])})
+    # else:
+    #     return jsonify({"redirect": url_for('student', data=user[2])})
+
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
@@ -147,7 +215,7 @@ def get_job_application_status(status):
 @app.route("/admin/send_email", methods=['GET','POST'])
 def send_email():
     comments = request.form['comment']
-    email = 'elliotanderson506@gmail.com'
+    email = 'ggopala4@ncsu.edu'
     s_comment_email(email,comments)
     return make_response(render_template('admin_landing.html'), 200,{'Content-Type': 'text/html'})
 
