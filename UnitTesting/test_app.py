@@ -21,8 +21,8 @@ class TestFlaskApp(TestCase):
         db.create_all()
 
     def tearDown(self):
-        source_folder = '../Controller/temp_resume'
-        destination_folder = '../Controller/resume'
+        source_folder = './Controller/temp_resume'
+        destination_folder = './Controller/resume'
         files_to_copy = os.listdir(source_folder)  
         for file_name in files_to_copy:
             source_file_path = os.path.join(source_folder, file_name)
