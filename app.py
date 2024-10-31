@@ -28,6 +28,7 @@ from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 logging.basicConfig(level=logging.ERROR)
 
+
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
@@ -648,8 +649,8 @@ def save_resume():
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error updating resume: {str(e)}")
-
             return jsonify({"message": "An internal error has occurred."}), 500
+
     else:
         try:
             resume = Resume(**data)
@@ -659,8 +660,8 @@ def save_resume():
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error saving resume: {str(e)}")
-
             return jsonify({"message": "An internal error has occurred."}), 500
+
 
 @app.route('/delete_resume', methods=['DELETE'])
 def delete_resume():
@@ -673,9 +674,10 @@ def delete_resume():
             return jsonify({"message": "Resume deleted successfully!"}), 200
         except Exception as e:
             db.session.rollback()
-            app.logger.error(f"Error deleting resume: {str(e)}")
 
+            app.logger.error(f"Error deleting resume: {str(e)}")
             return jsonify({"message": "An internal error has occurred."}), 500
+
     else:
         return jsonify({"message": "Resume not found"}), 404
 
