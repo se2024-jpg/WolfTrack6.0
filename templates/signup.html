@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>WolfTrack</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-    <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
@@ -15,7 +14,6 @@
     <div class="container">
         <input type="checkbox" id="flip">
         <div class="cover">
-            <!-- Image part from the old file -->
             <div class="front">
                 <img src="{{ url_for('static', filename='images/frontImg.jpg') }}" alt="">
                 <div class="text">
@@ -31,35 +29,109 @@
                 </div>
             </div>
         </div>
+
         <div class="forms">
             <div class="form-content">
                 <div class="signup-form">
                     <div class="title">Signup</div>
+                    
+                    <!-- Main Signup Form -->
                     <form method="POST" action="">
                         {{ form.hidden_tag() }}
-                        <div class="input-box">
+                        <div class="input-box" id='name'>
                             {{ form.name.label }}
                             {{ form.name }}
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" id="username">
                             {{ form.username.label }}
                             {{ form.username }}
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" id="password">
                             {{ form.password.label }}
                             {{ form.password }}
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" id="role">
                             {{ form.usertype.label }}
                             {{ form.usertype }}
                         </div>
                         {{ form.submit }}
                     </form>
+
+                    <!-- Google Signup Form -->
+                    <form method="GET" action="{{ url_for('google_signup') }}" onsubmit="return setGoogleRole()">
+                        {{ form.hidden_tag() }}
+                        <input type="hidden" name="role" value="" id="googleRole">
+                        
+                        <div id="g_id_onload"
+                            data-client_id="51716096703-av1gjo83luqqlpslni76agn8auiojl9c.apps.googleusercontent.com"
+                            data-context="signup"
+                            data-ux_mode="popup"
+                            data-login_uri="http://localhost:5000/google-signup"
+                            data-auto_prompt="false"
+                            data-callback="handleCredentialResponse">
+                        </div>
+
+                        <div class="g_id_signin"
+                            data-type="standard"
+                            data-shape="rectangular"
+                            data-theme="outline"
+                            data-text="signup_with"
+                            data-size="small"
+                            data-logo_alignment="left">
+                        </div>
+                    </form>
+
                     <a href="{{ url_for('login') }}">Already have an account? Log In</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+         function handleCredentialResponse(response) {
+            const responsePayload = decodeJwtResponse(response.credential);
+
+            // Extract the required fields from the Google response
+            const email = responsePayload.email;
+            const name = responsePayload.name;
+            const username = email.split('@')[0];  // Extract username from email
+            const role = document.querySelector('select[name="usertype"]').value;  // Get the selected role
+
+            // Send a POST request to your google-signup endpoint
+            fetch('/google-signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    name: name,
+                    username: username,
+                    role: role,
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response data
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        function decodeJwtResponse(token) {
+            const payload = token.split('.')[1];
+            const decodedPayload = JSON.parse(atob(payload));
+            return decodedPayload;
+        }
+    </script>
 </body>
 
 </html>
