@@ -25,6 +25,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+import logging
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -645,7 +646,8 @@ def save_resume():
             return jsonify({"message": "Resume updated successfully!"}), 200
         except Exception as e:
             db.session.rollback()
-            return jsonify({"message": f"Error updating resume: {str(e)}"}), 500
+            logging.error(f"Error updating resume: {str(e)}")
+            return jsonify({"message": "An internal error has occurred!"}), 500
     else:
         try:
             resume = Resume(**data)
@@ -654,7 +656,8 @@ def save_resume():
             return jsonify({"message": "Resume saved successfully!"}), 200
         except Exception as e:
             db.session.rollback()
-            return jsonify({"message": f"Error saving resume: {str(e)}"}), 500
+            logging.error(f"Error saving resume: {str(e)}")
+            return jsonify({"message": "An internal error has occurred!"}), 500
 
 @app.route('/delete_resume', methods=['DELETE'])
 def delete_resume():
@@ -667,7 +670,8 @@ def delete_resume():
             return jsonify({"message": "Resume deleted successfully!"}), 200
         except Exception as e:
             db.session.rollback()
-            return jsonify({"message": f"Error deleting resume: {str(e)}"}), 500
+            logging.error(f"Error deleting resume: {str(e)}")
+            return jsonify({"message": "An internal error has occurred!"}), 500
     else:
         return jsonify({"message": "Resume not found"}), 404
 
