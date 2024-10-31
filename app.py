@@ -587,7 +587,8 @@ def search():
         else:
             return "Error fetching job listings"
     except requests.RequestException as e:
-        return f"Error: {e}"
+        logging.error(f"Error fetching job listings: {e}")
+        return "An internal error has occurred while fetching job listings."
 
 @app.route('/findJobs')
 def find_jobs():
@@ -619,7 +620,8 @@ def find_jobs():
         else:
             flash('Error fetching job listings from Adzuna.', 'error')
     except requests.RequestException as e:
-        flash(f'Error: {e}', 'error')
+        logging.error(f"Error fetching job listings from Adzuna: {e}")
+        flash('An internal error has occurred while fetching job listings from Adzuna.', 'error')
 
     return redirect(url_for('index'))
 
