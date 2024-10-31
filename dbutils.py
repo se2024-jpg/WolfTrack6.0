@@ -40,7 +40,7 @@ def create_tables(db):
 def add_client(value_set,db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
-    print(value_set)
+    # print(value_set)  # Removed to avoid logging sensitive information
     # Inserting rows into the 'client' table
     cursor.execute("INSERT INTO client (name, username, password, usertype) VALUES (?, ?, ?, ?)",
                        value_set)
@@ -50,19 +50,19 @@ def add_client(value_set,db):
 
 def find_user(data,db):
     conn = sqlite3.connect(db)
-    print('Data==>', data)
+    # print('Data==>', data)  # Removed to avoid logging sensitive information
     cursor = conn.cursor()
-    # Querying the 'client' table
-    cursor.execute("SELECT * FROM client where username ='"+str(data)+"'")
+    # Querying the 'client' table using parameterized query
+    cursor.execute("SELECT * FROM client WHERE username = ?", (data,))
     rows = cursor.fetchone()
     conn.close()
-    print('rowsss->>>', rows)
+    # print('rowsss->>>', rows)  # Removed to avoid logging sensitive information
     return rows
 
 
 def add_job(data,db):
     conn = sqlite3.connect(db)
-    print('Data==>', data)
+    # print('Data==>', data)  # Removed to avoid logging sensitive information
     cursor = conn.cursor()
     # Inserting rows into the 'jobs' table
     cursor.execute("INSERT INTO jobs (company_name, location, job_position, salary, status) VALUES (?, ?, ?, ?, ?)", data)
@@ -75,7 +75,7 @@ def get_job_applications(db):
     cursor.execute("SELECT * FROM jobs")
     rows = cursor.fetchall()  # Use fetchall() to get all rows
     conn.close()
-    print('rows ->>>', rows)
+    # print('rows ->>>', rows)  # Removed to avoid logging sensitive information
     return rows
 
 
@@ -107,7 +107,7 @@ def get_job_applications_by_status(db, status):
     cursor.execute("SELECT * FROM jobs WHERE status = ?", (status,))
     rows = cursor.fetchall()  # Use fetchall() to get all rows
     conn.close()
-    print('rows ->>>', rows)
+    # print('rows ->>>', rows)  # Removed to avoid logging sensitive information
     return rows
 
 

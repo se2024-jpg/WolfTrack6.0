@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import Flask, jsonify, request, render_template, make_response, redirect, url_for, send_from_directory, session, flash, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -25,6 +26,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+logging.basicConfig(level=logging.ERROR)
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -646,6 +648,7 @@ def save_resume():
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error updating resume: {str(e)}")
+
             return jsonify({"message": "An internal error has occurred."}), 500
     else:
         try:
@@ -656,6 +659,7 @@ def save_resume():
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error saving resume: {str(e)}")
+
             return jsonify({"message": "An internal error has occurred."}), 500
 
 @app.route('/delete_resume', methods=['DELETE'])
@@ -670,6 +674,7 @@ def delete_resume():
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error deleting resume: {str(e)}")
+
             return jsonify({"message": "An internal error has occurred."}), 500
     else:
         return jsonify({"message": "Resume not found"}), 404
@@ -710,4 +715,5 @@ def download_resume():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ['true', '1', 't']
+    app.run(debug=debug_mode)
