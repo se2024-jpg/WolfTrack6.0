@@ -407,29 +407,27 @@ def job_profile_analyze():
         return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
     return render_template('job_profile_analyze.html', skills_text='', job_profile='')
 
-filename=""
 @app.route("/student/upload", methods=['POST'])
 def upload():
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    target = os.path.join(APP_ROOT, 'Controller\\resume\\')
+    target = os.path.join(APP_ROOT, 'Controller', 'resume')
 
     if not os.path.isdir(target):
-        os.mkdir(target)
-    if len(os.listdir(target)) != 0:
-        os.remove(target + os.listdir(target)[0])
+        os.makedirs(target)
+
+    existing_files = os.listdir(target)
+    if existing_files:
+        os.remove(os.path.join(target, existing_files[0]))
 
     for file in request.files.getlist("file"):
         filename = file.filename
-        destination = "/".join([target, filename])
+        destination = os.path.join(target, filename)
         file.save(destination)
 
-    user = request.form['user_id']
-    
-    user = find_user(str(user),database)
-    print('Userrrrrr', user)
-
-
+    user_id = request.form['user_id']
+    user = find_user(str(user_id), database)
     return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
+
 
 @app.route('/student/analyze_resume', methods=['GET'])
 def view_ResumeAna():
