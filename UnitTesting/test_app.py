@@ -239,6 +239,11 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/signup', data=data, follow_redirects=True)
         self.assert400(response)
 
+    #Test Incorrect Password Length on Signup:
+    def test_incorrect_password_length_signup(self):
+        data = {'username': 'testuser', 'password': 'short'}
+        response = self.client.post('/signup', data=data, follow_redirects=True)
+        self.assert400(response)
 
 
 if __name__ == '__main__':
