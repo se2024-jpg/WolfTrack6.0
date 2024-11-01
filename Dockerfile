@@ -1,17 +1,21 @@
 FROM python:3.8-slim-buster
 
-RUN apt-get update
-RUN apt-get -y install gcc
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends gcc \
+    && rm -rf /var/lib/apt/lists/*  # Clean up APT when done
 
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
-
+# Set the working directory
 WORKDIR /app
 
-RUN python3 -m pip install --upgrade pip
+# Copy only requirements.txt to leverage Docker cache
+COPY ./requirements.txt .
 
-RUN python3 -m pip install -r /app/requirements.txt
+# Upgrade pip and install dependencies
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+# Copy the rest of the application code
+COPY . .
 
-ENTRYPOINT [ "python3", "main.py" ]
+# Set the entrypoint
+ENTRYPOINT ["python3", "main.py"]
