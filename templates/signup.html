@@ -1,95 +1,259 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WolfTrack</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
-</head>
+    <title>Sign Up - WolfTrack 6.0</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        :root {
+            --nc-state-red: #CC0000;
+        }
 
-<body>
-    <div class="container">
-        <input type="checkbox" id="flip">
-        <div class="cover">
-            <div class="front">
-                <img src="{{ url_for('static', filename='images/frontImg.jpg') }}" alt="">
-                <div class="text">
-                    <span class="text-1"><h2>WolfTrack</h2><br></span>
-                    <span class="text-2">Don't stop until you're proud!</span>
-                </div>
-            </div>
-            <div class="back">
-                <img class="backImg" src="{{ url_for('static', filename='images/backImg.jpg') }}" alt="">
-                <div class="text">
-                    <span class="text-1">Complete miles of journey <br> with one click</span>
-                    <span class="text-2">Let's get started</span>
+        body {
+            background-color: var(--nc-state-red);
+            min-height: 100vh;
+        }
+        
+        .bg-nc-red {
+            background-color: var(--nc-state-red);
+        }
+        
+        .text-nc-red {
+            color: var(--nc-state-red);
+        }
+        
+        .border-nc-red {
+            border-color: var(--nc-state-red);
+        }
+        
+        .btn-primary {
+            background-color: var(--nc-state-red);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(204, 0, 0, 0.2);
+        }
+        .signup-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1000px;
+            width: 95%;
+            margin: 2rem auto;
+            display: flex;
+            min-height: 600px;
+        }
+
+        .signup-image {
+            width: 50%;
+            background-image: url("{{ url_for('static', filename='images/backImg.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .signup-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(204, 0, 0, 0.3);
+        }
+
+        .signup-form {
+            width: 50%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 2px solid #eee;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--nc-state-red);
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: var(--nc-state-red);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(204, 0, 0, 0.2);
+        }
+
+        .google-signup {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .block {
+            display: block; /* Use this if you want the message to be block-level */
+        }
+
+        #success-message {
+            margin-top: 1rem;
+            color: #38a169; /* Change this to a different color if needed */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                  <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex items-center">
+                      <img src="https://seeklogo.com/images/N/nc-state-wolfpack-logo-D7FE040122-seeklogo.com.png" 
+                           alt="WolfTrack Logo" 
+                           class="h-12 w-10 rounded-full">
+                      <span class="ml-2 text-xl font-bold text-nc-red">WolfTrack 6.0</span>
+                  </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{{url_for('index')}}" class="border-2 border-nc-red text-nc-red px-8 py-3 rounded-lg font-semibold hover:bg-nc-red hover:text-gray-900 transition-all">Home</a>
                 </div>
             </div>
         </div>
+    </nav>
 
-        <div class="forms">
-            <div class="form-content">
-                <div class="signup-form">
-                    <div class="title">Signup</div>
-                    
-                    <!-- Main Signup Form -->
-                    <form method="POST" action="">
-                        {{ form.hidden_tag() }}
-                        <div class="input-box" id='name'>
-                            {{ form.name.label }}
-                            {{ form.name }}
-                        </div>
-                        <div class="input-box" id="username">
-                            {{ form.username.label }}
-                            {{ form.username }}
-                        </div>
-                        <div class="input-box" id="password">
-                            {{ form.password.label }}
-                            {{ form.password }}
-                        </div>
-                        <div class="input-box" id="role">
-                            {{ form.usertype.label }}
-                            {{ form.usertype }}
-                        </div>
-                        {{ form.submit }}
-                    </form>
+    <div class="signup-container flex-grow">
+        <div class="signup-image">
+            <div class="absolute z-10 text-white text-center w-full top-1/2 transform -translate-y-1/2">
+                <h2 class="text-3xl font-bold mb-2">WolfTrack</h2>
+                <p class="text-xl">Complete miles of journey with one click</p>
+            </div>
+        </div>
+        <div class="signup-form">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Create Account</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-4">
+                    {{ form.name.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+                    {{ form.name(class="input-field", required=True) }}
+                </div>
+                <div class="mb-4">
+                    {{ form.username.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+                    {{ form.username(class="input-field", required=True) }}
+                </div>
+                <div class="mb-4">
+                    {{ form.password.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+                    {{ form.password(class="input-field", type="password", required=True) }}
+                </div>
+                <div class="mb-4">
+                    {{ form.usertype.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+                    {{ form.usertype(class="input-field") }}
+                </div>
+                {{ form.submit(class="submit-btn w-full") }}
+            </form>
+            
+            <!-- Google Signup Button -->
+            <div class="google-signup">
+                <div id="g_id_onload"
+                    data-client_id="51716096703-av1gjo83luqqlpslni76agn8auiojl9c.apps.googleusercontent.com"
+                    data-context="signup"
+                    data-ux_mode="popup"
+                    data-login_uri="http://localhost:5000/google-signup"
+                    data-auto_prompt="false"
+                    data-callback="handleCredentialResponse">
+                </div>
 
-                    <!-- Google Signup Form -->
-                    <form method="GET" action="{{ url_for('google_signup') }}" onsubmit="return setGoogleRole()">
-                        {{ form.hidden_tag() }}
-                        <input type="hidden" name="role" value="" id="googleRole">
-                        
-                        <div id="g_id_onload"
-                            data-client_id="51716096703-av1gjo83luqqlpslni76agn8auiojl9c.apps.googleusercontent.com"
-                            data-context="signup"
-                            data-ux_mode="popup"
-                            data-login_uri="http://localhost:5000/google-signup"
-                            data-auto_prompt="false"
-                            data-callback="handleCredentialResponse">
-                        </div>
-
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-shape="rectangular"
-                            data-theme="outline"
-                            data-text="signup_with"
-                            data-size="small"
-                            data-logo_alignment="left">
-                        </div>
-                    </form>
-
-                    <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="rectangular"
+                    data-theme="outline"
+                    data-text="signup_with"
+                    data-size="large"
+                    data-logo_alignment="left">
                 </div>
             </div>
+
+            <!-- Success Message -->
+            <div id="success-message" class="hidden text-green-600 text-center">
+                Signup successful! Welcome to WolfTrack 6.0!
+            </div>
+
+            <p class="text-center mt-6 text-gray-600">
+                Already have an account? 
+                <a href="{{ url_for('login') }}" class="text-nc-red font-semibold">Log In</a>
+            </p>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">WolfTrack 6.0</h4>
+                    <p class="text-gray-400">Your career journey companion at NC State University.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">About Us</a></li>
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Documentation</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">FAQs</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 WolfTrack 6.0. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-         function handleCredentialResponse(response) {
+        function handleCredentialResponse(response) {
             const responsePayload = decodeJwtResponse(response.credential);
 
             // Extract the required fields from the Google response
@@ -118,8 +282,13 @@
                 return response.json();
             })
             .then(data => {
-                // Handle the response data
-                console.log(data);
+                if (data.success) {
+                    const successMessage = document.getElementById('success-message');
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('block');
+                } else {
+                    alert(data.message || 'Signup failed, please try again.');
+                }
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -133,5 +302,4 @@
         }
     </script>
 </body>
-
 </html>
