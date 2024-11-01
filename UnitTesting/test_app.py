@@ -353,6 +353,14 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/signup', data=data, follow_redirects=True)
         self.assert409(response)  # Assuming that the status code for conflict is 409
 
+    #Test Display Route with No Files Available
+    def test_display_no_files(self):
+        self.login('student', 'studentpass')
+        response = self.client.get('/student/display/', follow_redirects=True)
+        self.assert200(response)
+        self.assertIn('No files available', response.data.decode())
+
+
 if __name__ == '__main__':
     unittest.main()
    
