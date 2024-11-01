@@ -285,6 +285,13 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/delete_job_application/InvalidCompany', follow_redirects=True)
         self.assert401(response)
 
+    #Test Upload File with Unsupported Format:
+    def test_upload_unsupported_format(self):
+        self.login('student', 'studentpass')
+        data = {'file': (BytesIO(b'my file content'), 'file.xyz')}
+        response = self.client.post('/student/upload', data=data, follow_redirects=True)
+        self.assertIn('Unsupported file format', response.data.decode())
+
 
 
 if __name__ == '__main__':
