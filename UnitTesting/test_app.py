@@ -333,6 +333,13 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/student/analyze_resume', follow_redirects=True)
         self.assertIn('No resume found', response.data.decode())
 
+    #Test Profile Update With Incorrect Email Format
+    def test_profile_update_incorrect_email(self):
+        self.login('student', 'studentpass')
+        data = {'email': 'wrongemailformat'}
+        response = self.client.post('/student/send_Profile', data=data, follow_redirects=True)
+        self.assert400(response)
+
 
 if __name__ == '__main__':
     unittest.main()
