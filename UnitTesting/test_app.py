@@ -340,6 +340,11 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/send_Profile', data=data, follow_redirects=True)
         self.assert400(response)
 
+    #Test Accessing Job Profile Analysis with Empty Input
+    def test_job_profile_analyze_empty_input(self):
+        self.login('student', 'studentpass')
+        response = self.client.post('/student/job_profile_analyze', data={}, follow_redirects=True)
+        self.assert400(response)
 
 if __name__ == '__main__':
     unittest.main()
