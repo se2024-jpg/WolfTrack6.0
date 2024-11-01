@@ -245,6 +245,13 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/signup', data=data, follow_redirects=True)
         self.assert400(response)
 
+    #Test Login with Nonexistent User:
+    def test_login_nonexistent_user(self):
+        data = {'username': 'ghost', 'password': 'doesntmatter'}
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assertRedirects(response, url_for('login'))
+
+
 
 if __name__ == '__main__':
     unittest.main()
