@@ -231,7 +231,14 @@ class TestFlaskApp(TestCase):
     def test_correct_data_display(self):
         response = self.client.get('/student')
        
-        self.assert200(response)  
+        self.assert200(response)
+
+    #Test Missing Required Fields on Signup:
+    def test_missing_fields_signup(self):
+        data = {'username': '', 'password': ''}
+        response = self.client.post('/signup', data=data, follow_redirects=True)
+        self.assert400(response)
+
 
 
 if __name__ == '__main__':
