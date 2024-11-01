@@ -49,7 +49,12 @@ load_dotenv()
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', "sqlite:///database.db")
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# Set the SECRET_KEY, with a fallback for testing environments
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_testing_secret_key')
+
+# Raise an error if the SECRET_KEY is missing in non-test environments
+if not app.config['SECRET_KEY'] and os.getenv('FLASK_ENV') != 'testing':
+    raise ValueError("No SECRET_KEY set for Flask application")
 
 if not app.config['SECRET_KEY']:
     raise ValueError("No SECRET_KEY set for Flask application")
