@@ -4,7 +4,7 @@ import shutil
 import os
 sys.path.append('./')
 from flask_testing import TestCase
-from app import app, db 
+from ..app import app, db 
 from flask import url_for
 from unittest.mock import patch
 
