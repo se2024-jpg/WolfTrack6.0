@@ -316,6 +316,12 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
         self.assert400(response)
 
+    #Test Delete Job Application Without Providing Company:
+    def test_delete_job_application_no_company(self):
+        self.login('student', 'studentpass')
+        response = self.client.post('/student/delete_job_application/', follow_redirects=True)
+        self.assert400(response)
+
 if __name__ == '__main__':
     unittest.main()
    
