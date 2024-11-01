@@ -292,6 +292,11 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/upload', data=data, follow_redirects=True)
         self.assertIn('Unsupported file format', response.data.decode())
 
+    #Test Job Search with Invalid Job Role:
+    def test_invalid_job_search(self):
+        data = {'job_role': '&&&***'}
+        response = self.client.post('/student/job_search/result', data=data, follow_redirects=True)
+        self.assertIn('No jobs found', response.data.decode())
 
 
 if __name__ == '__main__':
