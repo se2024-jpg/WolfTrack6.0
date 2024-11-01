@@ -39,14 +39,24 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 logging.basicConfig(level=logging.ERROR)
+from dotenv import load_load_dotenv
 
+
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
-app.config['SECRET_KEY'] = 'thisisasecretkey'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', "sqlite:///database.db")
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+if not app.config['SECRET_KEY']:
+    raise ValueError("No SECRET_KEY set for Flask application")
+
 db = SQLAlchemy(app)
 database = "database.db"
+
 
 # Create tables for the original application
 create_tables(database)
