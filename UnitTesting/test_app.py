@@ -298,6 +298,11 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/job_search/result', data=data, follow_redirects=True)
         self.assertIn('No jobs found', response.data.decode())
 
+    #Test Logout Without Being Logged In
+    def test_logout_without_login(self):
+        response = self.client.get('/logout', follow_redirects=True)
+        self.assertRedirects(response, url_for('login'))
+
 
 if __name__ == '__main__':
     unittest.main()
