@@ -29,10 +29,10 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
+    <li><a href="#why-WolfTrack-6.0">Why WolfTrack 6.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-6.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -51,7 +51,7 @@
 
 ## Why WolfTrack 6.0?
 
-WolfTrack 6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack 6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack6.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
@@ -59,7 +59,7 @@ We offer features like giving suggestions for improvements on your resume, track
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
 
 ---
 
@@ -68,7 +68,7 @@ Checkout the [this documentation](docs/UserGuide.pdf)
 
 ---
 
-## What type of user is WolfTrack 5.0 best suited for?
+## What type of user is WolfTrack 6.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
@@ -280,7 +280,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
