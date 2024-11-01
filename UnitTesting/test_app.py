@@ -303,6 +303,11 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/logout', follow_redirects=True)
         self.assertRedirects(response, url_for('login'))
 
+    #Test Posting Empty Job Application
+    def test_empty_job_application(self):
+        self.login('student', 'studentpass')
+        response = self.client.post('/add_job_application', data={}, follow_redirects=True)
+        self.assert400(response)
 
 if __name__ == '__main__':
     unittest.main()
