@@ -273,6 +273,13 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assertNotIn('Logged in as admin', response.data.decode())
 
+    #Test Invalid Email Format in Send Email:
+    def test_send_email_invalid_format(self):
+        self.login('admin', 'adminpass')
+        data = {'email': 'invalidemail', 'comment': 'Test comment'}
+        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
+        self.assert400(response)
+
 
 
 if __name__ == '__main__':
