@@ -1,10 +1,15 @@
 import unittest
 import sys
-import shutil
 import os
-sys.path.append('./')
+import shutil
+
+# Add the parent directory to sys.path to find app.py
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
 from flask_testing import TestCase
-from ..app import app, db 
+from app import app, db
 from flask import url_for
 from unittest.mock import patch
 
