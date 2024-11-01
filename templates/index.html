@@ -1,124 +1,195 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> WolfTrack </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
-
+    <title>WolfTrack 6.0 - Your Career Journey Companion</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            overflow: hidden; /* This will hide the scroll bar */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+        :root {
+            --nc-state-red: #CC0000;
+        }
+        
+        .bg-nc-red {
+            background-color: var(--nc-state-red);
+        }
+        
+        .text-nc-red {
+            color: var(--nc-state-red);
+        }
+        
+        .border-nc-red {
+            border-color: var(--nc-state-red);
+        }
+        
+        .btn-primary {
+            background-color: var(--nc-state-red);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(204, 0, 0, 0.2);
         }
 
-        .main-body {
-            overflow: hidden; /* This will hide the scroll bar */
-            display: flex;
-            flex-direction: column;
-            height: 100vh; /* Set height to 100% of viewport height */
+        .feature-card {
+            transition: all 0.3s ease;
         }
-
-        .project-container {
-            flex: 1; /* Use remaining height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .main-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .circle-img {
-            margin: 0; /* Remove margin to eliminate white space */
-        }
-
-        button {
-            font-family: "Poppins-Regular";
-            font-size: 15px;
-            color: rgb(255, 239, 239);
-        }
-
-        .button--tamaya>span {
-            display: block;
-            transform: scale3d(0.2, 0.2, 1);
-            opacity: 0;
-            transition-duration: 0.3s, 0.3s;
-            transition-delay: initial, initial;
-            transition-property: transform, opacity;
-            transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .button>span {
-            vertical-align: middle;
-        }
-
-        *,
-        ::after,
-        ::before {
-            box-sizing: border-box;
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                  <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex items-center">
+                      <img src="https://seeklogo.com/images/N/nc-state-wolfpack-logo-D7FE040122-seeklogo.com.png" 
+                           alt="WolfTrack Logo" 
+                           class="h-12 w-10 rounded-full">
+                      <span class="ml-2 text-xl font-bold text-nc-red">WolfTrack 6.0</span>
+                  </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{{url_for('login')}}" class="btn-primary">Login</a>
+                    <a href="{{url_for('signup')}}" class="border-2 border-nc-red text-nc-red px-8 py-3 rounded-lg font-semibold hover:bg-nc-red hover:text-gray-900 transition-all">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<body>
+    <!-- Hero Section -->
+    <div class="bg-nc-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Transform Your Job Search Journey
+                    </h1>
+                    <p class="text-xl text-white mb-8">
+                        WolfTrack 6.0 is your ultimate companion for managing internship and job applications. Built for NC State students, by NC State students.
+                    </p>
+                    <div class="flex space-x-4">
 
-    <div class="main-body">
-        <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="justify-content: center;">
-            <ul class="navbar-nav ">
-                <a class="navbar-brand" href="/">
-                    <h1>WolfTrack 5.0</h1>
-                </a>
-            </ul>
-        </nav>
-
-        <div class="project-container">
-            <div class="main-header">
-                <div class="main-container">
-                    <div class="image-container">
-                        <img class="rounded-circle circle-img" alt="100x100"
-                            src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg"
-                            height="400px" width="400px" data-holder-rendered="true"></img>
+                        <a href="{{url_for('signup')}}" class="border-2 border-gray-300 text-white px-8 py-3 rounded-lg font-semibold hover:border-nc-red hover:text-nc-red transition-all">Get Started</a>                        
+                        <a href="#features" class="border-2 border-gray-300 text-white px-8 py-3 rounded-lg font-semibold hover:border-nc-red hover:text-nc-red transition-all">Learn More</a>
                     </div>
-
-                    <div class="button-container">
-                        <a href="{{url_for('login')}}" class="button4"><h6>Login</h6></a>
-                        <div class="divider"> </div>
-                        <a href="{{url_for('signup')}}" class="button4"><h6>Signup</h6></a>
-                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://cdn.prod.website-files.com/62775a91cc3db44c787149de/65fb39e112fe08f591cb1e02_Image4_DesignMode.png" alt="Job Search Illustration" class="rounded-lg shadow-xl">
                 </div>
             </div>
         </div>
     </div>
 
-</body>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose WolfTrack 6.0?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md feature-card">
+                    <div class="w-12 h-12 bg-nc-red rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Resume Analysis</h3>
+                    <p class="text-gray-600">Get instant feedback on your resume with our AI-powered analysis tool. Improve your chances of landing that dream job.</p>
+                </div>
 
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md feature-card">
+                    <div class="w-12 h-12 bg-nc-red rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Application Tracking</h3>
+                    <p class="text-gray-600">Keep track of all your applications in one place. Never miss a deadline or follow-up again.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md feature-card">
+                    <div class="w-12 h-12 bg-nc-red rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Smart Insights</h3>
+                    <p class="text-gray-600">Get personalized insights and recommendations to improve your application success rate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-nc-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <h3 class="text-4xl font-bold text-white mb-2">5000+</h3>
+                    <p class="text-white opacity-90">Active Users</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <h3 class="text-4xl font-bold text-white mb-2">85%</h3>
+                    <p class="text-white opacity-90">Success Rate</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <h3 class="text-4xl font-bold text-white mb-2">24/7</h3>
+                    <p class="text-white opacity-90">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">WolfTrack 6.0</h4>
+                    <p class="text-gray-400">Your career journey companion at NC State University.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">About Us</a></li>
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Documentation</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">FAQs</a></li>
+                        <li><a href="https://github.com/se2024-jpg/WolfTrack6.0/tree/Features" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 WolfTrack 6.0. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
