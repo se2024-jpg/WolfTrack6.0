@@ -327,6 +327,12 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/admin/render_resume', follow_redirects=True)
         self.assert401(response)
 
+    #Test View Resume Analysis Without Uploading Resume:
+    def test_analyze_resume_without_upload(self):
+        self.login('student', 'studentpass')
+        response = self.client.get('/student/analyze_resume', follow_redirects=True)
+        self.assertIn('No resume found', response.data.decode())
+
 
 if __name__ == '__main__':
     unittest.main()
