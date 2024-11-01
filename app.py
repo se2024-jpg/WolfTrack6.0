@@ -39,7 +39,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 logging.basicConfig(level=logging.ERROR)
-from dotenv import load_load_dotenv
+from dotenv import load_dotenv
 
 
 
