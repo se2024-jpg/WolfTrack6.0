@@ -346,6 +346,13 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/job_profile_analyze', data={}, follow_redirects=True)
         self.assert400(response)
 
+    #Test Adding New Client with Existing Username
+    def test_add_client_existing_username(self):
+        self.login('admin', 'adminpass')
+        data = {'username': 'existing_user', 'name': 'New Name', 'password': 'newpass', 'usertype': 'student'}
+        response = self.client.post('/signup', data=data, follow_redirects=True)
+        self.assert409(response)  # Assuming that the status code for conflict is 409
+
 if __name__ == '__main__':
     unittest.main()
    
