@@ -260,6 +260,14 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assertRedirects(response, url_for('login'))
 
+    #Test Admin Access Without Admin Rights:
+    def test_access_admin_without_rights(self):
+        self.login('student_user', 'correct_password')
+        response = self.client.get('/admin', follow_redirects=True)
+        self.assert200(response)
+        self.assertIn('Access Denied', response.data.decode())
+
+
 
 
 if __name__ == '__main__':
