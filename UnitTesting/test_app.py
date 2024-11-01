@@ -267,6 +267,11 @@ class TestFlaskApp(TestCase):
         self.assert200(response)
         self.assertIn('Access Denied', response.data.decode())
 
+    #Test SQL Injection on Login:
+    def test_sql_injection_on_login(self):
+        data = {'username': 'admin\'--', 'password': 'irrelevant'}
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assertNotIn('Logged in as admin', response.data.decode())
 
 
 
