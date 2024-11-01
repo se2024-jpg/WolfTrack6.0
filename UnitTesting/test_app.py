@@ -309,6 +309,13 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/add_job_application', data={}, follow_redirects=True)
         self.assert400(response)
 
+    #Test Incorrect Job Application Update Data:
+    def test_incorrect_job_application_update(self):
+        self.login('student', 'studentpass')
+        data = {'company': 'SomeCompany', 'jobposition': ''}
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert400(response)
+
 if __name__ == '__main__':
     unittest.main()
    
