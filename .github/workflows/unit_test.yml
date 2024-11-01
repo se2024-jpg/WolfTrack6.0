@@ -21,5 +21,4 @@ jobs:
       - name: Run tests
         working-directory: ./UnitTesting
         run: |
-          export PYTHONPATH=..
           python -m unittest test_app.py

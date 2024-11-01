@@ -22,9 +22,11 @@ jobs:
         python3 -m coverage run UnitTesting/test_jobprofileutils.py
         python3 -m coverage run UnitTesting/test_loginutils.py
         python3 -m coverage report -i
+    
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
+        token: ${{ secrets.CODECOV_TOKEN }}
         flags: unittests
         fail_ci_if_error: true
     - name: Lint with flake8
