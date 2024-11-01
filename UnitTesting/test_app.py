@@ -322,6 +322,12 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/delete_job_application/', follow_redirects=True)
         self.assert400(response)
 
+    #Test Rendering Resume Without Being Logged In
+    def test_render_resume_without_login(self):
+        response = self.client.get('/admin/render_resume', follow_redirects=True)
+        self.assert401(response)
+
+
 if __name__ == '__main__':
     unittest.main()
    
