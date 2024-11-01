@@ -280,6 +280,11 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
         self.assert400(response)
 
+    #Test Accessing Restricted Job Application Delete Route Without Login:
+    def test_access_delete_job_application_without_login(self):
+        response = self.client.post('/student/delete_job_application/InvalidCompany', follow_redirects=True)
+        self.assert401(response)
+
 
 
 if __name__ == '__main__':
