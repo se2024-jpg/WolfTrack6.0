@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [csc510group32@gmail.com).](mailto:csc510group32@gmail.com).
+This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [csc510group32@gmail.com).](mailto:csc510group77@gmail.com).
 
 ## Pull Request Process
 
@@ -33,7 +33,7 @@ This project and everyone participating in it is governed by the [Code of Conduc
 
 
 ## Suggesting Enhancements
-Fill in the [Feature Request template](https://github.com/nehajaideep/WolfTrack2.0/blob/Group10StableBranch/issue_templates/Feature_Request.md), including the steps that you imagine you would take if the feature you're requesting existed.
+Fill in the [Feature Request template](https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/issue_templates/Feature_Request.md), including the steps that you imagine you would take if the feature you're requesting existed.
 
 ## Thank You!
 
