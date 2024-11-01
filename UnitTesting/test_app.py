@@ -235,7 +235,26 @@ class TestFlaskApp(TestCase):
     def test_correct_data_display(self):
         response = self.client.get('/student')
        
-        self.assert200(response)  
+        self.assert200(response)
+
+    #Test Missing Required Fields on Signup:
+    def test_missing_fields_signup(self):
+        data = {'username': '', 'password': ''}
+        response = self.client.post('/signup', data=data, follow_redirects=True)
+        self.assert400(response)
+
+    #Test Incorrect Password Length on Signup:
+    def test_incorrect_password_length_signup(self):
+        data = {'username': 'testuser', 'password': 'short'}
+        response = self.client.post('/signup', data=data, follow_redirects=True)
+        self.assert400(response)
+
+    #Test Login with Nonexistent User:
+    def test_login_nonexistent_user(self):
+        data = {'username': 'ghost', 'password': 'doesntmatter'}
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assertRedirects(response, url_for('login'))
+
 
 
 if __name__ == '__main__':
