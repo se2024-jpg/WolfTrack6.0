@@ -326,13 +326,18 @@ def google_login():
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
+        # Password hashing and new user creation
         hashed_password = bcrypt.generate_password_hash(form.password.data)
-        new_client = [form.name.data,form.username.data, hashed_password, form.usertype.data]
-        add_client(new_client,database)
+        new_client = [form.name.data, form.username.data, hashed_password, form.usertype.data]
+        add_client(new_client, database)
         return redirect(url_for('login'))
 
-    return render_template('signup.html',form = RegisterForm())
+    # Return 400 status for invalid form data
+    if request.method == 'POST' and not form.validate():
+        return render_template('signup.html', form=form), 400
 
+    return render_template('signup.html', form=form)
+    
 @app.route('/google-signup', methods=['POST'])
 def google_signup():
     # Get the Google token and role from URL parameters
