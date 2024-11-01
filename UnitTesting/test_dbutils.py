@@ -101,7 +101,59 @@ class TestDBUtils(unittest.TestCase):
         deleted_job = [job for job in result if job[1] == 'NonexistentCompany']
         self.assertEqual(len(deleted_job), 0)
 
-
+    def test_add_client_with_duplicate_username(self):
+        client_data1 = ('Alice Smith', 'alicesmith', 'password1', 'user')
+        dbutils.add_client(client_data1, self.db)
+        client_data2 = ('Alice Smith', 'alicesmith', 'password2', 'admin')
+        with self.assertRaises(Exception):  # Assuming you raise an exception for duplicates
+            dbutils.add_client(client_data2, self.db)
+    
+    def test_add_job_with_invalid_salary(self):
+        job_data = ('CompanyZ', 'LocationA', 'PositionB', -1000, 'Open')  # Invalid salary
+        with self.assertRaises(ValueError):  # Assuming you raise a ValueError for invalid salary
+            dbutils.add_job(job_data, self.db)
+    
+    def test_find_user_with_nonexistent_username(self):
+        result = dbutils.find_user('nonexistentuser', self.db)
+        self.assertIsNone(result)  # Assuming it returns None for nonexistent user
+    
+    def test_delete_job_application_by_company_not_found(self):
+        dbutils.delete_job_application_by_company('NonexistentCompany', self.db)
+        result = dbutils.get_job_applications(self.db)
+        self.assertEqual(len(result), 0)  # No changes should be made
+    
+    def test_update_job_application_invalid_data(self):
+        job_data = ('CompanyX', 'LocationY', '', 50000, 'Open')  # Invalid position
+        with self.assertRaises(ValueError):  # Assuming an exception is raised for invalid data
+            dbutils.update_job_application_by_id(*job_data, self.db)
+    
+    def test_get_job_applications_empty_database(self):
+        dbutils.delete_job_application_by_company('CompanyA', self.db)  # Make sure it’s empty
+        result = dbutils.get_job_applications(self.db)
+        self.assertEqual(len(result), 0)  # No applications should be present
+    
+    def test_update_job_application_to_new_status(self):
+        job_data = ('CompanyY', 'LocationB', 'PositionC', 70000, 'Open')
+        dbutils.add_job(job_data, self.db)
+        dbutils.update_job_application_by_id('CompanyY', 'LocationB', 'PositionC', 70000, 'Closed', self.db)
+        result = dbutils.get_job_applications_by_status(self.db, 'Closed')
+        self.assertEqual(len(result), 1)  # Check that the job has the updated status
+    
+    def test_get_job_applications_returns_list(self):
+        result = dbutils.get_job_applications(self.db)
+        self.assertIsInstance(result, list)  # Should return a list
+    
+    def test_find_user_case_insensitivity(self):
+        client_data = ('Bob Brown', 'BOBBROWN', 'password3', 'user')
+        dbutils.add_client(client_data, self.db)
+        result = dbutils.find_user('bobbrown', self.db)  # Case should not matter
+        self.assertIsNotNone(result)
+        self.assertEqual(result[1], 'Bob Brown')
+    
+    def test_add_client_with_no_username(self):
+        client_data = ('Charlie Black', '', 'password4', 'user')  # Missing username
+        with self.assertRaises(ValueError):  # Assuming an exception is raised for missing username
+            dbutils.add_client(client_data, self.db)
 
 if __name__ == '__main__':
     unittest.main()
