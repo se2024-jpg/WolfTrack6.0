@@ -463,7 +463,7 @@
                     alert('Please save the resume first');
                     return;
                 }
-                window.location.href = `/download_resume?resume_name=${resumeName}`;
+                window.location.href = `/download_resume?resume_name=${encodeURIComponent(resumeName)}`;
             });
 
             // Delete Resume
