@@ -3,7 +3,9 @@ name: Upload coverage reports to Codecov
 on:
   push:
   pull_request:
-
+env:
+  ENV: testing
+  
 jobs:
   upload-coverage:
     runs-on: ubuntu-latest
