@@ -1,6 +1,6 @@
 | Item | Assessment | Evidence |
 |------|------------|----------|
-| Video | 3 | CSC 510: Software Engineering \| Project 3 \| WolfTrack5.0 - YouTube |
+| Video | 3 | https://drive.google.com/drive/u/0/folders/1HgFLQ42Qz-0NtIauVoZZ3OsjyJLWgi74 |
 | Workload is spread over the whole team (one team member is often Xtimes more productive than the others...but nevertheless, here is a track record that everyone is contributing a lot) | 3 | https://github.com/se2024-jpg/WolfTrack6.0/pulse |
 | Number of commits | 3 | Commit Activity · https://github.com/se2024-jpg/WolfTrack6.0/pulse |
 | Number of commits: by different people | 3 | Yes.  181 commits Ref: https://github.com/se2024-jpg/WolfTrack6.0/pulse |
@@ -11,7 +11,7 @@
 | Docs: what: point descriptions of each class/function (in isolation) | 3 | https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/docs/User%20Guide%20-%20WolfTrack6.0.pdf |
 | Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z | 3 | https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/docs/User%20Guide%20-%20WolfTrack6.0.pdf |
 | Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 | https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/docs/User%20Guide%20-%20WolfTrack6.0.pdf |
-| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | 3 | CSC 510: Software Engineering \| Project 3 \| WolfTrack5.0 - YouTube |
+| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | 3 | https://drive.google.com/drive/u/0/folders/1HgFLQ42Qz-0NtIauVoZZ3OsjyJLWgi74 |
 | Use of version control tools | 3 | Git is used for the project through out |
 | Use of style checkers | 3 | https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/.github/workflows/style_checker.yml |
 | Use of code formatters. | 3 | https://github.com/se2024-jpg/WolfTrack6.0/blob/Features/.github/workflows/code_formatter.yml |
