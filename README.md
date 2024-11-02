@@ -76,7 +76,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ## Technology Stack
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img src = "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"/></a></code>
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img src = "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"/></a></code>
 <code><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank"><img height="50" src="https://repository-images.githubusercontent.com/596892/cc2c69ec-9251-4b33-8283-b86a8659c9cb"></a></code>
 <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png"></a></code>
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
@@ -114,8 +114,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
   **Suitability for Prototyping and Small Projects**: For early stages of development, when the emphasis might be on rapidly prototyping an application or for smaller projects with relatively lower data requirements, SQLite can be a good choice due to its simplicity.
 
   **Flask Integration**: Flask has built-in support for SQLite. The sqlite3 module is included in Python's standard library, allowing Flask applications to interact with SQLite databases seamlessly.
-
-- [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
+  
 - [Highcharts](https://www.highcharts.com/)
 - [Adzuna](https://developer.adzuna.com/overview)
   
@@ -130,13 +129,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 - ### Installation:
 
-  E.g If you downloaded `Python 3.8.7` above, then
+  E.g If you downloaded `Python 3.10.12` above, then
 
   **Steps to setup virtual environment**
 
   - Create a virtual environment:
 
-    `python3.8 -m venv test_env`
+    `python3.10 -m venv test_env`
 
   - Activate the virtual environment:
 
@@ -194,65 +193,21 @@ It is part of the [Github Workflow Build](https://github.com/se2024-jpg/WolfTrac
 
 ## Roadmap
 
-### Phase 1 WolfTrack:
-
-- [x] Create database ER diagram
-- [x] Create SQL DML and DDL queries
-- [x] Create Dashboard Page
-- [x] Create Login Page
-- [x] Create Signup Page
-- [x] Setup Flask
-- [x] Add Unit testing
-- [x] Add Error Handling mechanisms
-- [x] Mock of Job Application Map using Power BI
-
-### Phase 2 WolfTrack 2.0:
-
-- [x] Resume Parser and Analyzer
-- [x] Email Notifcation after adding new job profile to list
-- [x] Upload and maintaining resume versions
-- [x] Send remainder mails for deadlines
-- [x] Share your profile with others
-- [x] Creation of Docker image
-- [x] Readily deployable image in docker registry
-
-### Phase 3 WolfTrack 3.0:
-
-- [x] Two Type Login Application - Admin and User
-- [x] Resume Review, Comment, Download and Like by Admin
-- [x] Comments given by Admin are sent as email to the user
-- [x] Cronjob for pending application deadlines as email notification
-- [x] Implemented web scraping to find relevant jobs according to user's profile and recommend him
-- [x] Daily Goal Check to keep track of number of jobs applied and to apply 
-- [x] Customizable Daily Target Field
-- [x] Parse Resume Document with other extensions
-- [x] Recommend jobs by matching the resume with open jobs
-
-### Phase 4 WolfTrack 4.0:
-
-- [x] Created Sign-up functionality <br>
-- [x] Fixed log-in authentication <br>
-- [x] Fixed daily goals feature <br>
-- [x] Added Site Navigation <br>
-- [x] Front end aesthetic changes <br>
-- [x] Added tables to Wishlist, Applied, In Process and Offers tabs <br>
-- [x] Added chatGPT pipeline for resume suggestions <br>
+[Click here to view historical phases (1-4)](./HISTORICAL_ROADMAP.md)
 
 ### Phase 5 WolfTrack 5.0:
-
 - [x] Implemented SQLite Database connectivity for the application.
-- [x] Employed Flask API to dynamically retrieve content from the database for both Student and Admin portals. <br>
-- [x] Conducted code refactoring to enhance application dynamism.<br>
-- [x] Developed dynamic Sign-up and Log-In functionalities for user interaction.<br>
-- [x] Integrated a dynamic Job Application table with CRUD Operations. <br>
-- [x] Included a 'Filter By Status' feature for streamlined job application viewing. <br>
-- [x] Incorporated a Job Search Feature for improved navigation. <br>
-- [x] Added Job Skills Extractor functionality for enhanced job matching. <br>
-- [x] Resolved upload and download resume bugs for smoother user experience.<br>
+- [x] Employed Flask API to dynamically retrieve content from the database for both Student and Admin portals.
+- [x] Conducted code refactoring to enhance application dynamism.
+- [x] Developed dynamic Sign-up and Log-In functionalities for user interaction.
+- [x] Integrated a dynamic Job Application table with CRUD Operations.
+- [x] Included a 'Filter By Status' feature for streamlined job application viewing.
+- [x] Incorporated a Job Search Feature for improved navigation.
+- [x] Added Job Skills Extractor functionality for enhanced job matching.
+- [x] Resolved upload and download resume bugs for smoother user experience.
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
 ### Phase 6 WolfTrack 6.0 (Future Scope):
-
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
 - [ ] Online chat with expert
@@ -260,6 +215,7 @@ It is part of the [Github Workflow Build](https://github.com/se2024-jpg/WolfTrac
 - [ ] Interview Preparation resources tab
 - [ ] Salary insights and comparisons
 
+---
 ---
 
 ## Developer Support and Updates
