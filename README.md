@@ -115,7 +115,6 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **Flask Integration**: Flask has built-in support for SQLite. The sqlite3 module is included in Python's standard library, allowing Flask applications to interact with SQLite databases seamlessly.
   
-- [Highcharts](https://www.highcharts.com/)
 - [Adzuna](https://developer.adzuna.com/overview)
   
   The API provides access to rich job market data, including job descriptions, salaries, locations, and other relevant details. This data can be integrated into applications or platforms to offer insights into the job market trends and opportunities.
