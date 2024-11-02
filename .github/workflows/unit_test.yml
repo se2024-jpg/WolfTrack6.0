@@ -2,7 +2,9 @@ name: Run Tests On Push
 on:
   push:
   pull_request:
+env:
 
+  ENV: testing
 jobs:
   build:
     runs-on: ubuntu-latest
