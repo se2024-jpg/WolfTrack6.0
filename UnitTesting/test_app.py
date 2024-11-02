@@ -374,7 +374,7 @@ class TestApp(unittest.TestCase):
 
     def test_registration_form_validation(self):
         response = self.app.post('/signup', data={})
-        self.assertEqual(response.status_code, 200)  
+        self.assertEqual(response.status_code, 400)  
 
     def test_update_existing_resume_no_change(self):
         with app.app_context():
