@@ -206,15 +206,33 @@ It is part of the [Github Workflow Build](https://github.com/se2024-jpg/WolfTrac
 - [x] Resolved upload and download resume bugs for smoother user experience.
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
-### Phase 6 WolfTrack 6.0 (Future Scope):
-- [ ] Web scraper for recommended jobs
-- [ ] Configure Cron-Job for reminder as SMS notification
-- [ ] Online chat with expert
-- [ ] Resume template editor
-- [ ] Interview Preparation resources tab
-- [ ] Salary insights and comparisons
+### Phase 6 WolfTrack 6.0:
+- [ ] **Google OAuth Integration**
+  - Implement secure authentication using Google credentials
+  - Allow users to sign in with their Google accounts
+  - Enable seamless access to WolfTrack services
 
----
+- [ ] **Dynamic Resume Builder**
+  - Create interactive form-based resume creation
+  - Generate professional PDF resumes
+  - Support multiple resume templates
+  - Enable saving and editing of resume drafts
+  - Implement one-click resume downloading
+
+- [ ] **AI-Powered Job Recommender**
+  - Integrate ChatGPT for intelligent job matching
+  - Implement web scraping for real-time job listings
+  - Analyze resume content for skill matching
+  - Provide personalized job recommendations
+  - Display job match percentage scores
+
+Future Scope:
+- [ ] Resume builder using LaTeX playground
+- [ ] Bringing HTTPS support
+- [ ] Online chat with expert
+- [ ] Interview Preparation resources tab
+- [ ] Salary insights and job match analytics
+
 ---
 
 ## Developer Support and Updates
