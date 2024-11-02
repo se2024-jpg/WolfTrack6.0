@@ -64,7 +64,7 @@ To demonstrate our application's functionality and showcase its working examples
 ---
 
 ## What is new in this version?
-Checkout the [this documentation](docs/UserGuide.pdf)
+Checkout the [this documentation](docs/User%20Guide%20-%20WolfTrack6.0.pdf)
 
 ---
 
@@ -180,7 +180,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 ---
 
 [Class/Functions Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/se2024-jpg/WolfTrack6.0/blob/Main/docs/User%20Guide.pdf)
+[Use Cases Documentation](docs/User%20Guide%20-%20WolfTrack6.0.pdf)
 
 ---
 
