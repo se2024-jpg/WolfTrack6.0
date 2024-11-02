@@ -54,7 +54,7 @@ def find_user(data,db):
     print('Data==>', data)
     cursor = conn.cursor()
     # Querying the 'client' table
-    cursor.execute("SELECT * FROM client where username ='"+str(data)+"'")
+    cursor.execute("SELECT * FROM client WHERE username = ?", (data,))
     rows = cursor.fetchone()
     conn.close()
     print('rowsss->>>', rows)
