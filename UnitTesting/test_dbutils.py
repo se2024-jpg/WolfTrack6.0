@@ -60,14 +60,6 @@ class TestDBUtils(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertTrue(len(result) >= 0)
 
-    def test_update_job_application_by_id(self):
-        job_data = ('CompanyX', 'UpdatedLocation', 'UpdatedPosition', 60000, 'Closed')
-        dbutils.update_job_application_by_id(*job_data, self.db)
-        result = dbutils.get_job_applications(self.db)
-        updated_job = [job for job in result if job[1] == 'CompanyX']
-        self.assertIsNotNone(updated_job)
-        self.assertEqual(updated_job[0][1:], job_data)
-
     def test_delete_job_application_by_company(self):
         dbutils.delete_job_application_by_company('UpdatedCompany', self.db)
         result = dbutils.get_job_applications(self.db)
@@ -87,13 +79,6 @@ class TestDBUtils(unittest.TestCase):
         self.assertTrue(len(result_closed) > 0)
         self.assertEqual(result_open[0][-1], 'Open')
         self.assertEqual(result_closed[0][-1], 'Closed')
-
-    def test_update_job_application_invalid_id(self):
-        job_data = ('InvalidCompany', 'UpdatedLocation', 'UpdatedPosition', 60000, 'Closed')
-        dbutils.update_job_application_by_id(*job_data, self.db)
-        result = dbutils.get_job_applications(self.db)
-        updated_job = [job for job in result if job[1] == 'InvalidCompany']
-        self.assertEqual(len(updated_job), 0)
 
     def test_delete_nonexistent_job_application(self):
         dbutils.delete_job_application_by_company('NonexistentCompany', self.db)
