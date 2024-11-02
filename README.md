@@ -59,7 +59,7 @@ We offer features like giving suggestions for improvements on your resume, track
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Link](https://drive.google.com/file/d/1xcn-jG80-FSnsZyomk8VU9Ln5i--QhnW/view?usp=drive_link) 
 
 ---
 
