@@ -101,5 +101,7 @@ class TestDBUtils(unittest.TestCase):
         deleted_job = [job for job in result if job[1] == 'NonexistentCompany']
         self.assertEqual(len(deleted_job), 0)
 
+
+
 if __name__ == '__main__':
     unittest.main()
