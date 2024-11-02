@@ -77,14 +77,14 @@ This platform has been designed keeping in mind any person who is out to seek a 
 ## Technology Stack
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img src = "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"/></a></code>
-<code><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank"><img height="50" src="https://freetutsdownload.net/wp-content/uploads/2021/07/Learn-Flask-A-web-Development-Framework-of-Python.jpg"></a></code>
+<code><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank"><img height="50" src="https://repository-images.githubusercontent.com/596892/cc2c69ec-9251-4b33-8283-b86a8659c9cb"></a></code>
 <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png"></a></code>
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
 <code><a href="https://www.javascript.com/" target="_blank"><img height="50" src="https://cdn.freelogovectors.net/wp-content/uploads/2020/11/javascript_logo-768x873.png"></a></code>
 <code><a href="https://getbootstrap.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg"></a></code>
 <code><a href="https://www.sqlite.org/index.html" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite | AWS </p>
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite </p>
 
 ## Version Control Tools
 
