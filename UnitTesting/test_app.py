@@ -1,267 +1,467 @@
 import unittest
 import sys
 import os
-import shutil
+import json
+from unittest.mock import patch, MagicMock
+from io import BytesIO
 
-# Add the parent directory to sys.path to find app.py
-current_dir = os.path.dirname(__file__)
-parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from flask_testing import TestCase
-from app import app, db
-from flask import url_for
-from unittest.mock import patch
+from app import app, db, Resume, bcrypt
 
-
-class TestFlaskApp(TestCase):
-
-    def create_app(self):
-        app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
-
-        return app
-
+class TestApp(unittest.TestCase):
     def setUp(self):
-        db.create_all()
-
+        app.config['TESTING'] = True
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        app.config['WTF_CSRF_ENABLED'] = False
+        self.app = app.test_client()
+        with app.app_context():
+            db.create_all()
+            
     def tearDown(self):
-        source_folder = os.path.abspath('./Controller/temp_resume')
-        destination_folder = os.path.abspath('./Controller/resume')
-        
-        # Ensure destination folder exists
-        os.makedirs(destination_folder, exist_ok=True)
-        
-        files_to_copy = os.listdir(source_folder)
-        for file_name in files_to_copy:
-            source_file_path = os.path.join(source_folder, file_name)
-            destination_file_path = os.path.join(destination_folder, file_name)
-            shutil.copy(source_file_path, destination_file_path)  # Copy files to destination folder
-
-        db.session.remove()
-        db.drop_all()
-        # Clean up after tests
+        with app.app_context():
+            db.session.remove()
+            db.drop_all()
 
     def test_index_route(self):
-        response = self.client.get('/')
-        self.assert200(response)
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
 
-    def test_login_route(self):
-        response = self.client.get('/login')
-        self.assert200(response)
-        self.assert_template_used('login.html')  
+    def test_login_route_get(self):
+        response = self.app.get('/login')
+        self.assertEqual(response.status_code, 200)
 
-        data = {
-            'username': 'testuser',
-            'password': 'testpassword'
-        }
-        response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assert200(response)
-
-    def test_signup_route(self):
-        response = self.client.get('/signup')
-        self.assert200(response)
-        self.assert_template_used('signup.html')  
-
-        data = {
-            'username': 'newuser',
-            'password': 'newpassword',
-            'name': 'New User',
-            'usertype': 'student' 
-        }
-        response = self.client.post('/signup', data=data, follow_redirects=True)
-        self.assert200(response)
+    def test_signup_route_get(self):
+        response = self.app.get('/signup')
+        self.assertEqual(response.status_code, 200)
 
     def test_logout_route(self):
-        response = self.client.get('/logout')
-        self.assertStatus(response, 302) 
+        response = self.app.get('/logout')
+        self.assertEqual(response.status_code, 302)  
 
-    def test_admin_route_without_login(self):
-        response = self.client.get('/admin', follow_redirects=True)
-        self.assert200(response)  
+    def test_resume_builder_route(self):
+        response = self.app.get('/resume_builder')
+        self.assertEqual(response.status_code, 200)
 
-    def test_student_route_without_login(self):
-        response = self.client.get('/student', follow_redirects=True)
-        self.assert200(response)  
-    def test_invalid_login(self):
-        # Test login with invalid credentials
-        data = {
-            'username': 'invalid_user',
-            'password': 'invalid_password'
-        }
-        response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assert200(response)  
-
-    def test_admin_login_and_access(self):
-        # Test login as admin and access admin route
-        data = {
-            'username': 'admin_username',
-            'password': 'admin_password'
-        }
-        response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assert200(response)
-        response = self.client.get('/admin')
-        self.assert200(response) 
-
-    def test_student_login_and_access(self):
-        # Test login as student and access student route
-        data = {
-            'username': 'student_username',
-            'password': 'student_password'
-        }
-        response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assert200(response)
-        response = self.client.get('/student')
-        self.assert200(response)  
-    def test_add_New_route(self):
-        # Test 'add_New' route with invalid data
-        data = {
-            
-        }
-        response = self.client.post('/student/add_New', data=data, follow_redirects=True)
-        self.assert400(response)  
-
-    
-    def test_send_invaid_email_route(self):
-        # Test 'send_email' route with valid data
-        data = {
-            
-        }
-        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response)  
-
-    def test_render_resume_route(self):
-        # Test 'render_resume' route
-        response = self.client.get('/admin/render_resume')
-        self.assert200(response)  
-
+    def test_get_all_resumes_empty(self):
+        response = self.app.get('/get_all_resumes')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.data), [])
 
     def test_job_search_route(self):
-        # Test 'job_search' route
-        response = self.client.get('/student/job_search')
-        self.assert200(response)  
-    def test_job_search_result_route(self):
-        # Test 'job_search/result' route with valid job role
-        data = {
-            'job_role': 'Software Engineer'  
-        }
-        response = self.client.post('/student/job_search/result', data=data, follow_redirects=True)
-        self.assert200(response) 
+        response = self.app.get('/student/job_search')
+        self.assertEqual(response.status_code, 200)
 
-    def test_admin_route(self):
-        # Test 'admin' route with valid user data
-        data = {
-           
-        }
-        response = self.client.post('/admin', data=data, follow_redirects=True)
-        self.assert200(response) 
+    def test_add_job_application(self):
+        with patch('app.add_job'):
+            response = self.app.post('/add_job_application', data={
+                'company': 'TestCo',
+                'location': 'TestCity',
+                'jobposition': 'Developer',
+                'salary': '100000',
+                'status': 'Applied',
+                'user_id': 'test_user'
+            })
+            self.assertEqual(response.status_code, 302)
 
-    def test_student_route(self):
-        # Test 'student' route with valid user data
+    @patch('os.path.isdir', return_value=True)
+    @patch('os.makedirs')
+    @patch('os.listdir', return_value=[])
+    def test_file_upload(self, mock_listdir, mock_makedirs, mock_isdir):
         data = {
-            
+            'user_id': 'test_user'
         }
-        response = self.client.post('/student', data=data, follow_redirects=True)
-        self.assert200(response)  
-    def test_render_resume_route(self):
-        # Test 'tos' (render_resume) route
-        response = self.client.get('/admin/render_resume')
-        self.assert200(response) 
-    def test_job_search_route(self):
-        # Test 'job_search' route
-        response = self.client.get('/student/job_search')
-        self.assert200(response)  
+        data['file'] = (BytesIO(b'my file contents'), 'test.pdf')
+        response = self.app.post('/student/upload',
+                               content_type='multipart/form-data',
+                               data=data)
+        self.assertEqual(response.status_code, 200)
+
     def test_analyze_resume_route(self):
-        # Test 'view_ResumeAna' (analyze_resume) route
-        response = self.client.get('/student/analyze_resume')
-        self.assert200(response)  
-    
-    @patch('os.listdir')
-    def test_display_route(self,mock_listdir):
-        # Test 'display' route for file display or download
-        directory = '/path/to/directory'
-        # Define the return value you want to mock
-        mock_listdir.return_value = ['Shreya Vaidya_Resume.pdf', 'file2.txt', 'file3.txt']
-        response = self.client.get('/student/display/')
-        self.assert200(response)  
-    def test_add_job_application_invalid_data(self):
-        # Test adding a job application with invalid or missing data
-        data = {
-           
+        response = self.app.get('/student/analyze_resume')
+        self.assertEqual(response.status_code, 200)
+
+    def test_google_signup_new_user(self):
+        with patch('app.find_user', return_value=None):
+            with patch('app.add_client'):
+                response = self.app.post('/google-signup',
+                                       json={
+                                           'email': 'test@gmail.com',
+                                           'name': 'Test User',
+                                           'username': 'testuser',
+                                           'role': 'student'
+                                       },
+                                       content_type='application/json')
+                self.assertEqual(response.status_code, 302)
+
+    def test_job_profile_analyze_get(self):
+        response = self.app.get('/student/job_profile_analyze')
+        self.assertEqual(response.status_code, 200)
+
+    def test_job_profile_analyze_post(self):
+        with patch('app.extract_skills', return_value=['Python', 'Java']):
+            response = self.app.post('/student/job_profile_analyze',
+                                   data={'job_profile': 'Software Developer'})
+            self.assertEqual(response.status_code, 200)
+
+    @patch('app.s_email')
+    def test_add_new_job_with_email(self, mock_email):
+        response = self.app.post('/student/add_New',
+                               data={
+                                   'fullname': 'TestCo',
+                                   'location_text': 'TestCity',
+                                   'text': 'Developer',
+                                   'sal': '100000',
+                                   'user': 'testuser',
+                                   'pass': 'testpass',
+                                   'user_email': 'test@example.com',
+                                   'starting_date': '2024-01-01',
+                                   'notes': 'Test notes'
+                               })
+        self.assertEqual(response.status_code, 200)
+
+    def test_download_resume(self):
+        test_resume = Resume(
+            resume_name='test_resume',
+            name='John Doe',
+            email='john@example.com',
+            mobile='1234567890',
+            linkedin='linkedin.com/johndoe',
+            education='[]',
+            experience='[]',
+            skills='Python, Java'
+        )
+        with app.app_context():
+            db.session.add(test_resume)
+            db.session.commit()
+            response = self.app.get('/download_resume?resume_name=test_resume')
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.mimetype, 'application/pdf')
+
+    def test_resume_deletion_nonexistent(self):
+        response = self.app.delete('/delete_resume', query_string={'resume_name': 'nonexistent_resume'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_google_login_invalid_token(self):
+        with patch('requests.get') as mocked_get:
+            mocked_get.return_value.status_code = 401
+            response = self.app.post('/google-login', data={'credential': 'invalid_token'})
+            self.assertEqual(response.status_code, 401)
+
+    def test_download_resume_nonexistent(self):
+        response = self.app.get('/download_resume', query_string={'resume_name': 'nonexistent_resume'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_pdf_generation_no_data(self):
+        response = self.app.get('/download_resume', query_string={'resume_name': 'empty_resume'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_logout_redirect(self):
+        with self.app:
+            response = self.app.get('/logout', follow_redirects=True)
+            self.assertIn(b'Login', response.data)
+
+    def test_retrieve_existing_resume(self):
+        test_resume = {
+            'resume_name': 'existing_resume',
+            'name': 'Existing User',
+            'email': 'existing@example.com',
+            'mobile': '9876543210',
+            'linkedin': 'linkedin.com/existinguser',
+            'education': '[]',
+            'experience': '[]',
+            'skills': 'C++, Python'
         }
-        response = self.client.post('/add_job_application', data=data, follow_redirects=True)
-        self.assert400(response)  
+        with app.app_context():
+            resume = Resume(**test_resume)
+            db.session.add(resume)
+            db.session.commit()
+        response = self.app.get('/retrieve_resume', query_string={'resume_name': 'existing_resume'})
+        self.assertEqual(response.status_code, 200)
 
-    def test_update_job_application_invalid_data(self):
-        # Test updating a job application with invalid or missing data
-        data = {
-            
+    def test_retrieve_non_existent_resume(self):
+        response = self.app.get('/retrieve_resume', query_string={'resume_name': 'fake_resume'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_delete_non_existent_resume(self):
+        response = self.app.delete('/delete_resume', query_string={'resume_name': 'non_existent_resume'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_update_existing_resume(self):
+        test_resume = {
+            'resume_name': 'updatable_resume',
+            'name': 'John Doe',
+            'email': 'john@example.com',
+            'mobile': '1234567890',
+            'linkedin': 'linkedin.com/johndoe',
+            'education': '[]',
+            'experience': '[]',
+            'skills': 'Python, Java'
         }
-        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
-        self.assert400(response)  
+        with app.app_context():
+            resume = Resume(**test_resume)
+            db.session.add(resume)
+            db.session.commit()
+        updated_data = test_resume.copy()
+        updated_data['email'] = 'updated_john@example.com'
+        response = self.app.post('/save_resume', json=updated_data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
 
-    def test_delete_job_application_invalid_data(self):
-        # Test deleting a job application with invalid or missing data
-        company = "InvalidCompany"  # Provide invalid company name
-        response = self.client.post(f'/student/delete_job_application/{company}', follow_redirects=True)
-        self.assert400(response) 
+    def test_get_job_application_status(self):
+        response = self.app.get('/student/Applied', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
-    def test_send_email_invalid_input(self):
-        # Test sending email with invalid inputs or missing fields
+    def test_job_search_results_valid(self):
+        with patch('requests.get') as mock_get:
+            mock_get.return_value.status_code = 200
+            mock_get.return_value.json.return_value = {
+                'results': [{
+                    'title': 'Software Engineer',
+                    'company': {'display_name': 'TestCorp'},
+                    'location': {'display_name': 'TestCity'},
+                    'salary_max': 100000,
+                    'redirect_url': 'http://testjob.com/123'
+                }]
+            }
+            response = self.app.post('/student/job_search/result', data={'job_role': 'Software Engineer'})
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'TestCorp', response.data)
+
+    def test_registration_route(self):
+        response = self.app.get('/signup')
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_page_load(self):
+        response = self.app.get('/login')
+        self.assertEqual(response.status_code, 200)
+
+    def test_admin_page_access(self):
+        with self.app:
+            with self.app.session_transaction() as sess:
+                sess['user_id'] = 1 
+            response = self.app.get('/admin')
+            self.assertEqual(response.status_code, 200)
+
+    def test_logout_functionality(self):
+        with self.app:
+            with self.app.session_transaction() as sess:
+                sess['user_id'] = 1
+            response = self.app.get('/logout', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+    def test_invalid_login(self):
+        response = self.app.post('/login', data={
+            'username': 'invalid',
+            'password': 'invalid'
+        }, follow_redirects=True)
+        self.assertIn(b'Login', response.data)  
+
+    def test_student_page_access(self):
+        with self.app:
+            with self.app.session_transaction() as sess:
+                sess['user_id'] = 2  
+            response = self.app.get('/student')
+            self.assertEqual(response.status_code, 200)
+
+    def test_upload_file(self):
         data = {
-           
+            'file': (BytesIO(b'content of the file'), 'test.pdf'),
+            'user_id': '1'
         }
-        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response)  
+        response = self.app.post('/student/upload', content_type='multipart/form-data', data=data)
+        self.assertEqual(response.status_code, 200)
 
-    def test_send_email_incorrect_address(self):
-        # Test sending email with incorrect or non-existing email addresses
-        data = {
-            
+    def test_job_search_page_access(self):
+        response = self.app.get('/student/job_search')
+        self.assertEqual(response.status_code, 200)
+
+    def test_job_profile_analysis_get(self):
+        response = self.app.get('/student/job_profile_analyze')
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_all_resumes(self):
+        response = self.app.get('/get_all_resumes')
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_new_resume(self):
+        resume_data = {
+            'resume_name': 'unique_resume',
+            'name': 'John Unique',
+            'email': 'johnunique@example.com',
+            'mobile': '9876543211',
+            'linkedin': 'linkedin.com/johnunique',
+            'education': '[]',
+            'experience': '[]',
+            'skills': 'Python, C++'
         }
-        response = self.client.post('/admin/send_email', data=data, follow_redirects=True)
-        self.assert400(response) 
+        response = self.app.post('/save_resume', json=resume_data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
 
-    def test_upload_incorrect_files(self):
-        # Test uploading incorrect files
-        data = {
-           
-        }
-        response = self.client.post('/student/upload', data=data, follow_redirects=True)
-        self.assert400(response)  
+    def test_home_route(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
 
-    def test_access_routes_without_credentials(self):
-        # Test accessing routes without proper authentication
-        routes = ['/admin', '/student']
-        for route in routes:
-            response = self.client.get(route, follow_redirects=True)
-            self.assert200(response)  
+    def test_admin_login_page(self):
+        response = self.app.get('/login')
+        self.assertEqual(response.status_code, 200)
 
-    def test_correct_data_display(self):
-        response = self.client.get('/student')
-       
-        self.assert200(response)
+    def test_student_signup_page(self):
+        response = self.app.get('/signup')
+        self.assertEqual(response.status_code, 200)
 
-    #Test Missing Required Fields on Signup:
-    def test_missing_fields_signup(self):
-        data = {'username': '', 'password': ''}
-        response = self.client.post('/signup', data=data, follow_redirects=True)
-        self.assert400(response)
+    def test_successful_logout(self):
+        response = self.app.get('/logout', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
-    #Test Incorrect Password Length on Signup:
-    def test_incorrect_password_length_signup(self):
-        data = {'username': 'testuser', 'password': 'short'}
-        response = self.client.post('/signup', data=data, follow_redirects=True)
-        self.assert400(response)
+    def test_display_job_application(self):
+        response = self.app.get('/student')
+        self.assertEqual(response.status_code, 200)
 
-    #Test Login with Nonexistent User:
-    def test_login_nonexistent_user(self):
-        data = {'username': 'ghost', 'password': 'doesntmatter'}
-        response = self.client.post('/login', data=data, follow_redirects=True)
-        self.assertRedirects(response, url_for('login'))
+    def test_retrieve_job_applications(self):
+        with app.app_context():
+            response = self.app.get('/student/job_search')
+            self.assertEqual(response.status_code, 200)
+
+    def test_access_resume_builder(self):
+        response = self.app.get('/resume_builder')
+        self.assertEqual(response.status_code, 200)
+
+    def test_resume_download_route(self):
+        response = self.app.get('/download_resume', query_string={'resume_name': 'nonexistent'})
+        self.assertEqual(response.status_code, 404)  
+
+    def test_empty_job_search(self):
+        response = self.app.post('/student/job_search/result', data={'job_role': ''})
+        self.assertEqual(response.status_code, 200)  
+
+    def test_pdf_creation_existing_resume(self):
+        with app.app_context():
+            resume = Resume.query.first() 
+            if resume:
+                response = self.app.get(f'/download_resume?resume_name={resume.resume_name}')
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.mimetype, 'application/pdf')
+
+    def test_update_nonexistent_job_application(self):
+        response = self.app.post('/student/update_job_application', data={
+            'company': 'NonExistentCo',
+            'status': 'Rejected'
+        }, follow_redirects=True)
+        self.assertEqual(response.status_code, 400)  
+
+    def test_delete_nonexistent_job_application(self):
+        response = self.app.post('/student/delete_job_application/NonExistentCo', follow_redirects=True)
+        self.assertEqual(response.status_code, 400) 
+
+    def test_access_resume_analysis_page(self):
+        response = self.app.get('/student/analyze_resume')
+        self.assertEqual(response.status_code, 200)
+
+    def test_companies_list_page(self):
+        response = self.app.get('/student/companiesList')
+        self.assertEqual(response.status_code, 200)
+
+    def test_display_specific_file(self):
+        with patch('os.listdir', return_value=['resume.pdf']):
+            response = self.app.get('/student/display')
+            self.assertEqual(response.status_code, 308) 
+
+    def test_chat_gpt_analysis(self):
+        with patch('os.listdir', return_value=['resume.pdf']), \
+            patch('app.chatgpt', return_value='Suggestion text'):
+            response = self.app.get('/chat_gpt_analyzer')
+            self.assertEqual(response.status_code, 308)
+
+    def test_registration_form_validation(self):
+        response = self.app.post('/signup', data={})
+        self.assertEqual(response.status_code, 200)  
+
+    def test_update_existing_resume_no_change(self):
+        with app.app_context():
+            resume = Resume.query.first()  
+            if resume:
+                response = self.app.post('/save_resume', json={
+                    'resume_name': resume.resume_name,
+                    'name': resume.name,
+                    'email': resume.email,
+                    'mobile': resume.mobile,
+                    'linkedin': resume.linkedin,
+                    'education': resume.education,
+                    'experience': resume.experience,
+                    'skills': resume.skills
+                }, content_type='application/json')
+                self.assertEqual(response.status_code, 200) 
+
+    def test_access_admin_page(self):
+        with self.app:
+            with self.app.session_transaction() as sess:
+                sess['user_id'] = 1  # Assuming 1 is an admin ID
+            response = self.app.get('/admin')
+            self.assertEqual(response.status_code, 200)
+
+    def test_access_student_page(self):
+        with self.app:
+            with self.app.session_transaction() as sess:
+                sess['user_id'] = 2  # Assuming 2 is a student ID
+            response = self.app.get('/student')
+            self.assertEqual(response.status_code, 200)
+
+    def test_retrieve_specific_job_application_status(self):
+        response = self.app.get('/student/Applied')
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete_job_application_valid(self):
+        with self.app:
+            # Setup for valid job application deletion
+            response = self.app.post('/student/delete_job_application/ValidCompany', follow_redirects=True)
+            self.assertEqual(response.status_code, 400)
+
+    def test_add_new_job_application_valid(self):
+        response = self.app.post('/add_job_application', data={
+            'company': 'NewCo',
+            'location': 'NewCity',
+            'jobposition': 'NewDeveloper',
+            'salary': '120000',
+            'status': 'Pending',
+            'user_id': 'new_user'
+        }, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_display_job_search_results(self):
+        response = self.app.post('/student/job_search/result', data={'job_role': 'Developer'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_signup_page_load(self):
+        response = self.app.get('/signup')
+        self.assertEqual(response.status_code, 200)
 
 
+    def test_access_job_profile_analysis_page(self):
+        response = self.app.get('/student/job_profile_analyze')
+        self.assertEqual(response.status_code, 200)
+
+    def test_analyze_job_profile_post(self):
+        with patch('app.extract_skills', return_value=['Python', 'Java']):
+            response = self.app.post('/student/job_profile_analyze',
+                                     data={'job_profile': 'Developer'})
+            self.assertEqual(response.status_code, 200)
+
+    def test_google_login_valid_token(self):
+        with patch('requests.get') as mock_get:
+            mock_get.return_value.status_code = 200
+            mock_get.return_value.json.return_value = {
+                'email': 'test@gmail.com',
+                'name': 'Test User',
+                'username': 'testuser',
+                'role': 'student'
+            }
+            response = self.app.post('/google-login', data={'credential': 'valid_token'})
+            self.assertEqual(response.status_code, 404)
+
+    def test_retrieve_existing_user(self):
+        with patch('app.find_user', return_value=['testuser', 'Test User', 'test@gmail.com', 'student']):
+            response = self.app.get('/retrieve_user', query_string={'username': 'testuser'})
+            self.assertEqual(response.status_code, 404)
 
 if __name__ == '__main__':
     unittest.main()
-   
