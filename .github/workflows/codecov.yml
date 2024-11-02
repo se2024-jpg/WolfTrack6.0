@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Unit Tests and Generate Coverage Reports
         run: |
-          pytest --cov=UnitTesting/test_app.py UnitTesting/test_app.py
+          pytest --cov=./UnitTesting
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
